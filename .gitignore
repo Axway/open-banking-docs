@@ -1,0 +1,6 @@
+build/
+public/
+resources/
+node_modules/
+tech-doc-hugo
+
