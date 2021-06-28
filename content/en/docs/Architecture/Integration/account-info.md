@@ -19,6 +19,8 @@ To summarize the diagram below:
 
 All APIs that allow for the retrieval of confidential data are accessed in this way.
 
+> Note that Mutual Authentication over TLS is omitted from this diagram for the sake of brevity. Wherever a Third-Party App makes a connection to the API Gateway the reader should consider that it has been enforced.
+
 {{< readfile file="/static/Images/Account_Information_Sequence.svg" >}}
 
 
