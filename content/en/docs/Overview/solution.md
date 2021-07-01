@@ -15,13 +15,13 @@ The AOB is built on five solution building blocks as shown below.
 
 To clarify the purpose of each:
 
-- **Developer Experience** is all about **engagement**. Being to give developers what they need, when they it is critical putting the tools in their hands that will make their applications a success.
-- The rationale for **Open Banking APIs** is two-fold:
-    - Your organization needs to achieve **compliance** with local standards by providing the APIs dictated open banking regulations.
-    - You want to **take advantage of demand in the market** by exposing open APIs that provide data or services that make your organization unique and therefore attractive to consumers of those services.
-- Clearly **Identity and Access Control** are vital to ensuring the **security** of your APIs. This includes ensuring that access is granted to Third-Party Apps only when a customer has given due consent and that consent has been confirmed.
-- Naturally the solution needs to be delivered via appropriate **Infrastructure**. Axway's API Management solution provides the means to deliver this on robust, proven technology.
-- The final piece of the puzzle is what your organization brings, namely the **Core Banking Applications** that provide capabilities that the open APIs you provide are based on.
+* **Developer Experience** is all about **engagement**. Being to give developers what they need, when they it is critical putting the tools in their hands that will make their applications a success.
+* The rationale for **Open Banking APIs** is two-fold:
+    * Your organization needs to achieve **compliance** with local standards by providing the APIs dictated open banking regulations.
+    * You want to **take advantage of demand in the market** by exposing open APIs that provide data or services that make your organization unique and therefore attractive to consumers of those services.
+* Clearly **Identity and Access Control** are vital to ensuring the **security** of your APIs. This includes ensuring that access is granted to Third-Party Apps only when a customer has given due consent and that consent has been confirmed.
+* Naturally the solution needs to be delivered via appropriate **Infrastructure**. Axway's API Management solution provides the means to deliver this on robust, proven technology.
+* The final piece of the puzzle is what your organization brings, namely the **Core Banking Applications** that provide capabilities that the open APIs you provide are based on.
 
 Each of these is critical to the success of your open banking platform and breakdown into a number of features. These are based on the capabilities that the solution delivers and are summarized as shown below.
 
@@ -61,9 +61,9 @@ Application and Credential Management is the means by which developers can creat
 
 Development Tools are the affordances offered to developers to aid them in their task of building applications that consume your organization's APIs. These include:
 
-- Postman collections.
-- Software Development Kits (SDK).
-- Interactive API explorers.
+* Postman collections.
+* Software Development Kits (SDK).
+* Interactive API explorers.
 
 #### Application and API Usage
 
@@ -79,10 +79,10 @@ The means to collect reviews, publish blogs and interact with your developer com
 
 Open data APIs provide freely available information to Third-Party Apps. In the context of open banking this includes information on topics such as:
 
-- Branches.
-- ATMs.
-- Agents.
-- Products.
+* Branches.
+* ATMs.
+* Agents.
+* Products.
 
 The AOB provides the APIs required to be compliant with local market regulations.
 
@@ -93,10 +93,10 @@ Information Servicing Provider (AISP).
 
 In this role Third-Party Apps can access account data to which a customer has consented. Depending on local standards the types of information available can vary and can include:
 
-- Payment accounts.
-- Savings accounts.
-- Loans and financing.
-- Taxation accounts.
+* Payment accounts.
+* Savings accounts.
+* Loans and financing.
+* Taxation accounts.
 
 The AOB provides the APIs required to be compliant with local market regulations.
 
@@ -106,9 +106,9 @@ Access to Account for Payments is one of the roles typically grant to Third-Part
 
 In this role Third-Party Apps can initiate payment on behalf of the customer dependent on properties of the payment they have consented to. Depending on local standards the types of payment available can vary and can include:
 
-- Single immediate payments.
-- Scheduled payments.
-- Batch payments.
+* Single immediate payments.
+* Scheduled payments.
+* Batch payments.
 
 The AOB provides the APIs required to be compliant with local market regulations.
 
@@ -187,9 +187,9 @@ On installation these applications will be mapped to our mock backend and will n
 
 Our Consent Management solution is delivered using the [Cloudentity Open Banking Kit](https://cloudentity.com/open-banking/). This provides:
 
-- The means to couple consent with the authentication, authorization and access control to ensures that Third-Party Applications can access only the information to which they are entitled, and nothing more.
-- An overview for your customers that allows them to browse and revoke consents for Third-Party Applications.
-- An administration view for your organization that allows you to search and management your customers' consents.
+* The means to couple consent with the authentication, authorization and access control to ensures that Third-Party Applications can access only the information to which they are entitled, and nothing more.
+* An overview for your customers that allows them to browse and revoke consents for Third-Party Applications.
+* An administration view for your organization that allows you to search and management your customers' consents.
 
 Note that in some markets Consent Management must happen at the Third-Party App and consent dashboards are prohibited.
 
@@ -213,7 +213,7 @@ Customers are of course free to use their own analytics solutions and plug-in to
 
 Utilities describes the features of the solution that are developed specifically to help with the open banking solution. These include:
 
-- Demo Applications: This is incorporates both front- and backend applications that serve the Demo Application experience in the API Portal.
-- Mock Backends: The solution provides mock backends for all the regulatory APIs. The Mock Backend applications are implemented using API Builder and MySQL.
+* Demo Applications: This is incorporates both front- and backend applications that serve the Demo Application experience in the API Portal.
+* Mock Backends: The solution provides mock backends for all the regulatory APIs. The Mock Backend applications are implemented using API Builder and MySQL.
 
 Customers are at liberty to use these components as they see fit and can swap them out for existing functionality or source of data they may have to hand.

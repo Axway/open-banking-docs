@@ -11,11 +11,11 @@ The end-to-end flow for Account Information provides a means to show how individ
 
 To summarize the diagram below:
 
-- The TPP obtains Consent from the Customer to access their data or make payments on their behalf at a given bank.
-- The TPP creates ("lodges") Consent at the target bank and redirects the Customer to the bank.
-- The Customer authenticates themselves using their online banking credentials and confirms the Consent is correct.
-- With Consent confirmed the Customer is redirected back to the TPP who then gets an Access Token.
-- The TPP can then retrieve data or initiate payment on behalf of the Customer.
+* The TPP obtains Consent from the Customer to access their data or make payments on their behalf at a given bank.
+* The TPP creates ("lodges") Consent at the target bank and redirects the Customer to the bank.
+* The Customer authenticates themselves using their online banking credentials and confirms the Consent is correct.
+* With Consent confirmed the Customer is redirected back to the TPP who then gets an Access Token.
+* The TPP can then retrieve data or initiate payment on behalf of the Customer.
 
 All APIs that allow for the retrieval of confidential data are accessed in this way.
 
