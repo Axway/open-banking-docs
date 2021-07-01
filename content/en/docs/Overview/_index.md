@@ -1,34 +1,22 @@
 ---
 title: "Overview"
 linkTitle: "Overview"
-weight: 1
-description: >
-  Here's where your user finds out if your project is for them.
+weight: 3
+date: 2021-06-22
+description: Solution Overview
 ---
 
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+The Awxay Open Banking solution provides the means to deliver standards-based open banking APIs whilst providing an extensible platform that allows an organization's open banking goals to be realized.
 
-The Overview is where your users find out about your project. Depending on the size of your doc set, you can have a separate overview page (like this one) or put your overview contents in the Documentation landing page.
+This section provides a general overview of the architecture. The goal is to provide customers with a complete understanding of what the solution provides and how it delivers it. It includes:
 
-Try answering these questions for your user in this page:
+* A [solution overview](/docs/overview/solution) that describes the features of the solution.
+* An [integration architecture](/docs/overview/integration) that shows a number of different flows
+* A [technical view](/docs/overview/technical) of the Kubernetes architecture and component deployment.
 
-## What is it?
+This document does not describe:
 
-Introduce your project, including what it does or lets you do, why you would use it, and its primary goal (and how it achieves it). This should be similar to your README description, though you can go into a little more detail here if you want.
-
-## Why do I want it?
-
-Help your user know if your project will help them. Useful information can include:
-
-* **What is it good for?**: What types of problems does your project solve? What are the benefits of using it?
-* **What is it not good for?**: For example, point out situations that might intuitively seem suited for your project, but aren't for some reason. Also mention known limitations, scaling issues, or anything else that might let your users know if the project is not for them.
-* **What is it *not yet* good for?**: Highlight any useful features that are coming soon.
-
-## Where should I go next?
-
-Give your users next steps from the Overview. For example:
-
-* [Getting Started](/getting-started/): Get started with project
-* [Examples](/examples/): Check out some example code!
+-   The implementation on a specific cloud providers infrastructure. Please refer to the [cloud components guide](/docs/reference/cloud) for general information.
+-   Specific deployment instructions. Please refer to the [Installation guide](/docs/installation).
+-   Detailed information on the Axway products that are used in the solution. Please refer to the [Axway Documentation Portal](https://docs.axway.com/)
+-   Detailed information on the Cloudentity Open Banking Toolkit. 

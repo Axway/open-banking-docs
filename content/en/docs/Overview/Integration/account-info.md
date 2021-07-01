@@ -24,4 +24,3 @@ All APIs that allow for the retrieval of confidential data are accessed in this 
 {{< readfile file="/static/Images/Account_Information_Sequence.svg" >}}
 
 
-<script src="/js/scroll-sequence-diagram-headings.js"></script>

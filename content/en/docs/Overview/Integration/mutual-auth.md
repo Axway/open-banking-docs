@@ -21,5 +21,3 @@ The flow is summarised as follows:
 Note this pattern is not implemented for "open data" APIs such as Products & Services.
 
 {{< readfile file="/static/Images/Mutual_Authentication_Sequence.svg" >}}
-
-<script src="/js/scroll-sequence-diagram-headings.js"></script>

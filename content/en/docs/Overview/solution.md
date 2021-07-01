@@ -3,7 +3,7 @@ title: "Solution Architecture"
 linkTitle: "Solution"
 weight: 1
 date: 2021-06-22
-description: An overview of the solution architecture.
+description: Overview of Solution Architecture
 ---
 
 ## Overview

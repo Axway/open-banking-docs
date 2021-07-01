@@ -21,5 +21,3 @@ This shows the approach based on retrieving account information. The preferred i
 Note that for optimal performance filtering data based on customer should be executed **as close to the data as possible**. This will therefore require customers to implement this at the source of data.
 
 {{< readfile file="/static/Images/Applying_Consent_Sequence.svg" >}}
-
-<script src="/js/scroll-sequence-diagram-headings.js"></script>

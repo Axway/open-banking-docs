@@ -3,7 +3,7 @@ title: "Client-Initiated Backchannel Authentication (CIBA)"
 linkTitle: "Client-Initiated Backchannel Authentication"
 weight: 5
 date: 2021-06-28
-description: Example of Implementing CIBA in Axway Open Banking
+description: An Example CIBA flow in the context of Axway Open Banking
 type: sequence
 ---
 
@@ -21,6 +21,6 @@ To summarize the steps shown below:
 
 Note that the flow following the receipt of the Authentication Request shows a hypothetical approach to completing the authentication and consent confirmation workflow. The specifics of how this is implemented is dependent on your architecture and customer channels that can support contacting the customer out-of-band. Bear in mind that channels that do not come from a known, secure context - for example, emails and text messages that simply send a link - may be construed as phishing attempts and therefore lead to low payment completion rates.
 
-{{< readfile file="/static/Images/CIBA_Example_Sequence.svg" >}}
+> **The diagram is provided for guidance and education. The authentication and consent confirmation flows will vary depending on the architecture, components and available communication channels of the target platform and must be considered on a case-by-case basis.**
 
-<script src="/js/scroll-sequence-diagram-headings.js"></script>
+{{< readfile file="/static/Images/CIBA_Example_Sequence.svg" >}}

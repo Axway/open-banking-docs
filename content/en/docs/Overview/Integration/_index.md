@@ -3,7 +3,7 @@ title: "Integration Architecture"
 linkTitle: "Integration"
 weight: 2
 date: 2021-06-22
-description: Overview
+description: Overview of Integration Architecture
 ---
 
 The diagram below shows an high-level integration view of the OBA architecture.
