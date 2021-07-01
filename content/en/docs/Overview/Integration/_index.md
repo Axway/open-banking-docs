@@ -3,10 +3,10 @@ title: "Integration Architecture"
 linkTitle: "Integration"
 weight: 2
 date: 2021-06-22
-description: Overview of Integration Architecture
+description: An Integration View of Axway Open Banking
 ---
 
-The diagram below shows an high-level integration view of the OBA architecture.
+The diagram below shows an high-level integration view of the Axway Open Banking architecture.
 
 The aim of this diagram is to provide an initial understanding of the integration between components.
 

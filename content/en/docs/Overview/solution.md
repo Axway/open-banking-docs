@@ -6,11 +6,8 @@ date: 2021-06-22
 description: Overview of Solution Architecture
 ---
 
-## Overview
+Axway Open Banking is built on five solution building blocks as shown below.
 
-The AOB is built on five solution building blocks as shown below.
-
-<!-- {{< readfile file="/static/Images/Solution_Building_Blocks.svg" >}} -->
 ![Solution Building Blocks](/Images/Solution_Building_Blocks.png)
 
 To clarify the purpose of each:
@@ -25,7 +22,6 @@ To clarify the purpose of each:
 
 Each of these is critical to the success of your open banking platform and breakdown into a number of features. These are based on the capabilities that the solution delivers and are summarized as shown below.
 
-<!-- {{< readfile file="/static/Images/Solution_Overview.svg" >}} -->
 ![Solution Overview](/Images/Solution_Overview.png)
 
 The features of the solution are further clarified in the following
@@ -84,7 +80,7 @@ Open data APIs provide freely available information to Third-Party Apps. In the 
 * Agents.
 * Products.
 
-The AOB provides the APIs required to be compliant with local market regulations.
+Axway Open Banking provides the APIs required to be compliant with local market regulations.
 
 #### Access to Account for Data
 
@@ -98,7 +94,7 @@ In this role Third-Party Apps can access account data to which a customer has co
 * Loans and financing.
 * Taxation accounts.
 
-The AOB provides the APIs required to be compliant with local market regulations.
+Axway Open Banking provides the APIs required to be compliant with local market regulations.
 
 #### Access to Account for Payments
 
@@ -110,17 +106,17 @@ In this role Third-Party Apps can initiate payment on behalf of the customer dep
 * Scheduled payments.
 * Batch payments.
 
-The AOB provides the APIs required to be compliant with local market regulations.
+Axway Open Banking provides the APIs required to be compliant with local market regulations.
 
 #### Standards Compliance
 
 Compliance with local standards is critical when building an open banking platform, especially where organizations face regulation and possible financial penalties if they are not compliant.
 
-The AOB provides both the means to be compliant with current standards and support for future versions.
+Axway Open Banking provides both the means to be compliant with current standards and support for future versions.
 
 #### Bank Use Cases
 
-Alongside the means to comply with open banking regulations and standards the AOB also offers organizations the means to exploit their investment by supporting other use cases.
+Alongside the means to comply with open banking regulations and standards Axway Open Banking also offers organizations the means to exploit their investment by supporting other use cases.
 
 Organizations can implement these use cases using the components described in the Infrastructure section below.
 
@@ -130,21 +126,21 @@ Organizations can implement these use cases using the components described in th
 
 Lodging Intent is a pattern that appears in the majority of open banking standards. It is the means by which the consent that has been agreed between the customer and Third-Party App is sent to your organization so it can be confirmed and access to account granted. The term "intent" is used specifically because the customer has yet to authenticate themselves at the bank. Only when the customer has authenticated and "intent" has been confirmed does it become consent.
 
-The AOB supports this through the implementation of APIs that meet the requirements of local standards.
+Axway Open Banking supports this through the implementation of APIs that meet the requirements of local standards.
 
 #### Consent Confirmation
 
 In order for Third-Party Apps to access the data or services to which a customer has consented that customer must confirm the consent is correct.
 
-The AOB provides the means to do this through a number of web components that can be configured according to your organization's needs. The components render the requested consent and allows customers to indicate that it is correct.
+Axway Open Banking provides the means to do this through a number of web components that can be configured according to your organization's needs. The components render the requested consent and allows customers to indicate that it is correct.
 
-As consent varies according to market the AOB will support the local requirements included aspects such as rendering of data clusters and wording appropriate to the local customer experience guidelines.
+As consent varies according to market Axway Open Banking will support the local requirements included aspects such as rendering of data clusters and wording appropriate to the local customer experience guidelines.
 
 #### FAPI
 
 The FAPI standards provide an OpenID Connect profile for financial services APIs. This standard has become the *de facto* standard for open banking standards and is currently used in the UK, Brazil, Australia, and the FDX standards.
 
-The AOB provides support for FAPI [Part 1 (Read Only)](https://openid.net/specs/openid-financial-api-part-1-ID2.html), [Part 2(Advanced)](https://openid.net/specs/openid-financial-api-part-2-1_0.html) and [Client-Initiated Backchannel Authentication
+Axway Open Banking provides support for FAPI [Part 1 (Read Only)](https://openid.net/specs/openid-financial-api-part-1-ID2.html), [Part 2(Advanced)](https://openid.net/specs/openid-financial-api-part-2-1_0.html) and [Client-Initiated Backchannel Authentication
 (CIBA)](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html).
 
 #### Consent Revocation
@@ -153,7 +149,7 @@ The need to lodge intent and confirm consent is matched by the need to
 revoke consent where a customer no longer wants to share information
 with a Third-Party App.
 
-The AOB provides the means to revoke consent, both programatically via
+Axway Open Banking provides the means to revoke consent, both programatically via
 an API call and through via a UI.
 
 Note that in some markets revocation is only allow via the Third-Party
@@ -171,7 +167,7 @@ product set to power the solution.
 
 #### API Portal
 
-The portal delivers the Developer Experience. The AOB provides a custom template that can applied to an existing Portal instance or installed from scratch.
+The portal delivers the Developer Experience. Axway Open Banking provides a custom template that can applied to an existing Portal instance or installed from scratch.
 
 #### API Gateway
 
@@ -205,7 +201,7 @@ The Cloudentity Open Banking Kit provides the default capability, but this can b
 
 A detailed view of developer interaction and API usage is vital to your success as an open banking platform.
 
-The AOB provides detailed analytics through an ELK (Elasticsearch, Kibana and Logstash) implementation. This also powers the Metrics API, one of the mandatory APIs for organizations implementing Phase 1 of the Brazil Open Banking standards.
+Axway Open Banking provides detailed analytics through an ELK (Elasticsearch, Kibana and Logstash) implementation. This also powers the Metrics API, one of the mandatory APIs for organizations implementing Phase 1 of the Brazil Open Banking standards.
 
 Customers are of course free to use their own analytics solutions and plug-in to the log streams provided by the solution.
 
