@@ -1,16 +1,26 @@
 ---
-title: "Documentation"
-linkTitle: "Documentation"
+title: "Axway Open Banking"
+linkTitle: "Axway Open Banking"
 weight: 20
 menu:
   main:
     weight: 20
 ---
 
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+## Introducing Open Banking
 
-This section is where the user documentation for your project lives - all the information your users need to understand and successfully use your project.
+Open banking is a global phenomenon. Demand for digital experiences, competition from technology firms, and rising regulatory pressures are forcing banks to re-think existing business models. Open banking is about banks sharing financial information, with each other and with third-parties, in a simple, secure and transparent way. It helps puts consumers back in control of their financial data to help them better understand and manage their money, across as many providers as they need. Open banking enables broad integration across the entire financial ecosystem, ultimately leading to new and innovative banking products which are faster, cheaper, and more adaptable to our rapidly changing world.
 
-For large documentation sets we recommend adding content under the headings in this section, though if some or all of them don’t apply to your project feel free to remove them or add your own.
+Traditionally, banking was confined to a closed ecosystem with data access in silos and limited data sharing with the customer. Consequently, the services and products offered were unique to the institution. With the leap in technology and evolution of the shared ecosystem, the wave of open banking is gaining prominence and thereby enabling financial institutions to provide more value to customers. This entails providing personalized services, through a shared ecosystem with customer consent and thereby, unlocking the huge potential for open banking.
+
+![Open Banking Overview](/Images/Open_Banking_Overview.png)
+
+Open banking can be defined as an ecosystem that furnishes the end user with data from a myriad of financial institutions via application programming interfaces (APIs). APIs help a software or application (app) to communicate and work with another application and seamlessly share information. Open Banking APIs allow third parties to securely access banking or financial information data in real-time, enabling them to integrate their respective systems, processing the data and offering more valuable insights and services, and powering the digital experiences of tomorrow.
+
+## How Can We Help?
+
+Axway Open Banking provides a way to significantly accelerate open banking adoption. With a tailored developer experience, APIs built to open banking standards, and a robust integration platform, Axway Open Banking enables banks to move beyond regulatory compliance to a true open banking platform.
+
+Axway has been helping banks solve their biggest challenges for over 20 years. That’s why 60% of the top 25 global banks trust Axway. Our Axway Open Banking platform speeds the adoption of regulatory standards while enabling financial institutions to rapidly extend into new markets with customer-driven products and services and expand their ecosystem with a compelling developer portal experience.
+
+Axway Open Banking therefore allows you can help ensure the digital capabilities you need to be successful in the open banking marketplace. As open banking drives banks to expose their capabilities as APIs, they naturally move towards becoming platforms. This puts each bank at the center of its own ecosystem, as it aims to drive platform adoption on all sides of the value chain. 
