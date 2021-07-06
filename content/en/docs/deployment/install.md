@@ -115,10 +115,10 @@ Deploy the Open Banking Consent Helm chart from CloudEntity repo with the versio
 helm install consent -n open-banking-consent acp/openbanking –-version [chart-version] -f open-banking-consent/values.yaml
 ```
 
-Update the APIM KPS deployment values using the instructions in the `README.md` file to reflect all oauth_*_clientId and oauth_*clientSecret values as deployed in ACP: 
-
+Update APIM deployment values of ACP section (to be used for KPS creation) using README file instructions to reflect all oauth\*clientId and oauth\*clientSecret values as deployed in ACP:
+ 
 ```bash
-vi open-banking-apim/files/kps/kpsConfig1.json
+vi open-banking-apim/values.yaml 
 ```
 
 ### Install Axway Components
