@@ -1,7 +1,7 @@
 ---
-title: "Client-Initiated Backchannel Authentication (CIBA)"
-linkTitle: "Client-Initiated Backchannel Authentication"
-weight: 5
+title: "Payment Initiation using Client-Initiated Backchannel Authentication (CIBA)"
+linkTitle: "Payment Initiation using CIBA"
+weight: 4
 date: 2021-06-28
 description: An Example CIBA flow in the context of Axway Open Banking
 type: sequence

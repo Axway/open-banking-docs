@@ -71,9 +71,10 @@ window.onload = () => {
 
       nodes.forEach((node, index) => {
         // Set opacity for box enclosing participants
-        if (node.tagName === 'rect' && (node.getAttribute('fill') === '#E06666' ||
-        node.getAttribute('fill') === '#94C47D' ||
-        node.getAttribute('fill') === '#D5A6BD')) {
+        const colours = ['#E06666', '#94C47D', '#D5A6BD', '#6FA8DC']
+
+
+        if (node.tagName === 'rect' && colours.indexOf(node.getAttribute('fill')) !== -1) {
           console.log('Found enclosing box')
           node.setAttribute('fill-opacity', '0.5')
         }

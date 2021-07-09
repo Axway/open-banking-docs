@@ -1,7 +1,7 @@
 ---
 title: "Applying Access Controls based on Consent to an API Request"
 linkTitle: "Applying Consent"
-weight: 4
+weight: 1
 date: 2021-06-22
 description: View of Applying Access Controls based on Consent
 type: sequence
