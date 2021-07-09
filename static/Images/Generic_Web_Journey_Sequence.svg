@@ -1,0 +1,1196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="9874px" preserveAspectRatio="none" style="width:2405px;height:9874px;background:#FFFFFF;" version="1.1" viewBox="0 0 2405 9874" width="2405px" zoomAndPan="magnify"><defs><filter height="300%" id="f1otvqi2ssuf6v" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="Roboto" font-size="18" lengthAdjust="spacing" textLength="0" x="1201" y="28.6992"/><text fill="#000000" font-family="Roboto" font-size="18" lengthAdjust="spacing" textLength="0" x="1201" y="49.793"/><text fill="#000000" font-family="Roboto" font-size="18" lengthAdjust="spacing" textLength="0" x="1201" y="70.8867"/><text fill="#000000" font-family="Roboto" font-size="18" lengthAdjust="spacing" textLength="0" x="1201" y="91.9805"/><rect fill="#6FA8DC" height="9756.6953" style="stroke:#A80036;stroke-width:1.0;" width="404.5" x="514" y="104.375"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="81" x="674.25" y="116.4355">Infrastructure</text><rect fill="#94C47D" height="9756.6953" style="stroke:#A80036;stroke-width:1.0;" width="356" x="1025" y="104.375"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="159" x="1122" y="116.4355">Identity and Access Control</text><rect fill="#E06666" height="9756.6953" style="stroke:#A80036;stroke-width:1.0;" width="119" x="1497" y="104.375"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="110" x="1500" y="116.4355">Open Banking APIs</text><rect fill="#D5A6BD" height="9756.6953" style="stroke:#A80036;stroke-width:1.0;" width="315.5" x="1705.5" y="104.375"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="151" x="1786.25" y="116.4355">Core Banking Applications</text><rect fill="#DDDDDD" height="9756.6953" style="stroke:#A80036;stroke-width:1.0;" width="196" x="2043" y="104.375"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="135" x="2073.5" y="116.4355">Open Banking Directory</text><rect fill="#FFFFFF" filter="url(#f1otvqi2ssuf6v)" height="462.875" style="stroke:#000000;stroke-width:2.0;" width="1967.5" x="183.5" y="855.8594"/><rect fill="#FFFFFF" height="406.4063" style="stroke:none;stroke-width:1.0;" width="1967.5" x="183.5" y="912.3281"/><rect fill="#FFFFFF" filter="url(#f1otvqi2ssuf6v)" height="421" style="stroke:#000000;stroke-width:2.0;" width="2194.5" x="183.5" y="1945.1484"/><rect fill="#FFFFFF" height="209.3281" style="stroke:none;stroke-width:1.0;" width="2194.5" x="183.5" y="2156.8203"/><rect fill="#FFFFFF" filter="url(#f1otvqi2ssuf6v)" height="187.6406" style="stroke:#000000;stroke-width:2.0;" width="1852.5" x="10" y="4076.2734"/><rect fill="#FFFFFF" filter="url(#f1otvqi2ssuf6v)" height="803.75" style="stroke:#000000;stroke-width:2.0;" width="570.5" x="1679.5" y="4630.1953"/><rect fill="#FFFFFF" height="663.1094" style="stroke:none;stroke-width:1.0;" width="570.5" x="1679.5" y="4770.8359"/><rect fill="#FFFFFF" filter="url(#f1otvqi2ssuf6v)" height="495.5781" style="stroke:#000000;stroke-width:2.0;" width="510.5" x="1689.5" y="4931.3672"/><rect fill="#FFFFFF" height="380.6406" style="stroke:none;stroke-width:1.0;" width="510.5" x="1689.5" y="5046.3047"/><rect fill="#FFFFFF" filter="url(#f1otvqi2ssuf6v)" height="364.6406" style="stroke:#000000;stroke-width:2.0;" width="490.5" x="1699.5" y="5055.3047"/><rect fill="#FFFFFF" height="158.2969" style="stroke:none;stroke-width:1.0;" width="490.5" x="1699.5" y="5261.6484"/><rect fill="#FFFFFF" filter="url(#f1otvqi2ssuf6v)" height="299.8125" style="stroke:#000000;stroke-width:2.0;" width="2131" x="10" y="5548.6484"/><rect fill="#FFFFFF" filter="url(#f1otvqi2ssuf6v)" height="319.4688" style="stroke:#000000;stroke-width:2.0;" width="1281.5" x="508" y="6080.1016"/><rect fill="#FFFFFF" height="54.125" style="stroke:none;stroke-width:1.0;" width="1281.5" x="508" y="6345.4453"/><rect fill="#FFFFFF" filter="url(#f1otvqi2ssuf6v)" height="2395.5078" style="stroke:#000000;stroke-width:2.0;" width="2214.5" x="173.5" y="7454.5625"/><rect fill="#FFFFFF" filter="url(#f1otvqi2ssuf6v)" height="636.3438" style="stroke:#000000;stroke-width:2.0;" width="2194.5" x="183.5" y="7586.9688"/><rect fill="#FFFFFF" filter="url(#f1otvqi2ssuf6v)" height="666.8125" style="stroke:#000000;stroke-width:2.0;" width="2194.5" x="183.5" y="8237.3125"/><rect fill="#FFFFFF" height="938.9453" style="stroke:none;stroke-width:1.0;" width="2214.5" x="173.5" y="8911.125"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="53" x2="53" y1="208.2344" y2="9867.0703"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="237.5" x2="237.5" y1="208.2344" y2="9867.0703"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="557" x2="557" y1="208.2344" y2="9867.0703"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="877.5" x2="877.5" y1="208.2344" y2="9867.0703"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1104" x2="1104" y1="208.2344" y2="9867.0703"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1326" x2="1326" y1="208.2344" y2="9867.0703"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1556" x2="1556" y1="208.2344" y2="9867.0703"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1744.5" x2="1744.5" y1="208.2344" y2="9867.0703"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1981" x2="1981" y1="208.2344" y2="9867.0703"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="2094" x2="2094" y1="208.2344" y2="9867.0703"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="2193" x2="2193" y1="208.2344" y2="9867.0703"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="2311" x2="2311" y1="208.2344" y2="9867.0703"/><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="61" x="20" y="204.8164">Customer</text><ellipse cx="53.5" cy="134.8281" fill="#FEFECE" filter="url(#f1otvqi2ssuf6v)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M53.5,142.8281 L53.5,169.8281 M40.5,150.8281 L66.5,150.8281 M53.5,169.8281 L40.5,184.8281 M53.5,169.8281 L66.5,184.8281 " fill="none" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f1otvqi2ssuf6v)" height="46.8125" style="stroke:#A80036;stroke-width:1.5;" width="84" x="193.5" y="156.4219"/><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="70" x="200.5" y="176.4102">Third-Party</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="25" x="223" y="192.8164">App</text><rect fill="#FEFECE" filter="url(#f1otvqi2ssuf6v)" height="46.8125" style="stroke:#A80036;stroke-width:1.5;" width="75" x="518" y="156.4219"/><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="46" x="532.5" y="176.4102">Ingress</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="61" x="525" y="192.8164">Controller</text><rect fill="#FEFECE" filter="url(#f1otvqi2ssuf6v)" height="46.8125" style="stroke:#A80036;stroke-width:1.5;" width="70" x="840.5" y="156.4219"/><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="22" x="864.5" y="176.4102">API</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="56" x="847.5" y="192.8164">Gateway</text><rect fill="#FEFECE" filter="url(#f1otvqi2ssuf6v)" height="63.2188" style="stroke:#A80036;stroke-width:1.5;" width="147" x="1029" y="140.0156"/><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="133" x="1036" y="160.0039">Identity Management</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="12" x="1096.5" y="176.4102">---</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="127" x="1039" y="192.8164">Authorisation Server</text><rect fill="#FEFECE" filter="url(#f1otvqi2ssuf6v)" height="79.625" style="stroke:#A80036;stroke-width:1.5;" width="97" x="1276" y="123.6094"/><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="52" x="1298.5" y="143.5977">Consent</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="83" x="1283" y="160.0039">Management</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="12" x="1318.5" y="176.4102">---</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="77" x="1286" y="192.8164">Consent API</text><rect fill="#FEFECE" filter="url(#f1otvqi2ssuf6v)" height="46.8125" style="stroke:#A80036;stroke-width:1.5;" width="57" x="1526" y="156.4219"/><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="22" x="1543.5" y="176.4102">API</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="43" x="1533" y="192.8164">Builder</text><rect fill="#FEFECE" filter="url(#f1otvqi2ssuf6v)" height="63.2188" style="stroke:#A80036;stroke-width:1.5;" width="66" x="1709.5" y="140.0156"/><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="51" x="1717" y="160.0039">Banking</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="47" x="1719" y="176.4102">Identity</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="52" x="1716.5" y="192.8164">Provider</text><rect fill="#FEFECE" filter="url(#f1otvqi2ssuf6v)" height="46.8125" style="stroke:#A80036;stroke-width:1.5;" width="67" x="1946" y="156.4219"/><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="51" x="1954" y="176.4102">Banking</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="53" x="1953" y="192.8164">Systems</text><rect fill="#FEFECE" filter="url(#f1otvqi2ssuf6v)" height="46.8125" style="stroke:#A80036;stroke-width:1.5;" width="90" x="2047" y="156.4219"/><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="76" x="2054" y="176.4102">Participants</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="23" x="2080.5" y="192.8164">List</text><rect fill="#FEFECE" filter="url(#f1otvqi2ssuf6v)" height="46.8125" style="stroke:#A80036;stroke-width:1.5;" width="80" x="2151" y="156.4219"/><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="66" x="2158" y="176.4102">JSON Web</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="46" x="2168" y="192.8164">Key Set</text><rect fill="#FEFECE" filter="url(#f1otvqi2ssuf6v)" height="79.625" style="stroke:#A80036;stroke-width:1.5;" width="109" x="2255" y="123.6094"/><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="64" x="2277.5" y="143.5977">Certificate</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="58" x="2280.5" y="160.0039">Authority</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="12" x="2303.5" y="176.4102">---</text><text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacing" textLength="95" x="2262" y="192.8164">OCSP Endpoint</text><path d="M58,223.2344 L58,336.2344 L612,336.2344 L612,233.2344 L602,223.2344 L58,223.2344 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M602,223.2344 L602,233.2344 L612,233.2344 L602,223.2344 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="52" x="64" y="240.2949">Overview</text><line style="stroke:#A80036;stroke-width:1.0;" x1="59" x2="611" y1="243.4688" y2="243.4688"/><line style="stroke:#A80036;stroke-width:1.0;" x1="59" x2="611" y1="245.4688" y2="245.4688"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="520" x="64" y="259.5293">This diagram shows the end-to-end web journey for obtaining Consent and starting to collect</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="533" x="64" y="274.7637">Account Information data. The goal is to place the components from the Architecture Overview</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="58" x="64" y="289.998">in context.</text><line style="stroke:#000000;stroke-width:1.0;" x1="64" x2="64" y1="295.1719" y2="295.1719"/><line style="stroke:#000000;stroke-width:1.0;" x1="64" x2="64" y1="295.1719" y2="295.1719"/><line style="stroke:#000000;stroke-width:1.0;" x1="64" x2="64" y1="295.1719" y2="295.1719"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="518" x="64" y="309.2324">Note this diagram shows the means for the Client to authenticate at the Authorization Server</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="344" x="64" y="324.4668">as mutual authentication but this could equally be done using</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="120" x="411" y="324.5747">private_key_jwt</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="3" x="531" y="324.4668">.</text><rect fill="#EEEEEE" filter="url(#f1otvqi2ssuf6v)" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="2398" x="0" y="366.2578"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="2398" y1="366.2578" y2="366.2578"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="2398" y1="369.2578" y2="369.2578"/><rect fill="#EEEEEE" filter="url(#f1otvqi2ssuf6v)" height="23.2344" style="stroke:#000000;stroke-width:2.0;" width="240" x="1079" y="355.6406"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="223" x="1085" y="371.7012">Part 1: TPP Obtains Customer Consent</text><path d="M58,393.875 L58,467.875 L627,467.875 L627,403.875 L617,393.875 L58,393.875 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M617,393.875 L617,403.875 L627,403.875 L617,393.875 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="531" x="64" y="410.9355">Obtaining Consent from the Customer is usually outside the scope of technical standards. The</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="548" x="64" y="426.1699">Customer Experience Guidelines in Brazil informs how Consent should be displayed and obtained.</text><line style="stroke:#000000;stroke-width:1.0;" x1="64" x2="64" y1="431.3438" y2="431.3438"/><line style="stroke:#000000;stroke-width:1.0;" x1="64" x2="64" y1="431.3438" y2="431.3438"/><line style="stroke:#000000;stroke-width:1.0;" x1="64" x2="64" y1="431.3438" y2="431.3438"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="523" x="64" y="445.4043">The specifics of this process are therefore not shown here. The Third-Party Provider (TPP) is</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="376" x="64" y="460.6387">assumed to have implemented this within the guidelines specified.</text><polygon fill="#A80036" points="225.5,495.0469,235.5,499.0469,225.5,503.0469,229.5,499.0469" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="53.5" x2="231.5" y1="499.0469" y2="499.0469"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="153" x="60.5" y="493.873">Indicate wish to share data</text><polygon fill="#A80036" points="64.5,554.75,54.5,558.75,64.5,562.75,60.5,558.75" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="58.5" x2="236.5" y1="558.75" y2="558.75"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="86" x="70.5" y="523.1074">Display "Intent"</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="134" x="70.5" y="538.3418">i.e. data to be accessed</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="129" x="70.5" y="553.5762">or payment to be made</text><polygon fill="#A80036" points="225.5,583.9844,235.5,587.9844,225.5,591.9844,229.5,587.9844" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="53.5" x2="231.5" y1="587.9844" y2="587.9844"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="80" x="60.5" y="582.8105">Confirm intent</text><polygon fill="#A80036" points="64.5,613.2188,54.5,617.2188,64.5,621.2188,60.5,617.2188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="58.5" x2="236.5" y1="617.2188" y2="617.2188"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="160" x="70.5" y="612.0449">Show bank selection screen</text><polygon fill="#A80036" points="225.5,642.4531,235.5,646.4531,225.5,650.4531,229.5,646.4531" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="53.5" x2="231.5" y1="646.4531" y2="646.4531"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="131" x="60.5" y="641.2793">Confirm bank selection</text><rect fill="#EEEEEE" filter="url(#f1otvqi2ssuf6v)" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="2398" x="0" y="675.0703"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="2398" y1="675.0703" y2="675.0703"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="2398" y1="678.0703" y2="678.0703"/><rect fill="#EEEEEE" filter="url(#f1otvqi2ssuf6v)" height="23.2344" style="stroke:#000000;stroke-width:2.0;" width="244" x="1077" y="664.4531"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="227" x="1083" y="680.5137">Part 2: TPP Creates and Lodges "Intent"</text><path d="M242,702.6875 L242,742.6875 L802,742.6875 L802,712.6875 L792,702.6875 L242,702.6875 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M792,702.6875 L792,712.6875 L802,712.6875 L792,702.6875 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="539" x="248" y="719.748">With the consent of the Consumer obtained the TPP can now call the Consent API at the correct</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="529" x="248" y="734.9824">bank. Note at this point Consent is usual termed "Intent" as it has yet to confirmed at the bank.</text><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="279.5" y1="773.3906" y2="773.3906"/><line style="stroke:#A80036;stroke-width:1.0;" x1="279.5" x2="279.5" y1="773.3906" y2="786.3906"/><line style="stroke:#A80036;stroke-width:1.0;" x1="238.5" x2="279.5" y1="786.3906" y2="786.3906"/><polygon fill="#A80036" points="248.5,782.3906,238.5,786.3906,248.5,790.3906,244.5,786.3906" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="120" x="244.5" y="768.2168">Create Intent payload</text><path d="M242,799.3906 L242,839.3906 L807,839.3906 L807,809.3906 L797,799.3906 L242,799.3906 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M797,799.3906 L797,809.3906 L807,809.3906 L797,799.3906 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="544" x="248" y="816.4512">Given the adherence to OpenID Connect Discovery in the standards TPPs are expected to collect</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="334" x="248" y="831.6855">OpenID Configuration information from participating banks.</text><path d="M183.5,855.8594 L242.5,855.8594 L242.5,862.8594 L232.5,872.8594 L183.5,872.8594 L183.5,855.8594 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="462.875" style="stroke:#000000;stroke-width:2.0;" width="1967.5" x="183.5" y="855.8594"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="198.5" y="868.9199">alt</text><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="240" x="257.5" y="868.0645">[TPP has cached OpenID Configuration for bank]</text><path d="M242,878.0938 L242,903.0938 L324,903.0938 L324,888.0938 L314,878.0938 L242,878.0938 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M314,878.0938 L314,888.0938 L324,888.0938 L314,878.0938 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="61" x="248" y="895.1543">Do nothing</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="183.5" x2="2151" y1="913.3281" y2="913.3281"/><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="228" x="188.5" y="923.5332">[TPP retrieves OpenID Configuration for bank]</text><polygon fill="#A80036" points="2082,944.4531,2092,948.4531,2082,952.4531,2086,948.4531" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="2088" y1="948.4531" y2="948.4531"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="130" x="244.5" y="943.2793">Get List of Participants</text><polygon fill="#A80036" points="248.5,973.6875,238.5,977.6875,248.5,981.6875,244.5,977.6875" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="242.5" x2="2093" y1="977.6875" y2="977.6875"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="254.5" y="972.5137">Response</text><path d="M242,990.6875 L242,1030.6875 L823,1030.6875 L823,1000.6875 L813,990.6875 L242,990.6875 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M813,990.6875 L813,1000.6875 L823,1000.6875 L813,990.6875 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="250" x="248" y="1007.748">The discovery endpoint value is stored in the</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="184" x="501" y="1007.856">OpenIDDiscoveryDocument</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="120" x="688" y="1007.748">property of the banks</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="82" x="248" y="1022.9824">entry in the list</text><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="279.5" y1="1061.3906" y2="1061.3906"/><line style="stroke:#A80036;stroke-width:1.0;" x1="279.5" x2="279.5" y1="1061.3906" y2="1074.3906"/><line style="stroke:#A80036;stroke-width:1.0;" x1="238.5" x2="279.5" y1="1074.3906" y2="1074.3906"/><polygon fill="#A80036" points="248.5,1070.3906,238.5,1074.3906,248.5,1078.3906,244.5,1074.3906" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="217" x="244.5" y="1056.2168">Get Discovery endpoint for target bank</text><path d="M242,1087.3906 L242,1192.3906 L830,1192.3906 L830,1097.3906 L820,1087.3906 L242,1087.3906 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M820,1087.3906 L820,1097.3906 L830,1097.3906 L820,1087.3906 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="567" x="248" y="1104.4512">This sequence diagram shows the OpenID Configuration hosted at the API Gateway. The mechanics</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="552" x="248" y="1119.6855">of implemementing this are not prescribed by the Axway Open Banking solution as the information</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="559" x="248" y="1134.9199">is essentially a static document that can be managed through a CMS. Customers should make their</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="351" x="248" y="1150.1543">own judgement as to the best approach to managing this data.</text><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="1155.3281" y2="1155.3281"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="1155.3281" y2="1155.3281"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="1155.3281" y2="1155.3281"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="428" x="248" y="1169.3887">Note that if the OpenID configuration is hosted on the API Gateway it should</text><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="18" x="679" y="1169.3887">not</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="24" x="700" y="1169.3887">be a</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="251" x="248" y="1184.623">protected endpoint i.e. mutual authentication</text><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="59" x="502" y="1184.623">should not</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="71" x="564" y="1184.623">be enforced.</text><polygon fill="#A80036" points="545.5,1219.0313,555.5,1223.0313,545.5,1227.0313,549.5,1223.0313" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="551.5" y1="1223.0313" y2="1223.0313"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="171" x="244.5" y="1217.8574">Retrieve OpenID Configuration</text><polygon fill="#A80036" points="865.5,1248.2656,875.5,1252.2656,865.5,1256.2656,869.5,1252.2656" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="871.5" y1="1252.2656" y2="1252.2656"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="171" x="564.5" y="1247.0918">Retrieve OpenID Configuration</text><polygon fill="#A80036" points="568.5,1277.5,558.5,1281.5,568.5,1285.5,564.5,1281.5" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="876.5" y1="1281.5" y2="1281.5"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="574.5" y="1276.3262">Response</text><polygon fill="#A80036" points="248.5,1306.7344,238.5,1310.7344,248.5,1314.7344,244.5,1310.7344" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="242.5" x2="556.5" y1="1310.7344" y2="1310.7344"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="254.5" y="1305.5605">Response</text><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="279.5" y1="1377.4375" y2="1377.4375"/><line style="stroke:#A80036;stroke-width:1.0;" x1="279.5" x2="279.5" y1="1377.4375" y2="1390.4375"/><line style="stroke:#A80036;stroke-width:1.0;" x1="238.5" x2="279.5" y1="1390.4375" y2="1390.4375"/><polygon fill="#A80036" points="248.5,1386.4375,238.5,1390.4375,248.5,1394.4375,244.5,1390.4375" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="133" x="244.5" y="1341.7949">Lookup Token endpoint</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="152" x="244.5" y="1357.0293">from OpenID Configuration</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="0" x="247.5" y="1372.2637"/><path d="M242,1403.4375 L242,1607.4375 L811,1607.4375 L811,1413.4375 L801,1403.4375 L242,1403.4375 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M801,1403.4375 L801,1413.4375 L811,1413.4375 L801,1403.4375 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="459" x="248" y="1420.498">The TPP then uses the Client Credentials grant to obtain an Access Token to then</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="258" x="248" y="1435.7324">lodge the Consent on behalf of the Consumer.</text><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="1440.9063" y2="1440.9063"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="1440.9063" y2="1440.9063"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="1440.9063" y2="1440.9063"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="423" x="248" y="1454.9668">These request will be made using Mutual TLS with a certificate signed by a</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="413" x="248" y="1470.2012">Certificate Authority whose certificate chain resolves at the Brazil ICP CA.</text><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="1475.375" y2="1475.375"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="1475.375" y2="1475.375"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="1475.375" y2="1475.375"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="476" x="248" y="1489.4355">The Kubernetes Ingress Controller is responsible for TLS termination and performing</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="455" x="248" y="1504.6699">an OCSP call to the Certificate Authority to ensure the client certificate presented</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="462" x="248" y="1519.9043">is valid. The fingerprint of the certificate will be forwarded to Identity Management</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="428" x="248" y="1535.1387">to verify the validity of the OAuth Client as this cannot be asserted via OCSP.</text><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="1540.3125" y2="1540.3125"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="1540.3125" y2="1540.3125"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="1540.3125" y2="1540.3125"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="470" x="248" y="1554.373">It should be noted that due to the adoption of the Mutual TLS profile for OAuth 2.0 in</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="27" x="248" y="1569.6074">FAPI</text><a href="https://tools.ietf.org/id/draft-ietf-oauth-mtls-08.html" target="_top" title="https://tools.ietf.org/id/draft-ietf-oauth-mtls-08.html" xlink:actuate="onRequest" xlink:href="https://tools.ietf.org/id/draft-ietf-oauth-mtls-08.html" xlink:show="new" xlink:title="https://tools.ietf.org/id/draft-ietf-oauth-mtls-08.html" xlink:type="simple"><text fill="#0000FF" font-family="Roboto" font-size="13" lengthAdjust="spacing" text-decoration="underline" textLength="34" x="278" y="1569.6074">(here)</text></a><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="330" x="315" y="1569.6074">many Authorization Servers will bind Access Tokens to the</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="548" x="248" y="1584.8418">client certificate presented when they were created. This is indicated in the OpenID Configuration</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="149" x="248" y="1600.0762">through by the value of the</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="336" x="400" y="1600.1841">tls_client_certificate_bound_access_tokens</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="49" x="739" y="1600.0762">property.</text><polygon fill="#A80036" points="545.5,1634.3828,555.5,1638.3828,545.5,1642.3828,549.5,1638.3828" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="551.5" y1="1638.3828" y2="1638.3828"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="88" x="244.5" y="1633.3169">POST /token</text><polygon fill="#A80036" points="2299.5,1663.6172,2309.5,1667.6172,2299.5,1671.6172,2303.5,1667.6172" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="2305.5" y1="1667.6172" y2="1667.6172"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="177" x="564.5" y="1662.4434">Check Client Certificate Validity</text><polygon fill="#A80036" points="568.5,1692.8516,558.5,1696.8516,568.5,1700.8516,564.5,1696.8516" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="2310.5" y1="1696.8516" y2="1696.8516"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="574.5" y="1691.6777">Response</text><polygon fill="#A80036" points="865.5,1721.9844,875.5,1725.9844,865.5,1729.9844,869.5,1725.9844" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="871.5" y1="1725.9844" y2="1725.9844"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="88" x="564.5" y="1720.9185">POST /token</text><polygon fill="#A80036" points="1092.5,1751.1172,1102.5,1755.1172,1092.5,1759.1172,1096.5,1755.1172" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1098.5" y1="1755.1172" y2="1755.1172"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="88" x="884.5" y="1750.0513">POST /token</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1104.5" x2="1146.5" y1="1784.3516" y2="1784.3516"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1146.5" x2="1146.5" y1="1784.3516" y2="1797.3516"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1105.5" x2="1146.5" y1="1797.3516" y2="1797.3516"/><polygon fill="#A80036" points="1115.5,1793.3516,1105.5,1797.3516,1115.5,1801.3516,1111.5,1797.3516" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="68" x="1111.5" y="1779.1777">Verify Client</text><polygon fill="#A80036" points="888.5,1837.6172,878.5,1841.6172,888.5,1845.6172,884.5,1841.6172" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="882.5" x2="1103.5" y1="1841.6172" y2="1841.6172"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="48" x="894.5" y="1821.4185">200 OK</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="184" x="894.5" y="1836.5513">{"access_token": "..."}</text><polygon fill="#A80036" points="568.5,1881.8828,558.5,1885.8828,568.5,1889.8828,564.5,1885.8828" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="876.5" y1="1885.8828" y2="1885.8828"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="48" x="574.5" y="1865.6841">200 OK</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="184" x="574.5" y="1880.8169">{"access_token": "..."}</text><polygon fill="#A80036" points="248.5,1926.1484,238.5,1930.1484,248.5,1934.1484,244.5,1930.1484" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="242.5" x2="556.5" y1="1930.1484" y2="1930.1484"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="48" x="254.5" y="1909.9497">200 OK</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="184" x="254.5" y="1925.0825">{"access_token": "..."}</text><path d="M183.5,1945.1484 L242.5,1945.1484 L242.5,1952.1484 L232.5,1962.1484 L183.5,1962.1484 L183.5,1945.1484 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="421" style="stroke:#000000;stroke-width:2.0;" width="2194.5" x="183.5" y="1945.1484"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="198.5" y="1958.209">alt</text><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="208" x="257.5" y="1957.3535">[TPP requires access to account for data]</text><path d="M242,1967.3828 L242,2030.3828 L645,2030.3828 L645,1977.3828 L635,1967.3828 L242,1967.3828 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M635,1967.3828 L635,1977.3828 L645,1977.3828 L635,1967.3828 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="118" x="248" y="1984.4434">Account Information</text><line style="stroke:#A80036;stroke-width:1.0;" x1="243" x2="644" y1="1987.6172" y2="1987.6172"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="382" x="248" y="2003.6777">TPPs use a generic endpoint for Account Information that covers all</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="274" x="248" y="2018.9121">account types (checking, credit card, loans, etc).</text><polygon fill="#A80036" points="545.5,2057.2188,555.5,2061.2188,545.5,2065.2188,549.5,2061.2188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="551.5" y1="2061.2188" y2="2061.2188"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="208" x="244.5" y="2056.1528">POST /consents/v1/consents</text><polygon fill="#A80036" points="2299.5,2086.4531,2309.5,2090.4531,2299.5,2094.4531,2303.5,2090.4531" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="2305.5" y1="2090.4531" y2="2090.4531"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="177" x="564.5" y="2085.2793">Check Client Certificate Validity</text><polygon fill="#A80036" points="568.5,2115.6875,558.5,2119.6875,568.5,2123.6875,564.5,2119.6875" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="2310.5" y1="2119.6875" y2="2119.6875"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="574.5" y="2114.5137">Response</text><polygon fill="#A80036" points="865.5,2144.8203,875.5,2148.8203,865.5,2152.8203,869.5,2148.8203" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="871.5" y1="2148.8203" y2="2148.8203"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="208" x="564.5" y="2143.7544">POST /consents/v1/consents</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="183.5" x2="2378" y1="2157.8203" y2="2157.8203"/><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="264" x="188.5" y="2168.0254">[TPP requires access to account to initiate payment]</text><path d="M242,2176.7109 L242,2239.7109 L605,2239.7109 L605,2186.7109 L595,2176.7109 L242,2176.7109 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M595,2176.7109 L595,2186.7109 L605,2186.7109 L595,2176.7109 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="103" x="248" y="2193.7715">Payment Initiation</text><line style="stroke:#A80036;stroke-width:1.0;" x1="243" x2="604" y1="2196.9453" y2="2196.9453"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="342" x="248" y="2213.0059">Payment Initiation has a dedicated endpoint that will be used</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="229" x="248" y="2228.2402">to cover all payment rails (PIX, TED, etc).</text><polygon fill="#A80036" points="545.5,2266.5469,555.5,2270.5469,545.5,2274.5469,549.5,2270.5469" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="551.5" y1="2270.5469" y2="2270.5469"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="208" x="244.5" y="2265.481">POST /payments/v1/consents</text><polygon fill="#A80036" points="2299.5,2295.7813,2309.5,2299.7813,2299.5,2303.7813,2303.5,2299.7813" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="2305.5" y1="2299.7813" y2="2299.7813"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="177" x="564.5" y="2294.6074">Check Client Certificate Validity</text><polygon fill="#A80036" points="568.5,2325.0156,558.5,2329.0156,568.5,2333.0156,564.5,2329.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="2310.5" y1="2329.0156" y2="2329.0156"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="574.5" y="2323.8418">Response</text><polygon fill="#A80036" points="865.5,2354.1484,875.5,2358.1484,865.5,2362.1484,869.5,2358.1484" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="871.5" y1="2358.1484" y2="2358.1484"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="208" x="564.5" y="2353.0825">POST /payments/v1/consents</text><polygon fill="#A80036" points="1314.5,2390.3828,1324.5,2394.3828,1314.5,2398.3828,1318.5,2394.3828" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1320.5" y1="2394.3828" y2="2394.3828"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="143" x="884.5" y="2389.209">Introspect Access Token</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1326.5" x2="1368.5" y1="2423.6172" y2="2423.6172"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1368.5" x2="1368.5" y1="2423.6172" y2="2436.6172"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1327.5" x2="1368.5" y1="2436.6172" y2="2436.6172"/><polygon fill="#A80036" points="1337.5,2432.6172,1327.5,2436.6172,1337.5,2440.6172,1333.5,2436.6172" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="191" x="1333.5" y="2418.4434">Retrieve Access Token properties</text><polygon fill="#A80036" points="888.5,2461.8516,878.5,2465.8516,888.5,2469.8516,884.5,2465.8516" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1325.5" y1="2465.8516" y2="2465.8516"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="894.5" y="2460.6777">Response</text><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="919.5" y1="2495.0859" y2="2495.0859"/><line style="stroke:#A80036;stroke-width:1.0;" x1="919.5" x2="919.5" y1="2495.0859" y2="2508.0859"/><line style="stroke:#A80036;stroke-width:1.0;" x1="878.5" x2="919.5" y1="2508.0859" y2="2508.0859"/><polygon fill="#A80036" points="888.5,2504.0859,878.5,2508.0859,888.5,2512.0859,884.5,2508.0859" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="156" x="884.5" y="2489.9121">Verify Access Token scope</text><path d="M882,2521.0859 L882,2576.0859 L1354,2576.0859 L1354,2531.0859 L1344,2521.0859 L882,2521.0859 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1344,2521.0859 L1344,2531.0859 L1354,2531.0859 L1344,2521.0859 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="448" x="888" y="2538.1465">The Consent API provides separate operations based on the type of consent i.e.</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="451" x="888" y="2553.3809">account information, payments, etc. The API Gateway mediates the request and</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="323" x="888" y="2568.6152">calls the operation appropriate to the consent in question.</text><polygon fill="#A80036" points="1314.5,2603.0234,1324.5,2607.0234,1314.5,2611.0234,1318.5,2607.0234" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1320.5" y1="2607.0234" y2="2607.0234"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="85" x="884.5" y="2601.8496">Lodge Consent</text><polygon fill="#A80036" points="888.5,2632.2578,878.5,2636.2578,888.5,2640.2578,884.5,2636.2578" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1325.5" y1="2636.2578" y2="2636.2578"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="103" x="894.5" y="2631.084">Return Consent ID</text><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="919.5" y1="2665.4922" y2="2665.4922"/><line style="stroke:#A80036;stroke-width:1.0;" x1="919.5" x2="919.5" y1="2665.4922" y2="2678.4922"/><line style="stroke:#A80036;stroke-width:1.0;" x1="878.5" x2="919.5" y1="2678.4922" y2="2678.4922"/><polygon fill="#A80036" points="888.5,2674.4922,878.5,2678.4922,888.5,2682.4922,884.5,2678.4922" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="96" x="884.5" y="2660.3184">Format response</text><polygon fill="#A80036" points="568.5,2718.7578,558.5,2722.7578,568.5,2726.7578,564.5,2722.7578" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="876.5" y1="2722.7578" y2="2722.7578"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="88" x="574.5" y="2702.5591">201 Created</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="160" x="574.5" y="2717.6919">{"consentId": "..."}</text><polygon fill="#A80036" points="248.5,2763.0234,238.5,2767.0234,248.5,2771.0234,244.5,2767.0234" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="242.5" x2="556.5" y1="2767.0234" y2="2767.0234"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="88" x="254.5" y="2746.8247">201 Created</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="160" x="254.5" y="2761.9575">{"consentId": "..."}</text><rect fill="#EEEEEE" filter="url(#f1otvqi2ssuf6v)" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="2398" x="0" y="2795.6406"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="2398" y1="2795.6406" y2="2795.6406"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="2398" y1="2798.6406" y2="2798.6406"/><rect fill="#EEEEEE" filter="url(#f1otvqi2ssuf6v)" height="23.2344" style="stroke:#000000;stroke-width:2.0;" width="329" x="1034.5" y="2785.0234"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="312" x="1040.5" y="2801.084">Part 3: Customer is Redirected to Authorization Server</text><path d="M242,2823.2578 L242,3070.2578 L769,3070.2578 L769,2833.2578 L759,2823.2578 L242,2823.2578 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M759,2823.2578 L759,2833.2578 L769,2833.2578 L759,2823.2578 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="113" x="248" y="2840.3184">API Security Profile</text><line style="stroke:#A80036;stroke-width:1.0;" x1="243" x2="768" y1="2843.4922" y2="2843.4922"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="168" x="248" y="2859.5527">FAPI mandates the use of the</text><a href="https://openid.net/specs/openid-financial-api-part-2-ID2.html#authorization-server" target="_top" title="https://openid.net/specs/openid-financial-api-part-2-ID2.html#authorization-server" xlink:actuate="onRequest" xlink:href="https://openid.net/specs/openid-financial-api-part-2-ID2.html#authorization-server" xlink:show="new" xlink:title="https://openid.net/specs/openid-financial-api-part-2-ID2.html#authorization-server" xlink:type="simple"><text fill="#0000FF" font-family="Roboto" font-size="13" lengthAdjust="spacing" text-decoration="underline" textLength="170" x="419" y="2859.5527">Authentication Request object</text></a><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="106" x="592" y="2859.5527">which is defined in</text><a href="https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests" target="_top" title="https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests" xlink:actuate="onRequest" xlink:href="https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests" xlink:show="new" xlink:title="https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests" xlink:type="simple"><text fill="#0000FF" font-family="Roboto" font-size="13" lengthAdjust="spacing" text-decoration="underline" textLength="53" x="701" y="2859.5527">Section 6</text></a><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="458" x="248" y="2874.7871">of OpenID Connect Core. This is a JSON Web Singature that contains parameters</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="319" x="248" y="2890.0215">normally found in the URL (redirect_uri, state, scope, etc)</text><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="2895.1953" y2="2895.1953"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="2895.1953" y2="2895.1953"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="2895.1953" y2="2895.1953"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="230" x="248" y="2909.2559">However, FAPI has been extended by the</text><a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html" target="_top" title="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html" xlink:actuate="onRequest" xlink:href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html" xlink:show="new" xlink:title="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html" xlink:type="simple"><text fill="#0000FF" font-family="Roboto" font-size="13" lengthAdjust="spacing" text-decoration="underline" textLength="162" x="481" y="2909.2559">API Security Profile for Brazil</text></a><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="45" x="646" y="2909.2559">where 2</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="479" x="248" y="2924.4902">alternatives are added to the Authorization Server (AS) in terms of Request parameter</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="46" x="248" y="2939.7246">support:</text><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="2944.8984" y2="2944.8984"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="2944.8984" y2="2944.8984"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="2944.8984" y2="2944.8984"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="297" x="248" y="2958.959">1. Request parameter passed in the URI that must be</text><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="123" x="548" y="2958.959">signed and encrypted</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="3" x="671" y="2958.959">.</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="286" x="248" y="2974.1934">2. Request parameter passed by reference through</text><a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-par" target="_top" title="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-par" xlink:actuate="onRequest" xlink:href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-par" xlink:show="new" xlink:title="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-par" xlink:type="simple"><text fill="#0000FF" font-family="Roboto" font-size="13" lengthAdjust="spacing" text-decoration="underline" textLength="213" x="537" y="2974.1934">Pushed Authorization Requests (PAR)</text></a><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="3" x="750" y="2974.1934">.</text><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="2979.3672" y2="2979.3672"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="2979.3672" y2="2979.3672"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="2979.3672" y2="2979.3672"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="475" x="248" y="2993.4277">Support for either approach should be included in the OpenID Configuration available</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="459" x="248" y="3008.6621">through Discovery that banks are obliged to provide under the API Security Profile.</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="278" x="248" y="3023.8965">Both options are shown in the sequence diagram.</text><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="3029.0703" y2="3029.0703"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="3029.0703" y2="3029.0703"/><line style="stroke:#000000;stroke-width:1.0;" x1="248" x2="248" y1="3029.0703" y2="3029.0703"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="493" x="248" y="3043.1309">Note that Axway Open Banking will initially support the first approach, namely a signed</text><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="463" x="248" y="3058.3652">and encrypted JSON Web Token and introduce support for PAR in a later release.</text><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="279.5" y1="3100.7734" y2="3100.7734"/><line style="stroke:#A80036;stroke-width:1.0;" x1="279.5" x2="279.5" y1="3100.7734" y2="3113.7734"/><line style="stroke:#A80036;stroke-width:1.0;" x1="238.5" x2="279.5" y1="3113.7734" y2="3113.7734"/><polygon fill="#A80036" points="248.5,3109.7734,238.5,3113.7734,248.5,3117.7734,244.5,3113.7734" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="148" x="244.5" y="3095.5996">Create Request parameter</text><path d="M242,3126.7734 L242,3181.7734 L776,3181.7734 L776,3136.7734 L766,3126.7734 L242,3126.7734 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M766,3126.7734 L766,3136.7734 L776,3136.7734 L766,3126.7734 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="501" x="248" y="3143.834">The Signing and Encryption keys will be the private part of the pair signed by the Directory</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="513" x="248" y="3159.0684">that can be referenced in the JSON Web Key Set maintained therein i.e. the key ID matches</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="190" x="248" y="3174.3027">one of the TPPs JSON Web Keys.</text><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="279.5" y1="3212.7109" y2="3212.7109"/><line style="stroke:#A80036;stroke-width:1.0;" x1="279.5" x2="279.5" y1="3212.7109" y2="3225.7109"/><line style="stroke:#A80036;stroke-width:1.0;" x1="238.5" x2="279.5" y1="3225.7109" y2="3225.7109"/><polygon fill="#A80036" points="248.5,3221.7109,238.5,3225.7109,248.5,3229.7109,244.5,3225.7109" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="232" x="244.5" y="3207.5371">Sign Request parameter with Signing Key</text><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="279.5" y1="3254.9453" y2="3254.9453"/><line style="stroke:#A80036;stroke-width:1.0;" x1="279.5" x2="279.5" y1="3254.9453" y2="3267.9453"/><line style="stroke:#A80036;stroke-width:1.0;" x1="238.5" x2="279.5" y1="3267.9453" y2="3267.9453"/><polygon fill="#A80036" points="248.5,3263.9453,238.5,3267.9453,248.5,3271.9453,244.5,3267.9453" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="266" x="244.5" y="3249.7715">Encrypt Request parameter with Encryption Key</text><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="279.5" y1="3297.1797" y2="3297.1797"/><line style="stroke:#A80036;stroke-width:1.0;" x1="279.5" x2="279.5" y1="3297.1797" y2="3310.1797"/><line style="stroke:#A80036;stroke-width:1.0;" x1="238.5" x2="279.5" y1="3310.1797" y2="3310.1797"/><polygon fill="#A80036" points="248.5,3306.1797,238.5,3310.1797,248.5,3314.1797,244.5,3310.1797" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="274" x="244.5" y="3292.0059">Create redirect URL including Request parameter</text><polygon fill="#A80036" points="64.5,3335.4141,54.5,3339.4141,64.5,3343.4141,60.5,3339.4141" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="58.5" x2="236.5" y1="3339.4141" y2="3339.4141"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="104" x="70.5" y="3334.2402">Redirect customer</text><polygon fill="#A80036" points="865.5,3364.6484,875.5,3368.6484,865.5,3372.6484,869.5,3368.6484" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="53.5" x2="871.5" y1="3368.6484" y2="3368.6484"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="83" x="60.5" y="3363.4746">Follow redirect</text><path d="M882,3381.6484 L882,3501.6484 L1305,3501.6484 L1305,3391.6484 L1295,3381.6484 L882,3381.6484 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1295,3381.6484 L1295,3391.6484 L1305,3391.6484 L1295,3381.6484 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="375" x="888" y="3398.709">This is indicative as the Directory JWKS is likely to be cached for a</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="388" x="888" y="3413.9434">period time i.e. the JWKS will not be retrieved on every Authentication</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="50" x="888" y="3429.1777">Request.</text><line style="stroke:#000000;stroke-width:1.0;" x1="888" x2="888" y1="3434.3516" y2="3434.3516"/><line style="stroke:#000000;stroke-width:1.0;" x1="888" x2="888" y1="3434.3516" y2="3434.3516"/><line style="stroke:#000000;stroke-width:1.0;" x1="888" x2="888" y1="3434.3516" y2="3434.3516"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="390" x="888" y="3448.4121">Note that this implementation is intended to provide strength-in-depth</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="402" x="888" y="3463.6465">i.e. the API Gateway can verify the JSON Web Signature before handing</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="388" x="888" y="3478.8809">off to Identity Management, therefore protecting it from unnecessary</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="118" x="888" y="3494.1152">unsolicited requests.</text><polygon fill="#A80036" points="2181,3528.5234,2191,3532.5234,2181,3536.5234,2185,3532.5234" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="2187" y1="3532.5234" y2="3532.5234"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="131" x="884.5" y="3527.3496">Get JSON Web Key Set</text><polygon fill="#A80036" points="888.5,3557.7578,878.5,3561.7578,888.5,3565.7578,884.5,3561.7578" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="2192" y1="3561.7578" y2="3561.7578"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="894.5" y="3556.584">Response</text><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="919.5" y1="3590.9922" y2="3590.9922"/><line style="stroke:#A80036;stroke-width:1.0;" x1="919.5" x2="919.5" y1="3590.9922" y2="3603.9922"/><line style="stroke:#A80036;stroke-width:1.0;" x1="878.5" x2="919.5" y1="3603.9922" y2="3603.9922"/><polygon fill="#A80036" points="888.5,3599.9922,878.5,3603.9922,888.5,3607.9922,884.5,3603.9922" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="147" x="884.5" y="3585.8184">Match Request parameter</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="24" x="1034.5" y="3585.9263">kid</text><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="919.5" y1="3633.2266" y2="3633.2266"/><line style="stroke:#A80036;stroke-width:1.0;" x1="919.5" x2="919.5" y1="3633.2266" y2="3646.2266"/><line style="stroke:#A80036;stroke-width:1.0;" x1="878.5" x2="919.5" y1="3646.2266" y2="3646.2266"/><polygon fill="#A80036" points="888.5,3642.2266,878.5,3646.2266,888.5,3650.2266,884.5,3646.2266" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="200" x="884.5" y="3628.0527">Verify Request parameter signature</text><polygon fill="#A80036" points="1092.5,3671.4609,1102.5,3675.4609,1092.5,3679.4609,1096.5,3675.4609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1098.5" y1="3675.4609" y2="3675.4609"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="157" x="884.5" y="3670.2871">Forward Request parameter</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1104.5" x2="1146.5" y1="3704.6953" y2="3704.6953"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1146.5" x2="1146.5" y1="3704.6953" y2="3717.6953"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1105.5" x2="1146.5" y1="3717.6953" y2="3717.6953"/><polygon fill="#A80036" points="1115.5,3713.6953,1105.5,3717.6953,1115.5,3721.6953,1111.5,3717.6953" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="144" x="1111.5" y="3699.5215">Verify Request parameter</text><polygon fill="#A80036" points="1314.5,3742.9297,1324.5,3746.9297,1314.5,3750.9297,1318.5,3746.9297" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1104.5" x2="1320.5" y1="3746.9297" y2="3746.9297"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="129" x="1111.5" y="3741.7559">Request Consent by ID</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1326.5" x2="1368.5" y1="3776.1641" y2="3776.1641"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1368.5" x2="1368.5" y1="3776.1641" y2="3789.1641"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1327.5" x2="1368.5" y1="3789.1641" y2="3789.1641"/><polygon fill="#A80036" points="1337.5,3785.1641,1327.5,3789.1641,1337.5,3793.1641,1333.5,3789.1641" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="96" x="1333.5" y="3770.9902">Retrieve Consent</text><polygon fill="#A80036" points="1115.5,3814.3984,1105.5,3818.3984,1115.5,3822.3984,1111.5,3818.3984" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1109.5" x2="1325.5" y1="3818.3984" y2="3818.3984"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="1121.5" y="3813.2246">Response</text><polygon fill="#A80036" points="888.5,3843.6328,878.5,3847.6328,888.5,3851.6328,884.5,3847.6328" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="882.5" x2="1103.5" y1="3847.6328" y2="3847.6328"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="109" x="894.5" y="3842.459">Return redirect URL</text><rect fill="#EEEEEE" filter="url(#f1otvqi2ssuf6v)" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="2398" x="0" y="3876.25"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="2398" y1="3876.25" y2="3876.25"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="2398" y1="3879.25" y2="3879.25"/><rect fill="#EEEEEE" filter="url(#f1otvqi2ssuf6v)" height="23.2344" style="stroke:#000000;stroke-width:2.0;" width="339" x="1029.5" y="3865.6328"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="322" x="1035.5" y="3881.6934">Part 4: Customer Authenticates and Authorizes Consent</text><path d="M58,3903.8672 L58,3958.8672 L439,3958.8672 L439,3913.8672 L429,3903.8672 L58,3903.8672 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M429,3903.8672 L429,3913.8672 L439,3913.8672 L429,3903.8672 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="360" x="64" y="3920.9277">The following steps can vary according the bank's requirements</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="335" x="64" y="3936.1621">for authentication and authorization but these steps provide</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="360" x="64" y="3951.3965">an accurate overview in the context of the Axway Open Banking.</text><polygon fill="#A80036" points="64.5,3985.8047,54.5,3989.8047,64.5,3993.8047,60.5,3989.8047" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="58.5" x2="876.5" y1="3989.8047" y2="3989.8047"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="105" x="70.5" y="3984.6309">Redirect Customer</text><polygon fill="#A80036" points="1732.5,4015.0391,1742.5,4019.0391,1732.5,4023.0391,1736.5,4019.0391" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="53.5" x2="1738.5" y1="4019.0391" y2="4019.0391"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="87" x="60.5" y="4013.8652">Follow Redirect</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1744.5" x2="1786.5" y1="4048.2734" y2="4048.2734"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1786.5" x2="1786.5" y1="4048.2734" y2="4061.2734"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1745.5" x2="1786.5" y1="4061.2734" y2="4061.2734"/><polygon fill="#A80036" points="1755.5,4057.2734,1745.5,4061.2734,1755.5,4065.2734,1751.5,4061.2734" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="79" x="1751.5" y="4043.0996">Verify redirect</text><path d="M10,4076.2734 L79,4076.2734 L79,4083.2734 L69,4093.2734 L10,4093.2734 L10,4076.2734 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="187.6406" style="stroke:#000000;stroke-width:2.0;" width="1852.5" x="10" y="4076.2734"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="24" x="25" y="4089.334">loop</text><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="259" x="94" y="4088.4785">[Request required number of authentication factors]</text><path d="M58,4098.5078 L58,4153.5078 L385,4153.5078 L385,4108.5078 L375,4098.5078 L58,4098.5078 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M375,4098.5078 L375,4108.5078 L385,4108.5078 L375,4098.5078 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="288" x="64" y="4115.5684">This loop is intended to be indicative and the actual</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="269" x="64" y="4130.8027">mechanics are entirely dependent on the bank's</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="306" x="64" y="4146.0371">implementation and their approach to user experience.</text><polygon fill="#A80036" points="64.5,4180.4453,54.5,4184.4453,64.5,4188.4453,60.5,4184.4453" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="58.5" x2="1743.5" y1="4184.4453" y2="4184.4453"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="160" x="70.5" y="4179.2715">Serve credentials input page</text><polygon fill="#A80036" points="1732.5,4209.6797,1742.5,4213.6797,1732.5,4217.6797,1736.5,4213.6797" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="53.5" x2="1738.5" y1="4213.6797" y2="4213.6797"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="106" x="60.5" y="4208.5059">Submit credentials</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1744.5" x2="1786.5" y1="4242.9141" y2="4242.9141"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1786.5" x2="1786.5" y1="4242.9141" y2="4255.9141"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1745.5" x2="1786.5" y1="4255.9141" y2="4255.9141"/><polygon fill="#A80036" points="1755.5,4251.9141,1745.5,4255.9141,1755.5,4259.9141,1751.5,4255.9141" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="99" x="1751.5" y="4237.7402">Verify credentials</text><path d="M562,4275.9141 L562,4395.9141 L1012,4395.9141 L1012,4285.9141 L1002,4275.9141 L562,4275.9141 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1002,4275.9141 L1002,4285.9141 L1012,4285.9141 L1002,4275.9141 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="339" x="568" y="4292.9746">Providing security for the Consent Management API should</text><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="375" x="568" y="4308.209">be reviewed on a case-by-case basis and implemented according</text><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="153" x="568" y="4323.4434">to customer requirements.</text><line style="stroke:#000000;stroke-width:1.0;" x1="568" x2="568" y1="4328.6172" y2="4328.6172"/><line style="stroke:#000000;stroke-width:1.0;" x1="568" x2="568" y1="4328.6172" y2="4328.6172"/><line style="stroke:#000000;stroke-width:1.0;" x1="568" x2="568" y1="4328.6172" y2="4328.6172"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="429" x="568" y="4342.6777">This diagram shows an example of access to the Consent Management API</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="381" x="568" y="4357.9121">being implemented via the Ingress Controller/API Gateway. Security</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="253" x="568" y="4373.1465">is provided via an internal certificate which is</text><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="18" x="824" y="4373.1465">not</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="51" x="845" y="4373.1465">validated</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="68" x="568" y="4388.3809">against ICP.</text><polygon fill="#A80036" points="568.5,4422.7891,558.5,4426.7891,568.5,4430.7891,564.5,4426.7891" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="562.5" x2="1743.5" y1="4426.7891" y2="4426.7891"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="124" x="574.5" y="4421.6152">Get "Intent" properties</text><polygon fill="#A80036" points="865.5,4452.0234,875.5,4456.0234,865.5,4460.0234,869.5,4456.0234" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="871.5" y1="4456.0234" y2="4456.0234"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="92" x="564.5" y="4450.8496">Forward request</text><polygon fill="#A80036" points="1314.5,4481.2578,1324.5,4485.2578,1314.5,4489.2578,1318.5,4485.2578" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1320.5" y1="4485.2578" y2="4485.2578"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="92" x="884.5" y="4480.084">Forward request</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1326.5" x2="1368.5" y1="4514.4922" y2="4514.4922"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1368.5" x2="1368.5" y1="4514.4922" y2="4527.4922"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1327.5" x2="1368.5" y1="4527.4922" y2="4527.4922"/><polygon fill="#A80036" points="1337.5,4523.4922,1327.5,4527.4922,1337.5,4531.4922,1333.5,4527.4922" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="90" x="1333.5" y="4509.3184">Retrieve "Intent"</text><polygon fill="#A80036" points="888.5,4552.7266,878.5,4556.7266,888.5,4560.7266,884.5,4556.7266" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1325.5" y1="4556.7266" y2="4556.7266"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="894.5" y="4551.5527">Response</text><polygon fill="#A80036" points="568.5,4581.9609,558.5,4585.9609,568.5,4589.9609,564.5,4585.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="876.5" y1="4585.9609" y2="4585.9609"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="574.5" y="4580.7871">Response</text><polygon fill="#A80036" points="1732.5,4611.1953,1742.5,4615.1953,1732.5,4619.1953,1736.5,4615.1953" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="557.5" x2="1738.5" y1="4615.1953" y2="4615.1953"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="564.5" y="4610.0215">Response</text><path d="M1679.5,4630.1953 L1738.5,4630.1953 L1738.5,4637.1953 L1728.5,4647.1953 L1679.5,4647.1953 L1679.5,4630.1953 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="803.75" style="stroke:#000000;stroke-width:2.0;" width="570.5" x="1679.5" y="4630.1953"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1694.5" y="4643.2559">alt</text><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="152" x="1753.5" y="4642.4004">[Account Information Consent]</text><path d="M1749,4652.4297 L1749,4761.4297 L2071,4761.4297 L2071,4662.4297 L2061,4652.4297 L1749,4652.4297 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2061,4652.4297 L2061,4662.4297 L2071,4662.4297 L2061,4652.4297 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="118" x="1755" y="4669.4902">Account Information</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1750" x2="2070" y1="4672.6641" y2="4672.6641"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="292" x="1755" y="4688.7246">When creating the Consent Confirmation screen the</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="268" x="1755" y="4703.959">permission codes held in the "Intent" need to be</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="292" x="1755" y="4719.1934">coverted to something that will be meaningful to the</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="301" x="1755" y="4734.4277">Customer. The wording should adhere to that detailed</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="31" x="1755" y="4749.6621">in the</text><a href="https://github.com/OpenBanking-Brasil/areadesenvolvedor/raw/gh-pages/documents/GuiaDeExperienciaDoUsuarioCompartilhamentoDeDadosEIniciacaoDePagamento_v3.02.03.pdf" target="_top" title="https://github.com/OpenBanking-Brasil/areadesenvolvedor/raw/gh-pages/documents/GuiaDeExperienciaDoUsuarioCompartilhamentoDeDadosEIniciacaoDePagamento_v3.02.03.pdf" xlink:actuate="onRequest" xlink:href="https://github.com/OpenBanking-Brasil/areadesenvolvedor/raw/gh-pages/documents/GuiaDeExperienciaDoUsuarioCompartilhamentoDeDadosEIniciacaoDePagamento_v3.02.03.pdf" xlink:show="new" xlink:title="https://github.com/OpenBanking-Brasil/areadesenvolvedor/raw/gh-pages/documents/GuiaDeExperienciaDoUsuarioCompartilhamentoDeDadosEIniciacaoDePagamento_v3.02.03.pdf" xlink:type="simple"><text fill="#0000FF" font-family="Roboto" font-size="13" lengthAdjust="spacing" text-decoration="underline" textLength="183" x="1789" y="4749.6621">Customer Experience Guidelines</text></a><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="3" x="1972" y="4749.6621">.</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1679.5" x2="2250" y1="4771.8359" y2="4771.8359"/><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="142" x="1684.5" y="4782.041">[Payment Initiation Consent]</text><path d="M1749,4790.7266 L1749,4914.7266 L2236,4914.7266 L2236,4800.7266 L2226,4790.7266 L1749,4790.7266 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2226,4790.7266 L2226,4800.7266 L2236,4800.7266 L2226,4790.7266 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="103" x="1755" y="4807.7871">Payment Initiation</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1750" x2="2235" y1="4810.9609" y2="4810.9609"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="466" x="1755" y="4827.0215">The Consent Confirmation screen requires the following properties to be displayed:</text><ellipse cx="1760.5" cy="4837.9297" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="106" x="1767" y="4842.2559">Transaction Value.</text><ellipse cx="1760.5" cy="4853.1641" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="207" x="1767" y="4857.4902">Recipient details (name, CPF/CNPJ).</text><ellipse cx="1760.5" cy="4868.3984" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="83" x="1767" y="4872.7246">Payment Date.</text><ellipse cx="1760.5" cy="4883.6328" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="231" x="1767" y="4887.959">Payment method (currently fixed on PIX).</text><ellipse cx="1760.5" cy="4898.8672" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="230" x="1767" y="4903.1934">Fee amount charged by the bank (if any).</text><path d="M1689.5,4931.3672 L1753.5,4931.3672 L1753.5,4938.3672 L1743.5,4948.3672 L1689.5,4948.3672 L1689.5,4931.3672 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="495.5781" style="stroke:#000000;stroke-width:2.0;" width="510.5" x="1689.5" y="4931.3672"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="19" x="1704.5" y="4944.4277">par</text><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="171" x="1768.5" y="4943.5723">[Request fee amount for payment]</text><path d="M1749,4953.6016 L1749,4978.6016 L2122,4978.6016 L2122,4963.6016 L2112,4953.6016 L1749,4953.6016 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2112,4953.6016 L2112,4963.6016 L2122,4963.6016 L2112,4953.6016 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="352" x="1755" y="4970.6621">Fees for payment must be provided from the Banking Systems</text><polygon fill="#A80036" points="1969.5,5005.0703,1979.5,5009.0703,1969.5,5013.0703,1973.5,5009.0703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1744.5" x2="1975.5" y1="5009.0703" y2="5009.0703"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="115" x="1751.5" y="5003.8965">Request fee amount</text><polygon fill="#A80036" points="1755.5,5034.3047,1745.5,5038.3047,1755.5,5042.3047,1751.5,5038.3047" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1749.5" x2="1980.5" y1="5038.3047" y2="5038.3047"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="1761.5" y="5033.1309">Response</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1689.5" x2="2200" y1="5047.3047" y2="5047.3047"/><path d="M1699.5,5055.3047 L1758.5,5055.3047 L1758.5,5062.3047 L1748.5,5072.3047 L1699.5,5072.3047 L1699.5,5055.3047 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="364.6406" style="stroke:#000000;stroke-width:2.0;" width="490.5" x="1699.5" y="5055.3047"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1714.5" y="5068.3652">alt</text><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="203" x="1773.5" y="5067.5098">[Debtor account not provided in Consent]</text><path d="M1749,5077.5391 L1749,5193.5391 L2176,5193.5391 L2176,5087.5391 L2166,5077.5391 L1749,5077.5391 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2166,5077.5391 L2166,5087.5391 L2176,5087.5391 L2166,5077.5391 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="357" x="1755" y="5094.5996">If the debtor account has not been provided in the Consent then</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="331" x="1755" y="5109.834">the customer's payment accounts will need to be retrieved:</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="0" x="1758" y="5125.0684"/><ellipse cx="1760.5" cy="5135.9766" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="394" x="1767" y="5140.3027">If the customer only has one payment account then this is the default.</text><ellipse cx="1760.5" cy="5151.2109" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="361" x="1767" y="5155.5371">If they have multiple accounts they should be able to select one.</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="0" x="1758" y="5170.7715"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="373" x="1755" y="5186.0059">This should be incorporated into the Consent Confirmation screen.</text><polygon fill="#A80036" points="1969.5,5220.4141,1979.5,5224.4141,1969.5,5228.4141,1973.5,5224.4141" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1744.5" x2="1975.5" y1="5224.4141" y2="5224.4141"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="207" x="1751.5" y="5219.2402">Request in-scope payment accounts</text><polygon fill="#A80036" points="1755.5,5249.6484,1745.5,5253.6484,1755.5,5257.6484,1751.5,5253.6484" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1749.5" x2="1980.5" y1="5253.6484" y2="5253.6484"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="1761.5" y="5248.4746">Response</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1699.5" x2="2190" y1="5262.6484" y2="5262.6484"/><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="184" x="1704.5" y="5272.8535">[Debtor account provided in Consent]</text><path d="M1749,5281.5391 L1749,5351.5391 L2161,5351.5391 L2161,5291.5391 L2151,5281.5391 L1749,5281.5391 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2151,5281.5391 L2151,5291.5391 L2161,5291.5391 L2151,5281.5391 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="366" x="1755" y="5298.5996">If the debtor account has already been provided ownership of the</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="140" x="1755" y="5313.834">account by the customer</text><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="29" x="1898" y="5313.834">must</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="194" x="1930" y="5313.834">be verified. This must be executed</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="357" x="1755" y="5329.0684">at the Banking Systems as they will understand the relationship</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="391" x="1755" y="5344.3027">between a (now authenticated) customer and the accounts they own.</text><polygon fill="#A80036" points="1969.5,5378.7109,1979.5,5382.7109,1969.5,5386.7109,1973.5,5382.7109" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1744.5" x2="1975.5" y1="5382.7109" y2="5382.7109"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="144" x="1751.5" y="5377.5371">Verify account ownership</text><polygon fill="#A80036" points="1755.5,5407.9453,1745.5,5411.9453,1755.5,5415.9453,1751.5,5411.9453" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1749.5" x2="1980.5" y1="5411.9453" y2="5411.9453"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="1761.5" y="5406.7715">Response</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1744.5" x2="1786.5" y1="5462.1797" y2="5462.1797"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1786.5" x2="1786.5" y1="5462.1797" y2="5475.1797"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1745.5" x2="1786.5" y1="5475.1797" y2="5475.1797"/><polygon fill="#A80036" points="1755.5,5471.1797,1745.5,5475.1797,1755.5,5479.1797,1751.5,5475.1797" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="208" x="1751.5" y="5457.0059">Render Consent Confirmation screen</text><polygon fill="#A80036" points="64.5,5500.4141,54.5,5504.4141,64.5,5508.4141,60.5,5504.4141" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="58.5" x2="1743.5" y1="5504.4141" y2="5504.4141"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="200" x="70.5" y="5499.2402">Serve Consent Confirmation screen</text><polygon fill="#A80036" points="1732.5,5529.6484,1742.5,5533.6484,1732.5,5537.6484,1736.5,5533.6484" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="53.5" x2="1738.5" y1="5533.6484" y2="5533.6484"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="150" x="60.5" y="5528.4746">Confirm consent is correct</text><path d="M10,5548.6484 L69,5548.6484 L69,5555.6484 L59,5565.6484 L10,5565.6484 L10,5548.6484 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="299.8125" style="stroke:#000000;stroke-width:2.0;" width="2131" x="10" y="5548.6484"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="25" y="5561.709">alt</text><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="152" x="84" y="5560.8535">[Account Information Consent]</text><path d="M1749,5570.8828 L1749,5679.8828 L2127,5679.8828 L2127,5580.8828 L2117,5570.8828 L1749,5570.8828 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2117,5570.8828 L2117,5580.8828 L2127,5580.8828 L2117,5570.8828 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="118" x="1755" y="5587.9434">Account Information</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1750" x2="2126" y1="5591.1172" y2="5591.1172"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="346" x="1755" y="5607.1777">Once consent has been confirmed by the Customer the list of</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="352" x="1755" y="5622.4121">in-scope accounts will be retrieved from the Banking Systems.</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="330" x="1755" y="5637.6465">This list will obviously be dictated by the permission codes</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="177" x="1755" y="5652.8809">requested by the TPP i.e. if only</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="104" x="1935" y="5652.9888">ACCOUNTS_READ</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="70" x="2042" y="5652.8809">is requested</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="245" x="1755" y="5668.1152">then all other account types can be ignored.</text><polygon fill="#A80036" points="1969.5,5706.5234,1979.5,5710.5234,1969.5,5714.5234,1973.5,5710.5234" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1744.5" x2="1975.5" y1="5710.5234" y2="5710.5234"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="213" x="1751.5" y="5705.3496">Request in-scope Customer accounts</text><polygon fill="#A80036" points="1755.5,5735.7578,1745.5,5739.7578,1755.5,5743.7578,1751.5,5739.7578" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1749.5" x2="1980.5" y1="5739.7578" y2="5739.7578"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="1761.5" y="5734.584">Response</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1744.5" x2="1786.5" y1="5768.9922" y2="5768.9922"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1786.5" x2="1786.5" y1="5768.9922" y2="5781.9922"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1745.5" x2="1786.5" y1="5781.9922" y2="5781.9922"/><polygon fill="#A80036" points="1755.5,5777.9922,1745.5,5781.9922,1755.5,5785.9922,1751.5,5781.9922" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="188" x="1751.5" y="5763.8184">Render Account Selection screen</text><polygon fill="#A80036" points="64.5,5807.2266,54.5,5811.2266,64.5,5815.2266,60.5,5811.2266" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="58.5" x2="1743.5" y1="5811.2266" y2="5811.2266"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="180" x="70.5" y="5806.0527">Serve Account Selection screen</text><polygon fill="#A80036" points="1732.5,5836.4609,1742.5,5840.4609,1732.5,5844.4609,1736.5,5840.4609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="53.5" x2="1738.5" y1="5840.4609" y2="5840.4609"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="135" x="60.5" y="5835.2871">Send Account Selection</text><polygon fill="#A80036" points="568.5,5872.6953,558.5,5876.6953,568.5,5880.6953,564.5,5876.6953" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="562.5" x2="1743.5" y1="5876.6953" y2="5876.6953"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="163" x="574.5" y="5871.5215">Store selected account ID(s)</text><polygon fill="#A80036" points="865.5,5901.9297,875.5,5905.9297,865.5,5909.9297,869.5,5905.9297" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="871.5" y1="5905.9297" y2="5905.9297"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="92" x="564.5" y="5900.7559">Forward request</text><polygon fill="#A80036" points="1314.5,5931.1641,1324.5,5935.1641,1314.5,5939.1641,1318.5,5935.1641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1320.5" y1="5935.1641" y2="5935.1641"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="92" x="884.5" y="5929.9902">Forward request</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1326.5" x2="1368.5" y1="5964.3984" y2="5964.3984"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1368.5" x2="1368.5" y1="5964.3984" y2="5977.3984"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1327.5" x2="1368.5" y1="5977.3984" y2="5977.3984"/><polygon fill="#A80036" points="1337.5,5973.3984,1327.5,5977.3984,1337.5,5981.3984,1333.5,5977.3984" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="184" x="1333.5" y="5959.2246">Update "Intent" with Account IDs</text><polygon fill="#A80036" points="888.5,6002.6328,878.5,6006.6328,888.5,6010.6328,884.5,6006.6328" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1325.5" y1="6006.6328" y2="6006.6328"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="894.5" y="6001.459">Response</text><polygon fill="#A80036" points="568.5,6031.8672,558.5,6035.8672,568.5,6039.8672,564.5,6035.8672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="876.5" y1="6035.8672" y2="6035.8672"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="574.5" y="6030.6934">Response</text><polygon fill="#A80036" points="1732.5,6061.1016,1742.5,6065.1016,1732.5,6069.1016,1736.5,6065.1016" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="557.5" x2="1738.5" y1="6065.1016" y2="6065.1016"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="564.5" y="6059.9277">Response</text><path d="M508,6080.1016 L567,6080.1016 L567,6087.1016 L557,6097.1016 L508,6097.1016 L508,6080.1016 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="319.4688" style="stroke:#000000;stroke-width:2.0;" width="1281.5" x="508" y="6080.1016"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="523" y="6093.1621">alt</text><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="324" x="582" y="6092.3066">[Customer is sole signatory on account or has power of attorney]</text><polygon fill="#A80036" points="568.5,6129.8047,558.5,6133.8047,568.5,6137.8047,564.5,6133.8047" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="562.5" x2="1743.5" y1="6133.8047" y2="6133.8047"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="104" x="574.5" y="6113.3965">Update Consent to</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="80" x="574.5" y="6128.7388">Authorized</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="36" x="657.5" y="6128.6309">status</text><polygon fill="#A80036" points="865.5,6159.0391,875.5,6163.0391,865.5,6167.0391,869.5,6163.0391" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="871.5" y1="6163.0391" y2="6163.0391"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="92" x="564.5" y="6157.8652">Forward request</text><polygon fill="#A80036" points="1314.5,6188.2734,1324.5,6192.2734,1314.5,6196.2734,1318.5,6192.2734" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1320.5" y1="6192.2734" y2="6192.2734"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="92" x="884.5" y="6187.0996">Forward request</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1326.5" x2="1368.5" y1="6236.7422" y2="6236.7422"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1368.5" x2="1368.5" y1="6236.7422" y2="6249.7422"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1327.5" x2="1368.5" y1="6249.7422" y2="6249.7422"/><polygon fill="#A80036" points="1337.5,6245.7422,1327.5,6249.7422,1337.5,6253.7422,1333.5,6249.7422" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="104" x="1333.5" y="6216.334">Update Consent to</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="80" x="1333.5" y="6231.6763">Authorized</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="36" x="1416.5" y="6231.5684">status</text><polygon fill="#A80036" points="888.5,6274.9766,878.5,6278.9766,888.5,6282.9766,884.5,6278.9766" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1325.5" y1="6278.9766" y2="6278.9766"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="894.5" y="6273.8027">Response</text><polygon fill="#A80036" points="568.5,6304.2109,558.5,6308.2109,568.5,6312.2109,564.5,6308.2109" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="876.5" y1="6308.2109" y2="6308.2109"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="574.5" y="6303.0371">Response</text><polygon fill="#A80036" points="1732.5,6333.4453,1742.5,6337.4453,1732.5,6341.4453,1736.5,6337.4453" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="557.5" x2="1738.5" y1="6337.4453" y2="6337.4453"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="564.5" y="6332.2715">Response</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="508" x2="1789.5" y1="6346.4453" y2="6346.4453"/><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="166" x="513" y="6356.6504">[Multiple authorizations required]</text><path d="M562,6365.3359 L562,6390.3359 L967,6390.3359 L967,6375.3359 L957,6365.3359 L562,6365.3359 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M957,6365.3359 L957,6375.3359 L967,6375.3359 L957,6365.3359 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="384" x="568" y="6382.3965">Multi-party authorization is covered in a separate sequence diagram.</text><path d="M58,6411.5703 L58,6497.5703 L485,6497.5703 L485,6421.5703 L475,6411.5703 L58,6411.5703 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M475,6411.5703 L475,6421.5703 L485,6421.5703 L475,6411.5703 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="406" x="64" y="6428.6309">The Customer is redirected back to the Axway Open Banking stack from</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="339" x="64" y="6443.8652">the bank's Identity Provider in order to complete Hybrid Flow.</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="381" x="64" y="6459.0996">The hand-off is constrained using a number of parameters included</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="353" x="64" y="6474.334">in the redirect URI to help safeguard this process i.e. to prevent</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="317" x="64" y="6489.5684">unsolicited authentication attempts or session takeover.</text><polygon fill="#A80036" points="64.5,6539.2109,54.5,6543.2109,64.5,6547.2109,60.5,6543.2109" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="58.5" x2="1743.5" y1="6543.2109" y2="6543.2109"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="105" x="70.5" y="6522.8027">Redirect Customer</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="118" x="70.5" y="6538.0371">back to API Gateway</text><polygon fill="#A80036" points="545.5,6568.4453,555.5,6572.4453,545.5,6576.4453,549.5,6572.4453" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="53.5" x2="551.5" y1="6572.4453" y2="6572.4453"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="83" x="60.5" y="6567.2715">Follow redirect</text><polygon fill="#A80036" points="865.5,6597.6797,875.5,6601.6797,865.5,6605.6797,869.5,6601.6797" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="871.5" y1="6601.6797" y2="6601.6797"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="83" x="564.5" y="6596.5059">Follow redirect</text><polygon fill="#A80036" points="1092.5,6626.9141,1102.5,6630.9141,1092.5,6634.9141,1096.5,6630.9141" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1098.5" y1="6630.9141" y2="6630.9141"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="160" x="884.5" y="6625.7402">Forward redirect parameters</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1104.5" x2="1146.5" y1="6660.1484" y2="6660.1484"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1146.5" x2="1146.5" y1="6660.1484" y2="6673.1484"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1105.5" x2="1146.5" y1="6673.1484" y2="6673.1484"/><polygon fill="#A80036" points="1115.5,6669.1484,1105.5,6673.1484,1115.5,6677.1484,1111.5,6673.1484" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="79" x="1111.5" y="6654.9746">Verify redirect</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1104.5" x2="1146.5" y1="6717.6172" y2="6717.6172"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1146.5" x2="1146.5" y1="6717.6172" y2="6730.6172"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1105.5" x2="1146.5" y1="6730.6172" y2="6730.6172"/><polygon fill="#A80036" points="1115.5,6726.6172,1105.5,6730.6172,1115.5,6734.6172,1111.5,6730.6172" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="134" x="1111.5" y="6697.209">Mint Authorization Code</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="76" x="1111.5" y="6712.4434">and ID Token</text><path d="M1109,6743.6172 L1109,6813.6172 L1477,6813.6172 L1477,6753.6172 L1467,6743.6172 L1109,6743.6172 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1467,6743.6172 L1467,6753.6172 L1477,6753.6172 L1467,6743.6172 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="347" x="1115" y="6760.6777">At this point the Identity Management module mints a redirect</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="333" x="1115" y="6775.9121">URI that will take the Customer back to the Third-Party App.</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="343" x="1115" y="6791.1465">The URI includes the Authorization Code and parameters that</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="242" x="1115" y="6806.3809">adhere to the API Security Profile for Brazil.</text><polygon fill="#A80036" points="888.5,6840.7891,878.5,6844.7891,888.5,6848.7891,884.5,6844.7891" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1103.5" y1="6844.7891" y2="6844.7891"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="83" x="894.5" y="6839.6152">Return redirect</text><polygon fill="#A80036" points="568.5,6870.0234,558.5,6874.0234,568.5,6878.0234,564.5,6874.0234" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="876.5" y1="6874.0234" y2="6874.0234"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="83" x="574.5" y="6868.8496">Return redirect</text><polygon fill="#A80036" points="64.5,6899.2578,54.5,6903.2578,64.5,6907.2578,60.5,6903.2578" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="58.5" x2="556.5" y1="6903.2578" y2="6903.2578"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="105" x="70.5" y="6898.084">Redirect Customer</text><polygon fill="#A80036" points="225.5,6928.4922,235.5,6932.4922,225.5,6936.4922,229.5,6932.4922" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="53.5" x2="231.5" y1="6932.4922" y2="6932.4922"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="87" x="60.5" y="6927.3184">Follow Redirect</text><rect fill="#EEEEEE" filter="url(#f1otvqi2ssuf6v)" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="2398" x="0" y="6961.1094"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="2398" y1="6961.1094" y2="6961.1094"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="2398" y1="6964.1094" y2="6964.1094"/><rect fill="#EEEEEE" filter="url(#f1otvqi2ssuf6v)" height="23.2344" style="stroke:#000000;stroke-width:2.0;" width="343" x="1027.5" y="6950.4922"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="326" x="1033.5" y="6966.5527">Part 5: TPP Swaps Authorization Code for Access Token</text><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="279.5" y1="7020.1953" y2="7020.1953"/><line style="stroke:#A80036;stroke-width:1.0;" x1="279.5" x2="279.5" y1="7020.1953" y2="7033.1953"/><line style="stroke:#A80036;stroke-width:1.0;" x1="238.5" x2="279.5" y1="7033.1953" y2="7033.1953"/><polygon fill="#A80036" points="248.5,7029.1953,238.5,7033.1953,248.5,7037.1953,244.5,7033.1953" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="133" x="244.5" y="6999.7871">Verify redirect including</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="250" x="244.5" y="7015.0215">ID Token signature, nonce and s_hash value</text><polygon fill="#A80036" points="545.5,7058.3281,555.5,7062.3281,545.5,7066.3281,549.5,7062.3281" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="551.5" y1="7062.3281" y2="7062.3281"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="88" x="244.5" y="7057.2622">POST /token</text><polygon fill="#A80036" points="2299.5,7087.5625,2309.5,7091.5625,2299.5,7095.5625,2303.5,7091.5625" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="2305.5" y1="7091.5625" y2="7091.5625"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="177" x="564.5" y="7086.3887">Check Client Certificate Validity</text><polygon fill="#A80036" points="568.5,7116.7969,558.5,7120.7969,568.5,7124.7969,564.5,7120.7969" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="2310.5" y1="7120.7969" y2="7120.7969"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="574.5" y="7115.623">Response</text><polygon fill="#A80036" points="865.5,7145.9297,875.5,7149.9297,865.5,7153.9297,869.5,7149.9297" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="871.5" y1="7149.9297" y2="7149.9297"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="88" x="564.5" y="7144.8638">POST /token</text><polygon fill="#A80036" points="1092.5,7175.0625,1102.5,7179.0625,1092.5,7183.0625,1096.5,7179.0625" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1098.5" y1="7179.0625" y2="7179.0625"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="88" x="884.5" y="7173.9966">POST /token</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1104.5" x2="1146.5" y1="7208.2969" y2="7208.2969"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1146.5" x2="1146.5" y1="7208.2969" y2="7221.2969"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1105.5" x2="1146.5" y1="7221.2969" y2="7221.2969"/><polygon fill="#A80036" points="1115.5,7217.2969,1105.5,7221.2969,1115.5,7225.2969,1111.5,7221.2969" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="135" x="1111.5" y="7203.123">Validate Token Request</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1104.5" x2="1146.5" y1="7250.5313" y2="7250.5313"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1146.5" x2="1146.5" y1="7250.5313" y2="7263.5313"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1105.5" x2="1146.5" y1="7263.5313" y2="7263.5313"/><polygon fill="#A80036" points="1115.5,7259.5313,1105.5,7263.5313,1115.5,7267.5313,1111.5,7263.5313" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="208" x="1111.5" y="7245.3574">Mint ID, Access and Refresh Tokens</text><polygon fill="#A80036" points="888.5,7303.7969,878.5,7307.7969,888.5,7311.7969,884.5,7307.7969" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1103.5" y1="7307.7969" y2="7307.7969"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="48" x="894.5" y="7287.5981">200 OK</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="184" x="894.5" y="7302.731">{"access_token": "..."}</text><polygon fill="#A80036" points="568.5,7348.0625,558.5,7352.0625,568.5,7356.0625,564.5,7352.0625" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="876.5" y1="7352.0625" y2="7352.0625"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="48" x="574.5" y="7331.8638">200 OK</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="184" x="574.5" y="7346.9966">{"access_token": "..."}</text><polygon fill="#A80036" points="248.5,7392.3281,238.5,7396.3281,248.5,7400.3281,244.5,7396.3281" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="242.5" x2="556.5" y1="7396.3281" y2="7396.3281"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="48" x="254.5" y="7376.1294">200 OK</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="184" x="254.5" y="7391.2622">{"access_token": "..."}</text><rect fill="#EEEEEE" filter="url(#f1otvqi2ssuf6v)" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="2398" x="0" y="7424.9453"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="2398" y1="7424.9453" y2="7424.9453"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="2398" y1="7427.9453" y2="7427.9453"/><rect fill="#EEEEEE" filter="url(#f1otvqi2ssuf6v)" height="23.2344" style="stroke:#000000;stroke-width:2.0;" width="223" x="1087.5" y="7414.3281"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="206" x="1093.5" y="7430.3887">Part 6: TPP Gets Data from Account</text><path d="M173.5,7454.5625 L232.5,7454.5625 L232.5,7461.5625 L222.5,7471.5625 L173.5,7471.5625 L173.5,7454.5625 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="2395.5078" style="stroke:#000000;stroke-width:2.0;" width="2214.5" x="173.5" y="7454.5625"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="188.5" y="7467.623">alt</text><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="108" x="247.5" y="7466.7676">[Account Information]</text><path d="M242,7476.7969 L242,7570.7969 L637,7570.7969 L637,7486.7969 L627,7476.7969 L242,7476.7969 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M627,7476.7969 L627,7486.7969 L637,7486.7969 L627,7476.7969 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="118" x="248" y="7493.8574">Account Information</text><line style="stroke:#A80036;stroke-width:1.0;" x1="243" x2="636" y1="7497.0313" y2="7497.0313"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="296" x="248" y="7513.0918">The retrieval of account data happens in two stages:</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="0" x="251" y="7528.3262"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="374" x="248" y="7543.5605">1. The TPP requests the available resources at the Resources API.</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="353" x="248" y="7558.7949">2. Using the identifiers returned they can request account data.</text><path d="M183.5,7586.9688 L380.5,7586.9688 L380.5,7593.9688 L370.5,7603.9688 L183.5,7603.9688 L183.5,7586.9688 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="636.3438" style="stroke:#000000;stroke-width:2.0;" width="2194.5" x="183.5" y="7586.9688"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="152" x="198.5" y="7600.0293">Get all resource identifiers</text><path d="M242,7609.2031 L242,7664.2031 L637,7664.2031 L637,7619.2031 L627,7609.2031 L242,7609.2031 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M627,7609.2031 L627,7619.2031 L637,7619.2031 L627,7609.2031 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="134" x="248" y="7626.2637">The TPP will require the</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="112" x="385" y="7626.3716">RESOURCES_READ</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="122" x="500" y="7626.2637">permission to access</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="18" x="248" y="7641.498">the</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="80" x="269" y="7641.606">/resources</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="268" x="352" y="7641.498">endpoint. If Customer has not consented to this</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="273" x="248" y="7656.7324">the request should be rejected (not shown here).</text><polygon fill="#A80036" points="545.5,7706.1719,555.5,7710.1719,545.5,7714.1719,549.5,7710.1719" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="551.5" y1="7710.1719" y2="7710.1719"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="216" x="244.5" y="7689.9731">GET /resources/v1/resources</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="200" x="244.5" y="7705.106">Authorization: Bearer ...</text><polygon fill="#A80036" points="2299.5,7735.4063,2309.5,7739.4063,2299.5,7743.4063,2303.5,7739.4063" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="2305.5" y1="7739.4063" y2="7739.4063"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="177" x="564.5" y="7734.2324">Check Client Certificate Validity</text><polygon fill="#A80036" points="568.5,7764.6406,558.5,7768.6406,568.5,7772.6406,564.5,7768.6406" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="2310.5" y1="7768.6406" y2="7768.6406"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="574.5" y="7763.4668">Response</text><polygon fill="#A80036" points="865.5,7808.9063,875.5,7812.9063,865.5,7816.9063,869.5,7812.9063" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="871.5" y1="7812.9063" y2="7812.9063"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="216" x="564.5" y="7792.7075">GET /resources/v1/resources</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="200" x="564.5" y="7807.8403">Authorization: Bearer ...</text><polygon fill="#A80036" points="1314.5,7838.1406,1324.5,7842.1406,1314.5,7846.1406,1318.5,7842.1406" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1320.5" y1="7842.1406" y2="7842.1406"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="192" x="884.5" y="7836.9668">Request Access Token properties</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1326.5" x2="1368.5" y1="7871.375" y2="7871.375"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1368.5" x2="1368.5" y1="7871.375" y2="7884.375"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1327.5" x2="1368.5" y1="7884.375" y2="7884.375"/><polygon fill="#A80036" points="1337.5,7880.375,1327.5,7884.375,1337.5,7888.375,1333.5,7884.375" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="191" x="1333.5" y="7866.2012">Retrieve Access Token properties</text><polygon fill="#A80036" points="888.5,7909.6094,878.5,7913.6094,888.5,7917.6094,884.5,7913.6094" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1325.5" y1="7913.6094" y2="7913.6094"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="894.5" y="7908.4355">Response</text><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="919.5" y1="7942.8438" y2="7942.8438"/><line style="stroke:#A80036;stroke-width:1.0;" x1="919.5" x2="919.5" y1="7942.8438" y2="7955.8438"/><line style="stroke:#A80036;stroke-width:1.0;" x1="878.5" x2="919.5" y1="7955.8438" y2="7955.8438"/><polygon fill="#A80036" points="888.5,7951.8438,878.5,7955.8438,888.5,7959.8438,884.5,7955.8438" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="203" x="884.5" y="7937.6699">Introspect Access Token properties</text><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="919.5" y1="7985.0781" y2="7985.0781"/><line style="stroke:#A80036;stroke-width:1.0;" x1="919.5" x2="919.5" y1="7985.0781" y2="7998.0781"/><line style="stroke:#A80036;stroke-width:1.0;" x1="878.5" x2="919.5" y1="7998.0781" y2="7998.0781"/><polygon fill="#A80036" points="888.5,7994.0781,878.5,7998.0781,888.5,8002.0781,884.5,7998.0781" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="125" x="884.5" y="7979.9043">Apply access controls</text><polygon fill="#A80036" points="1544.5,8023.2109,1554.5,8027.2109,1544.5,8031.2109,1548.5,8027.2109" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1550.5" y1="8027.2109" y2="8027.2109"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="216" x="884.5" y="8022.145">GET /resources/v1/resources</text><polygon fill="#A80036" points="1969.5,8052.4453,1979.5,8056.4453,1969.5,8060.4453,1973.5,8056.4453" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1556.5" x2="1975.5" y1="8056.4453" y2="8056.4453"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="210" x="1563.5" y="8051.2715">Get available resources for Customer</text><polygon fill="#A80036" points="1567.5,8081.6797,1557.5,8085.6797,1567.5,8089.6797,1563.5,8085.6797" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1561.5" x2="1980.5" y1="8085.6797" y2="8085.6797"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="1573.5" y="8080.5059">Response</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1556.5" x2="1598.5" y1="8114.9141" y2="8114.9141"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1598.5" x2="1598.5" y1="8114.9141" y2="8127.9141"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1557.5" x2="1598.5" y1="8127.9141" y2="8127.9141"/><polygon fill="#A80036" points="1567.5,8123.9141,1557.5,8127.9141,1567.5,8131.9141,1563.5,8127.9141" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="149" x="1563.5" y="8109.7402">Mediate response payload</text><polygon fill="#A80036" points="888.5,8153.0469,878.5,8157.0469,888.5,8161.0469,884.5,8157.0469" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1555.5" y1="8157.0469" y2="8157.0469"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="176" x="894.5" y="8151.981">200 OK { "data": ... }</text><polygon fill="#A80036" points="568.5,8182.1797,558.5,8186.1797,568.5,8190.1797,564.5,8186.1797" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="876.5" y1="8186.1797" y2="8186.1797"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="176" x="574.5" y="8181.1138">200 OK { "data": ... }</text><polygon fill="#A80036" points="248.5,8211.3125,238.5,8215.3125,248.5,8219.3125,244.5,8215.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="242.5" x2="556.5" y1="8215.3125" y2="8215.3125"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="176" x="254.5" y="8210.2466">200 OK { "data": ... }</text><path d="M183.5,8237.3125 L252.5,8237.3125 L252.5,8244.3125 L242.5,8254.3125 L183.5,8254.3125 L183.5,8237.3125 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="666.8125" style="stroke:#000000;stroke-width:2.0;" width="2194.5" x="183.5" y="8237.3125"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="24" x="198.5" y="8250.373">loop</text><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="175" x="267.5" y="8249.5176">[For each Account ID returned from</text><text fill="#000000" font-family="monospace" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="70" x="445.5" y="8249.6089">/resources</text><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="3" x="515.5" y="8249.5176">]</text><path d="M242,8259.5469 L242,8345.5469 L673,8345.5469 L673,8269.5469 L663,8259.5469 L242,8259.5469 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M663,8259.5469 L663,8269.5469 L673,8269.5469 L663,8259.5469 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="357" x="248" y="8276.6074">In this example the TPP only has access to checking accounts.</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="113" x="248" y="8291.8418">They will require the</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="104" x="364" y="8291.9497">ACCOUNTS_READ</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="122" x="471" y="8291.8418">permission to access</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="18" x="248" y="8307.0762">the</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="264" x="269" y="8307.1841">/accounts/v1/accounts/{accountId}</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="122" x="536" y="8307.0762">endpoint. If Customer</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="342" x="248" y="8322.3105">has not consented to this the request should be rejected (not</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="74" x="248" y="8337.5449">shown here).</text><polygon fill="#A80036" points="545.5,8386.9844,555.5,8390.9844,545.5,8394.9844,549.5,8390.9844" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="551.5" y1="8390.9844" y2="8390.9844"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="296" x="244.5" y="8370.7856">GET /accounts/v1/accounts/{accountId}</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="200" x="244.5" y="8385.9185">Authorization: Bearer ...</text><polygon fill="#A80036" points="2299.5,8416.2188,2309.5,8420.2188,2299.5,8424.2188,2303.5,8420.2188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="2305.5" y1="8420.2188" y2="8420.2188"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="177" x="564.5" y="8415.0449">Check Client Certificate Validity</text><polygon fill="#A80036" points="568.5,8445.4531,558.5,8449.4531,568.5,8453.4531,564.5,8449.4531" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="2310.5" y1="8449.4531" y2="8449.4531"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="574.5" y="8444.2793">Response</text><polygon fill="#A80036" points="865.5,8489.7188,875.5,8493.7188,865.5,8497.7188,869.5,8493.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="871.5" y1="8493.7188" y2="8493.7188"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="296" x="564.5" y="8473.52">GET /accounts/v1/accounts/{accountId}</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="200" x="564.5" y="8488.6528">Authorization: Bearer ...</text><polygon fill="#A80036" points="1314.5,8518.9531,1324.5,8522.9531,1314.5,8526.9531,1318.5,8522.9531" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1320.5" y1="8522.9531" y2="8522.9531"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="192" x="884.5" y="8517.7793">Request Access Token properties</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1326.5" x2="1368.5" y1="8552.1875" y2="8552.1875"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1368.5" x2="1368.5" y1="8552.1875" y2="8565.1875"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1327.5" x2="1368.5" y1="8565.1875" y2="8565.1875"/><polygon fill="#A80036" points="1337.5,8561.1875,1327.5,8565.1875,1337.5,8569.1875,1333.5,8565.1875" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="191" x="1333.5" y="8547.0137">Retrieve Access Token properties</text><polygon fill="#A80036" points="888.5,8590.4219,878.5,8594.4219,888.5,8598.4219,884.5,8594.4219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1325.5" y1="8594.4219" y2="8594.4219"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="894.5" y="8589.248">Response</text><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="919.5" y1="8623.6563" y2="8623.6563"/><line style="stroke:#A80036;stroke-width:1.0;" x1="919.5" x2="919.5" y1="8623.6563" y2="8636.6563"/><line style="stroke:#A80036;stroke-width:1.0;" x1="878.5" x2="919.5" y1="8636.6563" y2="8636.6563"/><polygon fill="#A80036" points="888.5,8632.6563,878.5,8636.6563,888.5,8640.6563,884.5,8636.6563" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="203" x="884.5" y="8618.4824">Introspect Access Token properties</text><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="919.5" y1="8665.8906" y2="8665.8906"/><line style="stroke:#A80036;stroke-width:1.0;" x1="919.5" x2="919.5" y1="8665.8906" y2="8678.8906"/><line style="stroke:#A80036;stroke-width:1.0;" x1="878.5" x2="919.5" y1="8678.8906" y2="8678.8906"/><polygon fill="#A80036" points="888.5,8674.8906,878.5,8678.8906,888.5,8682.8906,884.5,8678.8906" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="125" x="884.5" y="8660.7168">Apply access controls</text><polygon fill="#A80036" points="1544.5,8704.0234,1554.5,8708.0234,1544.5,8712.0234,1548.5,8708.0234" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1550.5" y1="8708.0234" y2="8708.0234"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="296" x="884.5" y="8702.9575">GET /accounts/v1/accounts/{accountId}</text><polygon fill="#A80036" points="1969.5,8733.2578,1979.5,8737.2578,1969.5,8741.2578,1973.5,8737.2578" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1556.5" x2="1975.5" y1="8737.2578" y2="8737.2578"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="129" x="1563.5" y="8732.084">Get requested account</text><polygon fill="#A80036" points="1567.5,8762.4922,1557.5,8766.4922,1567.5,8770.4922,1563.5,8766.4922" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1561.5" x2="1980.5" y1="8766.4922" y2="8766.4922"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="1573.5" y="8761.3184">Response</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1556.5" x2="1598.5" y1="8795.7266" y2="8795.7266"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1598.5" x2="1598.5" y1="8795.7266" y2="8808.7266"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1557.5" x2="1598.5" y1="8808.7266" y2="8808.7266"/><polygon fill="#A80036" points="1567.5,8804.7266,1557.5,8808.7266,1567.5,8812.7266,1563.5,8808.7266" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="149" x="1563.5" y="8790.5527">Mediate response payload</text><polygon fill="#A80036" points="888.5,8833.8594,878.5,8837.8594,888.5,8841.8594,884.5,8837.8594" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1555.5" y1="8837.8594" y2="8837.8594"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="176" x="894.5" y="8832.7935">200 OK { "data": ... }</text><polygon fill="#A80036" points="568.5,8862.9922,558.5,8866.9922,568.5,8870.9922,564.5,8866.9922" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="876.5" y1="8866.9922" y2="8866.9922"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="176" x="574.5" y="8861.9263">200 OK { "data": ... }</text><polygon fill="#A80036" points="248.5,8892.125,238.5,8896.125,248.5,8900.125,244.5,8896.125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="242.5" x2="556.5" y1="8896.125" y2="8896.125"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="176" x="254.5" y="8891.0591">200 OK { "data": ... }</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="173.5" x2="2388" y1="8912.125" y2="8912.125"/><text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="98" x="178.5" y="8922.3301">[Payment Initiation]</text><path d="M242,8931.0156 L242,9009.0156 L693,9009.0156 L693,8941.0156 L683,8931.0156 L242,8931.0156 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M683,8931.0156 L683,8941.0156 L693,8941.0156 L683,8931.0156 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="103" x="248" y="8948.0762">Payment Initiation</text><line style="stroke:#A80036;stroke-width:1.0;" x1="243" x2="692" y1="8951.25" y2="8951.25"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="430" x="248" y="8967.3105">The TPP can now make the payment instruction request. The Access Token</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="394" x="248" y="8982.5449">is bound to this single operation and will be revoked once the payment</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="220" x="248" y="8997.7793">instruction is successfully transmitted.</text><polygon fill="#A80036" points="545.5,9036.0859,555.5,9040.0859,545.5,9044.0859,549.5,9040.0859" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="237.5" x2="551.5" y1="9040.0859" y2="9040.0859"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="240" x="244.5" y="9035.02">POST /payments/v1/pix/payments</text><polygon fill="#A80036" points="2299.5,9065.3203,2309.5,9069.3203,2299.5,9073.3203,2303.5,9069.3203" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="2305.5" y1="9069.3203" y2="9069.3203"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="177" x="564.5" y="9064.1465">Check Client Certificate Validity</text><polygon fill="#A80036" points="568.5,9094.5547,558.5,9098.5547,568.5,9102.5547,564.5,9098.5547" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="2310.5" y1="9098.5547" y2="9098.5547"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="574.5" y="9093.3809">Response</text><polygon fill="#A80036" points="865.5,9123.6875,875.5,9127.6875,865.5,9131.6875,869.5,9127.6875" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="557.5" x2="871.5" y1="9127.6875" y2="9127.6875"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="240" x="564.5" y="9122.6216">POST /payments/v1/pix/payments</text><path d="M882,9140.6875 L882,9195.6875 L1356,9195.6875 L1356,9150.6875 L1346,9140.6875 L882,9140.6875 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1346,9140.6875 L1346,9150.6875 L1356,9150.6875 L1346,9140.6875 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="453" x="888" y="9157.748">The approach to Access Token introspection remains the same under payments</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="435" x="888" y="9172.9824">i.e. the API Gateway will need an assertion that indicates the consent granted</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="315" x="888" y="9188.2168">by the Customer matches the payment being instructed.</text><polygon fill="#A80036" points="1314.5,9222.625,1324.5,9226.625,1314.5,9230.625,1318.5,9226.625" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1320.5" y1="9226.625" y2="9226.625"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="192" x="884.5" y="9221.4512">Request Access Token properties</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1326.5" x2="1368.5" y1="9255.8594" y2="9255.8594"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1368.5" x2="1368.5" y1="9255.8594" y2="9268.8594"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1327.5" x2="1368.5" y1="9268.8594" y2="9268.8594"/><polygon fill="#A80036" points="1337.5,9264.8594,1327.5,9268.8594,1337.5,9272.8594,1333.5,9268.8594" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="191" x="1333.5" y="9250.6855">Retrieve Access Token properties</text><polygon fill="#A80036" points="888.5,9294.0938,878.5,9298.0938,888.5,9302.0938,884.5,9298.0938" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1325.5" y1="9298.0938" y2="9298.0938"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="894.5" y="9292.9199">Response</text><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="919.5" y1="9327.3281" y2="9327.3281"/><line style="stroke:#A80036;stroke-width:1.0;" x1="919.5" x2="919.5" y1="9327.3281" y2="9340.3281"/><line style="stroke:#A80036;stroke-width:1.0;" x1="878.5" x2="919.5" y1="9340.3281" y2="9340.3281"/><polygon fill="#A80036" points="888.5,9336.3281,878.5,9340.3281,888.5,9344.3281,884.5,9340.3281" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="203" x="884.5" y="9322.1543">Introspect Access Token properties</text><path d="M882,9353.3281 L882,9423.3281 L1339,9423.3281 L1339,9363.3281 L1329,9353.3281 L882,9353.3281 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1329,9353.3281 L1329,9363.3281 L1339,9363.3281 L1329,9353.3281 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="392" x="888" y="9370.3887">On introspecting the Access Token the API Gateway will decorate the</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="421" x="888" y="9385.623">request with the debtor account which is stored with the Consent. This can</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="436" x="888" y="9400.8574">then be forwarded to the API Builder application and used to make the correct</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="251" x="888" y="9416.0918">payment instruction in the Banking Systems.</text><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="919.5" y1="9454.5" y2="9454.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="919.5" x2="919.5" y1="9454.5" y2="9467.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="878.5" x2="919.5" y1="9467.5" y2="9467.5"/><polygon fill="#A80036" points="888.5,9463.5,878.5,9467.5,888.5,9471.5,884.5,9467.5" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="213" x="884.5" y="9449.3262">Decorate request with debtor account</text><polygon fill="#A80036" points="1544.5,9492.6328,1554.5,9496.6328,1544.5,9500.6328,1548.5,9496.6328" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="877.5" x2="1550.5" y1="9496.6328" y2="9496.6328"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="240" x="884.5" y="9491.5669">POST /payments/v1/pix/payments</text><path d="M1561,9509.6328 L1561,9564.6328 L1963,9564.6328 L1963,9519.6328 L1953,9509.6328 L1561,9509.6328 " fill="#FBFB77" filter="url(#f1otvqi2ssuf6v)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1953,9509.6328 L1953,9519.6328 L1963,9519.6328 L1953,9509.6328 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="377" x="1567" y="9526.6934">This flow is non-normative and will vary on customer requirements.</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="8" x="1567" y="9541.9277">It</text><text fill="#000000" font-family="Roboto" font-size="13" font-style="italic" lengthAdjust="spacing" textLength="31" x="1578" y="9541.9277">could</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="336" x="1612" y="9541.9277">be to a PIX-compliant API or any other available mechanism</text><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="134" x="1567" y="9557.1621">to make a PIX payment.</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1556.5" x2="1598.5" y1="9595.5703" y2="9595.5703"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1598.5" x2="1598.5" y1="9595.5703" y2="9608.5703"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1557.5" x2="1598.5" y1="9608.5703" y2="9608.5703"/><polygon fill="#A80036" points="1567.5,9604.5703,1557.5,9608.5703,1567.5,9612.5703,1563.5,9608.5703" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="139" x="1563.5" y="9590.3965">Mediate request payload</text><polygon fill="#A80036" points="1969.5,9633.8047,1979.5,9637.8047,1969.5,9641.8047,1973.5,9637.8047" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1556.5" x2="1975.5" y1="9637.8047" y2="9637.8047"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="286" x="1563.5" y="9632.6309">Deliver payment instruction to Banking System API</text><polygon fill="#A80036" points="1567.5,9663.0391,1557.5,9667.0391,1567.5,9671.0391,1563.5,9667.0391" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1561.5" x2="1980.5" y1="9667.0391" y2="9667.0391"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="57" x="1573.5" y="9661.8652">Response</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1556.5" x2="1598.5" y1="9696.2734" y2="9696.2734"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1598.5" x2="1598.5" y1="9696.2734" y2="9709.2734"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1557.5" x2="1598.5" y1="9709.2734" y2="9709.2734"/><polygon fill="#A80036" points="1567.5,9705.2734,1557.5,9709.2734,1567.5,9713.2734,1563.5,9709.2734" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacing" textLength="149" x="1563.5" y="9691.0996">Mediate response payload</text><polygon fill="#A80036" points="888.5,9749.5391,878.5,9753.5391,888.5,9757.5391,884.5,9753.5391" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="882.5" x2="1555.5" y1="9753.5391" y2="9753.5391"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="88" x="894.5" y="9733.3403">201 Created</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="144" x="894.5" y="9748.4731">{paymentId: "..."}</text><polygon fill="#A80036" points="568.5,9793.8047,558.5,9797.8047,568.5,9801.8047,564.5,9797.8047" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="562.5" x2="876.5" y1="9797.8047" y2="9797.8047"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="88" x="574.5" y="9777.606">201 Created</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="144" x="574.5" y="9792.7388">{paymentId: "..."}</text><polygon fill="#A80036" points="248.5,9838.0703,238.5,9842.0703,248.5,9846.0703,244.5,9842.0703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="242.5" x2="556.5" y1="9842.0703" y2="9842.0703"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="88" x="254.5" y="9821.8716">201 Created</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="144" x="254.5" y="9837.0044">{paymentId: "..."}</text><!--MD5=[8b48aaa21c7ed66d67caca935a9eda32]
+@startuml Generic_Web_Journey_Sequence
+
+title \n\n\n
+
+actor "Customer" as PSU
+participant "Third-Party\nApp" as TPP
+
+box Infrastructure #6FA8DC
+participant "Ingress\nController" as INGRESS
+participant "API\nGateway" as API_GATEWAY
+end box
+
+box Identity and Access Control #94c47d
+participant "Identity Management\n- - -\nAuthorisation Server" as IAM
+participant "Consent\nManagement\n- - -\nConsent API" as CONSENT
+end box
+
+box Open Banking APIs #e06666
+participant "API\nBuilder" as API_BUILDER
+end box
+
+box Core Banking Applications #d5a6bd
+participant "Banking\nIdentity\nProvider" as ASPSP_WEB
+participant "Banking\nSystems" as ASPSP_API
+end box
+
+box Open Banking Directory
+participant "Participants\nList" as OBD_PARTICIPANTS
+participant "JSON Web\nKey Set" as OBD_JWKS
+end box
+
+participant "Certificate\nAuthority\n- - -\nOCSP Endpoint" as OCSP
+
+hide footbox
+skinparam defaultFontName Roboto
+skinparam BoxPadding 10
+
+note right of PSU
+Overview
+===
+This diagram shows the end-to-end web journey for obtaining Consent and starting to collect
+Account Information data. The goal is to place the components from the Architecture Overview
+in context.
+|||
+Note this diagram shows the means for the Client to authenticate at the Authorization Server
+as mutual authentication but this could equally be done using ""private_key_jwt"".
+end note
+
+== Part 1: TPP Obtains Customer Consent ==
+
+note right of PSU
+Obtaining Consent from the Customer is usually outside the scope of technical standards. The
+Customer Experience Guidelines in Brazil informs how Consent should be displayed and obtained.
+|||
+The specifics of this process are therefore not shown here. The Third-Party Provider (TPP) is
+assumed to have implemented this within the guidelines specified.
+end note
+
+PSU -> TPP: Indicate wish to share data
+PSU <- - TPP: Display "Intent"\ni.e. data to be accessed\nor payment to be made
+PSU -> TPP: Confirm intent
+PSU <- - TPP: Show bank selection screen
+PSU -> TPP: Confirm bank selection
+
+== Part 2: TPP Creates and Lodges "Intent" ==
+
+note right of TPP
+With the consent of the Consumer obtained the TPP can now call the Consent API at the correct
+bank. Note at this point Consent is usual termed "Intent" as it has yet to confirmed at the bank.
+end note
+
+TPP -> TPP: Create Intent payload
+
+note right of TPP
+Given the adherence to OpenID Connect Discovery in the standards TPPs are expected to collect
+OpenID Configuration information from participating banks.
+end note
+
+alt TPP has cached OpenID Configuration for bank 
+
+note right of TPP
+Do nothing
+end note
+
+else TPP retrieves OpenID Configuration for bank
+
+TPP -> OBD_PARTICIPANTS: Get List of Participants
+TPP <- - OBD_PARTICIPANTS: Response
+
+note right of TPP
+The discovery endpoint value is stored in the ""OpenIDDiscoveryDocument"" property of the banks
+entry in the list
+end note
+
+TPP -> TPP: Get Discovery endpoint for target bank
+
+note right of TPP
+This sequence diagram shows the OpenID Configuration hosted at the API Gateway. The mechanics
+of implemementing this are not prescribed by the Axway Open Banking solution as the information
+is essentially a static document that can be managed through a CMS. Customers should make their
+own judgement as to the best approach to managing this data.
+|||
+Note that if the OpenID configuration is hosted on the API Gateway it should **not** be a
+protected endpoint i.e. mutual authentication **should not** be enforced.
+end note
+
+TPP -> INGRESS: Retrieve OpenID Configuration
+INGRESS -> API_GATEWAY: Retrieve OpenID Configuration
+INGRESS <- - API_GATEWAY: Response
+TPP <- - INGRESS: Response
+
+end alt
+
+TPP -> TPP: Lookup Token endpoint\nfrom OpenID Configuration\n
+
+
+note right of TPP
+The TPP then uses the Client Credentials grant to obtain an Access Token to then
+lodge the Consent on behalf of the Consumer.
+|||
+These request will be made using Mutual TLS with a certificate signed by a 
+Certificate Authority whose certificate chain resolves at the Brazil ICP CA.
+|||
+The Kubernetes Ingress Controller is responsible for TLS termination and performing
+an OCSP call to the Certificate Authority to ensure the client certificate presented
+is valid. The fingerprint of the certificate will be forwarded to Identity Management
+to verify the validity of the OAuth Client as this cannot be asserted via OCSP.
+|||
+It should be noted that due to the adoption of the Mutual TLS profile for OAuth 2.0 in
+FAPI [[https://tools.ietf.org/id/draft-ietf-oauth-mtls-08.html (here)]] many Authorization Servers will bind Access Tokens to the
+client certificate presented when they were created. This is indicated in the OpenID Configuration
+through by the value of the ""tls_client_certificate_bound_access_tokens"" property.
+end note
+
+TPP -> INGRESS: ""POST /token""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /token""
+API_GATEWAY -> IAM: ""POST /token""
+IAM -> IAM: Verify Client
+API_GATEWAY <- IAM: ""200 OK""\n""{"access_token": "..."}""
+INGRESS <- - API_GATEWAY: ""200 OK""\n""{"access_token": "..."}""
+TPP <- - INGRESS: ""200 OK""\n""{"access_token": "..."}""
+
+alt TPP requires access to account for data
+
+note right of TPP
+**Account Information**
+- - -
+TPPs use a generic endpoint for Account Information that covers all
+account types (checking, credit card, loans, etc).
+end note
+
+TPP -> INGRESS: ""POST /consents/v1/consents""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /consents/v1/consents""
+
+else TPP requires access to account to initiate payment
+
+note right of TPP
+**Payment Initiation**
+- - -
+Payment Initiation has a dedicated endpoint that will be used
+to cover all payment rails (PIX, TED, etc).
+end note
+
+TPP -> INGRESS: ""POST /payments/v1/consents""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /payments/v1/consents""
+
+end alt
+
+API_GATEWAY -> CONSENT: Introspect Access Token
+CONSENT -> CONSENT: Retrieve Access Token properties
+API_GATEWAY <- - CONSENT: Response
+API_GATEWAY -> API_GATEWAY: Verify Access Token scope
+
+note right of API_GATEWAY
+The Consent API provides separate operations based on the type of consent i.e.
+account information, payments, etc. The API Gateway mediates the request and
+calls the operation appropriate to the consent in question.
+end note
+
+API_GATEWAY -> CONSENT: Lodge Consent
+API_GATEWAY <- - CONSENT: Return Consent ID
+API_GATEWAY -> API_GATEWAY: Format response
+INGRESS <- - API_GATEWAY: ""201 Created""\n""{"consentId": "..."}"" 
+TPP <- - INGRESS: ""201 Created""\n""{"consentId": "..."}"" 
+
+== Part 3: Customer is Redirected to Authorization Server ==
+
+note right of TPP
+**API Security Profile**
+- - -
+FAPI mandates the use of the [[https://openid.net/specs/openid-financial-api-part-2-ID2.html#authorization-server Authentication Request object]] which is defined in [[https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests Section 6]]
+of OpenID Connect Core. This is a JSON Web Singature that contains parameters
+normally found in the URL (redirect_uri, state, scope, etc)
+|||
+However, FAPI has been extended by the [[https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html API Security Profile for Brazil]] where 2
+alternatives are added to the Authorization Server (AS) in terms of Request parameter
+support:
+|||
+1. Request parameter passed in the URI that must be **signed and encrypted**.
+2. Request parameter passed by reference through [[https://datatracker.ietf.org/doc/html/draft-ietf-oauth-par Pushed Authorization Requests (PAR)]].
+|||
+Support for either approach should be included in the OpenID Configuration available
+through Discovery that banks are obliged to provide under the API Security Profile.
+Both options are shown in the sequence diagram.
+|||
+**Note that Axway Open Banking will initially support the first approach, namely a signed**
+**and encrypted JSON Web Token and introduce support for PAR in a later release.**
+end note
+
+TPP -> TPP: Create Request parameter
+
+' alt AS supports Request parameter passed by value
+
+note right of TPP
+The Signing and Encryption keys will be the private part of the pair signed by the Directory
+that can be referenced in the JSON Web Key Set maintained therein i.e. the key ID matches
+one of the TPPs JSON Web Keys.
+end note
+
+TPP -> TPP: Sign Request parameter with Signing Key
+TPP -> TPP: Encrypt Request parameter with Encryption Key
+TPP -> TPP: Create redirect URL including Request parameter
+
+' else AS supports PAR
+
+' note right of TPP
+' To create an Authorization request through PAR the TPP **must** authenticate using the same
+' method as they use at the Token endpoint.
+' end note
+
+' TPP -> TPP: Encode Request parameter in payload
+' TPP -> INGRESS: ""POST /par""
+' INGRESS -> OCSP: Check Client Certificate Validity
+' INGRESS <- - OCSP: Response
+' INGRESS -> API_GATEWAY: ""POST /par""
+' API_GATEWAY -> IAM: Authorization request
+' API_GATEWAY <- - IAM: Response
+' INGRESS <- - API_GATEWAY: ""201 Created""\n""{"request_uri": "..."}"" 
+' TPP <- - INGRESS: ""201 Created""\n""{"request_uri": "..."}"" 
+' TPP -> TPP: Create redirect URL including ""request_uri"" value
+
+' end alt
+
+PSU <- - TPP: Redirect customer
+PSU -> API_GATEWAY: Follow redirect
+
+note right of API_GATEWAY
+This is indicative as the Directory JWKS is likely to be cached for a
+period time i.e. the JWKS will not be retrieved on every Authentication
+Request.
+|||
+Note that this implementation is intended to provide strength-in-depth
+i.e. the API Gateway can verify the JSON Web Signature before handing
+off to Identity Management, therefore protecting it from unnecessary
+unsolicited requests.
+end note
+
+API_GATEWAY -> OBD_JWKS: Get JSON Web Key Set
+API_GATEWAY <- - OBD_JWKS: Response
+API_GATEWAY -> API_GATEWAY: Match Request parameter ""kid""
+API_GATEWAY -> API_GATEWAY: Verify Request parameter signature
+API_GATEWAY -> IAM: Forward Request parameter
+IAM -> IAM: Verify Request parameter
+IAM -> CONSENT: Request Consent by ID
+CONSENT -> CONSENT: Retrieve Consent
+IAM <- CONSENT: Response
+API_GATEWAY <- IAM: Return redirect URL
+
+== Part 4: Customer Authenticates and Authorizes Consent ==
+
+note right of PSU
+The following steps can vary according the bank's requirements
+for authentication and authorization but these steps provide
+an accurate overview in the context of the Axway Open Banking.
+end note
+
+PSU <- - API_GATEWAY: Redirect Customer
+PSU -> ASPSP_WEB: Follow Redirect
+ASPSP_WEB -> ASPSP_WEB: Verify redirect
+
+loop Request required number of authentication factors
+
+note right of PSU
+This loop is intended to be indicative and the actual
+mechanics are entirely dependent on the bank's
+implementation and their approach to user experience.
+end note
+
+PSU <- - ASPSP_WEB: Serve credentials input page
+PSU -> ASPSP_WEB: Submit credentials
+ASPSP_WEB -> ASPSP_WEB: Verify credentials
+
+end loop
+
+note right of INGRESS
+**Providing security for the Consent Management API should**
+**be reviewed on a case-by-case basis and implemented according**
+**to customer requirements.**
+|||
+This diagram shows an example of access to the Consent Management API
+being implemented via the Ingress Controller/API Gateway. Security
+is provided via an internal certificate which is **not** validated
+against ICP.
+end note
+
+ASPSP_WEB -> INGRESS: Get "Intent" properties
+INGRESS -> API_GATEWAY: Forward request
+API_GATEWAY -> CONSENT: Forward request
+CONSENT -> CONSENT: Retrieve "Intent"
+API_GATEWAY <- - CONSENT: Response
+INGRESS <- - API_GATEWAY: Response
+ASPSP_WEB <- - INGRESS: Response
+
+alt Account Information Consent
+
+note right of ASPSP_WEB
+**Account Information**
+- - -
+When creating the Consent Confirmation screen the
+permission codes held in the "Intent" need to be
+coverted to something that will be meaningful to the
+Customer. The wording should adhere to that detailed
+in the [[https://github.com/OpenBanking-Brasil/areadesenvolvedor/raw/gh-pages/documents/GuiaDeExperienciaDoUsuarioCompartilhamentoDeDadosEIniciacaoDePagamento_v3.02.03.pdf Customer Experience Guidelines]].
+end note
+
+else Payment Initiation Consent
+
+note right of ASPSP_WEB
+**Payment Initiation**
+- - -
+The Consent Confirmation screen requires the following properties to be displayed:
+* Transaction Value.
+* Recipient details (name, CPF/CNPJ).
+* Payment Date.
+* Payment method (currently fixed on PIX).
+* Fee amount charged by the bank (if any).
+end note
+
+par Request fee amount for payment
+
+note right of ASPSP_WEB
+Fees for payment must be provided from the Banking Systems
+end note
+
+ASPSP_WEB -> ASPSP_API: Request fee amount
+ASPSP_WEB <- - ASPSP_API: Response
+
+else
+
+alt Debtor account not provided in Consent
+
+note right of ASPSP_WEB
+If the debtor account has not been provided in the Consent then
+the customer's payment accounts will need to be retrieved:
+
+* If the customer only has one payment account then this is the default.
+* If they have multiple accounts they should be able to select one.
+
+This should be incorporated into the Consent Confirmation screen.
+end note
+
+ASPSP_WEB -> ASPSP_API: Request in-scope payment accounts
+ASPSP_WEB <- - ASPSP_API: Response
+
+else Debtor account provided in Consent
+
+note right of ASPSP_WEB
+If the debtor account has already been provided ownership of the
+account by the customer **must** be verified. This must be executed
+at the Banking Systems as they will understand the relationship
+between a (now authenticated) customer and the accounts they own.
+end note
+
+ASPSP_WEB -> ASPSP_API: Verify account ownership
+ASPSP_WEB <- - ASPSP_API: Response
+
+end alt
+
+end par
+
+end alt
+
+ASPSP_WEB -> ASPSP_WEB: Render Consent Confirmation screen
+PSU <- - ASPSP_WEB: Serve Consent Confirmation screen
+PSU -> ASPSP_WEB: Confirm consent is correct
+
+alt Account Information Consent
+
+note right of ASPSP_WEB
+**Account Information**
+- - -
+Once consent has been confirmed by the Customer the list of
+in-scope accounts will be retrieved from the Banking Systems.
+This list will obviously be dictated by the permission codes
+requested by the TPP i.e. if only ""ACCOUNTS_READ"" is requested
+then all other account types can be ignored.
+end note
+
+ASPSP_WEB -> ASPSP_API: Request in-scope Customer accounts
+ASPSP_WEB <- - ASPSP_API: Response
+
+ASPSP_WEB -> ASPSP_WEB: Render Account Selection screen
+PSU <- - ASPSP_WEB: Serve Account Selection screen
+PSU -> ASPSP_WEB: Send Account Selection
+
+end note
+
+ASPSP_WEB -> INGRESS: Store selected account ID(s)
+INGRESS -> API_GATEWAY: Forward request
+API_GATEWAY -> CONSENT: Forward request
+CONSENT -> CONSENT: Update "Intent" with Account IDs
+API_GATEWAY <- - CONSENT: Response
+INGRESS <- - API_GATEWAY: Response
+ASPSP_WEB <- - INGRESS: Response
+
+alt Customer is sole signatory on account or has power of attorney
+
+ASPSP_WEB -> INGRESS: Update Consent to\n""Authorized"" status
+INGRESS -> API_GATEWAY: Forward request
+API_GATEWAY -> CONSENT: Forward request
+CONSENT -> CONSENT: Update Consent to\n""Authorized"" status
+API_GATEWAY <- - CONSENT: Response
+INGRESS <- - API_GATEWAY: Response
+ASPSP_WEB <- - INGRESS: Response
+
+else Multiple authorizations required
+
+note right of INGRESS
+Multi-party authorization is covered in a separate sequence diagram.
+end note
+
+end alt
+
+note right of PSU
+The Customer is redirected back to the Axway Open Banking stack from
+the bank's Identity Provider in order to complete Hybrid Flow.
+The hand-off is constrained using a number of parameters included
+in the redirect URI to help safeguard this process i.e. to prevent
+unsolicited authentication attempts or session takeover.
+end note
+
+PSU <- - ASPSP_WEB: Redirect Customer\nback to API Gateway
+PSU -> INGRESS: Follow redirect
+INGRESS -> API_GATEWAY: Follow redirect
+API_GATEWAY -> IAM: Forward redirect parameters
+IAM -> IAM: Verify redirect
+IAM -> IAM: Mint Authorization Code\nand ID Token
+
+note right of IAM
+At this point the Identity Management module mints a redirect
+URI that will take the Customer back to the Third-Party App.
+The URI includes the Authorization Code and parameters that
+adhere to the API Security Profile for Brazil.
+end note
+
+API_GATEWAY <- - IAM: Return redirect
+INGRESS <- - API_GATEWAY: Return redirect
+PSU <- - INGRESS: Redirect Customer
+PSU -> TPP: Follow Redirect
+
+== Part 5: TPP Swaps Authorization Code for Access Token ==
+
+TPP -> TPP: Verify redirect including\nID Token signature, nonce and s_hash value
+TPP -> INGRESS: ""POST /token""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /token""
+API_GATEWAY -> IAM: ""POST /token""
+IAM -> IAM: Validate Token Request
+IAM -> IAM: Mint ID, Access and Refresh Tokens
+API_GATEWAY <- - IAM: ""200 OK""\n""{"access_token": "..."}""
+INGRESS <- - API_GATEWAY: ""200 OK""\n""{"access_token": "..."}""
+TPP <- - INGRESS: ""200 OK""\n""{"access_token": "..."}""
+
+== Part 6: TPP Gets Data from Account ==
+
+alt Account Information
+
+note right of TPP
+**Account Information**
+- - -
+The retrieval of account data happens in two stages:
+
+1. The TPP requests the available resources at the Resources API.
+2. Using the identifiers returned they can request account data.
+end note
+
+group Get all resource identifiers
+
+note right of TPP
+The TPP will require the ""RESOURCES_READ"" permission to access
+the ""/resources"" endpoint. If Customer has not consented to this
+the request should be rejected (not shown here).
+end note
+
+TPP -> INGRESS: ""GET /resources/v1/resources""\n""Authorization: Bearer ...""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""GET /resources/v1/resources""\n""Authorization: Bearer ...""
+API_GATEWAY -> CONSENT: Request Access Token properties
+CONSENT -> CONSENT: Retrieve Access Token properties
+API_GATEWAY <- - CONSENT: Response
+API_GATEWAY -> API_GATEWAY: Introspect Access Token properties
+API_GATEWAY -> API_GATEWAY: Apply access controls
+API_GATEWAY -> API_BUILDER: ""GET /resources/v1/resources""
+API_BUILDER -> ASPSP_API: Get available resources for Customer
+API_BUILDER <- - ASPSP_API: Response
+API_BUILDER -> API_BUILDER: Mediate response payload
+API_GATEWAY <- - API_BUILDER: ""200 OK { "data": ... }""
+INGRESS <- - API_GATEWAY: ""200 OK { "data": ... }""
+TPP <- - INGRESS: ""200 OK { "data": ... }""
+
+end group
+
+loop For each Account ID returned from ""/resources""
+
+note right of TPP
+In this example the TPP only has access to checking accounts.
+They will require the ""ACCOUNTS_READ"" permission to access
+the ""/accounts/v1/accounts/{accountId}"" endpoint. If Customer
+has not consented to this the request should be rejected (not
+shown here).
+end note
+
+TPP -> INGRESS: ""GET /accounts/v1/accounts/{accountId}""\n""Authorization: Bearer ...""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""GET /accounts/v1/accounts/{accountId}""\n""Authorization: Bearer ...""
+API_GATEWAY -> CONSENT: Request Access Token properties
+CONSENT -> CONSENT: Retrieve Access Token properties
+API_GATEWAY <- - CONSENT: Response
+API_GATEWAY -> API_GATEWAY: Introspect Access Token properties
+API_GATEWAY -> API_GATEWAY: Apply access controls
+API_GATEWAY -> API_BUILDER: ""GET /accounts/v1/accounts/{accountId}""
+API_BUILDER -> ASPSP_API: Get requested account
+API_BUILDER <- - ASPSP_API: Response
+API_BUILDER -> API_BUILDER: Mediate response payload
+API_GATEWAY <- - API_BUILDER: ""200 OK { "data": ... }""
+INGRESS <- - API_GATEWAY: ""200 OK { "data": ... }""
+TPP <- - INGRESS: ""200 OK { "data": ... }""
+end loop
+
+else Payment Initiation
+
+note right of TPP
+**Payment Initiation**
+- - -
+The TPP can now make the payment instruction request. The Access Token
+is bound to this single operation and will be revoked once the payment
+instruction is successfully transmitted.
+end note
+
+TPP -> INGRESS: ""POST /payments/v1/pix/payments""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /payments/v1/pix/payments""
+
+note right of API_GATEWAY
+The approach to Access Token introspection remains the same under payments
+i.e. the API Gateway will need an assertion that indicates the consent granted
+by the Customer matches the payment being instructed.
+end note
+
+API_GATEWAY -> CONSENT: Request Access Token properties
+CONSENT -> CONSENT: Retrieve Access Token properties
+API_GATEWAY <- - CONSENT: Response
+API_GATEWAY -> API_GATEWAY: Introspect Access Token properties
+
+note right of API_GATEWAY
+On introspecting the Access Token the API Gateway will decorate the
+request with the debtor account which is stored with the Consent. This can
+then be forwarded to the API Builder application and used to make the correct
+payment instruction in the Banking Systems.
+end note
+
+API_GATEWAY -> API_GATEWAY: Decorate request with debtor account
+API_GATEWAY -> API_BUILDER: ""POST /payments/v1/pix/payments""
+
+note right of API_BUILDER
+This flow is non-normative and will vary on customer requirements.
+It //could// be to a PIX-compliant API or any other available mechanism
+to make a PIX payment.
+end note
+
+API_BUILDER -> API_BUILDER: Mediate request payload
+API_BUILDER -> ASPSP_API: Deliver payment instruction to Banking System API
+API_BUILDER <- - ASPSP_API: Response
+API_BUILDER -> API_BUILDER: Mediate response payload
+API_GATEWAY <- - API_BUILDER: ""201 Created""\n""{paymentId: "..."}""
+INGRESS <- - API_GATEWAY: ""201 Created""\n""{paymentId: "..."}""
+TPP <- - INGRESS: ""201 Created""\n""{paymentId: "..."}""
+
+end alt
+
+@enduml
+
+@startuml Generic_Web_Journey_Sequence
+
+title \n\n\n
+
+actor "Customer" as PSU
+participant "Third-Party\nApp" as TPP
+
+box Infrastructure #6FA8DC
+participant "Ingress\nController" as INGRESS
+participant "API\nGateway" as API_GATEWAY
+end box
+
+box Identity and Access Control #94c47d
+participant "Identity Management\n- - -\nAuthorisation Server" as IAM
+participant "Consent\nManagement\n- - -\nConsent API" as CONSENT
+end box
+
+box Open Banking APIs #e06666
+participant "API\nBuilder" as API_BUILDER
+end box
+
+box Core Banking Applications #d5a6bd
+participant "Banking\nIdentity\nProvider" as ASPSP_WEB
+participant "Banking\nSystems" as ASPSP_API
+end box
+
+box Open Banking Directory
+participant "Participants\nList" as OBD_PARTICIPANTS
+participant "JSON Web\nKey Set" as OBD_JWKS
+end box
+
+participant "Certificate\nAuthority\n- - -\nOCSP Endpoint" as OCSP
+
+hide footbox
+skinparam defaultFontName Roboto
+skinparam BoxPadding 10
+
+note right of PSU
+Overview
+===
+This diagram shows the end-to-end web journey for obtaining Consent and starting to collect
+Account Information data. The goal is to place the components from the Architecture Overview
+in context.
+|||
+Note this diagram shows the means for the Client to authenticate at the Authorization Server
+as mutual authentication but this could equally be done using ""private_key_jwt"".
+end note
+
+== Part 1: TPP Obtains Customer Consent ==
+
+note right of PSU
+Obtaining Consent from the Customer is usually outside the scope of technical standards. The
+Customer Experience Guidelines in Brazil informs how Consent should be displayed and obtained.
+|||
+The specifics of this process are therefore not shown here. The Third-Party Provider (TPP) is
+assumed to have implemented this within the guidelines specified.
+end note
+
+PSU -> TPP: Indicate wish to share data
+PSU <- - TPP: Display "Intent"\ni.e. data to be accessed\nor payment to be made
+PSU -> TPP: Confirm intent
+PSU <- - TPP: Show bank selection screen
+PSU -> TPP: Confirm bank selection
+
+== Part 2: TPP Creates and Lodges "Intent" ==
+
+note right of TPP
+With the consent of the Consumer obtained the TPP can now call the Consent API at the correct
+bank. Note at this point Consent is usual termed "Intent" as it has yet to confirmed at the bank.
+end note
+
+TPP -> TPP: Create Intent payload
+
+note right of TPP
+Given the adherence to OpenID Connect Discovery in the standards TPPs are expected to collect
+OpenID Configuration information from participating banks.
+end note
+
+alt TPP has cached OpenID Configuration for bank 
+
+note right of TPP
+Do nothing
+end note
+
+else TPP retrieves OpenID Configuration for bank
+
+TPP -> OBD_PARTICIPANTS: Get List of Participants
+TPP <- - OBD_PARTICIPANTS: Response
+
+note right of TPP
+The discovery endpoint value is stored in the ""OpenIDDiscoveryDocument"" property of the banks
+entry in the list
+end note
+
+TPP -> TPP: Get Discovery endpoint for target bank
+
+note right of TPP
+This sequence diagram shows the OpenID Configuration hosted at the API Gateway. The mechanics
+of implemementing this are not prescribed by the Axway Open Banking solution as the information
+is essentially a static document that can be managed through a CMS. Customers should make their
+own judgement as to the best approach to managing this data.
+|||
+Note that if the OpenID configuration is hosted on the API Gateway it should **not** be a
+protected endpoint i.e. mutual authentication **should not** be enforced.
+end note
+
+TPP -> INGRESS: Retrieve OpenID Configuration
+INGRESS -> API_GATEWAY: Retrieve OpenID Configuration
+INGRESS <- - API_GATEWAY: Response
+TPP <- - INGRESS: Response
+
+end alt
+
+TPP -> TPP: Lookup Token endpoint\nfrom OpenID Configuration\n
+
+
+note right of TPP
+The TPP then uses the Client Credentials grant to obtain an Access Token to then
+lodge the Consent on behalf of the Consumer.
+|||
+These request will be made using Mutual TLS with a certificate signed by a 
+Certificate Authority whose certificate chain resolves at the Brazil ICP CA.
+|||
+The Kubernetes Ingress Controller is responsible for TLS termination and performing
+an OCSP call to the Certificate Authority to ensure the client certificate presented
+is valid. The fingerprint of the certificate will be forwarded to Identity Management
+to verify the validity of the OAuth Client as this cannot be asserted via OCSP.
+|||
+It should be noted that due to the adoption of the Mutual TLS profile for OAuth 2.0 in
+FAPI [[https://tools.ietf.org/id/draft-ietf-oauth-mtls-08.html (here)]] many Authorization Servers will bind Access Tokens to the
+client certificate presented when they were created. This is indicated in the OpenID Configuration
+through by the value of the ""tls_client_certificate_bound_access_tokens"" property.
+end note
+
+TPP -> INGRESS: ""POST /token""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /token""
+API_GATEWAY -> IAM: ""POST /token""
+IAM -> IAM: Verify Client
+API_GATEWAY <- IAM: ""200 OK""\n""{"access_token": "..."}""
+INGRESS <- - API_GATEWAY: ""200 OK""\n""{"access_token": "..."}""
+TPP <- - INGRESS: ""200 OK""\n""{"access_token": "..."}""
+
+alt TPP requires access to account for data
+
+note right of TPP
+**Account Information**
+- - -
+TPPs use a generic endpoint for Account Information that covers all
+account types (checking, credit card, loans, etc).
+end note
+
+TPP -> INGRESS: ""POST /consents/v1/consents""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /consents/v1/consents""
+
+else TPP requires access to account to initiate payment
+
+note right of TPP
+**Payment Initiation**
+- - -
+Payment Initiation has a dedicated endpoint that will be used
+to cover all payment rails (PIX, TED, etc).
+end note
+
+TPP -> INGRESS: ""POST /payments/v1/consents""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /payments/v1/consents""
+
+end alt
+
+API_GATEWAY -> CONSENT: Introspect Access Token
+CONSENT -> CONSENT: Retrieve Access Token properties
+API_GATEWAY <- - CONSENT: Response
+API_GATEWAY -> API_GATEWAY: Verify Access Token scope
+
+note right of API_GATEWAY
+The Consent API provides separate operations based on the type of consent i.e.
+account information, payments, etc. The API Gateway mediates the request and
+calls the operation appropriate to the consent in question.
+end note
+
+API_GATEWAY -> CONSENT: Lodge Consent
+API_GATEWAY <- - CONSENT: Return Consent ID
+API_GATEWAY -> API_GATEWAY: Format response
+INGRESS <- - API_GATEWAY: ""201 Created""\n""{"consentId": "..."}"" 
+TPP <- - INGRESS: ""201 Created""\n""{"consentId": "..."}"" 
+
+== Part 3: Customer is Redirected to Authorization Server ==
+
+note right of TPP
+**API Security Profile**
+- - -
+FAPI mandates the use of the [[https://openid.net/specs/openid-financial-api-part-2-ID2.html#authorization-server Authentication Request object]] which is defined in [[https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests Section 6]]
+of OpenID Connect Core. This is a JSON Web Singature that contains parameters
+normally found in the URL (redirect_uri, state, scope, etc)
+|||
+However, FAPI has been extended by the [[https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html API Security Profile for Brazil]] where 2
+alternatives are added to the Authorization Server (AS) in terms of Request parameter
+support:
+|||
+1. Request parameter passed in the URI that must be **signed and encrypted**.
+2. Request parameter passed by reference through [[https://datatracker.ietf.org/doc/html/draft-ietf-oauth-par Pushed Authorization Requests (PAR)]].
+|||
+Support for either approach should be included in the OpenID Configuration available
+through Discovery that banks are obliged to provide under the API Security Profile.
+Both options are shown in the sequence diagram.
+|||
+**Note that Axway Open Banking will initially support the first approach, namely a signed**
+**and encrypted JSON Web Token and introduce support for PAR in a later release.**
+end note
+
+TPP -> TPP: Create Request parameter
+
+
+note right of TPP
+The Signing and Encryption keys will be the private part of the pair signed by the Directory
+that can be referenced in the JSON Web Key Set maintained therein i.e. the key ID matches
+one of the TPPs JSON Web Keys.
+end note
+
+TPP -> TPP: Sign Request parameter with Signing Key
+TPP -> TPP: Encrypt Request parameter with Encryption Key
+TPP -> TPP: Create redirect URL including Request parameter
+
+
+
+
+
+PSU <- - TPP: Redirect customer
+PSU -> API_GATEWAY: Follow redirect
+
+note right of API_GATEWAY
+This is indicative as the Directory JWKS is likely to be cached for a
+period time i.e. the JWKS will not be retrieved on every Authentication
+Request.
+|||
+Note that this implementation is intended to provide strength-in-depth
+i.e. the API Gateway can verify the JSON Web Signature before handing
+off to Identity Management, therefore protecting it from unnecessary
+unsolicited requests.
+end note
+
+API_GATEWAY -> OBD_JWKS: Get JSON Web Key Set
+API_GATEWAY <- - OBD_JWKS: Response
+API_GATEWAY -> API_GATEWAY: Match Request parameter ""kid""
+API_GATEWAY -> API_GATEWAY: Verify Request parameter signature
+API_GATEWAY -> IAM: Forward Request parameter
+IAM -> IAM: Verify Request parameter
+IAM -> CONSENT: Request Consent by ID
+CONSENT -> CONSENT: Retrieve Consent
+IAM <- CONSENT: Response
+API_GATEWAY <- IAM: Return redirect URL
+
+== Part 4: Customer Authenticates and Authorizes Consent ==
+
+note right of PSU
+The following steps can vary according the bank's requirements
+for authentication and authorization but these steps provide
+an accurate overview in the context of the Axway Open Banking.
+end note
+
+PSU <- - API_GATEWAY: Redirect Customer
+PSU -> ASPSP_WEB: Follow Redirect
+ASPSP_WEB -> ASPSP_WEB: Verify redirect
+
+loop Request required number of authentication factors
+
+note right of PSU
+This loop is intended to be indicative and the actual
+mechanics are entirely dependent on the bank's
+implementation and their approach to user experience.
+end note
+
+PSU <- - ASPSP_WEB: Serve credentials input page
+PSU -> ASPSP_WEB: Submit credentials
+ASPSP_WEB -> ASPSP_WEB: Verify credentials
+
+end loop
+
+note right of INGRESS
+**Providing security for the Consent Management API should**
+**be reviewed on a case-by-case basis and implemented according**
+**to customer requirements.**
+|||
+This diagram shows an example of access to the Consent Management API
+being implemented via the Ingress Controller/API Gateway. Security
+is provided via an internal certificate which is **not** validated
+against ICP.
+end note
+
+ASPSP_WEB -> INGRESS: Get "Intent" properties
+INGRESS -> API_GATEWAY: Forward request
+API_GATEWAY -> CONSENT: Forward request
+CONSENT -> CONSENT: Retrieve "Intent"
+API_GATEWAY <- - CONSENT: Response
+INGRESS <- - API_GATEWAY: Response
+ASPSP_WEB <- - INGRESS: Response
+
+alt Account Information Consent
+
+note right of ASPSP_WEB
+**Account Information**
+- - -
+When creating the Consent Confirmation screen the
+permission codes held in the "Intent" need to be
+coverted to something that will be meaningful to the
+Customer. The wording should adhere to that detailed
+in the [[https://github.com/OpenBanking-Brasil/areadesenvolvedor/raw/gh-pages/documents/GuiaDeExperienciaDoUsuarioCompartilhamentoDeDadosEIniciacaoDePagamento_v3.02.03.pdf Customer Experience Guidelines]].
+end note
+
+else Payment Initiation Consent
+
+note right of ASPSP_WEB
+**Payment Initiation**
+- - -
+The Consent Confirmation screen requires the following properties to be displayed:
+* Transaction Value.
+* Recipient details (name, CPF/CNPJ).
+* Payment Date.
+* Payment method (currently fixed on PIX).
+* Fee amount charged by the bank (if any).
+end note
+
+par Request fee amount for payment
+
+note right of ASPSP_WEB
+Fees for payment must be provided from the Banking Systems
+end note
+
+ASPSP_WEB -> ASPSP_API: Request fee amount
+ASPSP_WEB <- - ASPSP_API: Response
+
+else
+
+alt Debtor account not provided in Consent
+
+note right of ASPSP_WEB
+If the debtor account has not been provided in the Consent then
+the customer's payment accounts will need to be retrieved:
+
+* If the customer only has one payment account then this is the default.
+* If they have multiple accounts they should be able to select one.
+
+This should be incorporated into the Consent Confirmation screen.
+end note
+
+ASPSP_WEB -> ASPSP_API: Request in-scope payment accounts
+ASPSP_WEB <- - ASPSP_API: Response
+
+else Debtor account provided in Consent
+
+note right of ASPSP_WEB
+If the debtor account has already been provided ownership of the
+account by the customer **must** be verified. This must be executed
+at the Banking Systems as they will understand the relationship
+between a (now authenticated) customer and the accounts they own.
+end note
+
+ASPSP_WEB -> ASPSP_API: Verify account ownership
+ASPSP_WEB <- - ASPSP_API: Response
+
+end alt
+
+end par
+
+end alt
+
+ASPSP_WEB -> ASPSP_WEB: Render Consent Confirmation screen
+PSU <- - ASPSP_WEB: Serve Consent Confirmation screen
+PSU -> ASPSP_WEB: Confirm consent is correct
+
+alt Account Information Consent
+
+note right of ASPSP_WEB
+**Account Information**
+- - -
+Once consent has been confirmed by the Customer the list of
+in-scope accounts will be retrieved from the Banking Systems.
+This list will obviously be dictated by the permission codes
+requested by the TPP i.e. if only ""ACCOUNTS_READ"" is requested
+then all other account types can be ignored.
+end note
+
+ASPSP_WEB -> ASPSP_API: Request in-scope Customer accounts
+ASPSP_WEB <- - ASPSP_API: Response
+
+ASPSP_WEB -> ASPSP_WEB: Render Account Selection screen
+PSU <- - ASPSP_WEB: Serve Account Selection screen
+PSU -> ASPSP_WEB: Send Account Selection
+
+end note
+
+ASPSP_WEB -> INGRESS: Store selected account ID(s)
+INGRESS -> API_GATEWAY: Forward request
+API_GATEWAY -> CONSENT: Forward request
+CONSENT -> CONSENT: Update "Intent" with Account IDs
+API_GATEWAY <- - CONSENT: Response
+INGRESS <- - API_GATEWAY: Response
+ASPSP_WEB <- - INGRESS: Response
+
+alt Customer is sole signatory on account or has power of attorney
+
+ASPSP_WEB -> INGRESS: Update Consent to\n""Authorized"" status
+INGRESS -> API_GATEWAY: Forward request
+API_GATEWAY -> CONSENT: Forward request
+CONSENT -> CONSENT: Update Consent to\n""Authorized"" status
+API_GATEWAY <- - CONSENT: Response
+INGRESS <- - API_GATEWAY: Response
+ASPSP_WEB <- - INGRESS: Response
+
+else Multiple authorizations required
+
+note right of INGRESS
+Multi-party authorization is covered in a separate sequence diagram.
+end note
+
+end alt
+
+note right of PSU
+The Customer is redirected back to the Axway Open Banking stack from
+the bank's Identity Provider in order to complete Hybrid Flow.
+The hand-off is constrained using a number of parameters included
+in the redirect URI to help safeguard this process i.e. to prevent
+unsolicited authentication attempts or session takeover.
+end note
+
+PSU <- - ASPSP_WEB: Redirect Customer\nback to API Gateway
+PSU -> INGRESS: Follow redirect
+INGRESS -> API_GATEWAY: Follow redirect
+API_GATEWAY -> IAM: Forward redirect parameters
+IAM -> IAM: Verify redirect
+IAM -> IAM: Mint Authorization Code\nand ID Token
+
+note right of IAM
+At this point the Identity Management module mints a redirect
+URI that will take the Customer back to the Third-Party App.
+The URI includes the Authorization Code and parameters that
+adhere to the API Security Profile for Brazil.
+end note
+
+API_GATEWAY <- - IAM: Return redirect
+INGRESS <- - API_GATEWAY: Return redirect
+PSU <- - INGRESS: Redirect Customer
+PSU -> TPP: Follow Redirect
+
+== Part 5: TPP Swaps Authorization Code for Access Token ==
+
+TPP -> TPP: Verify redirect including\nID Token signature, nonce and s_hash value
+TPP -> INGRESS: ""POST /token""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /token""
+API_GATEWAY -> IAM: ""POST /token""
+IAM -> IAM: Validate Token Request
+IAM -> IAM: Mint ID, Access and Refresh Tokens
+API_GATEWAY <- - IAM: ""200 OK""\n""{"access_token": "..."}""
+INGRESS <- - API_GATEWAY: ""200 OK""\n""{"access_token": "..."}""
+TPP <- - INGRESS: ""200 OK""\n""{"access_token": "..."}""
+
+== Part 6: TPP Gets Data from Account ==
+
+alt Account Information
+
+note right of TPP
+**Account Information**
+- - -
+The retrieval of account data happens in two stages:
+
+1. The TPP requests the available resources at the Resources API.
+2. Using the identifiers returned they can request account data.
+end note
+
+group Get all resource identifiers
+
+note right of TPP
+The TPP will require the ""RESOURCES_READ"" permission to access
+the ""/resources"" endpoint. If Customer has not consented to this
+the request should be rejected (not shown here).
+end note
+
+TPP -> INGRESS: ""GET /resources/v1/resources""\n""Authorization: Bearer ...""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""GET /resources/v1/resources""\n""Authorization: Bearer ...""
+API_GATEWAY -> CONSENT: Request Access Token properties
+CONSENT -> CONSENT: Retrieve Access Token properties
+API_GATEWAY <- - CONSENT: Response
+API_GATEWAY -> API_GATEWAY: Introspect Access Token properties
+API_GATEWAY -> API_GATEWAY: Apply access controls
+API_GATEWAY -> API_BUILDER: ""GET /resources/v1/resources""
+API_BUILDER -> ASPSP_API: Get available resources for Customer
+API_BUILDER <- - ASPSP_API: Response
+API_BUILDER -> API_BUILDER: Mediate response payload
+API_GATEWAY <- - API_BUILDER: ""200 OK { "data": ... }""
+INGRESS <- - API_GATEWAY: ""200 OK { "data": ... }""
+TPP <- - INGRESS: ""200 OK { "data": ... }""
+
+end group
+
+loop For each Account ID returned from ""/resources""
+
+note right of TPP
+In this example the TPP only has access to checking accounts.
+They will require the ""ACCOUNTS_READ"" permission to access
+the ""/accounts/v1/accounts/{accountId}"" endpoint. If Customer
+has not consented to this the request should be rejected (not
+shown here).
+end note
+
+TPP -> INGRESS: ""GET /accounts/v1/accounts/{accountId}""\n""Authorization: Bearer ...""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""GET /accounts/v1/accounts/{accountId}""\n""Authorization: Bearer ...""
+API_GATEWAY -> CONSENT: Request Access Token properties
+CONSENT -> CONSENT: Retrieve Access Token properties
+API_GATEWAY <- - CONSENT: Response
+API_GATEWAY -> API_GATEWAY: Introspect Access Token properties
+API_GATEWAY -> API_GATEWAY: Apply access controls
+API_GATEWAY -> API_BUILDER: ""GET /accounts/v1/accounts/{accountId}""
+API_BUILDER -> ASPSP_API: Get requested account
+API_BUILDER <- - ASPSP_API: Response
+API_BUILDER -> API_BUILDER: Mediate response payload
+API_GATEWAY <- - API_BUILDER: ""200 OK { "data": ... }""
+INGRESS <- - API_GATEWAY: ""200 OK { "data": ... }""
+TPP <- - INGRESS: ""200 OK { "data": ... }""
+end loop
+
+else Payment Initiation
+
+note right of TPP
+**Payment Initiation**
+- - -
+The TPP can now make the payment instruction request. The Access Token
+is bound to this single operation and will be revoked once the payment
+instruction is successfully transmitted.
+end note
+
+TPP -> INGRESS: ""POST /payments/v1/pix/payments""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <- - OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /payments/v1/pix/payments""
+
+note right of API_GATEWAY
+The approach to Access Token introspection remains the same under payments
+i.e. the API Gateway will need an assertion that indicates the consent granted
+by the Customer matches the payment being instructed.
+end note
+
+API_GATEWAY -> CONSENT: Request Access Token properties
+CONSENT -> CONSENT: Retrieve Access Token properties
+API_GATEWAY <- - CONSENT: Response
+API_GATEWAY -> API_GATEWAY: Introspect Access Token properties
+
+note right of API_GATEWAY
+On introspecting the Access Token the API Gateway will decorate the
+request with the debtor account which is stored with the Consent. This can
+then be forwarded to the API Builder application and used to make the correct
+payment instruction in the Banking Systems.
+end note
+
+API_GATEWAY -> API_GATEWAY: Decorate request with debtor account
+API_GATEWAY -> API_BUILDER: ""POST /payments/v1/pix/payments""
+
+note right of API_BUILDER
+This flow is non-normative and will vary on customer requirements.
+It //could// be to a PIX-compliant API or any other available mechanism
+to make a PIX payment.
+end note
+
+API_BUILDER -> API_BUILDER: Mediate request payload
+API_BUILDER -> ASPSP_API: Deliver payment instruction to Banking System API
+API_BUILDER <- - ASPSP_API: Response
+API_BUILDER -> API_BUILDER: Mediate response payload
+API_GATEWAY <- - API_BUILDER: ""201 Created""\n""{paymentId: "..."}""
+INGRESS <- - API_GATEWAY: ""201 Created""\n""{paymentId: "..."}""
+TPP <- - INGRESS: ""201 Created""\n""{paymentId: "..."}""
+
+end alt
+
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 13:40:07 BST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: GB
+--></g></svg>
