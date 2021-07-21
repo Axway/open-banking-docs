@@ -1,0 +1,640 @@
+@startuml Generic_Web_Journey_Sequence
+
+title \n\n\n
+
+actor "Customer" as PSU
+participant "Third-Party\nApp" as TPP
+
+box Infrastructure #6FA8DC
+participant "Ingress\nController" as INGRESS
+participant "API\nGateway" as API_GATEWAY
+end box
+
+box Identity and Access Control #94c47d
+participant "Identity Management\n---\nAuthorisation Server" as IAM
+participant "Consent\nManagement\n---\nACP API" as CONSENT
+end box
+
+box Open Banking APIs #e06666
+participant "API\nBuilder" as API_BUILDER
+end box
+
+box Core Banking Applications #d5a6bd
+participant "Banking\nIdentity\nProvider" as ASPSP_WEB
+participant "Banking\nSystems" as ASPSP_API
+end box
+
+box Open Banking Directory
+participant "Participants\nList" as OBD_PARTICIPANTS
+participant "JSON Web\nKey Set" as OBD_JWKS
+end box
+
+participant "Certificate\nAuthority\n---\nOCSP Endpoint" as OCSP
+
+hide footbox
+skinparam defaultFontName Roboto
+skinparam BoxPadding 10
+
+note right of PSU
+Overview
+===
+This diagram shows the end-to-end web journey for obtaining Consent and starting to collect
+Account Information data. The goal is to place the components from the Architecture Overview
+in context.
+|||
+Note this diagram shows the means for the Client to authenticate at the Authorization Server
+as mutual authentication but this could equally be done using ""private_key_jwt"".
+end note
+
+== Part 1: TPP Obtains Customer Consent ==
+
+note right of PSU
+Obtaining Consent from the Customer is usually outside the scope of technical standards. The
+Customer Experience Guidelines in Brazil informs how Consent should be displayed and obtained.
+|||
+The specifics of this process are therefore not shown here. The Third-Party Provider (TPP) is
+assumed to have implemented this within the guidelines specified.
+end note
+
+PSU -> TPP: Indicate wish to share data
+PSU <-- TPP: Display "Intent"\ni.e. data to be accessed\nor payment to be made
+PSU -> TPP: Confirm intent
+PSU <-- TPP: Show bank selection screen
+PSU -> TPP: Confirm bank selection
+
+== Part 2: TPP Creates and Lodges "Intent" ==
+
+note right of TPP
+With the consent of the Consumer obtained the TPP can now call the Authorization Control Plane
+(ACP) API at the correct bank. Note at this point Consent is usual termed "Intent" as it has
+yet to confirmed at the bank.
+end note
+
+TPP -> TPP: Create Intent payload
+
+note right of TPP
+Given the adherence to OpenID Connect Discovery in the standards TPPs are expected to collect
+OpenID Configuration information from participating banks.
+end note
+
+alt TPP has cached OpenID Configuration for bank 
+
+note right of TPP
+Do nothing
+end note
+
+else TPP retrieves OpenID Configuration for bank
+
+TPP -> OBD_PARTICIPANTS: Get List of Participants
+TPP <-- OBD_PARTICIPANTS: Response
+
+note right of TPP
+The discovery endpoint value is stored in the ""OpenIDDiscoveryDocument"" property of the banks
+entry in the list
+end note
+
+TPP -> TPP: Get Discovery endpoint for target bank
+
+note right of TPP
+The OpenID Configuration is hosted at Authorization Control Plane (ACP) API. This is an open URL
+that does not require authentication.
+end note
+
+TPP -> INGRESS: ""GET /.well-known/openid-configuation""
+INGRESS -> API_GATEWAY: ""GET /.well-known/openid-configuation""
+API_GATEWAY -> CONSENT: ""GET /.well-known/openid-configuation""
+API_GATEWAY <-- CONSENT: ""200 OK {...}""
+INGRESS <-- API_GATEWAY: ""200 OK {...}""
+TPP <-- INGRESS: ""200 OK {...}""
+
+end alt
+
+TPP -> TPP: Lookup Token endpoint\nfrom OpenID Configuration
+
+note right of TPP
+The TPP then uses the Client Credentials grant to obtain an Access Token to then
+lodge the Consent on behalf of the Consumer.
+|||
+These request will be made using Mutual TLS with a certificate signed by a 
+Certificate Authority whose certificate chain resolves at the Brazil ICP CA.
+|||
+The Kubernetes Ingress Controller is responsible for TLS termination and performing
+an OCSP call to the Certificate Authority to ensure the client certificate presented
+is valid. The fingerprint of the certificate will be forwarded to Identity Management
+to verify the validity of the OAuth Client as this cannot be asserted via OCSP.
+|||
+It should be noted that due to the adoption of the Mutual TLS profile for OAuth 2.0 in
+FAPI [[https://tools.ietf.org/id/draft-ietf-oauth-mtls-08.html (here)]] many Authorization Servers will bind Access Tokens to the
+client certificate presented when they were created. This is indicated in the OpenID Configuration
+through by the value of the ""tls_client_certificate_bound_access_tokens"" property.
+end note
+
+TPP -> INGRESS: ""POST /oauth2/token""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <-- OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /oauth2/token""
+API_GATEWAY -> IAM: ""POST /oauth2/token""
+IAM -> IAM: Verify Client
+API_GATEWAY <- IAM: ""200 OK""\n""{"access_token": "..."}""
+INGRESS <-- API_GATEWAY: ""200 OK""\n""{"access_token": "..."}""
+TPP <-- INGRESS: ""200 OK""\n""{"access_token": "..."}""
+
+alt TPP requires access to account for data
+
+note right of TPP
+**Account Information**
+---
+TPPs use a generic endpoint for Account Information that covers all
+account types (checking, credit card, loans, etc).
+end note
+
+TPP -> INGRESS: ""POST /consents/v1/consents""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <-- OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /consents/v1/consents""
+
+else TPP requires access to account to initiate payment
+
+note right of TPP
+**Payment Initiation**
+---
+Payment Initiation has a dedicated endpoint that will be used
+to cover all payment rails (PIX, TED, etc).
+end note
+
+TPP -> INGRESS: ""POST /payments/v1/consents""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <-- OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /payments/v1/consents""
+
+end alt
+
+API_GATEWAY -> CONSENT: Introspect Access Token
+CONSENT -> CONSENT: Retrieve Access Token properties
+API_GATEWAY <-- CONSENT: Response
+API_GATEWAY -> API_GATEWAY: Verify Access Token scope
+
+note right of API_GATEWAY
+The ACP API provides separate operations based on the type of consent i.e.
+account information, payments, etc. The API Gateway mediates the request and
+calls the operation appropriate to the consent in question.
+end note
+
+alt Account Information
+API_GATEWAY -> CONSENT: ""POST /consents/v1/consents""
+else Payment Initation
+API_GATEWAY -> CONSENT: ""POST /payments/v1/consents""
+end alt
+
+API_GATEWAY <-- CONSENT: ""201 Created""\n""{"consentId": "..."}""
+API_GATEWAY -> API_GATEWAY: Format response
+INGRESS <-- API_GATEWAY: ""201 Created""\n""{"consentId": "..."}"" 
+TPP <-- INGRESS: ""201 Created""\n""{"consentId": "..."}"" 
+
+== Part 3: Customer is Redirected to Authorization Server ==
+
+note right of TPP
+**API Security Profile**
+---
+FAPI mandates the use of the [[https://openid.net/specs/openid-financial-api-part-2-ID2.html#authorization-server Authentication Request object]] which is defined in [[https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests Section 6]]
+of OpenID Connect Core. This is a JSON Web Singature that contains parameters
+normally found in the URL (redirect_uri, state, scope, etc)
+|||
+However, FAPI has been extended by the [[https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html API Security Profile for Brazil]] where 2
+alternatives are added to the Authorization Server (AS) in terms of Request parameter
+support:
+|||
+1. Request parameter passed in the URI that must be **signed and encrypted**.
+2. Request parameter passed by reference through [[https://datatracker.ietf.org/doc/html/draft-ietf-oauth-par Pushed Authorization Requests (PAR)]].
+|||
+Support for either approach should be included in the OpenID Configuration available
+through Discovery that banks are obliged to provide under the API Security Profile.
+Both options are shown in the sequence diagram.
+|||
+**Note that Axway Open Banking will initially support the first approach, namely a signed**
+**and encrypted JSON Web Token and introduce support for PAR in a later release.**
+end note
+
+TPP -> TPP: Create Request parameter
+
+' alt AS supports Request parameter passed by value
+
+note right of TPP
+The Signing and Encryption keys will be the private part of the pair signed by the Directory
+that can be referenced in the JSON Web Key Set maintained therein i.e. the key ID matches
+one of the TPPs JSON Web Keys.
+end note
+
+TPP -> TPP: Sign Request parameter with Signing Key
+TPP -> TPP: Encrypt Request parameter with Encryption Key
+TPP -> TPP: Create redirect URL including Request parameter
+
+' else AS supports PAR
+
+' note right of TPP
+' To create an Authorization request through PAR the TPP **must** authenticate using the same
+' method as they use at the Token endpoint.
+' end note
+
+' TPP -> TPP: Encode Request parameter in payload
+' TPP -> INGRESS: ""POST /par""
+' INGRESS -> OCSP: Check Client Certificate Validity
+' INGRESS <-- OCSP: Response
+' INGRESS -> API_GATEWAY: ""POST /par""
+' API_GATEWAY -> IAM: Authorization request
+' API_GATEWAY <-- IAM: Response
+' INGRESS <-- API_GATEWAY: ""201 Created""\n""{"request_uri": "..."}"" 
+' TPP <-- INGRESS: ""201 Created""\n""{"request_uri": "..."}"" 
+' TPP -> TPP: Create redirect URL including ""request_uri"" value
+
+' end alt
+
+PSU <-- TPP: Redirect customer
+PSU -> API_GATEWAY: ""GET /oauth2/authorize?...""
+
+note right of API_GATEWAY
+This is indicative as the Directory JWKS is likely to be cached for a
+period time i.e. the JWKS will not be retrieved on every Authentication
+Request.
+|||
+Note that this implementation is intended to provide strength-in-depth
+i.e. the API Gateway can verify the JSON Web Signature before handing
+off to Identity Management, therefore protecting it from unnecessary
+unsolicited requests.
+end note
+
+API_GATEWAY -> OBD_JWKS: Get JSON Web Key Set
+API_GATEWAY <-- OBD_JWKS: Response
+API_GATEWAY -> API_GATEWAY: Match Request parameter ""kid""
+API_GATEWAY -> API_GATEWAY: Verify Request parameter signature
+API_GATEWAY -> IAM: Forward Request parameter
+IAM -> IAM: Verify Request parameter
+IAM -> CONSENT: Request Consent by ID
+CONSENT -> CONSENT: Retrieve Consent
+IAM <- CONSENT: Response
+API_GATEWAY <- IAM: Return redirect URL
+
+== Part 4: Customer Authenticates and Authorizes Consent ==
+
+note right of PSU
+The following steps can vary according the bank's requirements
+for authentication and authorization but these steps provide
+an accurate overview in the context of the Axway Open Banking.
+end note
+
+PSU <-- API_GATEWAY: Redirect Customer
+PSU -> ASPSP_WEB: Follow Redirect
+ASPSP_WEB -> ASPSP_WEB: Verify redirect
+
+loop Request required number of authentication factors
+
+note right of PSU
+This loop is intended to be indicative and the actual
+mechanics are entirely dependent on the bank's
+implementation and their approach to user experience.
+end note
+
+PSU <-- ASPSP_WEB: Serve credentials input page
+PSU -> ASPSP_WEB: Submit credentials
+ASPSP_WEB -> ASPSP_WEB: Verify credentials
+
+end loop
+
+note right of INGRESS
+**Providing security for the ACP API should be reviewed on a case-by-case
+**basis and implemented according to customer requirements.**
+|||
+This diagram shows an example of access to the Consent Management API
+being implemented via the Ingress Controller/API Gateway. Security
+is provided via an internal certificate which is **not** validated
+against ICP.
+|||
+The ""{operation}"" parameter denotes either an Account Information or
+Payment Initiation consent. The possible values are:
+
+* ""consents"": Account Information
+* ""payments"": Payment Initiation
+
+The value of ""{consent-id}"" must be retrieved from the requested scope as
+this contains the consent resource identifier as defined in the [[https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html#section-7.1.2 Security Profile]].
+end note
+
+ASPSP_WEB -> INGRESS: ""GET ​/open-banking​/{operation}/v1/consent/{consent-id}""
+INGRESS -> API_GATEWAY: ""GET ​/open-banking​/{operation}/v1/consent/{consent-id}""
+API_GATEWAY -> CONSENT: ""GET ​/open-banking​/{operation}/v1/consent/{consent-id}""
+CONSENT -> CONSENT: Retrieve "Intent"
+API_GATEWAY <-- CONSENT: ""200 OK {...}""
+INGRESS <-- API_GATEWAY: ""200 OK {...}""
+ASPSP_WEB <-- INGRESS: ""200 OK {...}""
+
+alt Account Information Consent
+
+note right of ASPSP_WEB
+**Account Information**
+---
+When creating the Consent Confirmation screen the
+permission codes held in the "Intent" need to be
+coverted to something that will be meaningful to the
+Customer. The wording should adhere to that detailed
+in the [[https://github.com/OpenBanking-Brasil/areadesenvolvedor/raw/gh-pages/documents/GuiaDeExperienciaDoUsuarioCompartilhamentoDeDadosEIniciacaoDePagamento_v3.02.03.pdf Customer Experience Guidelines]].
+end note
+
+else Payment Initiation Consent
+
+note right of ASPSP_WEB
+**Payment Initiation**
+---
+The Consent Confirmation screen requires the following properties to be displayed:
+* Transaction Value.
+* Recipient details (name, CPF/CNPJ).
+* Payment Date.
+* Payment method (currently fixed on PIX).
+* Fee amount charged by the bank (if any).
+end note
+
+par Request fee amount for payment
+
+note right of ASPSP_WEB
+Fees for payment must be provided from the Banking Systems
+end note
+
+ASPSP_WEB -> ASPSP_API: Request fee amount
+ASPSP_WEB <-- ASPSP_API: Response
+
+else
+
+alt Debtor account not provided in Consent
+
+note right of ASPSP_WEB
+If the debtor account has not been provided in the Consent then
+the customer's payment accounts will need to be retrieved:
+
+* If the customer only has one payment account then this is the default.
+* If they have multiple accounts they should be able to select one.
+
+This should be incorporated into the Consent Confirmation screen.
+end note
+
+ASPSP_WEB -> ASPSP_API: Request in-scope payment accounts
+ASPSP_WEB <-- ASPSP_API: Response
+
+else Debtor account provided in Consent
+
+note right of ASPSP_WEB
+If the debtor account has already been provided ownership of the
+account by the customer **must** be verified. This must be executed
+at the Banking Systems as they will understand the relationship
+between a (now authenticated) customer and the accounts they own.
+end note
+
+ASPSP_WEB -> ASPSP_API: Verify account ownership
+ASPSP_WEB <-- ASPSP_API: Response
+
+end alt
+
+end par
+
+end alt
+
+ASPSP_WEB -> ASPSP_WEB: Render Consent Confirmation screen
+PSU <-- ASPSP_WEB: Serve Consent Confirmation screen
+PSU -> ASPSP_WEB: Confirm consent is correct
+
+alt Account Information Consent
+
+note right of ASPSP_WEB
+**Account Information**
+---
+Once consent has been confirmed by the Customer the list of
+in-scope accounts will be retrieved from the Banking Systems.
+This list will obviously be dictated by the permission codes
+requested by the TPP i.e. if only ""ACCOUNTS_READ"" is requested
+then all other account types can be ignored.
+end note
+
+ASPSP_WEB -> ASPSP_API: Request in-scope Customer accounts
+ASPSP_WEB <-- ASPSP_API: Response
+
+ASPSP_WEB -> ASPSP_WEB: Render Account Selection screen
+PSU <-- ASPSP_WEB: Serve Account Selection screen
+PSU -> ASPSP_WEB: Send Account Selection
+
+end alt
+
+note right of INGRESS
+**Payment Initation**
+---
+The consent is updated with the granted accounts. Note for for Payment
+Initiation ""account_ids"" can be omitted.
+end note
+
+ASPSP_WEB -> INGRESS: ""POST /open-banking/{operation}/{login}/accept""\n""{ account_ids: [...] }"" 
+INGRESS -> API_GATEWAY: ""POST /open-banking/{operation}/{login}/accept""\n""{ account_ids: [...] }"" 
+API_GATEWAY -> CONSENT: ""POST /open-banking/{operation}/{login}/accept""\n""{ account_ids: [...] }"" 
+CONSENT -> CONSENT: Update "Intent" with Account IDs
+CONSENT -> CONSENT: Mark Consent as ""AUTHORISED""
+API_GATEWAY <-- CONSENT: ""200 OK {redirect_to: "..."}""
+INGRESS <-- API_GATEWAY: ""200 OK {redirect_to: "..."}""
+ASPSP_WEB <-- INGRESS: ""200 OK {redirect_to: "..."}""
+
+note right of PSU
+The Customer is redirected back to the Axway Open Banking stack from
+the bank's Identity Provider in order to complete Hybrid Flow, using
+the value of the ""redirect_uri"" property returned in the response
+from the call to the consent API.
+|||
+The hand-off is constrained using a number of parameters included
+in the redirect URI to help safeguard this process i.e. to prevent
+unsolicited authentication attempts or session takeover.
+end note
+
+PSU <-- ASPSP_WEB: Redirect Customer\nback to API Gateway
+PSU -> INGRESS: Follow redirect
+INGRESS -> API_GATEWAY: Follow redirect
+API_GATEWAY -> IAM: Forward redirect parameters
+IAM -> IAM: Verify redirect
+IAM -> IAM: Mint Authorization Code\nand ID Token
+
+note right of IAM
+At this point the Identity Management module mints a redirect
+URI that will take the Customer back to the Third-Party App.
+The URI includes the Authorization Code and parameters that
+adhere to the API Security Profile for Brazil.
+end note
+
+API_GATEWAY <-- IAM: Return redirect
+INGRESS <-- API_GATEWAY: Return redirect
+PSU <-- INGRESS: Redirect Customer
+PSU -> TPP: Follow Redirect
+
+== Part 5: TPP Swaps Authorization Code for Access Token ==
+
+TPP -> TPP: Verify redirect including\nID Token signature, nonce and s_hash value
+TPP -> INGRESS: ""POST /oauth2/token""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <-- OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /oauth2/token""
+API_GATEWAY -> IAM: ""POST /oauth2/token""
+IAM -> IAM: Validate Token Request
+IAM -> IAM: Mint ID, Access and Refresh Tokens
+API_GATEWAY <-- IAM: ""200 OK""\n""{"access_token": "..."}""
+INGRESS <-- API_GATEWAY: ""200 OK""\n""{"access_token": "..."}""
+TPP <-- INGRESS: ""200 OK""\n""{"access_token": "..."}""
+
+== Part 6: TPP Gets Data from Account ==
+
+alt Account Information
+
+note right of TPP
+**Account Information**
+---
+The retrieval of account data happens in two stages:
+
+1. The TPP requests the available resources at the Resources API.
+2. Using the identifiers returned they can request account data.
+end note
+
+group Get all resource identifiers
+
+note right of TPP
+The TPP will require the ""RESOURCES_READ"" permission to access
+the ""/resources"" endpoint. If Customer has not consented to this
+the request should be rejected (not shown here).
+end note
+
+TPP -> INGRESS: ""GET /resources/v1/resources""\n""Authorization: Bearer ...""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <-- OCSP: Response
+INGRESS -> API_GATEWAY: ""GET /resources/v1/resources""\n""Authorization: Bearer ...""
+API_GATEWAY -> CONSENT: Request Access Token properties
+CONSENT -> CONSENT: Retrieve Access Token properties
+API_GATEWAY <-- CONSENT: Response
+API_GATEWAY -> API_GATEWAY: Introspect Access Token properties
+API_GATEWAY -> API_GATEWAY: Apply access controls
+API_GATEWAY -> API_BUILDER: ""GET /resources/v1/resources""
+API_BUILDER -> ASPSP_API: Get available resources for Customer
+API_BUILDER <-- ASPSP_API: Response
+API_BUILDER -> API_BUILDER: Mediate response payload
+API_GATEWAY <-- API_BUILDER: ""200 OK { "data": ... }""
+INGRESS <-- API_GATEWAY: ""200 OK { "data": ... }""
+TPP <-- INGRESS: ""200 OK { "data": ... }""
+
+end group
+
+loop For each Account ID returned from ""/resources""
+
+note right of TPP
+In this example the TPP only has access to checking accounts.
+They will require the ""ACCOUNTS_READ"" permission to access
+the ""/accounts/v1/accounts/{accountId}"" endpoint. If Customer
+has not consented to this the request should be rejected (not
+shown here).
+end note
+
+TPP -> INGRESS: ""GET /accounts/v1/accounts/{accountId}""\n""Authorization: Bearer ...""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <-- OCSP: Response
+INGRESS -> API_GATEWAY: ""GET /accounts/v1/accounts/{accountId}""\n""Authorization: Bearer ...""
+API_GATEWAY -> CONSENT: Request Access Token properties
+CONSENT -> CONSENT: Retrieve Access Token properties
+API_GATEWAY <-- CONSENT: Response
+API_GATEWAY -> API_GATEWAY: Introspect Access Token properties
+API_GATEWAY -> API_GATEWAY: Apply access controls
+API_GATEWAY -> API_BUILDER: ""GET /accounts/v1/accounts/{accountId}""
+API_BUILDER -> ASPSP_API: Get requested account
+API_BUILDER <-- ASPSP_API: Response
+API_BUILDER -> API_BUILDER: Mediate response payload
+API_GATEWAY <-- API_BUILDER: ""200 OK { "data": ... }""
+INGRESS <-- API_GATEWAY: ""200 OK { "data": ... }""
+TPP <-- INGRESS: ""200 OK { "data": ... }""
+end loop
+
+else Payment Initiation
+
+note right of TPP
+**Payment Initiation**
+---
+The TPP can now make the payment instruction request. The Access Token
+is bound to this single operation and will be revoked once the payment
+instruction is successfully transmitted.
+|||
+Note that in cases where multiple authorizations are required the TPP
+will receive and indicator in the ""status"" property with a value of
+""PART"".
+end note
+
+group Create payment initation request
+
+TPP -> INGRESS: ""POST /payments/v1/pix/payments""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <-- OCSP: Response
+INGRESS -> API_GATEWAY: ""POST /payments/v1/pix/payments""
+
+note right of API_GATEWAY
+The approach to Access Token introspection remains the same under payments
+i.e. the API Gateway will need an assertion that indicates the consent granted
+by the Customer matches the payment being instructed.
+end note
+
+API_GATEWAY -> CONSENT: Request Access Token properties
+CONSENT -> CONSENT: Retrieve Access Token properties
+API_GATEWAY <-- CONSENT: Response
+API_GATEWAY -> API_GATEWAY: Introspect Access Token properties
+
+note right of API_GATEWAY
+On introspecting the Access Token the API Gateway will decorate the
+request with the debtor account which is stored with the Consent. This can
+then be forwarded to the API Builder application and used to make the correct
+payment instruction in the Banking Systems.
+end note
+
+API_GATEWAY -> API_GATEWAY: Decorate request with debtor account
+API_GATEWAY -> API_BUILDER: ""POST /payments/v1/pix/payments""
+
+note right of API_BUILDER
+This flow is non-normative and will vary on customer requirements.
+It //could// be to a PIX-compliant API or any other available mechanism
+to make a PIX payment.
+end note
+
+API_BUILDER -> API_BUILDER: Mediate request payload
+API_BUILDER -> ASPSP_API: Deliver payment instruction to Banking System API
+API_BUILDER <-- ASPSP_API: Response
+API_BUILDER -> API_BUILDER: Mediate response payload
+API_GATEWAY <-- API_BUILDER: ""201 Created""\n""{paymentId: "..."}""
+INGRESS <-- API_GATEWAY: ""201 Created""\n""{paymentId: "..."}""
+TPP <-- INGRESS: ""201 Created""\n""{paymentId: "..."}""
+
+end group
+
+loop Until status ""ACCEPTED_SETTLEMENT_COMPLETED"" is returned
+
+TPP -> INGRESS: ""GET /payments/v1/pix/payments/{paymentId}""
+INGRESS -> OCSP: Check Client Certificate Validity
+INGRESS <-- OCSP: Response
+INGRESS -> API_GATEWAY: ""GET /payments/v1/pix/payments/{paymentId}""
+API_GATEWAY -> CONSENT: Request Access Token properties
+CONSENT -> CONSENT: Retrieve Access Token properties
+API_GATEWAY <-- CONSENT: Response
+API_GATEWAY -> API_GATEWAY: Introspect Access Token properties
+API_GATEWAY -> API_BUILDER: ""GET /payments/v1/pix/payments/{paymentId}""
+
+note right of API_BUILDER
+This flow is non-normative and will vary on customer requirements.
+It //could// be to a PIX-compliant API or any other available mechanism
+to get the status of a PIX payment.
+end note
+
+API_BUILDER -> API_BUILDER: Mediate request payload
+API_BUILDER -> ASPSP_API: Get Payment Status
+API_BUILDER <-- ASPSP_API: Response
+API_BUILDER -> API_BUILDER: Mediate response payload
+API_GATEWAY <-- API_BUILDER: ""200 OK {...}""
+INGRESS <-- API_GATEWAY: ""200 OK {...}""
+TPP <-- INGRESS: ""200 OK {...}""
+
+end loop
+
+end alt
+
+@enduml
