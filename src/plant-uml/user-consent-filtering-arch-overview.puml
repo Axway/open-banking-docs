@@ -1,0 +1,108 @@
+@startuml Applying_Consent_Sequence
+
+title \n\n
+
+participant "Third-Party\nApp" as TPP
+
+box Open Banking APIs #e06666 
+participant "API\nGateway" as API_GATEWAY
+participant "API\nBuilder" as API_BUILDER
+end box
+
+box Identity and Access Control #94c47d
+participant "Identity\nManagement" as IAM
+end box
+
+box Core Banking Applications #d5a6bd
+participant "Banking\nSystems" as ASPSP_API
+end box
+
+hide footbox
+
+
+note right of TPP
+Overview
+===
+Filtering responses for account/permissions at the Gateway
+is pragmatic in many use cases but is ultimately not scaleable
+due to load and determinism for features such as pagination.
+It should therefore be implemented as close to the system of record
+as possible i.e. Core Banking Applications. The order of prefer in
+terms of solutions is:
+|||
+1. Filter at the Core Banking Application.
+2. Filter at a microservice capable of "stateful" behaviour.
+3. Filter at the Gateway.
+end note
+
+TPP -> API_GATEWAY: Request Account Information Resource\nwith valid Access Token
+
+API_GATEWAY -> IAM: Call Access Token Introspect Endpoint
+API_GATEWAY <-- IAM: Return introspection information
+API_GATEWAY -> API_GATEWAY: Inspect request
+
+alt TPP does not have Consent for the requested account or resource
+
+note right of TPP
+In some cases the permissions are binary i.e. the
+TPP does or does not have permission to access
+a given endpoint. In such cases the Gateway can
+immediately respond without going to the backend.
+end note
+
+TPP <-- API_GATEWAY: Respond with 403 (Forbidden)
+
+else TPP has Consent to access requested resource
+
+alt Filtering is performed outside Gateway
+API_GATEWAY -> API_GATEWAY: Augment request\nwith consented accounts/permissions
+
+alt Filtering is performed at Core Banking Application
+
+API_GATEWAY -> API_BUILDER: Forward request with\nconsented accounts/permissions
+API_BUILDER -> API_BUILDER: Create request for consented accounts
+API_BUILDER -> ASPSP_API: Request data for consented accounts
+ASPSP_API -> ASPSP_API: Retrieve data for consented accounts
+ASPSP_API -> ASPSP_API: Apply permissions to requested data
+API_BUILDER <-- ASPSP_API: Return data for consented accounts
+API_GATEWAY <-- API_BUILDER: Return response
+
+else Filtering is performed at API Builder Application
+
+API_GATEWAY -> API_BUILDER: Forward request with\nconsented accounts/permissions
+API_BUILDER -> API_BUILDER: Create request for consented accounts
+API_BUILDER -> ASPSP_API: Request data for consented accounts
+ASPSP_API -> ASPSP_API: Retrieve data for consented accounts
+API_BUILDER <-- ASPSP_API: Return data for consented accounts
+API_BUILDER -> API_BUILDER: Apply correct permissions to response data
+API_GATEWAY <-- API_BUILDER: Return response
+
+end alt
+
+else Filtering is performed on API Gateway
+
+note right of API_GATEWAY
+The assumption here is that the API Gateway will
+connect to the Core Banking Applications 
+directly.
+|||
+Note this approach works fine where low-volumes
+are expected. However in scenarios where a high-volume
+is expected it may not be hugely efficient i.e. lots
+more data is returned to the gateway, then filtered.
+Unless the API Gateway has some means for managing state
+this may also make pagination difficult.
+end note
+
+API_GATEWAY -> ASPSP_API: Request target accounts
+ASPSP_API -> ASPSP_API: Retrieve data for consented accounts
+API_GATEWAY <-- ASPSP_API: Return response
+API_GATEWAY -> API_GATEWAY: Apply permissions
+
+end alt
+end alt
+
+API_GATEWAY -> API_GATEWAY: Format response for standards
+TPP <-- API_GATEWAY: Return response
+
+@enduml

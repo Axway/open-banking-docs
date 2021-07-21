@@ -1,6 +1,6 @@
 ---
-title: "Open Banking Brazil Compliance"
-linkTitle: "Brazil Compliance"
+title: "Compliance"
+linkTitle: "Compliance"
 description: An Aggregated View of the Requirements for Compliance with Open Banking Brazil Standards
 weight: 2
 date: 2021-06-30

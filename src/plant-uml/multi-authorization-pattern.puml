@@ -1,0 +1,84 @@
+@startuml Multi_Authorization_Pattern
+
+title \n
+
+participant "Customer" as PSU
+participant "ACP API" as CONSENT
+participant "Bank\nIdentity\nProvider" as ASPSP_WEB
+participant "Banking\nSystems" as ASPSP_API
+
+hide footbox
+
+loop Required number of additional approvers
+
+PSU <- ASPSP_WEB: Send approval prompt to Customer via existing channel
+PSU --> ASPSP_WEB: Follow approval prompt
+
+loop Request required number of authentication factors
+
+note right of PSU
+This loop is intended to be indicative and the actual
+mechanics are entirely dependent on the bank's
+implementation and their approach to user experience.
+end note
+
+PSU <-- ASPSP_WEB: Serve credentials input page
+PSU -> ASPSP_WEB: Submit credentials
+ASPSP_WEB -> ASPSP_WEB: Verify credentials
+
+end loop
+
+par Get Consent
+
+ASPSP_WEB -> CONSENT: ""GET ​/open-banking​/{operation}/v1/consent/{consent-id}""
+CONSENT -> CONSENT: Retrieve "Intent"
+ASPSP_WEB <-- CONSENT: ""200 OK {...}""
+
+else Get Approval State
+
+ASPSP_WEB -> ASPSP_API: Retrieve approval state
+ASPSP_WEB <-- ASPSP_API: Response
+
+end alt
+
+alt Consent already been rejected another approver
+
+note right of PSU
+This indicates that the first approver who approved the
+initial consent and (where appropriate) selected the in-scope
+accounts approved the consent but a subsequent approver
+rejected it.
+end note
+
+ASPSP_WEB -> ASPSP_WEB: Render consent rejected screen
+PSU <-- ASPSP_WEB: Serve consent rejected screen
+
+else Consent has not been rejected
+
+ASPSP_WEB -> ASPSP_WEB: Retrieve approvals
+
+ASPSP_WEB -> ASPSP_WEB: Render Consent\nConfirmation screen
+PSU <-- ASPSP_WEB: Serve Consent Confirmation screen
+
+
+PSU -> ASPSP_WEB: Approve/reject consent
+
+alt Last approver
+
+ASPSP_WEB -> ASPSP_WEB: Update Resources API or payment instruction to correct status
+
+else Not last approver
+
+ASPSP_WEB -> ASPSP_API: Update approval state
+
+end alt
+
+ASPSP_WEB -> ASPSP_WEB: Render confirmation complete screen
+PSU <-- ASPSP_WEB: Serve confirmation complete screen
+
+
+end loop
+
+end loop
+
+@enduml
