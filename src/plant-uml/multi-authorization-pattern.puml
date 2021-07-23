@@ -30,7 +30,7 @@ end loop
 
 par Get Consent
 
-ASPSP_WEB -> CONSENT: ""GET ​/open-banking​/{operation}/v1/consent/{consent-id}""
+ASPSP_WEB -> CONSENT: ""GET /{operation}/v1/consent/{consent-id}""
 CONSENT -> CONSENT: Retrieve "Intent"
 ASPSP_WEB <-- CONSENT: ""200 OK {...}""
 
@@ -39,7 +39,7 @@ else Get Approval State
 ASPSP_WEB -> ASPSP_API: Retrieve approval state
 ASPSP_WEB <-- ASPSP_API: Response
 
-end alt
+end par
 
 alt Consent already been rejected another approver
 
@@ -67,6 +67,12 @@ alt Last approver
 
 ASPSP_WEB -> ASPSP_WEB: Update Resources API or payment instruction to correct status
 
+alt Payment Initiation
+ASPSP_WEB -> CONSENT: ""POST ​/payments/v1/consent/{consent-id}/consume""
+CONSENT -> CONSENT: Update status to ""CONSUMED""
+ASPSP_WEB <-- CONSENT: ""200 OK""
+end alt
+
 else Not last approver
 
 ASPSP_WEB -> ASPSP_API: Update approval state
@@ -75,9 +81,6 @@ end alt
 
 ASPSP_WEB -> ASPSP_WEB: Render confirmation complete screen
 PSU <-- ASPSP_WEB: Serve confirmation complete screen
-
-
-end loop
 
 end loop
 
