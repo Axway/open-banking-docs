@@ -35,17 +35,29 @@ To explain the directories:
 The process for adding new content to an existing directory is simple:
 
 * Add a file to the relevant directory. For example, to add a new integration subpage create a file called `example.md` in `content/en/docs/overview/integration`
-* Add Front Matter to the page as described below.
-* Below the Front Matter add content in Markdown format.
+* Add Front Matter to the page as described [below](#frontmatterandmarkdown) and add content in Markdown format below the Front Matter.
 * To add an that cannot be referenced remotely copy the image to the `static/Images`.
 * To add a sequence diagram follow the guidelines in the [PlantUML](#plantuml) section.
 
 To create *new content in a new directory*:
 
+* Create the new directory in the correct place in the directory structure.
+* Create a new Markdown file called `_index.md` in the new directory. This creates the overview page that links all subpages within the new directory.
+* Add Front Matter to `_index.md` and 
+
 ### PlantUML
 
 All sequence diagrams are written using [PlantUML](https://plantuml.com/sequence-diagram) syntax. This is a text-based language that is transformed to a display format by the PlantUML Java Library.
 
+Whilst there are solutions that support the real-time rendering of native PlantUML content this does not appear to be supported by our current docs-as-code stack. The PlantUML must therefore be converted to SVG and stored as an image as follows:
+
+* Convert the source PlantUML file using a converter of your choice or the [conversion script](scripts/convert-plantuml.sh) in this repository. Note to use this **you must have `plantuml.jar` installed locally**.
+* Copy the SVG file to `static/Images`.
+* Include the snippet below where you want the imagine displayed (obviously changing the name to match the filename). This prevents the need to embed the SVG directly in your Markdown, avoiding an unholy mess.
+
+```yaml
+{{< readfile file="/static/Images/Generic_Web_Journey_Sequence.svg" >}}
+```
 
 ### Static Assets
 
