@@ -1,322 +1,105 @@
-# Axway-Open-Docs
+# Axway Open Banking Docs
 
-Axway-Open-Docs is a docs-as-code implementation for Axway documentation. It is built using the [Hugo](https://gohugo.io/) static site generator with the [Google Docsy](https://github.com/google/docsy) theme. The site is deployed on Netlify at <https://axway-open-docs.netlify.app/>. Users can edit any documentation page using GitHub web UI or a WYSIWYG editor provided by [Netlify CMS](https://www.netlifycms.org/).
+This repository contains the documentation for the Axway Open Banking solution. It follows the docs-as-code approach currently used by Axway for publishing product documentation.
 
-This repository contains all files for building and deploying a **microsite** in the Axway-Open-Docs ecosystem.
+This overview outlines the main points of note in that context with some "Getting Stared" style sections for making developers as productive as possible.
 
-## Create your own microsite using this repository
+For more detailed information docs-as-code please refer to [Confluence](https://confluence.axway.com/display/RDAPI/Docs+as+code+approach).
 
-This section details how to create your own microsite in the Axway-Open-Docs ecosystem. For an overall view of the microsite architecture, see [Architecture for docs-as-code at scale](https://techweb.axway.com/confluence/display/RDAPI/Architecture+for+docs+as+code+at+scale).
+## Content
 
-### Before you start
-
-You must have the following installed in your development environment:
-
-* Git client
-* Hugo
-* Node.js
-
-See [Set up and work locally](https://axway-open-docs.netlify.app/docs/contribution_guidelines/setup_work_locally/) for information on recommended versions of these tools and for tips on installing them in a WSL environment.
-
-The following steps assume that you already have a GitHub account in the Axway org and that you have the permissions to create new projects in that org.
-
-### Create a new microsite repository in Axway org
-
-1. Go to [Axway org on GitHub](https://github.com/Axway) and click **New**.
-    ![Create new repo](/static/Images/axway_github_new.png)
-2. At the top of the page click **Import a repository**.
-    ![Import repo](/static/Images/axway_github_import.png)
-3. On the next screen, enter the clone URL of this repository and the name for your new microsite.
-
-    * To find the clone URL of this repository, click the drop-down arrow on the Code button above and copy the HTTPS URL to your clipboard.
-    * Enter a name following the naming convention `MYPROJECT-open-docs`, for example `amplify-central-open-docs`.
-
-    ![Import details](/static/Images/axway_github_import_details.png)
-
-### Clone the new microsite repository to your local environment
-
-Clone your new repository:
+All content is created in the `content/en/docs` directory as shown below.
 
 ```
-cd ~
-git clone git@github.com:Axway/MYPROJECT-open-docs.git
+content
+| -- en
+|    | -- docs
+|    |    | -- deployment
+|    |    | -- overview
+|    |    |    | -- integration
+|    |    |    | -- technical
+|    |    | -- reference
+|    |    |    | -- brazil
 ```
 
-After running these commands, you will have a local copy of the repository in the following location:
+To explain the directories:
 
-```
-/home/YOUR-UNIX-USERNAME/MYPROJECT-open-docs
-```
+| Directory | Purpose |
+| --------- | ------- |
+| `content/en/docs` | Content "homepage". Shows overview of open banking and puts solution in context. |
+| `content/en/docs/deployment` | Deployment guides. |
+| `content/en/docs/overview` | Overview of solution and features. |
+| `content/en/docs/overview/integration` | Integration overview with sequence diagrams showing interactions between system components. |
+| `content/en/docs/overview/technical` | Technical architecture overview with information on Kubernetes architecture and a high-availability implementation. |
+| `content/en/docs/reference` | Reference information not directly related to solution functionality. |
+| `content/en/docs/reference/brazil` | Reference information on the Brazil market. |
 
-### Build the site locally
+### Text and Images
 
-Run the `build.sh` command in your site root:
+The process for adding new content to an existing directory is simple:
 
-```
-cd ~/MYPROJECT-open-docs/
-./build.sh
-```
+* Add a file to the relevant directory. For example, to add a new integration subpage create a file called `example.md` in `content/en/docs/overview/integration`
+* Add Front Matter to the page as described [below](#front-matter-and-markdown) and add content in Markdown format below the Front Matter.
+* To add an that cannot be referenced remotely copy the image to the `static/Images`.
+* To add a sequence diagram follow the guidelines in the [PlantUML](#plantuml) section.
 
-The `build.sh` script performs the following:
+To create *new content in a new directory*:
 
-* Adds the `docsy` theme Git submodule
-* Adds the `axway-open-docs-common` Git submodule
-* Installs the npm packages required by Docsy
-* Runs the `hugo server` command
+* Create the new directory in the correct place in the directory structure.
+* Create a new Markdown file called `_index.md` in the new directory. This creates the overview page that links all subpages within the new directory.
+* Add Front Matter to `_index.md` and 
 
-The website is now available locally at `http://localhost:1313/`.
+### PlantUML
 
-### Create a new Netlify microsite
+All sequence diagrams are written using [PlantUML](https://plantuml.com/sequence-diagram) syntax. This is a text-based language that is transformed to a display format by the PlantUML Java Library.
 
-Create a new site from your microsite repo in Netlify:
+Whilst there are solutions that support the real-time rendering of native PlantUML content this does not appear to be supported by our current docs-as-code stack. The PlantUML must therefore be converted to SVG and stored as an image as follows:
 
-1. Log in to [OpenDocs Netlify account](https://app.netlify.com/teams/opendocs/sites).
-2. Click **New site from Git**.
-3. Click **GitHub**. You'll be asked to authorize Netlify to your account.
-4. On the **Create a new site** dialog, select the **Axway** GitHub organization and click **Configure the Netlify app on GitHub**.
+* Convert the source PlantUML file using a converter of your choice or the [conversion script](scripts/convert-plantuml.sh) in this repository. Note to use this **you must have `plantuml.jar` installed locally**.
+* Copy the SVG file to `static/Images`.
+* Include the snippet below where you want the imagine displayed (obviously changing the name to match the filename). This prevents the need to embed the SVG directly in your Markdown, avoiding an unholy mess.
 
-    ![Add site to Netlify](/static/Images/netlify_add_site.png)
-
-5. On the **Install Netlify** dialog, select **Axway** to expand it.
-6. On the **Update Netlify's repository access** dialog, select the Axway org and the microsite repository you created earlier and click **Update access** to give Netlify access. Be careful not to deselect or remove any repositories that already have the Netlify app installed!
-7. Back in the Netlify window, verify that your newly created microsite repository is on the list, and click to select it.
-8. Select **Open docs team** as Owner, select **master** as branch to deploy. Do not change the **Basic** or **Advanced** build settings. Click **Deploy site**.
-
-The site is now deployed on a random URL. To change the URL click **Site settings > Change site name** and enter a name in the format `MYPROJECT-open-docs`. The site will now be available on the URL `https://MYPROJECT-open-docs.netlify.app/`.
-
-### Add deploy preview as comment to pull requests
-
-You can enable the Netlify deploy preview comment for pull requests at once. Still on the site settings, on the left menu click **Build & deploy** > **Deploy notifications**, and verify that 'Add Deploy Preview notifications as pull request comments when Deploy Preview succeeds' is on the list. If it isn't, add it by clicking **Add notification**.
-
-### Customize the site to use your Github repo and test the GitHub edit links
-
-Change the `github_repo` parameter in `config.toml` to point to your project repo as this is used by Hugo/Docsy to generate the GitHub edit links on each page. For example:
-
-```
-github_repo = "https://github.com/Axway/MYPROJECT-open-docs"
+```yaml
+{{< readfile file="/static/Images/Generic_Web_Journey_Sequence.svg" >}}
 ```
 
-When this is complete, test the **Edit on GitHub** and **Create documentation issue** links on your microsite and verify that they link to the Github repo for your microsite.
+### Static Assets
 
-### Customize the site to use your Netlify CMS instance and test the CMS edit links
+Static assets support the site functionality. There are two customizations in this site, namely 2 layouts that are designed to improve user experience. Both can be found in the default `layouts` directory.
 
-Make the following changes to get the **Edit on Netlify CMS** links on each page to link to the correct Netlify CMS app. The Netlify CMS app is available by default on the URL  `https://MYPROJECT-open-docs.netlify.app/admin/`.
+#### Sequence Layout
 
-#### Change baseURL in `config.toml` to the URL of your microsite
+The sequence layout maximises the available SVG viewport for the display of a sequence diagram by:
 
-Change the `baseURL` in `config.toml`:
+* The right sidebar is hidden.
+* Injecting JavaScript that allows the sequence diagram headings to scroll down the page.
 
-```
-baseURL = "https://MYPROJECT-open-docs.netlify.app/"
-```
+It should be used where a PlantUML sequence diagram converted to SVG is embedded in the page as described [above](#plantuml).
 
-#### Update the Netlify CMS configuration for your repository and microsite
+To use this layout add the key/value `type: sequence`.
 
-Change `repo` and `site_url` in `static/admin/config.js` to point to your GitHub repo and your microsite.
+The JavaScript that allows the headings to scroll is also checked-in as a static asset [here](static/js/scroll-sequence-diagram-headings.js).
 
-```
-repo: 'Axway/MYPROJECT-open-docs', //Path to your GitHub repository.
-...
-site_url: 'https://MYPROJECT-open-docs.netlify.app/', //URL to netlify site
-```
+#### Big Table Layout
 
-#### Add the Axway GitHub OAuth app to your microsite
+The sequence layout maximises the available view area for the display of a table by hiding the right sidebar. An example is the [Brazil Compliance Guide](content/en/docs/reference/brazil/compliance.md).
 
-To enable users to log in to Netlify CMS with their GitHub accounts, you must add the Axway OAuth authentication provider to the microsite. 
+To use this layout add the key/value `type: sequence`.
 
-1. Log in to [OpenDocs Netlify account](https://app.netlify.com/teams/opendocs/sites).
-2. Click your microsite.
-3. Go to **Settings > Access control > OAuth**.
-4. Click **Install provider**.
-5. Select **GitHub** as the provider and enter the client ID and secret from [this internal Confluence page](https://techweb.axway.com/confluence/display/RDAPI/Open+docs+quick+reference#Opendocsquickreference-OAuthproviderdetailsforNetlifyCMS).
-6. Click **Install**.
+### Front Matter and Markdown
 
-#### Test the CMS edit links
+## Lifecycle
 
-When this is complete, test the **Edit on Netlify CMS** links on your microsite and verify that they link to the CMS instance for your microsite. You should see someting like this:
+### Outline
 
-![Netlify CMS editor](/static/Images/netlifycms_editor.jpg)
+To date this project implements [GitHub Flow](https://guides.github.com/introduction/flow/), which is a simple and easy-to-use method doing documentation updates.
 
-### Customize the content for your project
+The outline process is as follows:
 
-The project contains placeholder documentation content in the folder `/content/en/docs` and placeholder images in `/static/Images`. The placeholder content is copied from the [Docsy example project](https://example.docsy.dev/) (with some modifications) and shows the different types of content and the different types of formatting that are available for you to use when creating your own content.
+* The relevant subject matter expert creates a new branch and starts work on their changes.
+* When they are happy they commit and push to the branch.
+* They then create a Pull Request, which creates a Preview site that can reviewed on Netlify (link to the site is shown in the Pull Request page). The technical writer then reviews and suggest changes, etc.
+* When approved the changes are merged to `master`. This kicks off a deployment in Netlify to the [Netlify site](https://axway-open-banking-docs.netlify.app/).
+* The final step is a merge to production, which does not necessarily need to be performed at each merge to `master` on GitHub. This happens through a manual push to Zoomin, the production provider for https://docs.axway.com.
 
-You must replace or update the placeholder content as necessary with your own documentation content.
-
-When working with the content it can be useful to read the following Docsy documentation to get an understanding of how to add content files and images, and how to change the navigation of the content using frontmatter fields in Markdown files:
-
-* [Adding Content](https://www.docsy.dev/docs/adding-content/content/)
-* [Navigation and Search](https://www.docsy.dev/docs/adding-content/navigation/)
-
-### Customize the microsite landing page
-
-The landing page for the microsite is a HTML page `content/en/_index.html` and uses Docsy content blocks. You must modify this page to create your own blocks and link to your own content.
-
-### Update the Netlify CMS collections configuration for your documentation
-
-After you have replaced the placeholder content with your documentation content, you must update the `collections` variable in `static/admin/config.js` so that Netlify CMS shows one collection for each folder under `content\en\docs`.
-
-For more information, see [Add new documentation to Netlify CMS](https://axway-open-docs.netlify.app/docs/contribution_guidelines/maintain_customize/#add-new-documentation-to-netlify-cms).
-
-When this is complete, test the **Edit on Netlify CMS** links again on your microsite and verify that the CMS shows all of your documentation content.
-
-### Set up publishing to Zoomin
-
-To enable publishing of the microsite content as a new _bundle_ on Zoomin production doc portal you must create a classification file, properties file, and zip file as detailed in [Docs-as-code on Zoomin](https://techweb.axway.com/confluence/display/RDAPI/Docs-as-code+on+Zoomin).
-
-When this is set up you must manually FTP the zip file to Zoomin to trigger an upload of the Netlify microsite content.
-
-### Remove documentation content from main Axway-Open-Docs repo (optional)
-
-If your content was migrated from the main Axway-Open-Docs site to a microsite, you must now:
-
-* Remove all documentation content and images from the main site
-* Update the Zoomin classification file for the main site to remove the migrated content
-* Update the Netlify CMS config file for the main site to remove any collections for the migrated content
-
-### Connect your microsite to the Axway-Open-Docs ecosystem
-
-**This must be done AFTER any content in Axway-Open-Docs repo has been removed**
-
-When you and your stakeholders are happy with the content on your Netlify microsite, you can request that your microsite be added to the overall ecosystem. 
-
-This involves:
-
-1. Adding a new link for your documentation to the home page (`content/en/_index.html`) of the main [Axway Open Documentation](https://axway-open-docs.netlify.app/) site
-2. Adding redirects to the `netlify.toml` file in the main site to redirect clicks on the new link for your documentation to your microsite
-
-Redirects must be added to the `netlify.toml` file in [Axway Open Docs repo](https://github.com/Axway/axway-open-docs). You might need redirect for each of the following:
-
-* Documentation content (for example, `/docs/streams/*`)
-* Images (for example, `/Images/streams/*`)
-* CMS links (for example, `/admin/#/edit/streams/*`) **One redirect for each Netlify CMS collection**
-
-Here is an example of the redirects added for AMPLIFY Shared Services:
-
-```
-[[redirects]]
-  from = "/docs/shared_services/*"
-  to = "https://amplifysharedservices-open-docs.netlify.app/docs/shared_services/:splat"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}
-
-[[redirects]]
-  from = "/admin/#/edit/shared_services/*"
-  to = "https://amplifysharedservices-open-docs.netlify.app/admin/#/edit/shared_services/:splat"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}
-
-[[redirects]]  
-  from = "/admin/#/edit/supportapi/*"
-  to = "https://amplifysharedservices-open-docs.netlify.app/admin/#/edit/supportapi/:splat"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}
-
-[[redirects]]
-  from = "/admin/#/edit/methods/*"
-  to = "https://amplifysharedservices-open-docs.netlify.app/admin/#/edit/methods/:splat"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}
-
-[[redirects]]
-  from = "/admin/#/edit/formats/*"
-  to = "https://amplifysharedservices-open-docs.netlify.app/admin/#/edit/formats/:splat"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}
-```
-
-Here is an example of a redirect for images:
-
-```
-[[redirects]]
-  from = "/Images/streams/*"
-  to = "https://amplifystreams-open-docs.netlify.app/Images/streams/:splat"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}
-```
-
-### Test the main site and microsite
-
-After the redirects have been implemented, and any content removed from the main site (if applicable), you must test the redirects according to the following criteria:
-
-1. Any links to the microsite content from the main site https://axway-open-docs.netlify.app/ work correctly
-2. Edit on Github links in the microsite content brings user to microsite Git repo
-3. Edit on CMS links in microsite content brings user to CMS instance containing microsite collections only
-4. No broken links are found in either the main site or the microsite
-5. Microsite content appears on Zoomin as a seperate bundle and is no longer part of Axway Open Documentation bundle
-6. GA, Hotjar, Algolia search works as before on main site and microsite
-
-### Customize your Git repo for your way of working
-
-You can set up your Git repo in whatever way works best for your team and your product, however, to be accepted into the Axway-Open-Docs ecosystem you must enable the following as a minimum.
-
-#### Configure Dependabot alerts and security updates
-
-You must configure dependabot alerts and security updates for your microsite repository. GitHub's Dependabot creates pull requests, alerts, and sends email notifications when a dependency needs to be upgraded in your project because a dependency has introduced a security risk.
-1. In your GitHub microsite project, click **Settings**.
-2. Click **Security & analysis**.
-3. Enable **Dependabot alerts** and **Dependabot security updates**. The button next to the setting says **Disable** when enabled.
-4. Click **Save changes**.
-
-
-#### Add rules to protect branches
-
-You must add rules to protect the `master` branch:
-
-* It must require pull request reviews before merging (at least 1 review from a technical writer or doc owner)
-* It must require status checks to pass before merging.
-
-![Branch protections](/static/Images/microsite_github_protections.png)
-
-After you '[Configure the Netlify app on GitHub](#create-a-new-netlify-microsite)', this makes available a list of Netlify checks that you can add to your branch's protection rules. In addition to enabling the **Axway CLA** and **Markdown linter** rules, you can also enable:
-
-* Header rules
-* Pages changed
-* Redirect rules
-* Mixed content
-* deploy/netlify (This rule is dependent on adding the **Add Deploy Preview notifications to commits when Deploy Preview succeeds** notification in Netlify, which you completed in the '[Add deploy preview as comment to pull requests](#add-deploy-preview-as-comment-to-pull-requests)' section. If you don't add this notification, this status will block the pull request and the list of checks won't pass.
-
-#### Markdown linting
-
-You must use the the GitHub Action that runs the Markdown linter (see `.github/workflows/ciworkflow.yml`).
-
-#### Merge strategy
-
-It is best to use a squash merging strategy in public projects with external contributors as this results in a more readable Git history and cleaner change history messages at the bottom of each documentation page.
-
-To enable squash merging, select the **Allow squash merging** checkbox and deselect the other options under **Settings > Options > Merge button**. When using this option it is best to also enable the linear history requirement on any protected branches.
-
-You can also enable **Automatically delete head branches** to keep your branch list clean.
-
-#### Branching strategy
-
-You can set up any branching strategy as required by your product team. 
-
-Some common options include:
-
-* A single production branch (`master`) for single version continuously delivered products
-* A development branch (`develop`) and a production branch (`master`) for single version products delivered on a regular cycle
-* A latest version production branch (`master`) and one or more previous version sustaining production branches (`762`, `753`, etc.)
-
-#### Project maintainers and CODEOWNERS
-
-You must add the appropriate users as maintainers of the GitHub repo under **Settings > Manage access**. Users must have write access as a minimum to review and approve pull requests. It is best to have at least two maintainers.
-
-Next, modify the CODEOWNERS (`.github/CODEOWNERS`) file with the appropriate users. This automates who gets added as reviewers in pull requests. You can globally add all maintainers as codeowners or opt for specific owners for specific files or directories as shown in the file comments.
-
-#### Pull request and issue templates
-
-It is best to modify the following templates to suit your project:
-
-* Pull request template (`.github/pull_request_template.md`) - This template is used when a contributor creates a PR on GitHub. It is not used by Netlify CMS. 
-* Issue templates (`.github/ISSUE_TEMPLATE/documentation-issue-template.md` and `.github/ISSUE_TEMPLATE/website-issue-template.md`) - These are used when a contributor creates a GitHub issue.
-
-### Update the microsite repo README.md
-
-When everything is tested and you are ready to make your repo available to contributors, update the `README.md` file in the root of the microsite repo to explain to contributors what your microsite contains, how it fits into the overall Axway-Open-Docs ecosystem, and how they can contribute. You can use something similar to the README in <https://github.com/Axway/axway-open-docs>.
+### Production
