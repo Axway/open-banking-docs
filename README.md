@@ -1,8 +1,12 @@
 # Axway Open Banking Docs
 
-## Content
+This repository contains the documentation for the Axway Open Banking solution. It follows the docs-as-code approach currently used by Axway for publishing product documentation.
 
-### Structure
+This overview outlines the main points of note in that context with some "Getting Stared" style sections for making developers as productive as possible.
+
+For more detailed information docs-as-code please refer to [Confluence](https://confluence.axway.com/display/RDAPI/Docs+as+code+approach).
+
+## Content
 
 All content is created in the `content/en/docs` directory as shown below.
 
@@ -35,7 +39,7 @@ To explain the directories:
 The process for adding new content to an existing directory is simple:
 
 * Add a file to the relevant directory. For example, to add a new integration subpage create a file called `example.md` in `content/en/docs/overview/integration`
-* Add Front Matter to the page as described [below](#frontmatterandmarkdown) and add content in Markdown format below the Front Matter.
+* Add Front Matter to the page as described [below](#front-matter-and-markdown) and add content in Markdown format below the Front Matter.
 * To add an that cannot be referenced remotely copy the image to the `static/Images`.
 * To add a sequence diagram follow the guidelines in the [PlantUML](#plantuml) section.
 
@@ -61,19 +65,28 @@ Whilst there are solutions that support the real-time rendering of native PlantU
 
 ### Static Assets
 
-Static assets support the site functionality. There are a number of customized in the site.
+Static assets support the site functionality. There are two customizations in this site, namely 2 layouts that are designed to improve user experience. Both can be found in the default `layouts` directory.
 
-#### Layouts
+#### Sequence Layout
 
-##### `sequence`
+The sequence layout maximises the available SVG viewport for the display of a sequence diagram by:
 
-##### `bigtable`
+* The right sidebar is hidden.
+* Injecting JavaScript that allows the sequence diagram headings to scroll down the page.
+
+It should be used where a PlantUML sequence diagram converted to SVG is embedded in the page as described [above](#plantuml).
+
+To use this layout add the key/value `type: sequence`.
+
+The JavaScript that allows the headings to scroll is also checked-in as a static asset [here](static/js/scroll-sequence-diagram-headings.js).
+
+#### Big Table Layout
+
+The sequence layout maximises the available view area for the display of a table by hiding the right sidebar. An example is the [Brazil Compliance Guide](content/en/docs/reference/brazil/compliance.md).
+
+To use this layout add the key/value `type: sequence`.
 
 ### Front Matter and Markdown
-
-
-
-
 
 ## Lifecycle
 
