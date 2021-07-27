@@ -8,6 +8,18 @@ This overview outlines the main points of note in that context with some "Gettin
 
 For more detailed information docs-as-code please refer to [Confluence](https://confluence.axway.com/display/RDAPI/Docs+as+code+approach).
 
+## Development
+
+It's pretty simple: clone the repository and run `build.sh` to start a local server:
+
+```bash
+git clone https://github.com/Axway/open-banking-docs
+cd open-banking-docs
+./build.sh
+```
+
+The development server is by default hosted at http://localhost:1313.
+
 ## Content
 
 All content is created in the `content/en/docs` directory as shown below.
