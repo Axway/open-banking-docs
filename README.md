@@ -4,6 +4,8 @@ This repository contains the documentation for the Axway Open Banking solution. 
 
 This overview outlines the main points of note in that context with some "Getting Stared" style sections for making developers as productive as possible.
 
+> **Note the expectation is that a user of this repository is very familiar with using `git`, GitHub and the process of source controlling configuration items. The docs-as-code approach is an extension of those practices.**
+
 For more detailed information docs-as-code please refer to [Confluence](https://confluence.axway.com/display/RDAPI/Docs+as+code+approach).
 
 ## Content
@@ -39,7 +41,7 @@ To explain the directories:
 The process for adding new content to an existing directory is simple:
 
 * Add a file to the relevant directory. For example, to add a new integration subpage create a file called `example.md` in `content/en/docs/overview/integration`
-* Add Front Matter to the page as described [below](#front-matter-and-markdown) and add content in Markdown format below the Front Matter.
+* Add Front Matter to the page as described [below](#front-matter) and add content in Markdown format below the Front Matter.
 * To add an that cannot be referenced remotely copy the image to the `static/Images`.
 * To add a sequence diagram follow the guidelines in the [PlantUML](#plantuml) section.
 
@@ -47,7 +49,8 @@ To create *new content in a new directory*:
 
 * Create the new directory in the correct place in the directory structure.
 * Create a new Markdown file called `_index.md` in the new directory. This creates the overview page that links all subpages within the new directory.
-* Add Front Matter to `_index.md` and 
+* Add Front Matter to `_index.md` and some content that introduces the section.
+* Follow the guide above for creating a new page in an existing directory.
 
 ### PlantUML
 
@@ -84,9 +87,33 @@ The JavaScript that allows the headings to scroll is also checked-in as a static
 
 The sequence layout maximises the available view area for the display of a table by hiding the right sidebar. An example is the [Brazil Compliance Guide](content/en/docs/reference/brazil/compliance.md).
 
-To use this layout add the key/value `type: sequence`.
+To use this layout add the key/value `type: bigtable`.
 
-### Front Matter and Markdown
+### Front Matter
+
+> **This section is for guidance only**
+
+Front Matter is the metadata that informs Hugo/docsy about the characteristics of the page being loaded. It is a series of key/value pairs that can be expressed in a number of formats - in the case of Axway Open Docs, in YAML.
+
+An example of Front Matter is shown below (note this is not exhaustive and there are many more keys available in both Hugo and the docsy theme):
+
+```yaml
+---
+title: "Deployment"
+linkTitle: "Deployment"
+weight: 4
+description: Deploying the Axway Open Banking solution
+---
+```
+
+The keys in this example are defined as follows:
+
+* `title`: Sets the page title.
+* `linkTitle`: Sets the name of any links to the page rendered in the sidebar or by a parent page.
+* `weight`: Sets the ordering of the page in the sidebar - the higher the number, the higher up in the list of links the page link is rendered.
+* `description`: Description of the page, which is rendered on the page under the title.
+
+Its worth noting that both `title` and `description` provide a useful introduction to a given page, so should be used rather than Markdown content containing the same thing. This looks neater and stops repetitive content being served.
 
 ## Lifecycle
 
@@ -102,4 +129,7 @@ The outline process is as follows:
 * When approved the changes are merged to `master`. This kicks off a deployment in Netlify to the [Netlify site](https://axway-open-banking-docs.netlify.app/).
 * The final step is a merge to production, which does not necessarily need to be performed at each merge to `master` on GitHub. This happens through a manual push to Zoomin, the production provider for https://docs.axway.com.
 
-### Production
+More information on production can be found on Confluence at the following links:
+
+* [Defining Zoomin configuration](https://confluence.axway.com/display/RDAPI/Docs-as-code+on+Zoomin).
+* [Uploading to Zoomin](https://confluence.axway.com/display/RIE/Zoomin+administration#Zoominadministration-ConnectingtoZoomin'sSFTPserver).
