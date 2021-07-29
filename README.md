@@ -6,11 +6,15 @@ This overview outlines the main points of note in that context with some "Gettin
 
 > **Note the expectation is that a user of this repository is very familiar with using `git`, GitHub and the process of source controlling configuration items. The docs-as-code approach is an extension of those practices.**
 
-For more detailed information docs-as-code please refer to [Confluence](https://confluence.axway.com/display/RDAPI/Docs+as+code+approach).
-
 ## Development
 
-It's pretty simple: clone the repository and run `build.sh` to start a local server:
+It's pretty simple. Ensure you have the following installed:
+
+* Hugo.
+* git.
+* Node.js/NPM.
+
+Then clone the repository and run `build.sh` to start a local server:
 
 ```bash
 git clone https://github.com/Axway/open-banking-docs
@@ -129,8 +133,6 @@ Its worth noting that both `title` and `description` provide a useful introducti
 
 ## Lifecycle
 
-### Outline
-
 To date this project implements [GitHub Flow](https://guides.github.com/introduction/flow/), which is a simple and easy-to-use method doing documentation updates.
 
 The outline process is as follows:
@@ -141,7 +143,4 @@ The outline process is as follows:
 * When approved the changes are merged to `master`. This kicks off a deployment in Netlify to the [Netlify site](https://axway-open-banking-docs.netlify.app/).
 * The final step is a merge to production, which does not necessarily need to be performed at each merge to `master` on GitHub. This happens through a manual push to Zoomin, the production provider for https://docs.axway.com.
 
-More information on production can be found on Confluence at the following links:
-
-* [Defining Zoomin configuration](https://confluence.axway.com/display/RDAPI/Docs-as-code+on+Zoomin).
-* [Uploading to Zoomin](https://confluence.axway.com/display/RIE/Zoomin+administration#Zoominadministration-ConnectingtoZoomin'sSFTPserver).
+Production is handled by the technical writer assigned to the project.
