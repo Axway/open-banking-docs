@@ -1,6 +1,6 @@
 ---
-title: ACP Endpoints
-linkTitle: Authorization Control Plane (ACP) Endpoints
+title: Authorization Control Plane (ACP) Endpoints
+linkTitle: ACP Endpoints
 description: Summary of ACP endpoints used in Brazil market
 weight: 4
 date: 2021-07-29
