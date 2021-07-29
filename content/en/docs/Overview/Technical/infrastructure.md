@@ -39,6 +39,8 @@ An affinity node is used on each component to deploy them on the appropriate nod
 
 In cases where a customer deploys all their database within the Kubernetes cluster Axway recommands dedicating Cassandra pods to nodes on a one-to-one basis.
 
+> The configuration of master nodes is out-of-scope of this page.
+
 #### Subnets
 
 A complete architecture requires a minimum of 3 subnets:
