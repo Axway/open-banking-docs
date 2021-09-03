@@ -1,7 +1,7 @@
 ---
-title: "MTLS"
+title: "MTLS configuration"
 linkTitle: "MTLS"
-description: MTLS configuration
+description: How to change and test the certificate configurations required for Mutual Authentication
 weight: 4
 date: 2021-09-02
 ---
@@ -11,7 +11,7 @@ date: 2021-09-02
 Mutual authentication is required for most of API developed for Open Banking.
 
 According to the Open Banking Specification, the MTLS is required for both components : Cloud Entity and the API Gateway Listener. Here is a diagram that explains how it's working.
-![](/Images/mtls.png)
+![MTLS diagram](/Images/mtls.png)
 
 ### API Gateway MTLS
 
@@ -57,11 +57,10 @@ openssl genrsa -out ca1.key 2048openssl req -new -x509 -days 3650 -key
 
 ### Create certificates for the Third Party Provider App (Client Certificates for each TPP) 
 
-
 Each certificate must have one key and signed with a root CA previously created. These configuration files below are provided as example.
 
 | tpp1.cnf |
-| ----------- | 
+| ----------- |
 ```properties
 [req]
 default_bits = 2048
@@ -95,7 +94,7 @@ DNS = tpp1.demo.axway.com
 ```
 
 | tpp2.cnf |
-| ----------- | 
+| ----------- |
 ```properties
 [req]
 default_bits = 2048
@@ -128,11 +127,12 @@ extendedKeyUsage = clientAuth
 DNS = tpp2.demo.axway.com
 ```
 
+Download these files:
 
-[tpp1.cnf](/sample-files/tpp1.cnf)
-[tpp2.cnf](/sample-files/tpp2.cnf)
+* [tpp1.cnf](/sample-files/tpp1.cnf)
+* [tpp2.cnf](/sample-files/tpp2.cnf)
 
-Download and paste those files.
+and execute the following commands to generate the required certificates:
 
 ```bash
 openssl req -new -newkey rsa:2048 -nodes -out tpp1.csr -keyout tpp1.key -config ./tpp1.cnfopenssl x509 -req -days 3650 -in tpp1.csr -CA ca1.crt -CAkey ca1.key -CAcreateserial -out tpp1.crtopenssl req -new -newkey rsa:2048 -nodes -out tpp2.csr -keyout tpp2.key -config ./tpp2.cnfopenssl x509 -req -days 3650 -in tpp1.csr -CA ca2.crt -CAkey ca2.key -CAcreateserial -out tpp2.crt
@@ -144,13 +144,12 @@ openssl req -new -newkey rsa:2048 -nodes -out tpp1.csr -keyout tpp1.key
 
 Connect to the Cloud Entity admin page on `https://acp.<yourdomainname>/app/default/admin/`
 
-
 * Select workspace openbanking_brasil,
 * Click on settings on the left panel,
-![](/Images/mtls-acp-auth.png)
+![ACP Authorization Settings](/Images/mtls-acp-auth.png)
 * Click on Authorization on the main frame,
 * Scroll down to "Trusted client certificates",
-![](/Images/mtls-acp-ca.png)
+![ACP Trusted client certificates ](/Images/mtls-acp-ca.png)
 * Paste the content of ca1.crt and ca2.crt in the text box.
 * Click on the Save button
 
@@ -172,6 +171,7 @@ Replace the encoded string on value apitraffic.mtlsRootCa.
 ![values.yaml](/Images/mtls-apim-yaml.png)
 
 For first installation, use the helm install command otherwise use helm upgrade command.
+
 ```bash
 helm install/upgrade <release name> open-banking-apim -n open-banking-apim  
 ```
@@ -197,4 +197,3 @@ This is the following scenario that we follow:
 * First test with both ca.crt in ACP and Nginx configuration. The postman collection "account & transaction" can be used but a simple curl command is enough on both components. TPP cert and key must be tested for TPP1 and TPP2.
 * Second test with a request without TPP cert an key for the TPP2 only.
 * Third test with only the ca1.crt in ACP and Nginx configuration. The postman collection "account & transaction" can be used but a simple curl command is enough on both components. TPP cert and key must be tested for TPP1 and TPP2.
-
