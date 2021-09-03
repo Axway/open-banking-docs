@@ -8,7 +8,7 @@ date: 2021-09-02
 
 ## Amplify agents
 
-The Amplify agents are software applications that run on your host. The agents are responsible for gathering information that is happening in your data plane and sending it to the Amplify platform. The two types of agents that are supported are Discovery and Traceability Agents.
+The Amplify agents are software applications that run on your host. The agents are responsible for gathering information that is happening in your data plane and sending it to the [Amplify platform](https://platform.axway.com). The two types of agents that are supported are Discovery and Traceability Agents.
 
 ### Discovery Agents
 
@@ -119,7 +119,7 @@ amplifyAgents:
 
 ##### Service Account Creation
 
-We must first create a service account in Amplify.
+We must first create a service account in [Amplify platform](https://platform.axway.com).
 
 In the drop down menu from your user, select Organization and then "Service Accounts".
 
