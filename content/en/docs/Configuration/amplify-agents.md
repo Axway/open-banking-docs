@@ -23,11 +23,9 @@ Traceability Agents collect usage, metrics, and dataplane traffic details and se
 Axway Open Banking solution embbeds the Discovery and tracability agent fo Axway API Management. It gather information about the Open Banking APIs to the Amplify platform.
 
 
-### Agents deploymement parameters
+### Agents deployment parameters
 
 This section describes how to fill the "amplifyAgents" parameters from the values.yaml file of the open-banking-apim helm chart in order to connect Amplify and the Open Banking Platform.
-
-#### Values parameters
 
 ``` shell
 amplifyAgents:
@@ -115,32 +113,32 @@ amplifyAgents:
       name:
 ```
 
-#### Amplify configuration
+### Amplify configuration
 
-##### Service Account Creation
+#### Service Account Creation
 
 We must first create a service account in [Amplify platform](https://platform.axway.com).
 
 In the drop down menu from your user, select Organization and then "Service Accounts".
 
-![Service Account in Amplify](Images/agents/service-account-img1.PNG)
+![Service Account in Amplify](/Images/agents/service-account-img1.PNG)
 
 The organization "Axway - Open Banking" needs to be selected.
 
 Create a new service account.
 
-![Service Account Creation in Amplify](Images/agents/service-account-img2.PNG)
+![Service Account Creation in Amplify](/Images/agents/service-account-img2.PNG)
 
 Select a Name.
 For the method pick "Client Certificate" and for credentials select "Platform-generated key pair". If you have your own certificate, you can also select the first option, "Provide public key".
 
 You can add one or more organisations and teams, but for this case we`ll use the default options.
 
-![Service Account Example in Amplify](/Images/service-account-img3.PNG)
+![Service Account Example in Amplify](/Images/agents/service-account-img3.PNG)
 
 A pop-up window will apear with the private key. Download it and keep it, it will be used in the values.yaml file. 
 
-![Service Account Private key window in Amplify](/Images/service-account-privatekey.PNG)
+![Service Account Private key window in Amplify](/Images/agents/service-account-privatekey.PNG)
 
 The service account client id, name, public and private key  will be used in the values.yaml file in the following parameters:
 
@@ -161,17 +159,17 @@ centralPrivateKey:  |
 ```
 The private key is the one downloaded right after the creation of the service account.
 
-![Service Account Yaml conf](/Images/service-account-yaml-conf.PNG)
+![Service Account Yaml conf](/Images/agents/service-account-yaml-conf.PNG)
 
-##### Environment Creation
+#### Environment Creation
 
 Go to Central and then Topology and create a new environment.
 
-![Environment conf](/Images/environment-img1.PNG)
+![Environment conf](/Images/agents/environment-img1.PNG)
 
 Select a title and a logical name and then click on "Save".
 
-![Environment creation](/Images/environment-img2.PNG)
+![Environment creation](/Images/agents/environment-img2.PNG)
 
 Use the logical name in the parameter "centralEnvName" from values.yaml.
 
@@ -179,11 +177,11 @@ Use the logical name in the parameter "centralEnvName" from values.yaml.
 centralEnvName: "test-eks-int"
 ```
 
-##### Organization ID and Team
+#### Organization ID and Team
 
 For the organization id, select "Organization" from the drop down menu under your user.
 
-![Environment creation](/Images/org-img1.PNG)
+![Environment creation](/Images/agents/org-img1.PNG)
 
 ``` shell
 centralOrgID: "20049705293414"
@@ -191,7 +189,7 @@ centralOrgID: "20049705293414"
 
 For the "centralTeam" parameter from values.yaml, go to the "Team" menu under "Organization". 
 
-![Environment creation](/Images/team-img1.PNG)
+![Environment creation](/Images/agents/team-img1.PNG)
 
 ``` shell
 centralTeam: "Default Team"
