@@ -11,6 +11,7 @@ date: 2021-09-02
 Mutual authentication is required for most of API developed for Open Banking.
 
 According to the Open Banking Specification, the MTLS is required for both components : Cloud Entity and the API Gateway Listener. Here is a diagram that explains how it's working.
+![](mtls.png)
 
 ### API Gateway MTLS
 
@@ -37,7 +38,7 @@ Cloud Entity supports the MTLS and the root CA must be added in the component.
 
 Note : The target architecture is that API-Gateway must route the request to ACP. So ACP won't be accessible directly.
 
-## Test MTLS solution
+## Setup the solution for MTLS with test certificates
 
 ### Prerequisites
 
@@ -54,9 +55,79 @@ First, some certificates must exist to generates multiples
 openssl genrsa -out ca1.key 2048openssl req -new -x509 -days 3650 -key ca1.key -subj "/C=BR/ST=São Paulo/L=São Paulo/O=Axway/CN=Axway Root CA" -out ca1.crtopenssl genrsa -out ca2.key 2048openssl req -new -x509 -days 3650 -key ca2.key -subj "/C=BR/ST=São Paulo/L=São Paulo/O=Axway/CN=Axway Root CA" -out ca2.crt
 ```
 
-### Create certificates
+### Create certificates for the Third Party Provider App (Client Certificates for each TPP) 
 
-Each certificate must have one key and signed with a root CA previously created. A configuration is available below as example.
+
+Each certificate must have one key and signed with a root CA previously created. These configuration files below are provided as example.
+
+| tpp1.cnf |
+| ----------- | 
+```properties
+[req]
+default_bits = 2048
+default_md = sha256
+encrypt_key = yes
+prompt = no
+string_mask = utf8only
+distinguished_name = client_distinguished_name
+req_extensions = req_cert_extensions
+ 
+[client_distinguished_name]
+businessCategory = Third Party Provider 1
+jurisdictionCountryName = BR
+serialNumber = 18505934000140
+countryName = BR
+organizationName = AXWAY
+stateOrProvinceName = SP
+localityName = São Paulo
+organizationalUnitName = 00000000-0000-0000-0000-000000000002
+UID = 00000000-0000-0000-0000-000000000002
+commonName = tpp1.demo.axway.com
+ 
+[req_cert_extensions]
+basicConstraints = CA:FALSE
+subjectAltName = @alt_name
+keyUsage = critical,digitalSignature,keyEncipherment
+extendedKeyUsage = clientAuth
+ 
+[alt_name]
+DNS = tpp1.demo.axway.com
+```
+
+| tpp2.cnf |
+| ----------- | 
+```properties
+[req]
+default_bits = 2048
+default_md = sha256
+encrypt_key = yes
+prompt = no
+string_mask = utf8only
+distinguished_name = client_distinguished_name
+req_extensions = req_cert_extensions
+ 
+[client_distinguished_name]
+businessCategory = Third Party Provider 2
+jurisdictionCountryName = BR
+serialNumber = 18505934000140
+countryName = BR
+organizationName = AXWAY
+stateOrProvinceName = SP
+localityName = São Paulo
+organizationalUnitName = 00000000-0000-0000-0000-000000000002
+UID = 00000000-0000-0000-0000-000000000002
+commonName = tpp2.demo.axway.com
+ 
+[req_cert_extensions]
+basicConstraints = CA:FALSE
+subjectAltName = @alt_name
+keyUsage = critical,digitalSignature,keyEncipherment
+extendedKeyUsage = clientAuth
+ 
+[alt_name]
+DNS = tpp2.demo.axway.com
+```
+
 
 [tpp1.cnf](tpp1.cnf)
 [tpp2.cnf](tpp2.cnf)
@@ -67,19 +138,21 @@ Download and paste those files.
 openssl req -new -newkey rsa:2048 -nodes -out tpp1.csr -keyout tpp1.key -config ./tpp1.cnfopenssl x509 -req -days 3650 -in tpp1.csr -CA ca1.crt -CAkey ca1.key -CAcreateserial -out tpp1.crtopenssl req -new -newkey rsa:2048 -nodes -out tpp2.csr -keyout tpp2.key -config ./tpp2.cnfopenssl x509 -req -days 3650 -in tpp1.csr -CA ca2.crt -CAkey ca2.key -CAcreateserial -out tpp2.crt
 ```
 
-Note : Need to check if the cert configuration is enough compared to a real TPP cert.
-
 ### Deploy root CA certificates on the OB platform
 
 #### ACP
 
 Connect to the Cloud Entity admin page on https://acp.<yourdomainname>/app/default/admin/
 
+
 * Select workspace openbanking_brasil,
 * Click on settings on the left panel,
+![](mtls-acp-auth.png)
 * Click on Authorization on the main frame,
 * Scroll down to "Trusted client certificates",
-* Past the content of ca1.crt and ca2.crt in the text box.
+![](mtls-acp-ca.png)
+* Paste the content of ca1.crt and ca2.crt in the text box.
+* Click on the Save button
 
 #### APIM
 
@@ -93,11 +166,15 @@ First, concatenate all root CA and encode it in base64.
 cat ca1.crt ca2.crt > ca.crtcat ca.crt | base64
 ```
 
-Edit the values.yaml file of the helm chart open-banking-apim
+Edit the values.yaml file in the open-banking-apim Helm chart
 
-Paste the encoded string on .apitraffic.mtlsRootCa.
+Replace the encoded string on value apitraffic.mtlsRootCa.
+![values.yaml](mtls-apim-yaml.png)
 
 For first installation, use the helm install command otherwise use helm upgrade command.
+```bash
+helm install/upgrade <release name> open-banking-apim -n open-banking-apim  
+```
 
 #### NGINX
 
@@ -112,3 +189,12 @@ Check that all nginx pods are restarted with the age column using the following 
 ```bash
 kubectl get pods -n <nginx namespace>
 ```
+
+## Test the MTLS setup
+
+This is the following scenario that we follow:
+
+* First test with both ca.crt in ACP and Nginx configuration. The postman collection "account & transaction" can be used but a simple curl command is enough on both components. TPP cert and key must be tested for TPP1 and TPP2.
+* Second test with a request without TPP cert an key for the TPP2 only.
+* Third test with only the ca1.crt in ACP and Nginx configuration. The postman collection "account & transaction" can be used but a simple curl command is enough on both components. TPP cert and key must be tested for TPP1 and TPP2.
+
