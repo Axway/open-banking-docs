@@ -11,7 +11,7 @@ date: 2021-09-02
 Mutual authentication is required for most of API developed for Open Banking.
 
 According to the Open Banking Specification, the MTLS is required for both components : Cloud Entity and the API Gateway Listener. Here is a diagram that explains how it's working.
-![](mtls.png)
+![](/Images/mtls.png)
 
 ### API Gateway MTLS
 
@@ -129,8 +129,8 @@ DNS = tpp2.demo.axway.com
 ```
 
 
-[tpp1.cnf](tpp1.cnf)
-[tpp2.cnf](tpp2.cnf)
+[tpp1.cnf](/sample-files/tpp1.cnf)
+[tpp2.cnf](/sample-files/tpp2.cnf)
 
 Download and paste those files.
 
@@ -142,15 +142,15 @@ openssl req -new -newkey rsa:2048 -nodes -out tpp1.csr -keyout tpp1.key
 
 #### ACP
 
-Connect to the Cloud Entity admin page on https://acp.<yourdomainname>/app/default/admin/
+Connect to the Cloud Entity admin page on `https://acp.<yourdomainname>/app/default/admin/`
 
 
 * Select workspace openbanking_brasil,
 * Click on settings on the left panel,
-![](mtls-acp-auth.png)
+![](/Images/mtls-acp-auth.png)
 * Click on Authorization on the main frame,
 * Scroll down to "Trusted client certificates",
-![](mtls-acp-ca.png)
+![](/Images/mtls-acp-ca.png)
 * Paste the content of ca1.crt and ca2.crt in the text box.
 * Click on the Save button
 
@@ -169,7 +169,7 @@ cat ca1.crt ca2.crt > ca.crtcat ca.crt | base64
 Edit the values.yaml file in the open-banking-apim Helm chart
 
 Replace the encoded string on value apitraffic.mtlsRootCa.
-![values.yaml](mtls-apim-yaml.png)
+![values.yaml](/Images/mtls-apim-yaml.png)
 
 For first installation, use the helm install command otherwise use helm upgrade command.
 ```bash
