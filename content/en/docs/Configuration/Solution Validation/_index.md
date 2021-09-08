@@ -1,7 +1,7 @@
 ---
 title: "Solution Validation"
 linkTitle: "Solution Validation"
-description: Validate solution deployment and configuration
+description: Validate solution deployment and configuration using Postman , and OpenID certification test
 weight: 1
 date: 2021-09-02
 ---
