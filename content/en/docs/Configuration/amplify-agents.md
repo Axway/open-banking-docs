@@ -2,7 +2,7 @@
 title: "Amplify agents configuration"
 linkTitle: "Amplify agents"
 description: Connect Amplify agent to Amplify platform
-weight: 9
+weight: 5
 date: 2021-09-02
 ---
 

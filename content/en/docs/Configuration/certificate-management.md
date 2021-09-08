@@ -2,7 +2,7 @@
 title: "Certificate Management"
 linkTitle: "Certificate Management"
 description: Update solution certificates when needed
-weight: 2
+weight: 7
 date: 2021-09-02
 ---
 

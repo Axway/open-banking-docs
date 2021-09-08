@@ -2,7 +2,7 @@
 title: "Developer Portal"
 linkTitle: "Developer Portal"
 description: Configure and customize the Developer Portal
-weight: 2
+weight: 3
 date: 2021-09-02
 ---
 

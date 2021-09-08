@@ -1,7 +1,7 @@
 ---
 title: "API Gateway configuration"
-linkTitle: "API Gateway configuration"
-description: API Gateway configuration
+linkTitle: "API Gateway"
+description: Configure the Open Banking homepage content, KPS, the policies and security.
 weight: 1
 date: 2021-09-02
 ---

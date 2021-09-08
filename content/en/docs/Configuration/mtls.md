@@ -2,7 +2,7 @@
 title: "MTLS configuration"
 linkTitle: "MTLS"
 description: How to change and test the certificate configurations required for Mutual Authentication
-weight: 4
+weight: 8
 date: 2021-09-02
 ---
 

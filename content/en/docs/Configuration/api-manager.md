@@ -1,8 +1,8 @@
 ---
-title: "API Gateway configuration"
-linkTitle: "API Gateway configuration"
-description: API Gateway configuration
-weight: 1
+title: "API Manager configuration"
+linkTitle: "API Manager"
+description: Configure the Open Banking API Manager settings, clients and APIS, as well as the email templates.
+weight: 2
 date: 2021-09-02
 ---
 
@@ -16,7 +16,7 @@ Most features are documented in the [Axway API Manager documentation](https://do
 This page is under development
 {{% /pageinfo %}}
 
-## Email override
+## Email template override
 
 {{% pageinfo %}}
 This page is under development
