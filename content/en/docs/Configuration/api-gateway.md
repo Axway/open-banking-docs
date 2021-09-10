@@ -44,10 +44,10 @@ Mapping Table for CLOUDENTITY consent module with API Gateway
 | oauth\_introspect\_clientid | app is bank in openbanking workspace |
 | oauth_tenantid | tenant id in ACP server | 
 
-## Policy config
+<!-- ## Policy config
 
 {{% pageinfo %}}
-This page is under development
+This section is under development
 {{% /pageinfo %}}
 
 ## Certificate
@@ -60,4 +60,4 @@ This section is under development
 
 {{% pageinfo %}}
 This section is under development
-{{% /pageinfo %}}
+{{% /pageinfo %}} -->
