@@ -39,4 +39,4 @@ Navigate to Content > Articles and use New or Edit button to add or update an ar
 
 ## Troubleshooting
 
-Refer to [Troubleshooting > API Portal](/docs/deployment/install/troubleshooting#Portal-errors)
+Refer to [Troubleshooting > API Portal](/docs/configuration/troubleshooting#portal-errors)

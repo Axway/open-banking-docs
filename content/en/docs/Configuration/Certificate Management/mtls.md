@@ -32,7 +32,7 @@ Required features:
 * Manage multiple root CA according different TTP certs.
 * Limit cypher spec usage to “DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384
 
-See more about Cluster Prerequisites in [Install > Prerequisites](/docs/deployment/install#Prerequisites)
+See more about Cluster Prerequisites in [Install > Prerequisites](/docs/deployment/install#prerequisites)
 
 Note: Usage of the MTLS Listener embedded on the API-gateway configuration would require each customer to build their own docker images, as the container maturity level doesn't allow us to externalize certificates.
 
