@@ -36,3 +36,7 @@ All API and user documentation are available from `https://<portal-address>/docu
 
 Adminitrator can add new documentation or update existing on from Joomla administrator interface.
 Navigate to Content > Articles and use New or Edit button to add or update an article. Each article will appear in the Documentation page if their category is set to 'Documentation'
+
+## Troubleshooting
+
+Refer to [Troubleshooting > API Portal](Troubleshooting#Portal errors)
