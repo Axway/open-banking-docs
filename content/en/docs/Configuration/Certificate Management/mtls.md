@@ -23,14 +23,16 @@ Others possibilities are :
 
 * Use a component in front of the Kubernetes cluster to support the MTLS termination. In this condition, Axway recommands to have a component nearest the Kubernetes cluster.
 
-* Replace the nginx ingress controller by another that supports the required features:
-    * Encode certificate in header X-SSL-CERT in web format
-    * Return http error 400 if customer use a bad TPP
-    * Manage multiple root CA according different TTP certs.
-    * Limit cypher spec usage to “DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384
-    * Compatible with request header size to 8k.
-    * Deny public access to ACP path / app/default/admin
+* Replace the nginx ingress controller by another ingress controller that supports the required features.
 
+Required features:
+
+* Encode certificate in header X-SSL-CERT in web format
+* Return http error 400 if customer use a bad TPP
+* Manage multiple root CA according different TTP certs.
+* Limit cypher spec usage to “DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384
+
+See more about Cluster Prerequisites in [Install > Prerequisites](/docs/deployment/install#Prerequisites)
 
 Note: Usage of the MTLS Listener embedded on the API-gateway configuration would require each customer to build their own docker images, as the container maturity level doesn't allow us to externalize certificates.
 
