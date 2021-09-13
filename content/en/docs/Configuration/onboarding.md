@@ -67,3 +67,79 @@ The organization admin (for instance, the person who initialy register the organ
 ## Dynamic client registration
 
 New client can directly use the Dynamic client registration (DCR) API to self-register.
+For Brazil standard, and for each client, you need go through the following step
+
+### Getting Central Directory information
+
+It is important to run the test to get the following information:
+
+* Client ID.
+* BRSEAL – message certificate (cert e key) – used for JWKS .
+* BRCAC – transport certificate – used for MTLS comunication.
+
+###	Get the application declared in Axway Open Banking
+
+This release has a limitation that the ClientID is not automatically created on APIM.
+
+On APIM there is an organization to support this test – Testing. And we need to create a new Application for the ClientID that will be used for this test.
+
+* It is necessary to create a new Application on Testing organization. Ensuring the payment API is associated to this Application. And get the Application ID via API.
+
+* The API to use in order to create the OAuth Credentials for the application is:
+The API to use in order to create the OAuth Credentials for the application is:
+
+```bash
+curl --location --request POST 'https://hostname:port/api/portal/v1.3/applications/f9ca1dde-065b-411b-ae76-6b6eb6987836/oauth' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic YXBpYWRtaW46YXBpQWRtaW5Qd2Qh' \
+--header 'Cookie: API-Gateway-Manager-UI=014e0fa8fd910bf7eb5a51abdd009b35' \
+--data-raw '{
+"id": "c4fodmqo889qjstf7ibg", 
+"cert": null,
+"type": "public",
+"enabled": true,
+"redirectUrls": [
+"https://www.certification.openid.net/test/a/OB-EKS-DEV/callback"
+],
+"corsOrigins": [
+"*"
+],
+"applicationId": "f9ca1dde-065b-411b-ae76-6b6eb6987836"
+}'
+```
+
+Note that the applicationId appears both in the URL request (POST `https://hostname:port/api/portal/v1.3/applications/$applicationId/oauth`) and in the JSON data as $.applicationId. and the client-id used for oauth is appears in the JSON data as $.id
+
+###	Use DCR API with Postman
+
+Go on Developer portal and download Postman collection fro Dynamic Client Registration.
+Import it in Postman.
+Select 1st method and change parameter and body according to the TPP information to register.
+Hit Send
+
+###	Use DCR API with curl
+
+Customize the following command according to the TPP information you'd like to register:
+
+```bash
+curl --location --request POST 'https://mtls-api-proxy.openbanking.demoaxway.com/open-banking/dcr/v1/register' \
+--header 'Content-Type: application/json' \
+--cert client.crt --key client.key --cacert ca.crt \
+--data-raw '{
+	"orgParameters": {
+		"organizationName": "Test Corp",
+		"openbankingRole": "PISP",
+		"vatNumber": "1234567890",
+		"ncaStatus": "registered",
+		"ncaNumber": "Central Bank of Brazil",
+		"certificate": "mtls"
+	},
+	"userParameters": {
+		"firstName": "John",
+		"lastName": "Doe",
+		"emailAddress": "johndoe@testcorp.com",
+		"phone": "1234567890",
+		"title": "Project Manager"
+	}
+}'
+```

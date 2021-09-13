@@ -19,11 +19,11 @@ Prior to installation you will need to perform the following tasks:
     * Components that reflect choice of deployment model (certificate manager, load balancer/Ingress Controller, etc).
     Regarding the load balancer/ingress controler, you can use NGINX or another ingress controller with the following requirements:
         * Encode certificate in header X-SSL-CERT in web format
-        * Return http error 400 if customer use a bad TPP
-        * Manage multiple root CA according different TTP certs.
+        * Return http error 400 if client use a bad certificate
+        * Manage multiple root CA according different client certificates.
         * Limit cypher spec usage to “DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384
         * Compatible with request header size to 8k.
-        * Deny public access to ACP path / app/default/admin
+        * Deny public access to ACP path /app/default/admin
 
 * Install the following command line tools:
     * Helm.
