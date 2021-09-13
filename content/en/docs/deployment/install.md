@@ -13,13 +13,21 @@ Prior to installation you will need to perform the following tasks:
 
 * Read and understand the Architecture Overview guide.
 * Make choices that are described in the Architecture Overview guide including:
-  * Choice of Kubernetes provider (cloud, on-premise, etc).
-  * Components that will be supported (Demo Applications, mock backend services, etc).
-  * Approach to database deployment (inside Kubernetes vs. externalized services).
-  * Components that reflect their choice of deployment model (certificate manager, load balancer/Ingress Controller, etc).
+    * Choice of Kubernetes provider (cloud, on-premise, etc).
+    * Components that will be supported (Demo Applications, mock backend services, etc).
+    * Approach to database deployment (inside Kubernetes vs. externalized services).
+    * Components that reflect choice of deployment model (certificate manager, load balancer/Ingress Controller, etc).
+    Regarding the load balancer/ingress controler, you can use NGINX or another ingress controller with the following requirements:
+        * Encode certificate in header X-SSL-CERT in web format
+        * Return http error 400 if customer use a bad TPP
+        * Manage multiple root CA according different TTP certs.
+        * Limit cypher spec usage to “DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384
+        * Compatible with request header size to 8k.
+        * Deny public access to ACP path / app/default/admin
+
 * Install the following command line tools:
-  * Helm.
-  * Kubectl.
+    * Helm.
+    * Kubectl.
 * Obtain a private token for use with the Axway Docker Registry.
 * Create a Kubernetes cluster that conforms to that described in the Architecture Overview guide and reflects the architecture choices described above.
 
