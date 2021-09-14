@@ -189,8 +189,25 @@ kubectl get pods -n <nginx namespace>
 
 ## Test the MTLS setup
 
-This is the following scenario that we follow:
+Here are several scenario you can use to test the MTLS setup with NGINX and APIM:
 
-* First test with both ca.crt in ACP and Nginx configuration. The postman collection "account & transaction" can be used but a simple curl command is enough on both components. TPP cert and key must be tested for TPP1 and TPP2.
-* Second test with a request without TPP cert an key for the TPP2 only.
-* Third test with only the ca1.crt in ACP and Nginx configuration. The postman collection "account & transaction" can be used but a simple curl command is enough on both components. TPP cert and key must be tested for TPP1 and TPP2.
+* Configure both CA1 and CA2 in NGINX, APIM and ACP as described in the previous section.
+    * Use a simple curls command to test a call without cert and keys.
+        * `curl 'https://mtls-api-proxy.<domain-name>/healthcheck'`
+        * the call should return 400 with a SSL certificate error
+    * Use a simple curls command to test sending cert and key for TPP1 and TPP2.
+        * `curl 'https://mtls-api-proxy.<domain-name>/healthcheck' --cert tpp1.crt --key tpp1.key`
+        * `curl 'https://mtls-api-proxy.<domain-name>/healthcheck' --cert tpp2.crt --key tpp2.key`
+        * the call should return 200 with status ok
+* Configure only CA1 in NGINX, APIM and ACP as described in the previous section.
+    * Use a simple curls command to test sending cert and key for TPP2.
+        * `curl 'https://mtls-api-proxy.<domain-name>/healthcheck' --cert tpp2.crt --key tpp2.key`
+        * the call should return 400 with a SSL certificate error
+
+You can do similar tests on ACP using the following curl command:
+
+```bash
+curl --request POST 'https://acp.<domain-name>/default/openbanking_brasil/oauth2/token' \
+--data-urlencode 'grant_type=client_credentials' --data-urlencode 'scope=accounts' \
+--data-urlencode 'client_id=tpp1' --cert tpp1.crt --key tpp1.key
+```

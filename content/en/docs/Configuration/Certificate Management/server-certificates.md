@@ -32,8 +32,8 @@ Server certificate are required for all of the following ingresses:
 | api-portal                                | developer-portal.`<domain-name>`       | open-banking-developer-portal  |
 | jwe-generator                             | jwe.`<domain-name>`                    | open-banking-jwe               |
 
-## Secure internal connections
+<!-- ## Secure internal connections
 
 {{% pageinfo %}}
 This section is under development
-{{% /pageinfo %}}
+{{% /pageinfo %}} -->

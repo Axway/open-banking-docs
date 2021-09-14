@@ -16,10 +16,12 @@ First they should retrieve the "Postman Collection" and "Postman Environment"
 2. Browse to the API you'd like to test and click the "Learn More" button
 3. Click both the "Postman Collection" and "Postman Environment" links to download the Collection and Environment files
 
-## Import into Postman
+## Import collection into Postman
 
 Import the 2 files together into postman. Note that Postman collection are different for each API while environment file is unique by environment.
-Once imported, you can select the collection in the left pane, and select the environmen in the top right corner of postman.
+Once imported, you can select the collection in the left pane, and select the environment in the top right corner of postman.
+
+Update the environment details, with  client-id and the private key corresponding to the TPP client certificate.
 
 ## Postman Settings
 
