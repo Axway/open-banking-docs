@@ -7,10 +7,13 @@ date: 2021-09-02
 ---
 
 As part of the certification process, the customer´s platforms should be compliance with OpenID Foundation security tests:
-• <https://openid.net/certification/instructions/>
+
+* <https://openid.net/certification/instructions/>
+
 We have two different set of tests:
-• FAPI Advanced test .
-• DCR Test .
+
+* FAPI Advanced test .
+* DCR Test .
 
 This section describes the setup tests that is necessary to configure the environment to run the security tests. 
 
@@ -32,13 +35,14 @@ This test validates the TPP creation on Authorization Server via Central Directo
 ### Getting Central Directory information
 
 It is important to run the test to get the following information:
-• Client ID : new TPP client ID to register
-• RSEAL – message certificate (cert and key) – used for JWKS .
-• BRCAC – transport certificate – used for MTLS comunication
+
+* Client ID : new TPP client ID to register
+* RSEAL – message certificate (cert and key) – used for JWKS .
+* BRCAC – transport certificate – used for MTLS comunication
 
 ### Certificate configuration
 
-Make sure the corresponding CA are configured in the Axway Open Banking solution, by following each section of ![Certificate Management](/docs/configuration/certificate-management)
+Make sure the corresponding CA are configured in the Axway Open Banking solution, by following each section of [Certificate Management](/docs/configuration/certificate-management)
 
 ### Create the DCR test plan
 
@@ -78,8 +82,8 @@ to be completed
 
 Make sure the corresponding CAs are configured in the Axway Open Banking solution:
 
-* Including the CA cert of each TPP on IngressMTLSCA entry of values.yaml of APIM package. See detailed instructions in ![Certificate Management > MTLS](/docs/configuration/certificate-management/mtls)
-* Update the filters Jwt-Verify and Jwt-Sign, udpdating the JWKS certificate (bracac). See detailed instructions in ![Certificate Management > JWKS](/docs/configuration/certificate-management/jwks)
+* Including the CA cert of each TPP on IngressMTLSCA entry of values.yaml of APIM package. See detailed instructions in [Certificate Management > MTLS](/docs/configuration/certificate-management/mtls)
+* Update the filters Jwt-Verify and Jwt-Sign, udpdating the JWKS certificate (bracac). See detailed instructions in [Certificate Management > JWKS](/docs/configuration/certificate-management/jwks)
 
 ### Create the FAPI Advanced test plan
 
