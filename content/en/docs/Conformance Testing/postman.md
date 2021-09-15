@@ -6,7 +6,8 @@ weight: 1
 date: 2021-09-02
 ---
 
-Admins or TPP Developer can test and validate their access to APIs by using postman.
+Axway Open Banking solution comes with Postman collections for most Open Banking APIs that enables solution testing and validation.
+Admins or TPP Developer can test and validate their access to APIs by using Postman. Having these tests successfull helps to make sur all components of the solution is correctly integrated to the bank system.
 
 ## Retrieve the postman files
 
