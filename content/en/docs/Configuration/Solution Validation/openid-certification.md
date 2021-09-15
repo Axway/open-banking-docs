@@ -47,7 +47,7 @@ Create a new plan and select Dynamic Client Registration Authorization server te
 
 Use the JSON tab to import this sample JSON test configuration :
 
-* [conformance-test-dcr.json](/sample-files/conformance-test-dcr.json) 
+* [conformance-test-dcr.json](/sample-files/conformance-test-dcr.json)
 
 Then go back to the Form tab to customize the following :
 
@@ -56,3 +56,42 @@ Then go back to the Form tab to customize the following :
 * Client : Change jwks with RSEAL information
 * TLS certificates for client :  change certificate and key with BRCAC information
 * Directory: change client ID with the new TPP client ID to register.
+
+## FAPI Advanced Tests
+
+### TPP configurations
+
+Make sure that the 2 test TPP are configured in APIM:
+
+* Connect to API Manager UI
+* Under Client > Organization : you should see TPP name
+* Under Client > application : you should see a application for each TPP. In each application a OAuth clientId should be configured in the Authorization section.
+
+Make sure that the 2 test TPP are configured in ACP:
+
+* Connect to ACP and select to workspace for Open Banking
+* Under Application, you be able to find the each TPP with same application name as in APIM, and the same clientID 
+* Each application should be configured with a correct client authorization
+{{% pageinfo %}}
+to be completed
+{{% /pageinfo %}}
+
+Make sure the corresponding CAs are configured in the Axway Open Banking solution:
+
+* Including the CA cert of each TPP on IngressMTLSCA entry of values.yaml of APIM package. See detailed instructions in ![Certificate Management > MTLS](/docs/configuration/certificate-management/mtls)
+* Update the filters Jwt-Verify and Jwt-Sign, udpdating the JWKS certificate (bracac). See detailed instructions in ![Certificate Management > JWKS](/docs/configuration/certificate-management/jwks)
+
+### Create the FAPI Advanced test plan
+
+Create a new plan and select FAPI Authorization server test:
+![Conformance Suite : Create Plan](/Images/conformance-suite/fapi-plan-select.png)
+
+Use the JSON tab to import this sample JSON test configuration :
+
+* [conformance-test-dcr.json](/sample-files/conformance-test-fapi.json)
+
+Then go back to the Form tab to customize the following :
+
+{{% pageinfo %}}
+to be completed
+{{% /pageinfo %}}
