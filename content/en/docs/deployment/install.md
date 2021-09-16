@@ -66,7 +66,7 @@ tar xvf open-banking-bankio-apps-1.4.x.tgz
 vi open-banking-bankio-apps/values.yaml
 ```
 
-### API Gateway
+### API Management
 
 #### Minimal parameters required
 
@@ -85,11 +85,12 @@ The following parameters are required for any deployment. This deployment use ce
 | global.smtpServer.username | Smtp server username | None |
 | global.smtpServer.password | Smtp server password | None |
 | apimcli.settings.email | email used in api-manager settings |None |
-|backend.serviceincident.host| ServiceNow URL|None|
-|backend.serviceincident.username| ServiceNow username |None|
-|backend.serviceincident.password| ServiceNow password |None|
+| backend.serviceincident.host| ServiceNow URL|None|
+| backend.serviceincident.username| ServiceNow username |None|
+| backend.serviceincident.password| ServiceNow password |None|
 
-#### [Optional] Customize storage class
+#### Product licence
+
 A temporary license file is embedded in the default docker image.
 This license key has a lifetime to 2 months maximum.
 This license is perfect for a demo or a POC but another License key must be added for real environments.
@@ -98,11 +99,11 @@ This license is perfect for a demo or a POC but another License key must be adde
 |:------------- |:------------------------------------- |:-------------- |
 | global.apimLicense | Insert your license key. An example is in the default value file. | None |
 
+#### Externalize Cassandra database (Required for production environment)
 
-#### [Production] Externalize Cassandra database
 According to the reference architecture, database must be external to the cluster. Change the following values according to the cassandra configuration. Please follow the Axway documentation to create the Cassandra cluster.
 
-```
+```yaml
 cassandra:
    external: true
    adminName: "cassandra"
@@ -112,7 +113,8 @@ cassandra:
    host3: "cassandra"
 ```
 
-#### [Optional] Add new root CA for MTLS ingress
+#### Add new root CA for MTLS ingress (Optional)
+
 The mutual authentication is provided by Nginx. It requires a Kubernetes secret that contains all rootCA used to signed your tpp cert.
 The differents root CA certificats must be concatenate and encoded in base64.
 
@@ -120,9 +122,7 @@ The differents root CA certificats must be concatenate and encoded in base64.
 |:------------- |:------------------------------------- |:-------------- |
 | apitraffic.ingressMtlsRootCa | all concatenate root CA encoded in base64 | yes |
 
-###### Note: any changes of this values require a restart rollout in post deployment step. 
-
-#### [Optional] Customize storage class
+#### Customize storage class (Optional)
 
 The APIM deployment needs a storage class in Read/Write Many. A custom storage class can be setted if the cluster doesn't use the standard deployment for Azure, AWS or if the deployment is on a vanilla Kubernetes.
 
@@ -130,10 +130,11 @@ The APIM deployment needs a storage class in Read/Write Many. A custom storage c
 |:------------- |:------------------------------------- |:-------------- |
 | Global.customStorageClass.scrwm | Allow to specify a storageclass to mount a “Read Write Many” volume on pod. It’s used to share metrics between monitoring and analytics. | None |
 
-#### [Optional] Use a Wildcard certificate for all ingress
+#### Use a Wildcard certificate for all ingress (Optional)
 
 It's possible to use a custom wildcard certifcate. change values listed below. Note: the cert field must contains the full chain.
-```
+
+```yaml
 global:
    ingress:
       certManager: false
@@ -153,9 +154,11 @@ global:
          -----END RSA PRIVATE KEY-----
 ```
 
-#### [Optional] Use a different custom certificate for ingress
+#### Use a different custom certificate for ingress (Optional)
+
 It's possible to define a different certificate for each ingress. Change values listed below. keep an empty line after the key or the certificate.
-```
+
+```yaml
 global:
    ingress:
       certManager: false
@@ -214,9 +217,11 @@ apitraffic:
       <<insert here base64-encoded key>>
       -----END RSA PRIVATE KEY-----
 ```
-Note : Oauth component is activated but ingress isn't enabled. It's not required to create a certificate for this ingress.
 
-#### [Optional] Configure Amplify Agents
+> Note : Oauth component is activated but ingress isn't enabled. It's not required to create a certificate for this ingress.
+
+#### Configure Amplify Agents (Optional)
+
 The following values must be set to reports API and their usage on the **Amplify platform**. Note that Private Key and Public Key must be encoded in base64.
 ```
 amplifyAgents:
@@ -232,43 +237,68 @@ amplifyAgents:
 
 ### Developer Portal
 
-Modify at least the following values:
-
-- global.domainName: set the domainname for all ingress
-* global.dockerRegistry.username : registry robot account name
-* global.dockerRegistry.token : registry robot account password
-* global.dockerRegistry.token : registry robot account password
-* apiportal.adminPasswd: password to access Developer Portal Joomla admin console
-* apiportal.company: name of you company, sued for brandind
-* apiportal.chatraid:  your Chatra account
-* apiportal.recaptchkey: recaptcha key associated to your external domain name
-* apiportal.recaptchsecret:  corresponding recaptcha key associated to your external domain name
-* apiportal.demoAppSource:   the demo app source URL to be used on the portal home page
-* apiportal.authorizationHost:   the OAuth server public name
-* apiportal.apiWhitelist:  coma-separated list of hosts exposing APIs
-* apiportal.oauthWhitelist:  coma-separated list of hosts used for external Oauth
-* apiportal.serviceDeskEndPoint: URL of service desk service 
-* apiportal.apiReviewEndPoint:   URL of API review service 
-* mysqlPortal.rootPasswd: root password for the database to be created
-* mysqlPortal.adminPasswd : admin password for the database to be created
+| Value         | Description                           | Default value  |
+|:------------- |:------------------------------------- |:-------------- |
+| global.platform | select the platform : AWS, AZURE, MINIKUBE | AWS |
+| global.domainName | set the domainname for all ingress. | None |
+| global.dockerRegistry.url | URL of the Axway Repo. Need to be modified only if url is different| docker-registry.demo.axway.com/open-banking/developer-portal |
+| global.dockerRegistry.username | Login of user that as been created for you. | None |
+| global.dockerRegistry.token | Token of user that as been created for you. | None |
+| apiportal.adminPasswd | password to access Developer Portal Joomla admin console | portalAdminPwd! |
+| apiportal.company | name of you company, sued for brandind | Griffin Bank |
+| apiportal.chatraid |  your Chatra account |  |
+| apiportal.recaptchkey | recaptcha key associated to your external domain name |  |
+| apiportal.recaptchsecret |  corresponding recaptcha key associated to your external domain name |  |
+| apiportal.demoAppSource |   the demo app source URL to be used on the portal home page | https://demo-apps.openbanking.demoaxway.com/app.js?version=1.1 |
+| apiportal.authorizationHost |   the OAuth server public name |  acp.openbanking.demoaxway.com |
+| apiportal.apiWhitelist |  coma-separated list of hosts exposing APIs | api.openbanking.demoaxway.com,mtls-api-proxy.openbanking.demoaxway.com |
+| apiportal.oauthWhitelist |  coma-separated list of hosts used for external Oauth | acp.openbanking.demoaxway.com |
+| apiportal.serviceDeskEndPoint | URL of service desk service  |https://api.openbanking.demoaxway.com/services/v1/incident   |
+| apiportal.apiReviewEndPoint |   URL of API review service  | https://api.openbanking.demoaxway.com/api/portal/v1.2/reviewapi |
+| mysqlPortal.rootPasswd | root password for the database to be created | portalDBRootPwd! |
+| mysqlPortal.adminPasswd  | admin password for the database to be created | portalDBAdminPwd! |
 
 ### Backend services
 
-{{% pageinfo %}}
-This section is under development
-{{% /pageinfo %}}
+| Value         | Description                           | Default value  |
+|:------------- |:------------------------------------- |:-------------- |
+| global.dockerRegistry.url | URL of the Axway Repo. Need to be modified only if url is different| docker-registry.demo.axway.com/open-banking |
+| global.dockerRegistry.username | Login of user that as been created for you. |  |
+| global.dockerRegistry.token | Token of user that as been created for you. |  |
+| mysqldb.dbname | Mock backend database name |  "medicimockbackend" |
+| mysqldb.dbuser | Mock backend database username |  "mockbank" |
+| secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password | Ch@ng3M3! |
+| secrets.MYSQL_USER_PASSWORD | Mock backend database user password | Ch@ng3M3! |
 
 ### Analytics
 
-{{% pageinfo %}}
-This section is under development
-{{% /pageinfo %}}
+| Value         | Description                           | Default value  |
+|:------------- |:------------------------------------- |:-------------- |
+| global.domainName | set the domainname for all ingress. | openbanking.demoaxway.com |
+| global.dockerRegistry.url | URL of the Axway Repo. Need to be modified only if url is different| docker-registry.demo.axway.com/open-banking |
+| global.dockerRegistry.username | Login of user that as been created for you. |  |
+| global.dockerRegistry.token | Token of user that as been created for you. |  |
+| elastic.password | Password used for "elastic" user. | Open*Banking*2021 |
+| metrics.apiKey | API Key used for the metrics. Used by Webserver and APIM | PuGB+3m1z2jeFVHf5pWoFKOxH0F/fW9M |
+| kibana.ingress.dnsprefix | set the domain name for kibana. | kibana |
+| webserver.ingress.dnsprefix | Frequency of reports generation | analytics |
+| webserver.report.frequency | Frequency of reports generation | 00 00 * * * (Every day at midnight) |
 
 ### Demo apps
 
-{{% pageinfo %}}
-This section is under development
-{{% /pageinfo %}}
+| Value         | Description                           | Default value  |
+|:------------- |:------------------------------------- |:-------------- |
+| image.dockerRegistry.url | URL of the image in Axway Repo. Need to be modified only if url is different| docker-registry.demo.axway.com/open-banking/apps |
+| image.dockerRegistry.username | Login of user that as been created for you. | None |
+| image.dockerRegistry.token | Token of user that as been created for you. | None |
+| frontEnd.cname | frontEnd server address. change domainname value | demo-apps.<domainname> |
+| tppApi.cname | tppApi server address. change domainname value | tpp-demo-apps.<domainname> |
+| autoLoanApi.cname | autoLoanApi server address. change domainname value | auto-loan-api-demo-apps.<domainname> |
+| shopApi.cname | shopApi server address. change domainname value |shop-demo-api-apps.<domainname> |
+| obieSandbox.cname | obieSandbox server address. change domainname value | obie-sandbox-demo-apps.<domainname> |
+| griffin.tokenEndpoint | Token endpoint of Authorization server used by demo apps. change domainname value | https://acp.<domainname>/axway/openbanking_demo/oauth2/token |
+| griffin.authorizationEndpoint | Authorization endpoint of Authorization server used by demo apps. change domainname value | https://acp.<domainname>/axway/openbanking_demo/oauth2/authorize |
+| griffin.aispEndpoint | Account endpoint of Open Banking API used by demo apps. change domainname value | https://mtls-api-proxy.<domainname>/open-banking/v3.1/aisp |
 
 ## Download, Customize and Install Cloudentity Components
 
