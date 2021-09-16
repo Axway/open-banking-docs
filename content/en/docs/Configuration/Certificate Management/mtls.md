@@ -25,7 +25,7 @@ Others possibilities are :
 
 * Replace the nginx ingress controller by another ingress controller that supports the required features.
 
-See the required features the the ingress controle in [Install > Prerequisites](/docs/deployment/install#prerequisites)
+See the required features the ingress controler in [Deployment > Prerequisites](/docs/deployment/prerequisites)
 
 Note: Usage of the MTLS Listener embedded on the API-gateway configuration would require each customer to build their own docker images, as the container maturity level doesn't allow us to externalize certificates.
 
