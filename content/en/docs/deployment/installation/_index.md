@@ -7,25 +7,30 @@ description: Installing the Axway Open Banking solution
 
 This guide describes how to install the Axway Open Banking solution.
 
-## Download and Customize Axway Components
+## Connect to Axway Repository
 
-To install the solution add the Axway Docker Repository to your Helm configuration:
+To install the solution, add the Axway Repository to your Helm configuration:
 
 ```bash
 helm repo add axway-open-banking \ 
 https://docker-registry.demo.axway.com/chartrepo/open-banking \ 
 --username="<use the token name>" \ 
 --password="<use your private token here>"   
-
-helm repo update 
 ```
 
-> Note that if your token includes a dollar it should be escaped e.g. “robot$” becomes “robot\$”.
+> Note that if your token name starts with `robot$` , you should type `robot\$` if your running the command from Linux or MacOs, and you should type `robot``$`if you are using Windows Powershell.
 
-Once the registry is added you can then fetch the deployment packages using the appropriate Helm commands:
+Once the registry is added, make sure you can see the open-banking packages :
 
 ```bash
+helm repo update 
 helm search repo axway-open-banking
+```
+
+For each component, follow the install instructions
+
+<!--
+```bash
 helm fetch axway-open-banking/open-banking-acp
 helm fetch axway-open-banking/open-banking-consent
 helm fetch axway-open-banking/open-banking-apim
@@ -49,5 +54,4 @@ tar xvf open-banking-analytics-1.4.x.tgz
 tar xvf open-banking-acp-1.4.x.tgz  
 tar xvf open-banking-consent-1.4.x.tgz  
 tar xvf open-banking-bankio-apps-1.4.x.tgz 
-```
-
+``` -->
