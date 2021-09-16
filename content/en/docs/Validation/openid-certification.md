@@ -34,9 +34,9 @@ This test validates the TPP creation on Authorization Server via Central Directo
 
 ### Getting Central Directory information
 
-It is important to run the test to get the following information:
+It is important to run the test to get the following information from Central Directory:
 
-* Client ID : new TPP client ID to register
+* Client ID : Central Directory client ID to register
 * RSEAL – message certificate (cert and key) – used for JWKS .
 * BRCAC – transport certificate – used for MTLS comunication
 

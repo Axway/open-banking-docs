@@ -16,8 +16,10 @@ Most features are documented in the [Axway API Manager documentation](https://do
 This page is under development
 {{% /pageinfo %}} -->
 
-## Email template override
+## Email templates override
 
+Emails are sent to API developpers when they register, activate their account, or change password.
+![Welcome email](/Images/welcome-email.png)
 You can customize the email templates used for developer notifications in `/opt/Axway/apigateway/system/conf/apiportal/email` folder of the apimngr pod.
 
 ## Client management

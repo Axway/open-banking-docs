@@ -12,7 +12,7 @@ Most features are documented in the [Axway API Portal documentation](https://doc
 
 ## Administror interface
 
-The portal adminstration interface is avaible on `https://<portal-address>/administrator` 
+The portal adminstration interface is avaible on `https://<portal-address>/administrator`
 It allows multiple admin actions:
 
 * general configuration
