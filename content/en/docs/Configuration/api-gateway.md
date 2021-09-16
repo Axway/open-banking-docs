@@ -21,8 +21,9 @@ You can change titles and add or update links by modifying the index.html that i
 
 You can further customize the homepage by modifying directly the files in the `/opt/Axway/apigateway/openbanking/homepage` folder of the apimngr pod.
 
-## KPS config
+## KPS configuration
 
+The Key Properties Store of API Gateway is used to store the solution configuration variables.
 This configuration can be read at the beginning of any policy using a common policy "Read Configuration"
 
 | Column Name | Type | Purpose |
@@ -38,7 +39,15 @@ This configuration can be read at the beginning of any policy using a common pol
 
 By default, only 1 line exists with no criteria (columns b to e) and values (column k) corresponding to solution deployment parameters. Refer to [Solution Deployment](/docs/deployment/install) to see how to changes this values during deployment. 
 
-Several value should correspond to the settings of CLOUDENTITY ACP or it consent module. Here a mapping table to check KPS values are correct.
+You can check and update your current configuration from API Gateway Manager > Settings > Key Properties Store :
+
+![kps-configuration](/Images/api-gateway-manager-kps-configuration.png)
+
+Click on configuration and on the line to be checked or updated.
+
+![kps-values](/Images/api-gateway-manager-kps-values.png)
+
+Several values should correspond to the settings of CLOUDENTITY ACP or it consent module. Here a mapping table to check KPS values are correct.
 
 | KPS Values | How to retrieve check this values in cloudentity ACP UI |
 | --- | --- |
@@ -55,5 +64,10 @@ Several value should correspond to the settings of CLOUDENTITY ACP or it consent
 ## Certificates
 
 API Gateway is configured with several certificate that are used during the runtime : server certificate, client certificate authority, jwt certificate and keys.
-You can check which ones are in use by opening Policy Studio and navigate to
-To update Refer to the API Gateway instructions that you can find under each sections in [Certificate Management](/docs/configuration/certificate-management)
+
+You can check which ones are in use by opening Policy Studio and navigate to Environment Configuration > Certificate and Keys > Certificates.
+Right-click on certificate to see if there any reference to it, meaning they are currently in use.
+
+![apim-policy-studio-certificates](/Images/apim-policy-studio-certificates.png)
+
+If you identify the need to change on of them, refer to the API Gateway instructions that you can find under each sections of [Certificate Management](/docs/configuration/certificate-management)
