@@ -1,7 +1,7 @@
 ---
 title: "Installation"
 linkTitle: "Installation"
-weight: 1
+weight: 2
 description: Installing the Axway Open Banking solution
 ---
 

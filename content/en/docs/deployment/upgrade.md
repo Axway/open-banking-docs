@@ -1,7 +1,7 @@
 ---
 title: "Upgrade"
 linkTitle: "Upgrade"
-weight: 2
+weight: 4
 description: Upgrading the Axway Open Banking solution
 ---
 
