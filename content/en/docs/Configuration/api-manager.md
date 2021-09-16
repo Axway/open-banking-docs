@@ -22,15 +22,13 @@ Emails are sent to API developpers when they register, activate their account, o
 ![Welcome email](/Images/welcome-email.png)
 You can customize the email templates used for developer notifications in `/opt/Axway/apigateway/system/conf/apiportal/email` folder of the apimngr pod.
 
-## Client management
-
-Admin can use the API Manager interface to manage organization, developers and applications.
-This would be required to support TPP in getting access to the API testing, to revoke some API access, etc.
-
 ## API Management
 
 Upon solution deployment, several Open Banking APIs are deployed and publish in the catalog.
 You can us the admin interface to update them:
+
+![open banking apis](/Images/api-manager-apis.png)
+
 These frontend API changes can be done directly on published API:
 
 * change API logo
@@ -44,3 +42,19 @@ These Frontend API changes can be done only by unpublishing the API first:
 * change API inbound configuration
 * change API outbound configuration
 * change API security configuration
+
+See here how to manage APIs details in [Axway API Manager documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web/index.html)
+
+## Client management
+
+Admin can use the API Manager interface to manage organization, developers and applications.
+
+![client apps](/Images/api-manager-client-apps.png)
+
+This is can be used to support TPP in changing their app status, getting access to specic APIs, to revoke some API access, etc.
+
+![client apps apis access](/Images/api-manager-client-apps-apis.png)
+
+This is can be used to support TPP in check their OAuth confguration such as the client ID or the redirect URLs.
+
+![client apps auth](/Images/api-manager-client-apps-auth.png)
