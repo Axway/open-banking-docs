@@ -12,7 +12,7 @@ Most features are documented in the [Axway API Portal documentation](https://doc
 
 ## Administror interface
 
-The portal adminstration interface is avaible on `https://<portal-address>/administrator`
+The portal adminstration interface is available on `https://developer-portal.<domain-name>/administrator`
 It allows multiple admin actions:
 
 * general configuration
@@ -39,4 +39,4 @@ Navigate to Content > Articles and use New or Edit button to add or update an ar
 
 ## Troubleshooting
 
-Refer to [Troubleshooting > API Portal](/docs/configuration/troubleshooting#portal-errors)
+Refer to [Troubleshooting > API Portal](/docs/validation/troubleshooting#portal-errors)
