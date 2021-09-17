@@ -205,29 +205,33 @@ helm install apim open-banking-apim -n open-banking-apim
 
 Check that the status of the helm command is deployed:
 
->NAME: apim \
->LAST DEPLOYED: Fri Apr 16 07:36:35 2021 \
->NAMESPACE: open-banking-apim \
->STATUS: **deployed** \
->REVISION: 1 \
->TEST SUITE: None
+   ```console
+   NAME: apim \
+   LAST DEPLOYED: Fri Apr 16 07:36:35 2021 \
+   NAMESPACE: open-banking-apim \
+   STATUS: deployed \
+   REVISION: 1 \
+   TEST SUITE: None
+   ```
 
 ### Verifications
 
 Wait a few minutes and use the following commands to check the status of the deployment.
 
-```
-kubectl get pods -n open-banking-apim \
+```console
+kubectl get pods -n open-banking-apim 
 ```
 
->NAME &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; READY &nbsp; STATUS &nbsp; &nbsp; &nbsp;  &nbsp;RESTARTS \
->anm-6d86b7dfbd-4wbnx &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1/1 &nbsp; &nbsp; &nbsp; &nbsp; Running &nbsp; &nbsp;  &nbsp;0 \
->apimgr-544b55fffb-qsn87 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1/1 &nbsp; &nbsp; &nbsp; &nbsp; Running &nbsp; &nbsp;  &nbsp;0 \
->cassandra-0  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1/1  &nbsp; &nbsp; &nbsp; &nbsp;Running  &nbsp; &nbsp;  &nbsp;0 \
->db-create-mysql-apigw-379e224c-... &nbsp; &nbsp;0/1 &nbsp; &nbsp; &nbsp; &nbsp;Completed  &nbsp;0 \
->filebeat-analytics-86d588954b-lsx2p  &nbsp; &nbsp;1/1 &nbsp; &nbsp; &nbsp; &nbsp;Running &nbsp; &nbsp; &nbsp;0 \
->mysql-aga-757495f88f-vpw79  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1/1  &nbsp; &nbsp; &nbsp; &nbsp;Running  &nbsp; &nbsp; &nbsp; 0 \
->traffic-5d986c7d55-cv6dv  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1/1  &nbsp; &nbsp; &nbsp; &nbsp;Running  &nbsp; &nbsp; &nbsp; 0
+   ```console
+   NAME                                 READY   STATUS         RESTARTS 
+   anm-6d86b7dfbd-4wbnx                 1/1     Running        0 
+   apimgr-544b55fffb-qsn87              1/1     Running        0 
+   cassandra-0                          1/1     Running        0 
+   db-create-mysql-apigw-379e224c-...   0/1     Completed      0 
+   filebeat-analytics-86d588954b-lsx2p  1/1     Running        0 
+   mysql-aga-757495f88f-vpw79           1/1     Running        0 
+   traffic-5d986c7d55-cv6dv             1/1     Running        0
+   ```
 
 Verify that :
 
@@ -240,13 +244,16 @@ Check all ingress with this command :
 kubectl get ingress -n open-banking-apim \
 ```
 
->NAME  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;HOSTS  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ADDRESS  &nbsp; &nbsp; &nbsp; PORTS \
->apimanager  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; api-manager.*yourdomain*  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*public ip* &nbsp; &nbsp; &nbsp; &nbsp; 80, 443 \
->gatewaymanager &nbsp;api-gateway-manager.apim.*yourdomain* &nbsp; &nbsp;*public ip* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;80, 443 \
->oauth &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;oauth.apim.*yourdomain* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *public ip* &nbsp; &nbsp; &nbsp; &nbsp; 80, 443 \
->traffic &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;api.apim.*yourdomain* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *public ip* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;80, 443 \
->traffichttps &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; services-api.apim.*yourdomain* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*public ip* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;80, 443 \
->trafficmtls &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mtls-api.apim.*yourdomain* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *public ip* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;80, 443
+   ```console
+   NAME            HOSTS                                    ADDRESS        PORTS 
+   apimanager      api-manager.*yourdomain*                 *public ip*    80, 443 
+   gatewaymanager  api-gateway-manager.apim.*yourdomain*    *public ip*    80, 443 
+   oauth           oauth.apim.*yourdomain*                  *public ip*    80, 443
+   traffic         api.apim.*yourdomain*                    *public ip*    80, 443 
+   traffichttps    services-api.apim.*yourdomain*           *public ip*    80, 443 
+   trafficmtls     mtls-api.apim.*yourdomain*               *public ip*    80, 443
+   ```
+
 Verify that the same number of ingress has been provisioned. They must have a public ip or a dns value is in the ADDRESS column.
 
 Check the differents URL
@@ -285,12 +292,14 @@ helm install apim-config open-banking-apim-config -n open-banking-apim
 
 Check that the status of the helm command is deployed:
 
->NAME: apim-config \
->LAST DEPLOYED: Fri Apr 16 07:46:35 2021 \
->NAMESPACE: open-banking-config \
->STATUS: **deployed** \
->REVISION: 1 \
->TEST SUITE: None
+   ```
+   NAME: apim-config \
+   LAST DEPLOYED: Fri Apr 16 07:46:35 2021 \
+   NAMESPACE: open-banking-config \
+   STATUS: **deployed** \
+   REVISION: 1 \
+   TEST SUITE: None
+   ```
 
 ### Verifications
 
@@ -300,15 +309,17 @@ Wait a few minutes and use the following commands to check the status of the dep
 kubectl get pods -n open-banking-apim 
 ```
 
->NAME &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; READY &nbsp; STATUS &nbsp; &nbsp; &nbsp;  &nbsp;RESTARTS \
->anm-6d86b7dfbd-4wbnx &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1/1 &nbsp; &nbsp; &nbsp; &nbsp; Running &nbsp; &nbsp;  &nbsp;0 \
->apimgr-544b55fffb-qsn87 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1/1 &nbsp; &nbsp; &nbsp; &nbsp; Running &nbsp; &nbsp;  &nbsp;0 \
->cassandra-0  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1/1  &nbsp; &nbsp; &nbsp; &nbsp;Running  &nbsp; &nbsp;  &nbsp;0 \
->db-create-mysql-apigw-379e224c-... &nbsp; &nbsp;0/1 &nbsp; &nbsp; &nbsp; &nbsp;Completed  &nbsp;0 \
->filebeat-analytics-86d588954b-lsx2p  &nbsp; &nbsp;1/1 &nbsp; &nbsp; &nbsp; &nbsp;Running &nbsp; &nbsp; &nbsp;0 \
->import-api-27983c3f-... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0/1  &nbsp; &nbsp; &nbsp; &nbsp;Completed  &nbsp; 0 \
->mysql-aga-757495f88f-vpw79  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1/1  &nbsp; &nbsp; &nbsp; &nbsp;Running  &nbsp; &nbsp; &nbsp; 0 \
->traffic-5d986c7d55-cv6dv  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1/1  &nbsp; &nbsp; &nbsp; &nbsp;Running  &nbsp; &nbsp; &nbsp; 0
+   ```
+   NAME                                                   READY   STATUS         RESTARTS \
+   anm-6d86b7dfbd-4wbnx                     1/1         Running       0 \
+   apimgr-544b55fffb-qsn87                    1/1         Running       0 \
+   cassandra-0                                            1/1         Running        0 \
+   db-create-mysql-apigw-379e224c-...    0/1        Completed   0 \
+   filebeat-analytics-86d588954b-lsx2p     1/1        Running      0 \
+   import-api-27983c3f-...                         0/1         Completed    0 \
+   mysql-aga-757495f88f-vpw79               1/1         Running        0 \
+   traffic-5d986c7d55-cv6dv                      1/1         Running        0
+   ```
 
 Verify that :
 - **jobs** with name import-api-27983c3f-xxx  are **Completed**.
@@ -347,6 +358,7 @@ awk  -F '\t' '{ \
 ```
 
 Verify the insertion in the KPS table:
-- Login the API Gateway Manager UI and go on Settings > Key Property Stores
-- Click on AMPLIFY/Configuration
-- Check the column **key_values** that isn't empty.
+
+* Login the API Gateway Manager UI and go on Settings > Key Property Stores
+* Click on AMPLIFY/Configuration
+* Check the column **key_values** that isn't empty.*
