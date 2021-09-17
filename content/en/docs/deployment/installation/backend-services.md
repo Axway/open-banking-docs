@@ -6,7 +6,19 @@ description: Installing Backend services of the Axway Open Banking solution
 ---
 
 
-## Backend services
+## Download Helm chart
+
+Download Axway Open Banking Backend Services Helm chart to customize it locally
+
+```bash
+helm pull axway-open-banking/open-banking-backend-chart --untar
+```
+
+You should get a open-banking-backend-chart local folder.
+
+## Customize Backend Services  Helm chart
+
+Customize the open-banking-backend-chart/values.yaml file as follow
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |

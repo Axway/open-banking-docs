@@ -6,7 +6,19 @@ description: Installing Demo apps of the Axway Open Banking solution
 ---
 
 
-## Demo apps
+## Download Helm chart
+
+Download Axway Open Banking Demo Apps Helm chart to customize it locally
+
+```bash
+helm pull axway-open-banking/open-banking-bankio-apps --untar
+```
+
+You should get a open-banking-analytics local folder.
+
+## Customize Demo Apps Helm chart
+
+Customize the open-banking-bankio-app/values.yaml file as follow
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |

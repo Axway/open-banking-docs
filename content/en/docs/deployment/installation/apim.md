@@ -191,7 +191,7 @@ amplifyAgents:
 
 ## Install APIM Helm chart
 
-Create the target namespaces on the cluster:
+Create the target namespace on the cluster:
 
 ```bash
 kubectl create namespace open-banking-apim

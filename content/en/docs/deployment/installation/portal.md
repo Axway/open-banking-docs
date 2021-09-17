@@ -8,7 +8,7 @@ description: Installing Developer Portal of the Axway Open Banking solution
 
 ## Download Helm chart
 
-Download Axway Open Banking APIM Helm charts to customize them locally
+Download Axway Open Banking Developer Portal Helm chart to customize it locally
 
 ```bash
 helm pull axway-open-banking/open-banking-developer-portal --untar
@@ -43,7 +43,7 @@ Customize the open-banking-developer-portal/values.yaml file as follow
 
 ## Install Developer Portal Helm chart
 
-Create the target namespaces on the cluster:
+Create the target namespace on the cluster:
 
 ```bash
 kubectl create namespace open-banking-developer-portal
@@ -94,4 +94,4 @@ Check the differents URL
 https://developer-portal.*yourdomain* the Developer Portal home page should show up.
 If APIM helm charts were successfully deployed, you should already be able to see APIs on the API Catalog (click on API tab)
 
-https://developer-portal.*yourdomain*/administrator Login with username *apiadmin* and password *apiAdminPwd!*. Check in frontend 
+https://developer-portal.*yourdomain*/administrator Login with username *apiadmin* and password *apiAdminPwd!*.

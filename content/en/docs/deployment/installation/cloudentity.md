@@ -6,81 +6,105 @@ description: Installing Cloud Entity for Axway Open Banking solution
 ---
 
 
-## Download, Customize and Install Cloudentity Components
+## Download Helm charts
 
-Add the Cloud Entity helm repository and download latest updates: 
+Download Axway Open Banking Cloud Entity Helm charts to customize them locally
+
+```bash
+helm pull axway-open-banking/open-banking-acp --untar
+helm pull axway-open-banking/open-banking-consent --untar
+```
+
+You should get open-banking-acp and open-banking-consent local folders.
+
+## Customize ACP Helm chart
+
+Find the namespace of the cert-manager component
+
+```
+kubectl get pods -A | grep cert-manager | awk '{print $1}' | uniq
+```
+
+Modify the open-banking-acp/values.yaml file from Axway package.
+| Value         | Description                           | Default value  |
+|:------------- |:------------------------------------- |:-------------- |
+| cert.internal.certManager | Desactive usage of cert-manager. Don't set to false. | true |
+| cert.internal.certManagerNamespace | Namespace where is installed cert-manager. Use the result of the previous command. | None |
+| cert.ingress.cert | Use specific cert. It can be a wildcard. Must be defined only if certManager is set to false. | None |
+| cert.ingress.key | Use specific key. It can be a wildcard. Must be defined only if certManager is set to false. | None |
+
+Update the open-banking-acp/files/acp.values.yaml  with all environment variables required:
+
+| Value         | Description                           | Default value  |
+|:------------- |:------------------------------------- |:-------------- |
+| acp.serverURL | ACP server URL | None |
+| acp.ingress.tls.hosts | ACP server URL | None |
+| acp.ingress.hosts.host | ACP server URL | None |
+| acp.ingress.annotations.honginx.ingress.kubernetes.io/proxy-ssl-secretst | [NAMESPACE]/acp-tls : acp/acp-tls | None |
+
+Remove the following lines if cert-manager not used for ingress:
+       cert-manager.io/cluster-issuer: letsencrypt-prod (l22)
+       cert-manager.io/acme-challenge-type: http01 (l23)
+
+
+
+## Customize Open Banking Consent Helm chart
+
+## Prepare deployment
+
+Add the Cloud Entity helm repository :
 
 ```bash
 helm repo add acp https://charts.cloudentity.io 
 helm repo update 
 ```
 
-Create the correct namespaces on the target cluster:
- 
+Create the target namespaces on the cluster:
+
 ```bash
 kubectl create namespace open-banking-acp 
 kubectl create namespace open-banking-consent 
 ```
 
-> **Before next step ensure you have followed all deployment preparation instructions listed in the `README.md` file of ACP Helm chart.**
+Add the Docker registry to pull cloud-entity private images in both namespaces
 
-Deploy ACP pre-requisites Helm chart from Axway repository as described in the `README.md` file:
+```bash
+kubectl create secret docker-registry artifactory --docker-server=acp.artifactory.cloudentity.com --docker-username=USERNAME --docker-password=PASSWORD -n open-banking-acp 
+```
+
+
+## Install ACP Helm chart
+
+Deploy ACP pre-requisites Helm chart from Axway repository:
 
 ```bash
 helm install acp-prereq -n open-banking-acp open-banking-acp
 ```
 
-Deploy the ACP Helm chart from CloudEntity repository with the version provided in the `README.md` file: 
+Deploy the ACP Helm chart from CloudEntity repository :
 
 ```bash
 helm install acp -n open-banking-acp acp/kube-acp-stack –-version [chart-version]  -f open-banking-acp/files/acp.values.yaml
 ```
 
-> **Before the next step, ensure ACP is running correctly (as described in the `README.md` file of the ACP Helm chart) and you have followed all deployment preparation instructions listed in the `README.md` file of the Consent Helm chart.**
+## Install Open Banking Consent Helm chart
 
-Deploy Consent pre-requisites Helm chart from Axway repository as described in the `README.md` file:
+Deploy Consent pre-requisites Helm chart from Axway repository
 
 ```bash
 helm install consent-prereq -n open-banking-consent open-banking-consent  
 ```
 
-Deploy the Open Banking Consent Helm chart from CloudEntity repo with the version provided in the `README.md` file:
+Deploy the Open Banking Consent Helm chart from CloudEntity repository
 
 ```bash
 helm install consent -n open-banking-consent acp/openbanking –-version [chart-version] -f open-banking-consent/files/consent.values.yaml
 ```
 
-Update the APIM KPS deployment values using the instructions in the `README.md` file to reflect all oauth*clientId and oauth*clientSecret values as deployed in ACP: 
+## Post Deployment
+
+Update the APIM KPS deployment values using the instructions in the `README.md` file to reflect all oauth*clientId and oauth*clientSecret values as deployed in ACP:
 
 ```bash
 vi open-banking-apim-config/files/kps/kpsConfig1.json
 ```
-
-## Install Axway Components
-
-First create the target namespaces on the cluster:
-
-```bash
-kubectl create namespace open-banking-apim
-kubectl create namespace open-banking-apps    
-kubectl create namespace open-banking-backend
-kubectl create namespace open-banking-developer-portal
-kubectl create namespace open-banking-analytics
-```
-
-> **Before the next step, ensure you followed all deployment preparation instructions listed in the `README.md` file of each Helm chart.**
-
-Deploy all the components: 
-
-```bash
-helm install apim -n open-banking-apim open-banking-apim
-helm install apim-config -n open-banking-apim open-banking-apim-config 
-helm install developer-portal -n open-banking-developer-portal open-banking-developer-portal
-helm install bankio-apps -n open-banking-apps open-banking-bankio-apps
-helm install backend-services -n open-banking-backend open-banking-backend-chart
-helm install analytics -n open-banking-analytics open-banking-analytics
-```
-
-## Post Deployment
-
-Check each the `README.md` file of each component for post-installation instructions.
