@@ -239,13 +239,12 @@ kubectl get ingress -n open-banking-consent
 ```
 
 ```
-    NAME                                    HOSTS                           ADDRESS                       PORTS     AGE
-    consent-openbanking-consent-admin       consent-admin.*yourdomain*      xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-    consent-openbanking-consent-page       consent.*yourdomain*      xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-    consent-openbanking-consent-self-service       consent-selfservice.*yourdomain*      xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-    consent-openbanking-financroo       financroo.*yourdomain*      xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    NAME                                     HOSTS                            ADDRESS                       PORTS     AGE
+    consent-openbanking-consent-admin        consent-admin.*yourdomain*       xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    consent-openbanking-consent-page         consent.*yourdomain*             xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    consent-openbanking-consent-self-service consent-selfservice.*yourdomain* xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    consent-openbanking-financroo            financroo.*yourdomain*           xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
 ```
-
 
 ## Post Deployment
 
