@@ -34,3 +34,71 @@ Customize the open-banking-bankio-app/values.yaml file as follow
 | griffin.authorizationEndpoint | Authorization endpoint of Authorization server used by demo apps. change domainname value | https://acp.<domainname>/axway/openbanking_demo/oauth2/authorize |
 | griffin.aispEndpoint | Account endpoint of Open Banking API used by demo apps. change domainname value | https://mtls-api-proxy.<domainname>/open-banking/v3.1/aisp |
 
+## Install Demo apps Helm chart
+
+Create the target namespace on the cluster:
+
+```bash
+kubectl create namespace open-banking-app
+```
+
+Install the  helm chart:
+
+```bash
+helm install demo-apps /open-banking-bankio-apps -n open-banking-app
+```
+
+Check that the status of the helm command is deployed:
+
+```
+    NAME: demo-apps
+    LAST DEPLOYED: Fri Apr 16 08:36:35 2021 
+    NAMESPACE: open-banking-app
+    STATUS: deployed
+    REVISION: 1 
+    TEST SUITE: None
+```
+
+## Verification
+
+Wait a few minutes and use the following commands to check the status of the deployment.
+
+```
+kubectl get pods -n open-banking-app
+```
+
+```
+NAME                                READY   STATUS      RESTARTS   
+auto-loan-api-deployment-xxxx-xxx   1/1     Running     0          
+bankio-init-reference-data-job-xxx  0/1     Completed   0          
+bankio-link-deployment-xxxx-xxx     1/1     Running     0          
+demo-frontends-deployment-xxxx-xxx  1/1     Running     0          
+mongo-deployment-xxxx-xxx           1/1     Running     0          
+obie-sandbox-deployment-xxxx-xxx    1/1     Running     0          
+shop-api-deployment-xxxx-xxx        1/1     Running     0          
+```
+
+Verify that :
+
+* all **pods** but bankio-init-reference-data-job-xxx are  **Running** and Restart is **0**.
+* the **pod** named bankio-init-reference-data-job-xxx is  **Completed** and Restart is **0**.
+
+Check ingress with this command :
+
+```bash
+kubectl get ingress -n open-banking-app 
+```
+
+```
+    NAME                     HOSTS                                 ADDRESS                        PORTS     
+    auto-loan-api-ingress    auto-loan-api-demo-apps.*yourdomain*   xxxxxxxxxxxxx.amazonaws.com   80, 443   
+    bankio-link-ingress      tpp-demo-apps.*yourdomain*             xxxxxxxxxxxxx.amazonaws.com   80, 443   
+    demo-frontends-ingress   demo-apps.*yourdomain*                 xxxxxxxxxxxxx.amazonaws.com   80, 443   
+    obie-sandbox-ingress     obie-sandbox-demo-apps.*yourdomain*    xxxxxxxxxxxxx.amazonaws.com   80, 443   
+    shop-api-ingress         shop-demo-api-apps.*yourdomain*        xxxxxxxxxxxxx.amazonaws.com   80, 443  
+```
+
+Check the differents URL
+https://demo-apps.*yourdomain*/account-information/ shows a demo apps for account planning
+
+If all other conmponents are already installed and configured correctly, you should be able to test connecting a bank account from demo01 sandbox.

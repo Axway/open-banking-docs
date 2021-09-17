@@ -68,7 +68,7 @@ cassandra:
 
 ### Add new root CA for MTLS ingress (Optional)
 
-The mutual authentication is provided by Nginx. It requires a Kubernetes secret that contains all rootCA used to signed your tpp cert.
+The mutual authentication is provided by Nginx. It requires a Kubernetes secret that contains all rootCA used for client certificates (used by TPPs).
 The differents root CA certificats must be concatenate and encoded in base64.
 
 | Value         | Description                           | Default value  |
@@ -94,20 +94,20 @@ global:
       wildcard: true
       cert: |
          -----BEGIN CERTIFICATE-----
-         <<insert here base64-encoded certificate>>
+         <<base64-encoded certificate>>
          -----END CERTIFICATE-----
          -----BEGIN CERTIFICATE-----
-         <<insert here base64-encoded certificate>>
+         <<base64-encoded certificate>>
          -----END CERTIFICATE-----
          ...
 
       key: |
          -----BEGIN RSA PRIVATE KEY-----
-         <<insert here base64-encoded key>>
+         <<base64-encoded key>>
          -----END RSA PRIVATE KEY-----
 ```
 
-### Use a different custom certificate for ingress (Optional)
+### Use a custom certificate for each ingress (Optional)
 
 It's possible to define a different certificate for each ingress. Change values listed below. keep an empty line after the key or the certificate.
 
@@ -116,31 +116,28 @@ global:
    ingress:
       certManager: false
       wildcard: false
-
 anm:
-   ingressCert: |
-      -----BEGIN CERTIFICATE-----
-      <<insert here base64-encoded certificate>>
-      -----END CERTIFICATE-----
-
-   ingressKey: |
-      -----BEGIN RSA PRIVATE KEY-----
-      <<insert here base64-encoded key>>
-      -----END RSA PRIVATE KEY-----
-
-apimgr:
-   ingressCert: |
-      -----BEGIN CERTIFICATE-----
-      <<insert here base64-encoded certificate>>
-      -----END CERTIFICATE-----
-
-   ingressKey: |
-      -----BEGIN RSA PRIVATE KEY-----
-      <<insert here base64-encoded key>>
-      -----END RSA PRIVATE KEY-----
-
+   ingressCert: ...
+   ingressKey: ...
+apimgr: 
+   ingressCert: ...
+   ingressKey: ... 
 apitraffic:
+   ingressCert: ...
+   ingressKey: ...
+   ingressCertMtls: ...
+   ingressKeyMtls: ...
+   ingressCertHttps: ...
+   ingressKeyHttps: ...
+```
+
+each cert and key should have be inserted with the following format (same indent and empty lines):
+
+```yaml
    ingressCert: |
+      -----BEGIN CERTIFICATE-----
+      <<insert here base64-encoded certificate>>
+      -----END CERTIFICATE-----
       -----BEGIN CERTIFICATE-----
       <<insert here base64-encoded certificate>>
       -----END CERTIFICATE-----
@@ -150,25 +147,6 @@ apitraffic:
       <<insert here base64-encoded key>>
       -----END RSA PRIVATE KEY-----
 
-   ingressCertMtls: |
-      -----BEGIN CERTIFICATE-----
-      <<insert here base64-encoded certificate>>
-      -----END CERTIFICATE-----
-
-   ingressKeyMtls: |
-      -----BEGIN RSA PRIVATE KEY-----
-      <<insert here base64-encoded key>>
-      -----END RSA PRIVATE KEY-----
-
-   ingressCertHttps: |
-      -----BEGIN CERTIFICATE-----
-      <<insert here base64-encoded certificate>>
-      -----END CERTIFICATE-----
-
-   ingressKeyHttps: |
-      -----BEGIN RSA PRIVATE KEY-----
-      <<insert here base64-encoded key>>
-      -----END RSA PRIVATE KEY-----
 ```
 
 > Note : Oauth component is activated but ingress isn't enabled. It's not required to create a certificate for this ingress.
@@ -177,14 +155,13 @@ apitraffic:
 
 The following values must be set to reports API and their usage on the **Amplify platform**. Note that Private Key and Public Key must be encoded in base64.
 
-```
+```yaml
 amplifyAgents:
    enabled: true
    centralAuthClientID:
    centralOrgID: 
    centralEnvName: 
    centralTeam: 
-   #Private and Public keys of the service account on Central. Need to encode in base64 the value
    centralPrivateKey:
    centralPublicKey:
 ```
@@ -205,24 +182,24 @@ helm install apim open-banking-apim -n open-banking-apim
 
 Check that the status of the helm command is deployed:
 
-   ```console
-   NAME: apim \
-   LAST DEPLOYED: Fri Apr 16 07:36:35 2021 \
-   NAMESPACE: open-banking-apim \
-   STATUS: deployed \
-   REVISION: 1 \
+```yaml
+   NAME: apim 
+   LAST DEPLOYED: Fri Apr 16 07:36:35 2021 
+   NAMESPACE: open-banking-apim 
+   STATUS: deployed 
+   REVISION: 1 
    TEST SUITE: None
-   ```
+```
 
 ### Verifications
 
 Wait a few minutes and use the following commands to check the status of the deployment.
 
-```console
+```bash
 kubectl get pods -n open-banking-apim 
 ```
 
-   ```console
+```
    NAME                                 READY   STATUS         RESTARTS 
    anm-6d86b7dfbd-4wbnx                 1/1     Running        0 
    apimgr-544b55fffb-qsn87              1/1     Running        0 
@@ -231,7 +208,7 @@ kubectl get pods -n open-banking-apim
    filebeat-analytics-86d588954b-lsx2p  1/1     Running        0 
    mysql-aga-757495f88f-vpw79           1/1     Running        0 
    traffic-5d986c7d55-cv6dv             1/1     Running        0
-   ```
+```
 
 Verify that :
 
@@ -244,7 +221,7 @@ Check all ingress with this command :
 kubectl get ingress -n open-banking-apim \
 ```
 
-   ```console
+```console
    NAME            HOSTS                                    ADDRESS        PORTS 
    apimanager      api-manager.*yourdomain*                 *public ip*    80, 443 
    gatewaymanager  api-gateway-manager.apim.*yourdomain*    *public ip*    80, 443 
@@ -310,15 +287,15 @@ kubectl get pods -n open-banking-apim
 ```
 
    ```
-   NAME                                                   READY   STATUS         RESTARTS \
-   anm-6d86b7dfbd-4wbnx                     1/1         Running       0 \
-   apimgr-544b55fffb-qsn87                    1/1         Running       0 \
-   cassandra-0                                            1/1         Running        0 \
-   db-create-mysql-apigw-379e224c-...    0/1        Completed   0 \
-   filebeat-analytics-86d588954b-lsx2p     1/1        Running      0 \
-   import-api-27983c3f-...                         0/1         Completed    0 \
-   mysql-aga-757495f88f-vpw79               1/1         Running        0 \
-   traffic-5d986c7d55-cv6dv                      1/1         Running        0
+   NAME                                 READY   STATUS      RESTARTS 
+   anm-6d86b7dfbd-4wbnx                 1/1     Running     0 
+   apimgr-544b55fffb-qsn87              1/1     Running     0 
+   cassandra-0                          1/1     Running     0 
+   db-create-mysql-apigw-379e224c-...   0/1     Completed   0 
+   filebeat-analytics-86d588954b-lsx2p  1/1     Running     0 
+   import-api-27983c3f-...              0/1     Completed   0 
+   mysql-aga-757495f88f-vpw79           1/1     Running     0 
+   traffic-5d986c7d55-cv6dv            1/1      Running     0
    ```
 
 Verify that :
@@ -337,7 +314,7 @@ Once APIM helm charts and Cloud Entity Helm chart are deployed, update the KPS c
 ### Update KPS configuration
 
 You need to import KPS configuration. They are used in policies for consent flows. 
-The organization ID is different for each bank, please odify the helm chart file open-banking-apim-config/files/kps/kpsConfig1.json to change the organizationId with your own bank/PSPSP ID.
+The organization ID is different for each bank, please odify the helm chart file `open-banking-apim-config/files/kps/kpsConfig1.json` to change the organizationId with your own bank/PSPSP ID.
 Change the the 'domainname' value in the second command.
 
 ```shell

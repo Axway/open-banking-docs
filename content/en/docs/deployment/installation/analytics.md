@@ -67,14 +67,16 @@ Wait a few minutes and use the following commands to check the status of the dep
 kubectl get pods -n open-banking-analytics 
 ```
 
->NAME                           READY   STATUS    RESTARTS   AGE
->elasticsearch-master-0         1/1     Running   0          57s
->elasticsearch-master-1         1/1     Running   0          57s
->elasticsearch-master-2         1/1     Running   0          57s
->kibana-647679fd47-btnt6        1/1     Running   0          57s
->logstash-0                     1/1     Running   0          57s
->metrics-apis-8684c7594-8p46b   1/1     Running   0          52s
->webserver-5d59fc5447-gvnmk     1/1     Running   0          50s
+```
+    NAME                           READY   STATUS    RESTARTS   AGE
+    elasticsearch-master-0         1/1     Running   0          57s
+    elasticsearch-master-1         1/1     Running   0          57s
+    elasticsearch-master-2         1/1     Running   0          57s
+    kibana-647679fd47-btnt6        1/1     Running   0          57s
+    logstash-0                     1/1     Running   0          57s
+    metrics-apis-8684c7594-8p46b   1/1     Running   0          52s
+    webserver-5d59fc5447-gvnmk     1/1     Running   0          50s
+```
 
 Verify that :
 
@@ -86,9 +88,11 @@ Check ingress with this command :
 kubectl get ingress -n open-banking-analytics 
 ```
 
->NAME         HOSTS                           ADDRESS                       PORTS     AGE
->kibana       kibana.*yourdomain*             xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
->webserver    analytics.*yourdomain*          xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+```
+    NAME         HOSTS                           ADDRESS                       PORTS     AGE
+    kibana       kibana.*yourdomain*             xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    webserver    analytics.*yourdomain*          xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+```
 
 Check the differents URL
 https://webserver.*yourdomain* the Dashboard an Reports navigation should show up with custom logo and color theme. 
@@ -96,7 +100,7 @@ No dashboard is deployed yet
 
 https://kibana.*yourdomain* You should be able to login with the credentials provided in the helm chart values.
 
-### Post Deployment
+## Post Deployment
 
 you need to import the dashboards to Kibana
 

@@ -57,25 +57,29 @@ helm install developer-portal open-banking-developer-portal -n open-banking-deve
 
 Check that the status of the helm command is deployed:
 
->NAME: developer-portal \
->LAST DEPLOYED: Fri Apr 16 07:56:35 2021 \
->NAMESPACE: open-banking-developer-portal \
->STATUS: **deployed** \
->REVISION: 1 \
->TEST SUITE: None
+```
+    NAME: developer-portal 
+    LAST DEPLOYED: Fri Apr 16 07:56:35 2021 
+    NAMESPACE: open-banking-developer-portal 
+    STATUS: deployed 
+    REVISION: 1 
+    TEST SUITE: None
+```
 
 ### Verifications
 
 Wait a few minutes and use the following commands to check the status of the deployment.
 
 ```
-kubectl get pods -n open-banking-developer-portal \
+kubectl get pods -n open-banking-developer-portal 
 ```
 
->NAME                            READY   STATUS    RESTARTS   AGE  
->api-portal-7d8fb64c98-bt6jg     1/1     Running   0          2m
->mysql-portal-5dc9487c64-jccpm   1/1     Running   0          2m
->redis-7c9bf54b6-dn55s           1/1     Running   0          2m
+```
+    NAME                            READY   STATUS    RESTARTS   AGE  
+    api-portal-7d8fb64c98-bt6jg     1/1     Running   0          2m
+    mysql-portal-5dc9487c64-jccpm   1/1     Running   0          2m
+    redis-7c9bf54b6-dn55s           1/1     Running   0          2m
+```
 
 Verify that :
 
@@ -87,8 +91,10 @@ Check ingress with this command :
 kubectl get ingress -n open-banking-developer-portal \
 ```
 
->NAME         HOSTS                           ADDRESS                       PORTS     AGE
->api-portal   developer-portal.*yourdomain*   xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+```
+    NAME         HOSTS                           ADDRESS                       PORTS     AGE
+    api-portal   developer-portal.*yourdomain*   xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+```
 
 Check the differents URL
 https://developer-portal.*yourdomain* the Developer Portal home page should show up.
