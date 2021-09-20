@@ -47,7 +47,7 @@ Check that the status of the helm command is deployed:
 
 ```
     NAME: backend
-    LAST DEPLOYED: <current data and time>
+    LAST DEPLOYED: <current date and time>
     NAMESPACE: open-banking-backend
     STATUS: deployed
     REVISION: 1 

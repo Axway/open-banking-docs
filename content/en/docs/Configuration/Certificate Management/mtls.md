@@ -139,7 +139,7 @@ openssl req -new -newkey rsa:2048 -nodes -out tpp1.csr -keyout tpp1.key
 
 #### ACP
 
-Connect to the Cloud Entity admin page on `https://acp.<yourdomainname>/app/default/admin/`
+Connect to the Cloud Entity admin page on `https://acp.<domain-name>/app/default/admin/`
 
 * Select workspace openbanking_brasil,
 * Click on settings on the left panel,

@@ -31,12 +31,12 @@ Customize the open-banking-developer-portal/values.yaml file as follow
 | apiportal.chatraid |  your Chatra account |  |
 | apiportal.recaptchkey | recaptcha key associated to your external domain name |  |
 | apiportal.recaptchsecret |  corresponding recaptcha key associated to your external domain name |  |
-| apiportal.demoAppSource |   the demo app source URL to be used on the portal home page | https://demo-apps.<domain-name>/app.js?version=1.1 |
-| apiportal.authorizationHost |   the OAuth server public name |  acp.<domain-name> |
-| apiportal.apiWhitelist |  coma-separated list of hosts exposing APIs | api.<domain-name>,mtls-api-proxy.<domain-name> |
-| apiportal.oauthWhitelist |  coma-separated list of hosts used for external Oauth | acp.<domain-name> |
-| apiportal.serviceDeskEndPoint | URL of service desk service  |https://api.<domain-name>/services/v1/incident   |
-| apiportal.apiReviewEndPoint |   URL of API review service  | https://api.<domain-name>/api/portal/v1.2/reviewapi |
+| apiportal.demoAppSource |   the demo app source URL to be used on the portal home page | `https://demo-apps.<domain-name>/app.js?version=1.1` |
+| apiportal.authorizationHost |   the OAuth server public name |  acp.\<domain-name> |
+| apiportal.apiWhitelist |  coma-separated list of hosts exposing APIs | api.\<domain-name>,mtls-api-proxy.\<domain-name> |
+| apiportal.oauthWhitelist |  coma-separated list of hosts used for external Oauth | acp.\<domain-name> |
+| apiportal.serviceDeskEndPoint | URL of service desk service  | `https://api.<domain-name>/services/v1/incident`   |
+| apiportal.apiReviewEndPoint |   URL of API review service  | `https://api.<domain-name>/api/portal/v1.2/reviewapi` |
 | mysqlPortal.rootPasswd | root password for the database to be created | portalDBRootPwd! |
 | mysqlPortal.adminPasswd  | admin password for the database to be created | portalDBAdminPwd! |
 
@@ -58,7 +58,7 @@ Check that the status of the helm command is deployed:
 
 ```
     NAME: developer-portal 
-    LAST DEPLOYED: <current data and time>
+    LAST DEPLOYED: <current date and time>
     NAMESPACE: open-banking-developer-portal 
     STATUS: deployed 
     REVISION: 1 
@@ -95,8 +95,9 @@ kubectl get ingress -n open-banking-developer-portal \
     api-portal   developer-portal.<domain-name>   xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
 ```
 
-Check the differents URL
-https://developer-portal.<domain-name> the Developer Portal home page should show up.
-If APIM helm charts were successfully deployed, you should already be able to see APIs on the API Catalog (click on API tab)
+Check the differents URL:
 
-https://developer-portal.<domain-name>/administrator Login with username *apiadmin* and password *apiAdminPwd!*.
+* Developer Portal home page  : `https://developer-portal.<domain-name>`. If APIM helm charts were successfully deployed, you should already be able to see APIs on the API Catalog (click on API tab)
+* Joomla admin interface: `https://developer-portal.<domain-name>/administrator`
+
+    * Login with username *apiadmin* and password *apiAdminPwd!*.

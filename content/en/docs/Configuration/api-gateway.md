@@ -12,7 +12,7 @@ Most features are documented in the [Axway API Gateway documentation](https://do
 
 ## Solution Homepage
 
-The solution homepage is available on `https://<services-api-address>/open-banking/`
+The solution homepage is available on `https://services-api.<domain-name>/open-banking/`
 ![Solution Homepage](/Images/homepage.png)
 
 It a static html page using a CSS and a logo image that are easy to customize from:

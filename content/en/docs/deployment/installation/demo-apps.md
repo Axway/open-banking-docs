@@ -24,14 +24,14 @@ Customize the open-banking-bankio-app/values.yaml file as follow
 |:------------- |:------------------------------------- |:-------------- |
 | image.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
 | image.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
-| frontEnd.cname | frontEnd server address. change domainname value | demo-apps.<domainname> |
-| tppApi.cname | tppApi server address. change domainname value | tpp-demo-apps.<domainname> |
-| autoLoanApi.cname | autoLoanApi server address. change domainname value | auto-loan-api-demo-apps.<domainname> |
-| shopApi.cname | shopApi server address. change domainname value |shop-demo-api-apps.<domainname> |
-| obieSandbox.cname | obieSandbox server address. change domainname value | obie-sandbox-demo-apps.<domainname> |
-| griffin.tokenEndpoint | Token endpoint of Authorization server used by demo apps. change domainname value | https://acp.<domainname>/axway/openbanking_demo/oauth2/token |
-| griffin.authorizationEndpoint | Authorization endpoint of Authorization server used by demo apps. change domainname value | https://acp.<domainname>/axway/openbanking_demo/oauth2/authorize |
-| griffin.aispEndpoint | Account endpoint of Open Banking API used by demo apps. change domainname value | https://mtls-api-proxy.<domainname>/open-banking/v3.1/aisp |
+| frontEnd.cname | frontEnd server address. change domainname value | demo-apps.<domain-name> |
+| tppApi.cname | tppApi server address. change domainname value | tpp-demo-apps.<domain-name> |
+| autoLoanApi.cname | autoLoanApi server address. change domainname value | auto-loan-api-demo-apps.<domain-name> |
+| shopApi.cname | shopApi server address. change domainname value |shop-demo-api-apps.<domain-name> |
+| obieSandbox.cname | obieSandbox server address. change domainname value | obie-sandbox-demo-apps.<domain-name> |
+| griffin.tokenEndpoint | Token endpoint of Authorization server used by demo apps. change domainname value | `https://acp.<domain-name>/axway/openbanking_demo/oauth2/token` |
+| griffin.authorizationEndpoint | Authorization endpoint of Authorization server used by demo apps. change domainname value | `https://acp.<domain-name>/axway/openbanking_demo/oauth2/authorize` |
+| griffin.aispEndpoint | Account endpoint of Open Banking API used by demo apps. change domainname value | `https://mtls-api-proxy.<domain-name>/open-banking/v3.1/aisp` |
 
 ## Install Demo apps Helm chart
 
@@ -51,7 +51,7 @@ Check that the status of the helm command is deployed:
 
 ```
     NAME: demo-apps
-    LAST DEPLOYED: <current data and time>
+    LAST DEPLOYED: <current date and time>
     NAMESPACE: open-banking-app
     STATUS: deployed
     REVISION: 1 

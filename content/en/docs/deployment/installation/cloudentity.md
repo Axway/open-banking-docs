@@ -83,14 +83,14 @@ Update the open-banking-consent/files/consent.values.yaml file:
 | financroo.ingress.annotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | [NAMESPACE]/consent-openbanking-financroo-tls | open-banking-consent/consent-openbanking-financroo-tls |
 | financroo.ingress.hosts | update with the financroo URL | financroo.openbanking.demoaxway.com |
 | financroo.ingress.tls.hosts | update with the financroo URL | financroo.openbanking.demoaxway.com |
-| import.variables.consent_self_service_portal_url | update with the consent self service portal url | https://consent-selfservice.<domain-name> |
-| import.variables.consent_admin_portal_url | update with the consent admin portal url | https://consent-admin.<domain-name> |
-| import.variables.consent_page_url | update with the consent page url | https://consent.<domain-name> |
-| import.variables.financroo_tpp_url | update with the financroo tpp url | https://financroo.<domain-name> |
-| import.variables.developer_tpp_url | update with the developer tpp url| https://financroo.<domain-name> |
+| import.variables.consent_self_service_portal_url | update with the consent self service portal url | `https://consent-selfservice.<domain-name>` |
+| import.variables.consent_admin_portal_url | update with the consent admin portal url | `https://consent-admin.<domain-name>` |
+| import.variables.consent_page_url | update with the consent page url | `https://consent.<domain-name>` |
+| import.variables.financroo_tpp_url | update with the financroo tpp url | `https://financroo.<domain-name>` |
+| import.variables.developer_tpp_url | update with the developer tpp url| `https://financroo.<domain-name>` |
 | import.variables.postman_client_id | update with the postman client id | postman-eks |
 | import.variables.bank_io_client_id | update with the bank.io client id | bankio-eks |
-| import.variables.bank_io_redirect_uri | update with the bank.io redirect url | https://services-api.<domain-name>/login |
+| import.variables.bank_io_redirect_uri | update with the bank.io redirect url | `https://services-api.<domain-name>/login` |
 
 ## Prepare deployment
 
@@ -123,9 +123,11 @@ Deploy ACP pre-requisites Helm chart from Axway repository:
 helm install acp-prereq -n open-banking-acp open-banking-acp
 ```
 
+Check that the status of the helm command is deployed:
+
 ```
    NAME: acp-prereq 
-   LAST DEPLOYED: <current data and time>
+   LAST DEPLOYED: <current date and time>
    NAMESPACE: open-banking-acp 
    STATUS: deployed
    REVISION: 1 
@@ -138,9 +140,11 @@ Deploy the ACP Helm chart from CloudEntity repository :
 helm install acp -n open-banking-acp acp/kube-acp-stack –-version [chart-version]  -f open-banking-acp/files/acp.values.yaml
 ```
 
+Check that the status of the helm command is deployed:
+
 ```
    NAME: acp
-   LAST DEPLOYED: <current data and time>
+   LAST DEPLOYED: <current date and time>
    NAMESPACE: open-banking-acp 
    STATUS: deployed
    REVISION: 1 
@@ -179,10 +183,10 @@ kubectl get ingress -n open-banking-acp
 
 ```
     NAME         HOSTS                           ADDRESS                       PORTS     AGE
-    acp          acp.<domain-name>                xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    acp          acp.<domain-name>               xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
 ```
 
-Connect to https://acp.<domain-name>  with admin / admin  and change the password immediatly
+Connect to `https://acp.<domain-name>`  with admin / admin  and change the password immediatly
 Check that you see an "openbanking" workspace
 
 ## Install Open Banking Consent Helm chart
@@ -193,16 +197,28 @@ Deploy Consent pre-requisites Helm chart from Axway repository
 helm install consent-prereq -n open-banking-consent open-banking-consent  
 ```
 
+Check that the status of the helm command is deployed:
+
+```
+   NAME: consent-prereq 
+   LAST DEPLOYED: <current date and time>
+   NAMESPACE: open-banking-consent 
+   STATUS: deployed
+   REVISION: 1 
+   TEST SUITE: None
+```
+
 Deploy the Open Banking Consent Helm chart from CloudEntity repository
 
 ```bash
 helm install consent -n open-banking-consent acp/openbanking –-version [chart-version] -f open-banking-consent/files/consent.values.yaml
 ```
 
+Check that the status of the helm command is deployed:
 
 ```
    NAME: consent
-   LAST DEPLOYED: <current data and time>
+   LAST DEPLOYED: <current date and time>
    NAMESPACE: open-banking-consent 
    STATUS: deployed
    REVISION: 1 
@@ -253,4 +269,4 @@ kubectl get ingress -n open-banking-consent
 * Navigate to Openbanking workspace, Settings -> Authorization -> Trusted client certificates, and update the Trusted client certificates content with the open-banking-consent/files/cert.pem file attached.
 
 * Navigate to Openbanking workspace, Applications -> Bank -> OAuth -> Subject Distinguished Name, update with the following entry
-> CN=cid2.authorization.cloudentity.com,OU=Authorization,O=Cloudentity,L=Seattle,ST=Washinghton,C=US
+`CN=cid2.authorization.cloudentity.com,OU=Authorization,O=Cloudentity,L=Seattle,ST=Washinghton,C=US`

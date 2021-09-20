@@ -32,7 +32,7 @@ For more customization details, refer to [Axway API Portal documentation](https:
 
 ## Documentation creation and update
 
-All API and user documentation are available from `https://<portal-address>/documentation/home` on the Developer Portal
+All API and user documentation are available from `https://developer-portal.<domain-name>/documentation/home` on the Developer Portal
 
 Adminitrator can add new documentation or update existing on from Joomla administrator interface.
 Navigate to Content > Articles and use New or Edit button to add or update an article. Each article will appear in the Documentation page if their category is set to 'Documentation'

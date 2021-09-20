@@ -27,7 +27,8 @@ The following parameters are required for any deployment.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| global.platform | select the platform to configure appropriate objects like storage for RWM. Possible values are AWS, AZURE, MINIKUBE | None |
+| global.platform | select the platform to configure appropriate objects (like storage for RWM).
+Possible values are AWS, AZURE, MINIKUBE | None |
 | global.domainName | set the domainname for all ingress. | None |
 | global.env | Set the default environment | dev |
 | global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
@@ -42,13 +43,17 @@ The following parameters are required for any deployment.
 | backend.serviceincident.password| ServiceNow password |None|
 
 With these base parameters set, you can already install the helm chart : [Install APIM Helm chart](#install-apim-helm-chart)
+
 This deployment will use cert-manager and let's encrypt issuer to provide certificates. This requires to have an ingress controller (nginx) that listen on a public IP.
+
 You can also customize further the chart values with the following sub-sections.
 
 ### Product licence
 
 A temporary license file is embedded in the default docker image.
+
 This license key has a lifetime to 2 months maximum.
+
 This license is perfect for a demo or a POC but another License key must be added for real environments.
 
 | Value         | Description                           | Default value  |
@@ -58,6 +63,7 @@ This license is perfect for a demo or a POC but another License key must be adde
 ### External Cassandra
 
 According to the reference architecture, the Cassandra database is external to the cluster. Change the following values according to the cassandra configuration.
+
 The helm chart is delivered with an internal cassandra database, that would work for non-procution environments. You can change this parameter to use an external one. It is required at least for production environments.
 
 ```yaml
@@ -77,6 +83,7 @@ Please refer to the Axway documentation to configure and manage the Apache Cassa
 Optionnaly, you can add new root CA for MTLS ingress during the first deployment.
 
 The mutual authentication is provided by Nginx. It requires a Kubernetes secret that contains all rootCA used for client certificates (used by TPPs).
+
 The differents root CA certificats must be concatenate and encoded in base64.
 
 | Value         | Description                           | Default value  |
@@ -147,7 +154,7 @@ apitraffic:
    ingressKeyHttps: ...
 ```
 
-each cert and key should have be inserted with the following format (same indent and empty lines):
+Each cert and key should have be inserted with the following format (same indent and empty lines):
 
 ```yaml
    ingressCert: |
@@ -172,7 +179,6 @@ Refer to [Certificate Management](/docs/configuration/certificate-management) fo
 ### Configure Amplify Agents
 
 The following values must be set to reports API and their usage on the **Amplify platform**. 
-Note that Private Key and Public Key must be encoded in base64.
 
 ```yaml
 amplifyAgents:
@@ -185,6 +191,8 @@ amplifyAgents:
    centralPublicKey:  <Public key for the service account on Central>
    centralPrivateKey: <Private key for the service account on Central>
 ```
+
+>Note : Private Key and Public Key must be encoded in base64.
 
 Refer to [Amplify Agents](/docs/configuration/amplify-agents) to connect Amplify agent to Amplify platform.
 
@@ -206,7 +214,7 @@ Check that the status of the helm command is deployed:
 
 ```console
    NAME: apim 
-   LAST DEPLOYED: <current data and time>
+   LAST DEPLOYED: <current date and time>
    NAMESPACE: open-banking-apim 
    STATUS: deployed 
    REVISION: 1 
@@ -240,29 +248,29 @@ Verify that :
 Check all ingress with this command :
 
 ```bash
-kubectl get ingress -n open-banking-apim \
+kubectl get ingress -n open-banking-apim 
 ```
 
 Verify that the same number of ingress has been provisioned. They must have a public ip or a dns value is in the ADDRESS column.
 
 ```console
-   NAME            HOSTS                                    ADDRESS        PORTS 
-   apimanager      api-manager.<domain-name>                 *public ip*    80, 443 
-   gatewaymanager  api-gateway-manager.apim.<domain-name>    *public ip*    80, 443 
-   oauth           oauth.apim.<domain-name>                  *public ip*    80, 443
-   traffic         api.apim.<domain-name>                    *public ip*    80, 443 
-   traffichttps    services-api.apim.<domain-name>           *public ip*    80, 443 
-   trafficmtls     mtls-api.apim.<domain-name>               *public ip*    80, 443
+   NAME            HOSTS                               ADDRESS                   PORTS 
+   apimanager      api-manager.<domain-name>           xxxxxxxxxxxxx.amazonaws.com    80, 443 
+   gatewaymanager  api-gateway-manager.<domain-name>   xxxxxxxxxxxxx.amazonaws.com    80, 443 
+   oauth           oauth.<domain-name>                 xxxxxxxxxxxxx.amazonaws.com    80, 443
+   traffic         api.<domain-name>                   xxxxxxxxxxxxx.amazonaws.com    80, 443 
+   traffichttps    services-api.<domain-name>          xxxxxxxxxxxxx.amazonaws.com    80, 443 
+   trafficmtls     mtls-api.<domain-name>              xxxxxxxxxxxxx.amazonaws.com    80, 443
 ```
 
 Check that you can access the following User Interfaces:
 
-* **API Gateway Manager** <https://api-gateway-manager.apim.<domain-name>>.
+* **API Gateway Manager** `https://api-gateway-manager.<domain-name>`.
 
     * Login with username *admin* and password *apiAdminPwd!*
     * Check in the topology section that pods apimgr and traffic are available.
 
-* **API Manager** <https://api-manager.apim.<domain-name>>. 
+* **API Manager** `https://api-manager.<domain-name>`.
 
     * Login with username *apiadmin* and password *apiAdminPwd!*
     * Check that API and Client configurations are empty for now
@@ -298,7 +306,7 @@ Check that the status of the helm command is deployed:
 
    ```
    NAME: apim-config \
-   LAST DEPLOYED: <current data and time>
+   LAST DEPLOYED: <current date and time>
    NAMESPACE: open-banking-config \
    STATUS: **deployed** \
    REVISION: 1 \
@@ -331,7 +339,7 @@ Verify that :
 
 Check the following User Interfaces:
 
-* **API Manager** <https://api-manager.apim.<domain-name>>.
+* **API Manager** `https://api-manager.<domain-name>`.
 
     * Refresh or login again
     * Make sure that Open Banking APIs are in the API Catalog

@@ -52,7 +52,7 @@ helm install analytics open-banking-analytics -n open-banking-analytics
 Check that the status of the helm command is deployed:
 
 >NAME: analytics \
->LAST DEPLOYED: <current data and time>
+>LAST DEPLOYED: <current date and time>
 >NAMESPACE: open-banking-analytics \
 >STATUS: **deployed** \
 >REVISION: 1 \
@@ -93,11 +93,16 @@ kubectl get ingress -n open-banking-analytics
     webserver    analytics.<domain-name>          xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
 ```
 
-Check the differents URL
-https://webserver.<domain-name> the Dashboard an Reports navigation should show up with custom logo and color theme. 
-No dashboard is deployed yet
+Check you can access the differents user interfaces: 
 
-https://kibana.<domain-name> You should be able to login with the credentials provided in the helm chart values.
+* Analytics homepage : `https://webserver.<domain-name>` 
+
+    * the Dashboard an Reports navigation (top bar) should show up with custom logo and color theme. 
+    * No dashboard is deployed yet
+
+* ELK admin interface : `https://kibana.<domain-name>`
+
+    * You should be able to login with the credentials provided in the helm chart values.
 
 ## Post Deployment
 
