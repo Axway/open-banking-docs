@@ -26,8 +26,8 @@ Customize the `open-banking-developer-portal/values.yaml` file as follow
 | global.domainName | set the domainname for all ingress. | None |
 | global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
-| apiportal.adminPasswd | password to access Developer Portal Joomla admin console | portalAdminPwd! |
-| apiportal.company | name of you company, sued for brandind | Griffin Bank |
+| apiportal.adminPasswd | password to access Developer Portal Joomla admin console | _portalAdminPwd!_ |
+| apiportal.company | name of you company, sued for brandind | _Griffin Bank_ |
 | apiportal.chatraid |  your Chatra account |  |
 | apiportal.recaptchkey | recaptcha key associated to your external domain name |  |
 | apiportal.recaptchsecret |  corresponding recaptcha key associated to your external domain name |  |
@@ -37,8 +37,8 @@ Customize the `open-banking-developer-portal/values.yaml` file as follow
 | apiportal.oauthWhitelist |  coma-separated list of hosts used for external Oauth | acp.\<domain-name> |
 | apiportal.serviceDeskEndPoint | URL of service desk service  | `https://api.<domain-name>/services/v1/incident`   |
 | apiportal.apiReviewEndPoint |   URL of API review service  | `https://api.<domain-name>/api/portal/v1.2/reviewapi` |
-| mysqlPortal.rootPasswd | root password for the database to be created | portalDBRootPwd! |
-| mysqlPortal.adminPasswd  | admin password for the database to be created | portalDBAdminPwd! |
+| mysqlPortal.rootPasswd | root password for the database to be created | _portalDBRootPwd!_ |
+| mysqlPortal.adminPasswd  | admin password for the database to be created | _portalDBAdminPwd!_ |
 
 ## Install Developer Portal Helm chart
 
@@ -87,7 +87,7 @@ Verify that :
 Check ingress with this command :
 
 ```bash
-kubectl get ingress -n open-banking-developer-portal \
+kubectl get ingress -n open-banking-developer-portal 
 ```
 
 Verify that one ingress has been provisioned. It must have a public ip or a dns value is in the ADDRESS column.

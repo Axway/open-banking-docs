@@ -24,8 +24,8 @@ Customize the `open-banking-analytics/values.yaml` file as follow
 | global.domainName | set the domainname for all ingress. | \<domain-name> |
 | global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
-| elastic.password | Password used for "elastic" user. | Open*Banking*2021 |
-| metrics.apiKey | API Key used for the metrics. Used by Webserver and APIM | \<static-key-to-be-changed> |
+| elastic.password | Password used for "elastic" user. | _Open*Banking*2021_ |
+| metrics.apiKey | API Key used for the metrics. Used by Webserver and APIM | \<api-key> |
 | kibana.ingress.dnsprefix | set the domain name for kibana. | kibana |
 | webserver.ingress.dnsprefix | Frequency of reports generation | analytics |
 | webserver.report.frequency | Frequency of reports generation | 00 00 \* \* \* (Every day at midnight) |
@@ -93,8 +93,8 @@ Verify that these ingress has been provisioned. They must have a public ip or a 
 
 ```
     NAME         HOSTS                           ADDRESS                       PORTS     AGE
-    kibana       kibana.<domain-name>             xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-    webserver    analytics.<domain-name>          xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    kibana       kibana.<domain-name>            xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    webserver    analytics.<domain-name>         xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
 ```
 
 Check you can access the differents user interfaces:

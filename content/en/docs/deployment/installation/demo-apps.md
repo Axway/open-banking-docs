@@ -91,7 +91,7 @@ kubectl get ingress -n open-banking-app
 Verify that these 5 ingress have been provisioned. They must have a public ip or a dns value is in the ADDRESS column.
 
 ```
-    NAME                     HOSTS                                 ADDRESS                        PORTS     
+    NAME                     HOSTS                                   ADDRESS                       PORTS     
     auto-loan-api-ingress    auto-loan-api-demo-apps.<domain-name>   xxxxxxxxxxxxx.amazonaws.com   80, 443   
     bankio-link-ingress      tpp-demo-apps.<domain-name>             xxxxxxxxxxxxx.amazonaws.com   80, 443   
     demo-frontends-ingress   demo-apps.<domain-name>                 xxxxxxxxxxxxx.amazonaws.com   80, 443   
