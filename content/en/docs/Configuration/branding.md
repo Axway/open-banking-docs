@@ -23,9 +23,12 @@ Here are the main items you can consider for branding:
 
 ## Demo apps
 
-4 demo apps are delivered with tthe solution. They are accessible from the DEveloper Portal homepage.
+4 demo apps are delivered with the solution. They are accessible from the Developer Portal homepage.
 If you would like to customize them to your specific use-case, please contact us.
 
+<!--
 ## Consent UI
 
-You can customize the
+You can customize the Consent UI
+
+  -->

@@ -29,7 +29,7 @@ This section describes how to fill the "amplifyAgents" parameters from the value
 
 ``` shell
 amplifyAgents:
-   enabled: false
+   enabled: true
    repository: axway.jfrog.io/ampc-public-docker-release/agent
    statusPort: 8990
    centralAuthClientID: "DOSA_xx_yy_zz"

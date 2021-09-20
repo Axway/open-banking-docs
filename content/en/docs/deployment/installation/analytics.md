@@ -22,9 +22,8 @@ Customize the open-banking-analytics/values.yaml file as follow
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
 | global.domainName | set the domainname for all ingress. | openbanking.demoaxway.com |
-| global.dockerRegistry.url | URL of the Axway Repo. Need to be modified only if url is different| docker-registry.demo.axway.com/open-banking |
-| global.dockerRegistry.username | Login of user that as been created for you. |  |
-| global.dockerRegistry.token | Token of user that as been created for you. |  |
+| global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
+| global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
 | elastic.password | Password used for "elastic" user. | Open*Banking*2021 |
 | metrics.apiKey | API Key used for the metrics. Used by Webserver and APIM | PuGB+3m1z2jeFVHf5pWoFKOxH0F/fW9M |
 | kibana.ingress.dnsprefix | set the domain name for kibana. | kibana |
@@ -53,7 +52,7 @@ helm install analytics open-banking-analytics -n open-banking-analytics
 Check that the status of the helm command is deployed:
 
 >NAME: analytics \
->LAST DEPLOYED: Fri Apr 16 09:05:35 2021 \
+>LAST DEPLOYED: <current data and time>
 >NAMESPACE: open-banking-analytics \
 >STATUS: **deployed** \
 >REVISION: 1 \
@@ -90,15 +89,15 @@ kubectl get ingress -n open-banking-analytics
 
 ```
     NAME         HOSTS                           ADDRESS                       PORTS     AGE
-    kibana       kibana.*yourdomain*             xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-    webserver    analytics.*yourdomain*          xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    kibana       kibana.<domain-name>             xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    webserver    analytics.<domain-name>          xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
 ```
 
 Check the differents URL
-https://webserver.*yourdomain* the Dashboard an Reports navigation should show up with custom logo and color theme. 
+https://webserver.<domain-name> the Dashboard an Reports navigation should show up with custom logo and color theme. 
 No dashboard is deployed yet
 
-https://kibana.*yourdomain* You should be able to login with the credentials provided in the helm chart values.
+https://kibana.<domain-name> You should be able to login with the credentials provided in the helm chart values.
 
 ## Post Deployment
 

@@ -125,7 +125,7 @@ helm install acp-prereq -n open-banking-acp open-banking-acp
 
 ```
    NAME: acp-prereq 
-   LAST DEPLOYED: Fri Apr 16 10:46:35 2021 
+   LAST DEPLOYED: <current data and time>
    NAMESPACE: open-banking-acp 
    STATUS: deployed
    REVISION: 1 
@@ -140,7 +140,7 @@ helm install acp -n open-banking-acp acp/kube-acp-stack –-version [chart-versi
 
 ```
    NAME: acp
-   LAST DEPLOYED: Fri Apr 16 10:46:35 2021 
+   LAST DEPLOYED: <current data and time>
    NAMESPACE: open-banking-acp 
    STATUS: deployed
    REVISION: 1 
@@ -179,10 +179,10 @@ kubectl get ingress -n open-banking-acp
 
 ```
     NAME         HOSTS                           ADDRESS                       PORTS     AGE
-    acp          acp.*yourdomain*                xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    acp          acp.<domain-name>                xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
 ```
 
-Connect to https://acp.*yourdomain*  with admin / admin  and change the password immediatly
+Connect to https://acp.<domain-name>  with admin / admin  and change the password immediatly
 Check that you see an "openbanking" workspace
 
 ## Install Open Banking Consent Helm chart
@@ -202,7 +202,7 @@ helm install consent -n open-banking-consent acp/openbanking –-version [chart-
 
 ```
    NAME: consent
-   LAST DEPLOYED: Fri Apr 16 10:56:35 2021 
+   LAST DEPLOYED: <current data and time>
    NAMESPACE: open-banking-consent 
    STATUS: deployed
    REVISION: 1 
@@ -240,10 +240,10 @@ kubectl get ingress -n open-banking-consent
 
 ```
     NAME                                     HOSTS                            ADDRESS                       PORTS     AGE
-    consent-openbanking-consent-admin        consent-admin.*yourdomain*       xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-    consent-openbanking-consent-page         consent.*yourdomain*             xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-    consent-openbanking-consent-self-service consent-selfservice.*yourdomain* xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-    consent-openbanking-financroo            financroo.*yourdomain*           xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    consent-openbanking-consent-admin        consent-admin.<domain-name>       xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    consent-openbanking-consent-page         consent.<domain-name>             xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    consent-openbanking-consent-self-service consent-selfservice.<domain-name> xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    consent-openbanking-financroo            financroo.<domain-name>           xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
 ```
 
 ## Post Deployment

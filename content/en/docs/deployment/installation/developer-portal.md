@@ -24,20 +24,19 @@ Customize the open-banking-developer-portal/values.yaml file as follow
 |:------------- |:------------------------------------- |:-------------- |
 | global.platform | select the platform : AWS, AZURE, MINIKUBE | AWS |
 | global.domainName | set the domainname for all ingress. | None |
-| global.dockerRegistry.url | URL of the Axway Repo. Need to be modified only if url is different| docker-registry.demo.axway.com/open-banking/developer-portal |
-| global.dockerRegistry.username | Login of user that as been created for you. | None |
-| global.dockerRegistry.token | Token of user that as been created for you. | None |
+| global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
+| global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
 | apiportal.adminPasswd | password to access Developer Portal Joomla admin console | portalAdminPwd! |
 | apiportal.company | name of you company, sued for brandind | Griffin Bank |
 | apiportal.chatraid |  your Chatra account |  |
 | apiportal.recaptchkey | recaptcha key associated to your external domain name |  |
 | apiportal.recaptchsecret |  corresponding recaptcha key associated to your external domain name |  |
-| apiportal.demoAppSource |   the demo app source URL to be used on the portal home page | https://demo-apps.openbanking.demoaxway.com/app.js?version=1.1 |
-| apiportal.authorizationHost |   the OAuth server public name |  acp.openbanking.demoaxway.com |
-| apiportal.apiWhitelist |  coma-separated list of hosts exposing APIs | api.openbanking.demoaxway.com,mtls-api-proxy.openbanking.demoaxway.com |
-| apiportal.oauthWhitelist |  coma-separated list of hosts used for external Oauth | acp.openbanking.demoaxway.com |
-| apiportal.serviceDeskEndPoint | URL of service desk service  |https://api.openbanking.demoaxway.com/services/v1/incident   |
-| apiportal.apiReviewEndPoint |   URL of API review service  | https://api.openbanking.demoaxway.com/api/portal/v1.2/reviewapi |
+| apiportal.demoAppSource |   the demo app source URL to be used on the portal home page | https://demo-apps.<domain-name>/app.js?version=1.1 |
+| apiportal.authorizationHost |   the OAuth server public name |  acp.<domain-name> |
+| apiportal.apiWhitelist |  coma-separated list of hosts exposing APIs | api.<domain-name>,mtls-api-proxy.<domain-name> |
+| apiportal.oauthWhitelist |  coma-separated list of hosts used for external Oauth | acp.<domain-name> |
+| apiportal.serviceDeskEndPoint | URL of service desk service  |https://api.<domain-name>/services/v1/incident   |
+| apiportal.apiReviewEndPoint |   URL of API review service  | https://api.<domain-name>/api/portal/v1.2/reviewapi |
 | mysqlPortal.rootPasswd | root password for the database to be created | portalDBRootPwd! |
 | mysqlPortal.adminPasswd  | admin password for the database to be created | portalDBAdminPwd! |
 
@@ -59,7 +58,7 @@ Check that the status of the helm command is deployed:
 
 ```
     NAME: developer-portal 
-    LAST DEPLOYED: Fri Apr 16 07:56:35 2021 
+    LAST DEPLOYED: <current data and time>
     NAMESPACE: open-banking-developer-portal 
     STATUS: deployed 
     REVISION: 1 
@@ -93,11 +92,11 @@ kubectl get ingress -n open-banking-developer-portal \
 
 ```
     NAME         HOSTS                           ADDRESS                       PORTS     AGE
-    api-portal   developer-portal.*yourdomain*   xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    api-portal   developer-portal.<domain-name>   xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
 ```
 
 Check the differents URL
-https://developer-portal.*yourdomain* the Developer Portal home page should show up.
+https://developer-portal.<domain-name> the Developer Portal home page should show up.
 If APIM helm charts were successfully deployed, you should already be able to see APIs on the API Catalog (click on API tab)
 
-https://developer-portal.*yourdomain*/administrator Login with username *apiadmin* and password *apiAdminPwd!*.
+https://developer-portal.<domain-name>/administrator Login with username *apiadmin* and password *apiAdminPwd!*.

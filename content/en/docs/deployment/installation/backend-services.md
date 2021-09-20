@@ -22,9 +22,8 @@ Customize the open-banking-backend-chart/values.yaml file as follow
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| global.dockerRegistry.url | URL of the Axway Repo. Need to be modified only if url is different| docker-registry.demo.axway.com/open-banking |
-| global.dockerRegistry.username | Login of user that as been created for you. |  |
-| global.dockerRegistry.token | Token of user that as been created for you. |  |
+| global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
+| global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
 | mysqldb.dbname | Mock backend database name |  "medicimockbackend" |
 | mysqldb.dbuser | Mock backend database username |  "mockbank" |
 | secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password | Ch@ng3M3! |
@@ -48,7 +47,7 @@ Check that the status of the helm command is deployed:
 
 ```
     NAME: backend
-    LAST DEPLOYED: Fri Apr 16 08:36:35 2021 
+    LAST DEPLOYED: <current data and time>
     NAMESPACE: open-banking-backend
     STATUS: deployed
     REVISION: 1 

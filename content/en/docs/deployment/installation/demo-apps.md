@@ -22,9 +22,8 @@ Customize the open-banking-bankio-app/values.yaml file as follow
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| image.dockerRegistry.url | URL of the image in Axway Repo. Need to be modified only if url is different| docker-registry.demo.axway.com/open-banking/apps |
-| image.dockerRegistry.username | Login of user that as been created for you. | None |
-| image.dockerRegistry.token | Token of user that as been created for you. | None |
+| image.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
+| image.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
 | frontEnd.cname | frontEnd server address. change domainname value | demo-apps.<domainname> |
 | tppApi.cname | tppApi server address. change domainname value | tpp-demo-apps.<domainname> |
 | autoLoanApi.cname | autoLoanApi server address. change domainname value | auto-loan-api-demo-apps.<domainname> |
@@ -52,7 +51,7 @@ Check that the status of the helm command is deployed:
 
 ```
     NAME: demo-apps
-    LAST DEPLOYED: Fri Apr 16 08:36:35 2021 
+    LAST DEPLOYED: <current data and time>
     NAMESPACE: open-banking-app
     STATUS: deployed
     REVISION: 1 
@@ -91,14 +90,14 @@ kubectl get ingress -n open-banking-app
 
 ```
     NAME                     HOSTS                                 ADDRESS                        PORTS     
-    auto-loan-api-ingress    auto-loan-api-demo-apps.*yourdomain*   xxxxxxxxxxxxx.amazonaws.com   80, 443   
-    bankio-link-ingress      tpp-demo-apps.*yourdomain*             xxxxxxxxxxxxx.amazonaws.com   80, 443   
-    demo-frontends-ingress   demo-apps.*yourdomain*                 xxxxxxxxxxxxx.amazonaws.com   80, 443   
-    obie-sandbox-ingress     obie-sandbox-demo-apps.*yourdomain*    xxxxxxxxxxxxx.amazonaws.com   80, 443   
-    shop-api-ingress         shop-demo-api-apps.*yourdomain*        xxxxxxxxxxxxx.amazonaws.com   80, 443  
+    auto-loan-api-ingress    auto-loan-api-demo-apps.<domain-name>   xxxxxxxxxxxxx.amazonaws.com   80, 443   
+    bankio-link-ingress      tpp-demo-apps.<domain-name>             xxxxxxxxxxxxx.amazonaws.com   80, 443   
+    demo-frontends-ingress   demo-apps.<domain-name>                 xxxxxxxxxxxxx.amazonaws.com   80, 443   
+    obie-sandbox-ingress     obie-sandbox-demo-apps.<domain-name>    xxxxxxxxxxxxx.amazonaws.com   80, 443   
+    shop-api-ingress         shop-demo-api-apps.<domain-name>        xxxxxxxxxxxxx.amazonaws.com   80, 443  
 ```
 
 Check the differents URL
-https://demo-apps.*yourdomain*/account-information/ shows a demo apps for account planning
+https://demo-apps.<domain-name>/account-information/ shows a demo apps for account planning
 
 If all other conmponents are already installed and configured correctly, you should be able to test connecting a bank account from demo01 sandbox.
