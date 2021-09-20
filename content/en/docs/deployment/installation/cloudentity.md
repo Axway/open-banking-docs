@@ -25,7 +25,8 @@ Find the namespace of the cert-manager component
 kubectl get pods -A | grep cert-manager | awk '{print $1}' | uniq
 ```
 
-Modify the open-banking-acp/values.yaml file from Axway package.
+Modify the `open-banking-acp/values.yaml` file from Axway package.
+
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
 | cert.internal.certManager | Define if cert-manager is used. Don't set to false.| true |
@@ -33,7 +34,7 @@ Modify the open-banking-acp/values.yaml file from Axway package.
 | cert.ingress.cert | Use specific cert. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 | cert.ingress.key | Use specific key. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 
-Update the open-banking-acp/files/acp.values.yaml  with all environment variables required:
+Update the `open-banking-acp/files/acp.values.yaml`  with all environment variables required:
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
@@ -48,7 +49,7 @@ Remove the following lines if cert-manager not used for ingress:
 
 ## Customize Open Banking Consent Helm chart
 
-Modify the open-banking-consent/values.yaml file:
+Modify the `open-banking-consent/values.yaml` file:
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
@@ -65,24 +66,23 @@ Modify the open-banking-consent/values.yaml file:
 | cert.ingress.financroo.cert | Use dedicated certificate. Must be defined only if certManager and wildcard are set to false. | None |
 | cert.ingress.financroo.key | Use dedicated key. Must be defined only if certManager and wildcard are set to false. | None |
 
-Update the open-banking-consent/files/consent.values.yaml file:
-
+Update the `open-banking-consent/files/consent.values.yaml` file:
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
 | acpURL | ACP server URL | None |
 | consentPage.ingress.annotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | [NAMESPACE]/consent-openbanking-consent-page-tls  | open-banking-consent/consent-openbanking-consent-page-tls |
-| consentPage.ingress.hosts | update with the consent page URL | consent.<domain-name> |
+| consentPage.ingress.hosts | update with the consent page URL | consent.\<domain-name> |
 | consentPage.ingress.tls.hosts | update with the consent page URL | consent.<domain-name> |
 | consentAdmin.ingress.annotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | [NAMESPACE]/consent-openbanking-consent-admin-tls | open-banking-consent/consent-openbanking-consent-admin-tls |
-| consentAdmin.ingress.hosts | update with the consent admin URL | consent-admin.<domain-name> |
-| consentAdmin.ingress.tls.hosts | update with the consent admin URL | consent-admin.<domain-name> |
+| consentAdmin.ingress.hosts | update with the consent admin URL | consent-admin.\<domain-name> |
+| consentAdmin.ingress.tls.hosts | update with the consent admin URL | consent-admin.\<domain-name> |
 | consentSelfservice.ingress.annotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | [NAMESPACE]/consent-openbanking-consent-self-service-tls | open-banking-consent/consent-openbanking-consent-self-service-tls |
-| consentSelfservice.ingress.hosts | update with the consent Self service URL | consent-selfservice.<domain-name> |
-| consentSelfservice.ingress.tls.hosts | update with the consent Self service URL | consent-selfservice.<domain-name> |
+| consentSelfservice.ingress.hosts | update with the consent Self service URL | consent-selfservice.\<domain-name> |
+| consentSelfservice.ingress.tls.hosts | update with the consent Self service URL | consent-selfservice.\<domain-name> |
 | financroo.ingress.annotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | [NAMESPACE]/consent-openbanking-financroo-tls | open-banking-consent/consent-openbanking-financroo-tls |
-| financroo.ingress.hosts | update with the financroo URL | financroo.openbanking.demoaxway.com |
-| financroo.ingress.tls.hosts | update with the financroo URL | financroo.openbanking.demoaxway.com |
+| financroo.ingress.hosts | update with the financroo URL | financroo.\<domain-name> |
+| financroo.ingress.tls.hosts | update with the financroo URL | financroo.\<domain-name>|
 | import.variables.consent_self_service_portal_url | update with the consent self service portal url | `https://consent-selfservice.<domain-name>` |
 | import.variables.consent_admin_portal_url | update with the consent admin portal url | `https://consent-admin.<domain-name>` |
 | import.variables.consent_page_url | update with the consent page url | `https://consent.<domain-name>` |
@@ -159,6 +159,11 @@ Wait a few minutes and use the following commands to check the status of the dep
 kubectl get pods -n open-banking-acp 
 ```
 
+Verify that :
+
+* **pods** with acp-xxx-xxx, name acp-cockroachdb-x, acp-redis-master-x, acp-redis-replicas-x are all **Running** and Restart is **0**.
+* **pods** with acp-cockroachdb-init-xxx is **Completed** and Restart is **0**.
+  
 ```
    NAME                         READY   STATUS      RESTARTS   AGE
    acp-66d8797fb4-njbw6         1/1     Running     0          3m
@@ -170,16 +175,13 @@ kubectl get pods -n open-banking-acp
    acp-redis-replicas-2         1/1     Running     0          3m
 ```
 
-Verify that :
-
-* **pods** with acp-xxx-xxx, name acp-cockroachdb-x, acp-redis-master-x, acp-redis-replicas-x are all **Running** and Restart is **0**.
-* **pods** with acp-cockroachdb-init-xxx is **Completed** and Restart is **0**.
-
 Check ingress with this command :
 
 ```bash
 kubectl get ingress -n open-banking-acp 
 ```
+
+Verify that this ingress has been provisioned. It must have a public ip or a dns value is in the ADDRESS column.
 
 ```
     NAME         HOSTS                           ADDRESS                       PORTS     AGE
@@ -233,6 +235,11 @@ Wait a few minutes and use the following commands to check the status of the dep
 kubectl get pods -n open-banking-consent 
 ```
 
+Verify that :
+
+* **pods** with consent-openbanking-bank-xxxx-xxx, consent-openbanking-consent-admin-xxxx-xxx, consent-openbanking-consent-page-xxxx-xxx, consent-openbanking-consent-self-service-xxxx-xx   are  **Running** and Restart is **0**.
+* **pods** with consent-openbanking-import-xxx    is **Completed** and Restart is **0**.
+
 ```
    NAME                                                READY   STATUS      RESTARTS   
    consent-openbanking-bank-xxxx-xxx                   1/1     Running     0          
@@ -243,16 +250,13 @@ kubectl get pods -n open-banking-consent
    consent-openbanking-import-xxx                      0/1     Completed   0          
 ```
 
-Verify that :
-
-* **pods** with consent-openbanking-bank-xxxx-xxx, consent-openbanking-consent-admin-xxxx-xxx, consent-openbanking-consent-page-xxxx-xxx, consent-openbanking-consent-self-service-xxxx-xx   are  **Running** and Restart is **0**.
-* **pods** with consent-openbanking-import-xxx    is **Completed** and Restart is **0**.
-
 Check ingress with this command :
 
 ```bash
 kubectl get ingress -n open-banking-consent 
 ```
+
+Verify that these ingress have been provisioned. They must have a public ip or a dns value is in the ADDRESS column.
 
 ```
     NAME                                     HOSTS                            ADDRESS                       PORTS     AGE

@@ -15,11 +15,11 @@ helm pull axway-open-banking/open-banking-apim --untar
 helm pull axway-open-banking/open-banking-apim-config --untar
 ```
 
-You should get open-banking-apim and open-banking-apim-config local folders.
+You should get `open-banking-apim` and `open-banking-apim-config` local folders.
 
 ## Customize APIM Helm chart
 
-Customize the open-banking-apim/values.yaml file as follow
+Customize the `open-banking-apim/values.yaml` file as follow
 
 ### Base parameters
 
@@ -27,8 +27,7 @@ The following parameters are required for any deployment.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| global.platform | select the platform to configure appropriate objects (like storage for RWM).
-Possible values are AWS, AZURE, MINIKUBE | None |
+| global.platform | select the platform to configure appropriate objects (like storage for RWM).<br>Possible values are AWS, AZURE, MINIKUBE | None |
 | global.domainName | set the domainname for all ingress. | None |
 | global.env | Set the default environment | dev |
 | global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
@@ -37,10 +36,6 @@ Possible values are AWS, AZURE, MINIKUBE | None |
 | global.smtpServer.port | Smtp server port | None |
 | global.smtpServer.username | Smtp server username | None |
 | global.smtpServer.password | Smtp server password | None |
-| apimcli.settings.email | email used in api-manager settings |None |
-| backend.serviceincident.host| ServiceNow URL|None|
-| backend.serviceincident.username| ServiceNow username |None|
-| backend.serviceincident.password| ServiceNow password |None|
 
 With these base parameters set, you can already install the helm chart : [Install APIM Helm chart](#install-apim-helm-chart)
 
@@ -113,16 +108,16 @@ global:
       wildcard: true
       cert: |
          -----BEGIN CERTIFICATE-----
-         <<base64-encoded certificate>>
+         <base64-encoded certificate>
          -----END CERTIFICATE-----
          -----BEGIN CERTIFICATE-----
-         <<base64-encoded certificate>>
+         <base64-encoded certificate>
          -----END CERTIFICATE-----
          ...
 
       key: |
          -----BEGIN RSA PRIVATE KEY-----
-         <<base64-encoded key>>
+         <base64-encoded key>
          -----END RSA PRIVATE KEY-----
 ```
 
@@ -159,16 +154,16 @@ Each cert and key should have be inserted with the following format (same indent
 ```yaml
    ingressCert: |
       -----BEGIN CERTIFICATE-----
-      <<insert here base64-encoded certificate>>
+      < insert here base64-encoded certificate >
       -----END CERTIFICATE-----
       -----BEGIN CERTIFICATE-----
-      <<insert here base64-encoded certificate>>
+      < insert here base64-encoded certificate >
       -----END CERTIFICATE-----
 
    ingressKey: |
       -----BEGIN RSA PRIVATE KEY-----
-      <<insert here base64-encoded key>>
-      -----END RSA PRIVATE KEY-----
+      < insert here base64-encoded key >
+      -----END RSA PRIVATE KEY----- 
 
 ```
 
@@ -251,7 +246,7 @@ Check all ingress with this command :
 kubectl get ingress -n open-banking-apim 
 ```
 
-Verify that the same number of ingress has been provisioned. They must have a public ip or a dns value is in the ADDRESS column.
+Verify that these ingress have been provisioned. They must have a public ip or a dns value is in the ADDRESS column.
 
 ```console
    NAME            HOSTS                               ADDRESS                   PORTS 
@@ -277,7 +272,7 @@ Check that you can access the following User Interfaces:
 
 ## Customize APIM configuration helm chart
 
-Customize the open-banking-apim-config/values.yaml file as follow
+Customize the `open-banking-apim-config/values.yaml` file as follow
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
@@ -285,14 +280,10 @@ Customize the open-banking-apim-config/values.yaml file as follow
 | global.env | Set the default environment |dev |
 | global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
-| global.smtpServer.host | Smtp server host | None |
-| global.smtpServer.port | Smtp server port | None |
-| global.smtpServer.username | Smtp server username | None |
-| global.smtpServer.password | Smtp server password | None |
-| apimcli.settings.email | email used in api-manager settings |None |
-|backend.serviceincident.host| ServiceNow URL|None|
-|backend.serviceincident.username| ServiceNow username |None|
-|backend.serviceincident.password| ServiceNow password |None|
+| apimcli.settings.email | sender email address used in api-manager settings | None |
+| backend.serviceincident.host | ServiceNow URL | None|
+| backend.serviceincident.username | ServiceNow username |None|
+| backend.serviceincident.password | ServiceNow password |None|
 
 ## Install APIM config helm chart
 
@@ -305,11 +296,11 @@ helm install apim-config open-banking-apim-config -n open-banking-apim
 Check that the status of the helm command is deployed:
 
    ```
-   NAME: apim-config \
+   NAME: apim-config 
    LAST DEPLOYED: <current date and time>
-   NAMESPACE: open-banking-config \
-   STATUS: **deployed** \
-   REVISION: 1 \
+   NAMESPACE: open-banking-config 
+   STATUS: deployed
+   REVISION: 1 
    TEST SUITE: None
    ```
 
@@ -323,7 +314,7 @@ kubectl get pods -n open-banking-apim
 
 Verify that :
 
-* **jobs** with name import-api-27983c3f-xxx  are **Completed**.
+* **jobs** with name import-api-27983c3f-xxx  are **Completed** :
 
    ```
    NAME                                 READY   STATUS      RESTARTS 
@@ -334,12 +325,12 @@ Verify that :
    filebeat-analytics-86d588954b-lsx2p  1/1     Running     0 
    import-api-27983c3f-...              0/1     Completed   0 
    mysql-aga-757495f88f-vpw79           1/1     Running     0 
-   traffic-5d986c7d55-cv6dv            1/1      Running     0
+   traffic-5d986c7d55-cv6dv             1/1     Running     0
    ```
 
 Check the following User Interfaces:
 
-* **API Manager** `https://api-manager.<domain-name>`.
+* **API Manager** `https://api-manager.<domain-name>` :
 
     * Refresh or login again
     * Make sure that Open Banking APIs are in the API Catalog

@@ -14,11 +14,11 @@ Download Axway Open Banking Backend Services Helm chart to customize it locally
 helm pull axway-open-banking/open-banking-backend-chart --untar
 ```
 
-You should get a open-banking-backend-chart local folder.
+You should get a `open-banking-backend-chart` local folder.
 
 ## Customize Backend Services  Helm chart
 
-Customize the open-banking-backend-chart/values.yaml file as follow
+Customize the `open-banking-backend-chart/values.yaml` file as follow
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
@@ -54,13 +54,17 @@ Check that the status of the helm command is deployed:
     TEST SUITE: None
 ```
 
-## Verification
+### Verification
 
 Wait a few minutes and use the following commands to check the status of the deployment.
 
 ```
 kubectl get pods -n open-banking-backend
 ```
+
+Verify that :
+
+* **pods** with name mysqldb-xxx-xx and those name after the api names are all **Running** and Restart is **0**.
 
 ```
     NAME                   READY   STATUS    RESTARTS   AGE
@@ -75,7 +79,3 @@ kubectl get pods -n open-banking-backend
     reviews-xxx-xx         1/1     Running   0          2m
     servicechannel-xxx-xx  1/1     Running   0          2m
 ```
-
-Verify that :
-
-* **pods** with name mysqldb-xxx-xx and those name after the api name are all **Running** and Restart is **0**.

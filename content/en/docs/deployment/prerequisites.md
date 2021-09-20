@@ -18,7 +18,7 @@ Prior to installation you will need to perform the following tasks:
 * Install the following command line tools:
     * Helm.
     * Kubectl.
-* Obtain a private token for use with the Axway Docker Registry.
+* Obtain from Axway team a token to pull helm charts and docker images from with the Axway Registry.
 * Create a Kubernetes cluster that conforms to that described in the Architecture Overview guide and reflects the architecture choices described above.
 
 Please note that all these tasks need to be completed for your installation to be successful.
@@ -38,8 +38,7 @@ accordingly.
 
 In case `external-dns` is not available in the cluster, a manual configuration of the ingress hosts is required in your DNS zone. Also remove the cert-manager annotation in all ingress hosts.
 
-In case `cert-manager` is not available in the cluster, a manual creation of a secret with a certificate is required. Please use the ingress names from the
-chart.
+In case `cert-manager` is not available in the cluster, a manual creation of a secret with a certificate is required. Please use the ingress names from the chart.
 
 Regarding the load balancer/ingress controler, you can use NGINX or another ingress controller with the following requirements:
 
@@ -49,3 +48,5 @@ Regarding the load balancer/ingress controler, you can use NGINX or another ingr
 * Limit cypher spec usage to “DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384
 * Compatible with request header size to 8k.
 * Deny public access to ACP path /app/default/admin
+
+

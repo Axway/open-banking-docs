@@ -13,22 +13,22 @@ Download Axway Open Banking Analytics Helm chart to customize it locally
 helm pull axway-open-banking/open-banking-analytics --untar
 ```
 
-You should get a open-banking-analytics local folder.
+You should get a `open-banking-analytics` local folder.
 
 ## Customize Analytics Helm chart
 
-Customize the open-banking-analytics/values.yaml file as follow
+Customize the `open-banking-analytics/values.yaml` file as follow
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| global.domainName | set the domainname for all ingress. | openbanking.demoaxway.com |
+| global.domainName | set the domainname for all ingress. | \<domain-name> |
 | global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
 | elastic.password | Password used for "elastic" user. | Open*Banking*2021 |
-| metrics.apiKey | API Key used for the metrics. Used by Webserver and APIM | PuGB+3m1z2jeFVHf5pWoFKOxH0F/fW9M |
+| metrics.apiKey | API Key used for the metrics. Used by Webserver and APIM | \<static-key-to-be-changed> |
 | kibana.ingress.dnsprefix | set the domain name for kibana. | kibana |
 | webserver.ingress.dnsprefix | Frequency of reports generation | analytics |
-| webserver.report.frequency | Frequency of reports generation | 00 00 * * * (Every day at midnight) |
+| webserver.report.frequency | Frequency of reports generation | 00 00 \* \* \* (Every day at midnight) |
 
 You can update the company logo and the colors used for the navigation map.
 
@@ -51,12 +51,14 @@ helm install analytics open-banking-analytics -n open-banking-analytics
 
 Check that the status of the helm command is deployed:
 
->NAME: analytics \
->LAST DEPLOYED: <current date and time>
->NAMESPACE: open-banking-analytics \
->STATUS: **deployed** \
->REVISION: 1 \
->TEST SUITE: None
+```
+NAME: analytics 
+LAST DEPLOYED: <current date and time>
+NAMESPACE: open-banking-analytics 
+STATUS: deployed
+REVISION: 1 
+TEST SUITE: None
+```
 
 ### Verifications
 
@@ -87,17 +89,19 @@ Check ingress with this command :
 kubectl get ingress -n open-banking-analytics 
 ```
 
+Verify that these ingress has been provisioned. They must have a public ip or a dns value is in the ADDRESS column.
+
 ```
     NAME         HOSTS                           ADDRESS                       PORTS     AGE
     kibana       kibana.<domain-name>             xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
     webserver    analytics.<domain-name>          xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
 ```
 
-Check you can access the differents user interfaces: 
+Check you can access the differents user interfaces:
 
-* Analytics homepage : `https://webserver.<domain-name>` 
+* Analytics homepage : `https://webserver.<domain-name>`
 
-    * the Dashboard an Reports navigation (top bar) should show up with custom logo and color theme. 
+    * the Dashboard an Reports navigation (top bar) should show up with custom logo and color theme.
     * No dashboard is deployed yet
 
 * ELK admin interface : `https://kibana.<domain-name>`

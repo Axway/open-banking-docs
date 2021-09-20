@@ -14,11 +14,11 @@ Download Axway Open Banking Developer Portal Helm chart to customize it locally
 helm pull axway-open-banking/open-banking-developer-portal --untar
 ```
 
-You should get a open-banking-developer-portal local folder.
+You should get a `open-banking-developer-portal` local folder.
 
 ## Customize Developer Portal Helm chart
 
-Customize the open-banking-developer-portal/values.yaml file as follow
+Customize the `open-banking-developer-portal/values.yaml` file as follow
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
@@ -73,6 +73,10 @@ Wait a few minutes and use the following commands to check the status of the dep
 kubectl get pods -n open-banking-developer-portal 
 ```
 
+Verify that :
+
+* **pods** with name api-portal-xxx-xxx, mysql-portal-xxx-xxx, redis-xxx-xxx are **Running** and Restart is **0**.
+
 ```
     NAME                            READY   STATUS    RESTARTS   AGE  
     api-portal-7d8fb64c98-bt6jg     1/1     Running   0          2m
@@ -80,22 +84,20 @@ kubectl get pods -n open-banking-developer-portal
     redis-7c9bf54b6-dn55s           1/1     Running   0          2m
 ```
 
-Verify that :
-
-* **pods** with name api-portal-xxx-xxx, mysql-portal-xxx-xxx, redis-xxx-xxx are **Running** and Restart is **0**.
-
 Check ingress with this command :
 
 ```bash
 kubectl get ingress -n open-banking-developer-portal \
 ```
 
+Verify that one ingress has been provisioned. It must have a public ip or a dns value is in the ADDRESS column.
+
 ```
     NAME         HOSTS                           ADDRESS                       PORTS     AGE
-    api-portal   developer-portal.<domain-name>   xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+    api-portal   developer-portal.<domain-name>  xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
 ```
 
-Check the differents URL:
+Check the differents User Interfaces:
 
 * Developer Portal home page  : `https://developer-portal.<domain-name>`. If APIM helm charts were successfully deployed, you should already be able to see APIs on the API Catalog (click on API tab)
 * Joomla admin interface: `https://developer-portal.<domain-name>/administrator`
