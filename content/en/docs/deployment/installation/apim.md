@@ -27,7 +27,8 @@ The following parameters are required for any deployment.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| global.platform | select the platform to configure appropriate objects (like storage for RWM).<br>Possible values are AWS, AZURE, MINIKUBE | None |
+| global.platform | select the platform to configure appropriate objects (like storage for RWM).\
+Possible values are AWS, AZURE, MINIKUBE | None |
 | global.domainName | set the domainname for all ingress. | None |
 | global.env | Set the default environment | dev |
 | global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
@@ -93,7 +94,8 @@ The APIM deployment needs a storage class in Read/Write Many. A custom storage c
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| Global.customStorageClass.scrwm | Allow to specify a storageclass to mount a “Read Write Many” volume on pod. It’s used to share metrics between monitoring and analytics. | None |
+| Global.customStorageClass.scrwm | Allow to specify a storageclass to mount a “Read Write Many” volume on pod. \
+ It’s used to share metrics between monitoring and analytics. | None |
 
 ### Specify a Wildcard certificate
 
@@ -173,7 +175,7 @@ Refer to [Certificate Management](/docs/configuration/certificate-management) fo
 
 ### Configure Amplify Agents
 
-The following values must be set to reports API and their usage on the **Amplify platform**. 
+The following values must be set to reports API and their usage on the **Amplify platform**.
 
 ```yaml
 amplifyAgents:
@@ -222,8 +224,8 @@ Wait a few minutes and use the following commands to check the status of the dep
 
 ```bash
 kubectl get pods -n open-banking-apim 
-
 ```
+
 Verify that :
 
 * **pods** with name anm-xxx-xxx, apimgr-xxx-xxx, traffic-xxx-xxx, cassandra-0 are **Running** and Restart is **0**.
@@ -364,7 +366,7 @@ curl -k -X PUT -u "$ANM_USERNAME:$ANM_PASSWORD" \
 awk  -F '\t' '{ \
          if ($5==Y) {$5="true"} else {$5="false"}; \
          print "Create id"$1; \
-	 system("curl -k -X PUT -u \"'"${ANM_USERNAME}"':'"${ANM_PASSWORD}"'\" -H \"Content-Type: application/json\" 'https://${ANM_INGRESS_NAME}:443'/api/router/service/'${APIMGR_POD}'/api/kps/'mediciobie_endpoint'/"$1" -d '\''{\"id\":\""$1"\",\"category\":\""$2"\",\"name\":\""$3"\",\"segment\":\""$4"\",\"used\":"$5"}'\''")}' \
+    system("curl -k -X PUT -u \"'"${ANM_USERNAME}"':'"${ANM_PASSWORD}"'\" -H \"Content-Type: application/json\" 'https://${ANM_INGRESS_NAME}:443'/api/router/service/'${APIMGR_POD}'/api/kps/'mediciobie_endpoint'/"$1" -d '\''{\"id\":\""$1"\",\"category\":\""$2"\",\"name\":\""$3"\",\"segment\":\""$4"\",\"used\":"$5"}'\''")}' \
      "open-banking-apim-config/files/kps/obie_endpoint.txt"
 ```
 

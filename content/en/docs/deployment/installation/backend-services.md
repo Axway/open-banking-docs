@@ -24,10 +24,10 @@ Customize the `open-banking-backend-chart/values.yaml` file as follow
 |:------------- |:------------------------------------- |:-------------- |
 | global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
-| mysqldb.dbname | Mock backend database name |  "medicimockbackend" |
-| mysqldb.dbuser | Mock backend database username |  "mockbank" |
-| secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password | Ch@ng3M3! |
-| secrets.MYSQL_USER_PASSWORD | Mock backend database user password | Ch@ng3M3! |
+| mysqldb.dbname | Mock backend database name |  _medicimockbackend_ |
+| mysqldb.dbuser | Mock backend database username |  _mockbank_ |
+| secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password | _Ch@ng3M3!_ |
+| secrets.MYSQL_USER_PASSWORD | Mock backend database user password | _Ch@ng3M3!_ |
 
 ## Install Backend Services Helm chart
 
