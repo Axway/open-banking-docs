@@ -29,6 +29,6 @@ If you would like to customize them to your specific use-case, please contact us
 <!--
 ## Consent UI
 
-You can customize the Consent UI
+TODO : reuse instructions provided to LATAM customers
 
   -->

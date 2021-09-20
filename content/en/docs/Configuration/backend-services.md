@@ -6,6 +6,12 @@ weight: 10
 date: 2021-09-02
 ---
 
-{{% pageinfo %}}
-This page is under development
-{{% /pageinfo %}} -->
+{{% alert title="Note" color="primary" %}}
+For the current release, please contact Axway team if you need to configure the backend services to map to your backend.
+{{% /alert %}}
+
+<!--
+
+TODO
+
+  -->

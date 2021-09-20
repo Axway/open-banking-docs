@@ -61,6 +61,18 @@ Several values should correspond to the settings of CLOUDENTITY ACP or it consen
 | oauth\_introspect\_clientid | app is bank in openbanking workspace |
 | oauth_tenantid | tenant id in ACP server |
 
+## API Policies
+
+API Gateway is configured with several API policies that are used Open Banking flows.
+You may want to customize some of this policies.
+
+You can check these policies definition by opening Policy Studio and navigate to Policy > #AMPLIFY-OB.
+
+![apim-policy-studio-apis](/Images/apim-policy-studio-api-containers.png)
+
+If you decide to change one of them, you can directly use Policy Studio only for development environment.
+For other environments, you would need to export the Policy Studio projects and build new APIM docker images, and use them instead of standard ones.
+
 ## Certificates
 
 API Gateway is configured with several certificate that are used during the runtime : server certificate, client certificate authority, jwt certificate and keys.
@@ -70,4 +82,4 @@ Right-click on certificate to see if there any reference to it, meaning they are
 
 ![apim-policy-studio-certificates](/Images/apim-policy-studio-certificates.png)
 
-If you identify the need to change on of them, refer to the API Gateway instructions that you can find under each sections of [Certificate Management](/docs/configuration/certificate-management)
+If you identify the need to change one of them, refer to the API Gateway instructions that you can find under each sections of [Certificate Management](/docs/configuration/certificate-management)

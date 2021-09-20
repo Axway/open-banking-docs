@@ -77,7 +77,7 @@ It is important to run the test to get the following information:
 * BRSEAL – message certificate (cert e key) – used for JWKS .
 * BRCAC – transport certificate – used for MTLS comunication.
 
-###	Get the application declared in Axway Open Banking
+### Get the application declared in Axway Open Banking
 
 This release has a limitation that the ClientID is not automatically created on APIM.
 
@@ -110,36 +110,40 @@ curl --location --request POST 'https://hostname:port/api/portal/v1.3/applicatio
 
 Note that the applicationId appears both in the URL request (POST `https://hostname:port/api/portal/v1.3/applications/$applicationId/oauth`) and in the JSON data as $.applicationId. and the client-id used for oauth is appears in the JSON data as $.id
 
-###	Use DCR API with Postman
+### Use DCR API with Postman
 
 Go on Developer portal and download Postman collection fro Dynamic Client Registration.
 Import it in Postman.
 Select 1st method and change parameter and body according to the TPP information to register.
 Hit Send
+<!--
 
-###	Use DCR API with curl
+TODO : update with DCR Postman collection to be published
+-->
+
+### Use DCR API with curl
 
 Customize the following command according to the TPP information you'd like to register:
 
 ```bash
-curl --location --request POST 'https://mtls-api-proxy.openbanking.demoaxway.com/open-banking/dcr/v1/register' \
---header 'Content-Type: application/json' \
+curl --location --request POST    https://acp.$domainName>/default/openbanking_brasil/oauth2/register
+--header 'Content-Type: application/json'  \
 --cert client.crt --key client.key --cacert ca.crt \
 --data-raw '{
-	"orgParameters": {
-		"organizationName": "Test Corp",
-		"openbankingRole": "PISP",
-		"vatNumber": "1234567890",
-		"ncaStatus": "registered",
-		"ncaNumber": "Central Bank of Brazil",
-		"certificate": "mtls"
-	},
-	"userParameters": {
-		"firstName": "John",
-		"lastName": "Doe",
-		"emailAddress": "johndoe@testcorp.com",
-		"phone": "1234567890",
-		"title": "Project Manager"
-	}
+	"grant_types": [
+		"authorization_code",
+		"implicit",
+		"refresh_token",
+		"client_credentials"
+	],
+	"jwks_uri": "https://keystore.sandbox.directory.openbankingbrasil.org.br/$OrganizationId/$software_id/application.jwks",
+	"token_endpoint_auth_method": "private_key_jwt",
+	"response_types": [
+		"code id_token"
+	],
+	"redirect_uris": [
+		"https://www.certification.openid.net/test/a/$test_id/callback"
+	],
+	"software_statement": "$SoftwareStatement"
 }'
 ```
