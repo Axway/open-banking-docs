@@ -40,13 +40,13 @@ kubectl create namespace open-banking-backend
 Install the helm chart:
 
 ```bash
-helm install backend open-banking-backend-chart -n open-banking-backend
+helm install backend-services open-banking-backend-chart -n open-banking-backend
 ```
 
 Check that the status of the helm command is deployed:
 
 ```
-    NAME: backend
+    NAME: backend-services
     LAST DEPLOYED: <current date and time>
     NAMESPACE: open-banking-backend
     STATUS: deployed
