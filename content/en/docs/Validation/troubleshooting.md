@@ -44,10 +44,10 @@ Once analysed, you might take one or several decision to fix your issue:
 * fix a remote backend or cloud service that was not available
 * fix client configuration to call the API differently
 * fix API Manager configuration: refer to [API Management](/docs/configuration/api-manager#api-management)
-* fix API Gateway KPS configuration: refer to [KPS configuration](/docs/configuration/api-gateway#kps-configuration]
-* fix Authorization server configuration
+* fix API Gateway KPS configuration: refer to [KPS configuration](/docs/configuration/api-gateway#kps-configuration)
 * update a cerfication configuration: refer to [Certificate Management](/docs/configuration/certificate-management)
 * fix the API policy definition: refer to [API Policies](/docs/configuration/api-gateway#api-policies)
+* fix Authorization server configuration
 
 Once solved, don't forget to reduce the log level back to default.
 
