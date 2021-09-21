@@ -2,7 +2,7 @@
 title: "Backend services"
 linkTitle: "Backend services"
 description: Configure the Open Banking Backend services.
-weight: 10
+weight: 4
 date: 2021-09-02
 ---
 

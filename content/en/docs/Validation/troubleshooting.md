@@ -60,15 +60,16 @@ If traffic debug didn't help to understand a specific behavior, you can also div
 * Provide a project name, for the local copy of the remote instance.
 * Provide connection details  (i.e: api-gateway-manager.\<domain-name>, 443, admin, apiAdminPwd!)
 * Select apimgr instance
-* Click on Finish and wait for all policy to load.
+* Click on Finish and wait for all policies to load:
 ![api-gateway-manager-debug](/Images/apim-policy-studio-api-containers.png)
 * Browse under Policy > #AMPLIFY-OB to find the API . Or, use search box to provide the API name
 * Double click on the API name to open the filter path
 
 You can now :
+
 * discover every filter details configuration. This may help to understand a specific behavior
 * change log level of any filter
-* add a trace filter between 2 filters 
+* add a trace filter between 2 filters
 * test changing the policy
 
 Any change needs to be published with the _Deploy (F6)_ command and select all instances of the current group.
@@ -96,7 +97,7 @@ kubectl logs acp-xxxxx-xxx -n open-banking-acp
 
 Use `-f` command option to get help to follow the logs stream.
 
-## Portal errors
+## Portal debug options
 
 * Navigate to Menu > System > Global configuration
 

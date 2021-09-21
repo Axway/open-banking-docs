@@ -2,7 +2,7 @@
 title: "Analytics"
 linkTitle: "Analytics"
 description: Configure and customize the Analytics for Axway Open Banking
-weight: 6
+weight: 5
 date: 2021-09-02
 ---
 
