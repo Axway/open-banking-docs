@@ -7,6 +7,7 @@ date: 2021-09-02
 ---
 
 Axway Open Banking solution comes with Postman collections for most Open Banking APIs that enables solution testing and validation.
+
 Admins or TPP Developer can test and validate their access to APIs by using Postman. Having these tests successfull helps to make sur all components of the solution is correctly integrated to the bank system.
 
 ## Retrieve the postman files
@@ -19,7 +20,8 @@ First they should retrieve the "Postman Collection" and "Postman Environment"
 
 ## Import collection into Postman
 
-Import the 2 files together into postman. Note that Postman collection are different for each API while environment file is unique by environment.
+Import the 2 files together into postman. Note that Postman collections are different for each API while environment file is unique by environment.
+
 Once imported, you can select the collection in the left pane, and select the environment in the top right corner of postman.
 
 Update the environment details, with  client-id and the private key corresponding to the TPP client certificate.
