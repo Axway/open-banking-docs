@@ -64,7 +64,7 @@ Several values should correspond to the settings of CLOUDENTITY ACP or it consen
 ## API Policies
 
 API Gateway is configured with several API policies that are used Open Banking flows.
-You may want to customize some of this policies.
+You may want to customize some of these policies.
 
 You can check these policies definition by opening Policy Studio and navigate to Policy > #AMPLIFY-OB.
 

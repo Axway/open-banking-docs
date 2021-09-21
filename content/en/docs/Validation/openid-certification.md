@@ -12,8 +12,8 @@ As part of the certification process, the customer´s platforms should be compli
 
 We have two different set of tests:
 
-* FAPI Advanced test .
-* DCR Test .
+* DCR tests : dynamic client registration
+* FAPI Advanced test : Financial-grade API
 
 This section describes the setup tests that is necessary to configure the environment to run the security tests. 
 
@@ -22,7 +22,7 @@ This section describes the setup tests that is necessary to configure the enviro
 You can either run these tests:
 
 * on Open ID platform <https://www.certification.openid.net>. You would need an account to login
-* on your local test platform that you can deploy by following these instructions : <https://gitlab.com/openid/conformance-suite/-/wikis/Developers/Build-&-Run>
+* or, on your local test platform that you can deploy by following these instructions : <https://gitlab.com/openid/conformance-suite/-/wikis/Developers/Build-&-Run>
 
 You should then be able to create and run new test plans
 
@@ -57,7 +57,7 @@ On APIM there is an organization to support this test: _Testing_. And we need to
 * Get the Application ID.  Use the API call to get all applications and find the _id_ corresponding to your new application.
 
     ```bash
-    curl --user apiadmin https://api-manager.openbanking.demoaxway.com/api/portal/v1.3/applications  
+    curl --user apiadmin https://api-manager.<domain-name>/api/portal/v1.3/applications  
     ```
 
 * Create the OAuth Credentials for the application is:
@@ -77,7 +77,7 @@ curl --location --request POST 'https://api-manager.<domain-name>/api/portal/v1.
 }'
 ```
 
->Note that the _applicationId_ appears both in the URL request (POST `https://hostname:port/api/portal/v1.3/applications/$applicationId/oauth`) and in the JSON data as _\$.applicationId_. And the _client-id_ used for oauth appears in the JSON data as _\$.id_
+>Note that the _applicationId_ appears both in the URL request (POST `https://hostname:port/api/portal/v1.3/applications/$applicationId/oauth`) and in the JSON data as _applicationId_. And the _client-id_ used for oauth appears in the JSON data as _id_
 
 ### Certificate configuration
 
@@ -88,9 +88,7 @@ Make sure the corresponding CA are configured in the Axway Open Banking solution
 Create a new plan and select Dynamic Client Registration Authorization server test:
 ![Conformance Suite : Create Plan](/Images/conformance-suite/dcr-plan-select.png)
 
-Use the JSON tab to import this sample JSON test configuration :
-
-* [conformance-test-dcr.json](/sample-files/conformance-test-dcr.json)
+Use the JSON tab to import this sample JSON test configuration : [conformance-test-dcr.json](/sample-files/conformance-test-dcr.json)
 
 Then go back to the Form tab to customize the following :
 
@@ -106,6 +104,11 @@ Then go back to the Form tab to customize the following :
 
 For this test you need to have 2 registrered TPPs.
 
+Make sure you have the following informations from [Central Directory Sandbox](https://web.sandbox.directory.openbankingbrasil.org.br/) for each TPP:
+
+* BRSEAL – message certificate (cert and key) – used for JWKS .
+* BRCAC – transport certificate – used for MTLS comunication
+
 Make sure that the 2 test TPPs are configured in APIM:
 
 * Connect to API Manager UI
@@ -115,7 +118,7 @@ Make sure that the 2 test TPPs are configured in APIM:
 Make sure that the 2 test TPPs are configured in ACP:
 
 * Connect to ACP and select to workspace for Open Banking
-* Under Application, you be able to find the each TPP with same application name as in APIM, and the same clientID 
+* Under Application, you be able to find the each TPP with same application name as in APIM, and the same clientID
 * Each application should be configured with a correct Redirect URI : `https://www.certification.openid.net/test/a/<test-alias>/callback` this test alias is the one used when creating th test plan later.
 ![app-details](/Images/acp-tpp-app-details.png)
 * Each application should be configured with a correct client authorization method : 
@@ -138,9 +141,7 @@ Make sure the corresponding CAs are configured in the Axway Open Banking solutio
 Create a new plan and select FAPI Authorization server test:
 ![Conformance Suite : Create Plan](/Images/conformance-suite/fapi-plan-select.png)
 
-Use the JSON tab to import this sample JSON test configuration :
-
-* [conformance-test-dcr.json](/sample-files/conformance-test-fapi.json)
+Use the JSON tab to import this sample JSON test configuration : [conformance-test-dcr.json](/sample-files/conformance-test-fapi.json)
 
 Then go back to the Form tab to customize the following :
 
