@@ -6,7 +6,7 @@ weight: 6
 date: 2021-09-02
 ---
 
-## Developer registration to Developer Portal
+## Developer registration from Developer Portal
 
 ### Independant developer
 
@@ -23,23 +23,6 @@ Here are the steps:
 * Change password
 * Log back in with new password 
 * API Catalog page is displayed
-
-## TPP registration to Developer Portal
-
-Third-party solution providers can register as organizations using this option, providing them access to full user management capabilities and other advanced features.
-
-* Click on the Register button at the API Portal homepage
-* Click the "Register your organization" button
-* Fill in form with the "NCA status" set to "Applied" and click Register button
-* Go and check your email...
-* Click the "Confirm request" link in the verification email
-* Following the link will prompt a password reset email and a confirmation message. Go and * ck your email again...
-* A new email is sent that provides a temporary password. Click on the "here" link
-* Sign-in with username and temporary password
-* Change password
-* Log back in with new password
-* API Catalog page is displayed
-
 ### Register with a organization/TPP code
 
 In order to speed things up, registered organizations can provide you with a special access code, enabling you to easily onboard and identify yourself as one of their developers.
@@ -64,6 +47,24 @@ Either way, once the developer has this code, he/she can proceed to registration
 
 The organization admin (for instance, the person who initialy register the organization fromthe portal) can invite directly new developers from the Users menu in Portal.
 
+## Organization registration from Developer Portal
+
+Third-party solution providers can register as organizations using this option, providing them access to full user management capabilities and other advanced features.
+
+* Click on the Register button at the API Portal homepage
+* Click the "Register your organization" button
+* Fill in form with the "NCA status" set to "Applied" and click Register button
+* Go and check your email...
+* Click the "Confirm request" link in the verification email
+* Following the link will prompt a password reset email and a confirmation message. Go and * ck your email again...
+* A new email is sent that provides a temporary password. Click on the "here" link
+* Sign-in with username and temporary password
+* Change password
+* Log back in with new password
+* API Catalog page is displayed
+
+
+
 ## Dynamic client registration
 
 New client can directly use the Dynamic client registration (DCR) API to self-register.
@@ -71,52 +72,22 @@ For Brazil standard, and for each client, you need go through the following step
 
 ### Getting Central Directory information
 
-It is important to run the test to get the following information:
+Each client should get the following information from [Central Directory](https://web.directory.openbankingbrasil.org.br/)
 
-* Client ID.
-* BRSEAL – message certificate (cert e key) – used for JWKS .
-* BRCAC – transport certificate – used for MTLS comunication.
+* Client ID : Central Directory client ID to register 
+![client-id](/Images/central_directory_brazil_clientid.png)
+* BRSEAL – message certificate (cert and key) – used for JWKS .
+![BRSEAL](/Images/central_directory_brazil_brseal.png)
+* BRCAC – transport certificate – used for MTLS comunication
+![BRCAC](/Images/central_directory_brazil_brcac.png)
 
-### Get the application declared in Axway Open Banking
-
-This release has a limitation that the ClientID is not automatically created on APIM.
-
-On APIM there is an organization to support this test – Testing. And we need to create a new Application for the ClientID that will be used for this test.
-
-* It is necessary to create a new Application on Testing organization. Ensuring the payment API is associated to this Application. And get the Application ID via API.
-
-* The API to use in order to create the OAuth Credentials for the application is:
-The API to use in order to create the OAuth Credentials for the application is:
-
-```bash
-curl --location --request POST 'https://hostname:port/api/portal/v1.3/applications/f9ca1dde-065b-411b-ae76-6b6eb6987836/oauth' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic YXBpYWRtaW46YXBpQWRtaW5Qd2Qh' \
---header 'Cookie: API-Gateway-Manager-UI=014e0fa8fd910bf7eb5a51abdd009b35' \
---data-raw '{
-"id": "c4fodmqo889qjstf7ibg", 
-"cert": null,
-"type": "public",
-"enabled": true,
-"redirectUrls": [
-"https://www.certification.openid.net/test/a/OB-EKS-DEV/callback"
-],
-"corsOrigins": [
-"*"
-],
-"applicationId": "f9ca1dde-065b-411b-ae76-6b6eb6987836"
-}'
-```
-
-Note that the applicationId appears both in the URL request (POST `https://hostname:port/api/portal/v1.3/applications/$applicationId/oauth`) and in the JSON data as $.applicationId. and the client-id used for oauth is appears in the JSON data as $.id
-
+<!--
 ### Use DCR API with Postman
 
 Go on Developer portal and download Postman collection fro Dynamic Client Registration.
 Import it in Postman.
 Select 1st method and change parameter and body according to the TPP information to register.
 Hit Send
-<!--
 
 TODO : update with DCR Postman collection to be published
 -->

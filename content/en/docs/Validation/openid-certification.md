@@ -34,11 +34,50 @@ This test validates the TPP creation on Authorization Server via Central Directo
 
 ### Getting Central Directory information
 
-It is important to run the test to get the following information from Central Directory:
+It is important to run the test to get the following information from [Central Directory Sandbox](https://web.sandbox.directory.openbankingbrasil.org.br/):
 
-* Client ID : Central Directory client ID to register
-* RSEAL – message certificate (cert and key) – used for JWKS .
+* Client ID : Central Directory client ID to register 
+![client-id](/Images/central_directory_brazil_clientid.png)
+* BRSEAL – message certificate (cert and key) – used for JWKS .
+![BRSEAL](/Images/central_directory_brazil_brseal.png)
 * BRCAC – transport certificate – used for MTLS comunication
+![BRCAC](/Images/central_directory_brazil_brcac.png)
+
+>You can find more details on [Central Directory Operation Guide](https://openbanking-brasil.github.io/areadesenvolvedor/documents/OpenBanking-Guia_Operacao_Diretorio_Central.pdf) (Portuguese)
+
+### Get the application declared in APIM side
+
+<!-- TODO : remove this chatper once limitation is overcome -->
+
+>This release has a limitation that the ClientID is not automatically created on APIM.
+
+On APIM there is an organization to support this test: _Testing_. And we need to create a new Application for the ClientID that will be used for this test.
+
+* Create a new Application on Testing organization with access to the payment API. 
+* Get the Application ID.  Use the API call to get all applications and find the _id_ corresponding to your new application.
+
+    ```bash
+    curl --user apiadmin https://api-manager.openbanking.demoaxway.com/api/portal/v1.3/applications  
+    ```
+
+* Create the OAuth Credentials for the application is:
+
+```bash
+curl --location --request POST 'https://api-manager.<domain-name>/api/portal/v1.3/applications/5e321c00-5e5e-4167-a295-dc05e40c4e50/oauth' \
+--user apiadmin \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "c4fodmqo889qjstf7ibg", 
+    "cert": null,
+    "type": "public",
+    "enabled": true,
+    "redirectUrls": [https://www.certification.openid.net/test/a/OB-EKS-DEV/callback"],
+    "corsOrigins": ["*"],
+    "applicationId": "5e321c00-5e5e-4167-a295-dc05e40c4e50"
+}'
+```
+
+>Note that the _applicationId_ appears both in the URL request (POST `https://hostname:port/api/portal/v1.3/applications/$applicationId/oauth`) and in the JSON data as _\$.applicationId_. And the _client-id_ used for oauth appears in the JSON data as _\$.id_
 
 ### Certificate configuration
 
