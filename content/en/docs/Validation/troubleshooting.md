@@ -46,8 +46,8 @@ This page is under development
 This page is under development
 {{% /pageinfo %}}
 
-![portal-config-debug](/Images/portal-config-debug.png)
-![portal-config-debug](/Images/portal-config-error-reporting.png)
+![developer-portal-config-debug](/Images/developer-portal-config-debug.png)
+![developer-portal-config-debug](/Images/developer-portal-config-error-reporting.png)
 
 ## Analytics search
 

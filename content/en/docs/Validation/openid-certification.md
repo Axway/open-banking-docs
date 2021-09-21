@@ -104,24 +104,33 @@ Then go back to the Form tab to customize the following :
 
 ### TPP configurations
 
-Make sure that the 2 test TPP are configured in APIM:
+For this test you need to have 2 registrered TPPs.
+
+Make sure that the 2 test TPPs are configured in APIM:
 
 * Connect to API Manager UI
-* Under Client > Organization : you should see TPP name
-* Under Client > application : you should see a application for each TPP. In each application a OAuth clientId should be configured in the Authorization section.
+* Under Client > application : you should see an application for each TPP. 
+* In each application a OAuth clientId should be configured in the Authorization section.
 
-Make sure that the 2 test TPP are configured in ACP:
+Make sure that the 2 test TPPs are configured in ACP:
 
 * Connect to ACP and select to workspace for Open Banking
 * Under Application, you be able to find the each TPP with same application name as in APIM, and the same clientID 
-* Each application should be configured with a correct client authorization
-{{% pageinfo %}}
-to be completed
-{{% /pageinfo %}}
+* Each application should be configured with a correct Redirect URI : `https://www.certification.openid.net/test/a/<test-alias>/callback` this test alias is the one used when creating th test plan later.
+![app-details](/Images/acp-tpp-app-details.png)
+* Each application should be configured with a correct client authorization method : 
+    * choose _Private Key JWT_ for tests with JWT,
+    * choose _TLS Client authentication_ for tests with MTLS.
+![app-details](/Images/acp-tpp-auth-method.png)
+* Each application should be configured with a correct client authorization details : 
+![app-details](/Images/acp-tpp-auth-identifier.png)
+
+### Solution configuration
 
 Make sure the corresponding CAs are configured in the Axway Open Banking solution:
 
 * Including the CA cert of each TPP on IngressMTLSCA entry of values.yaml of APIM package. See detailed instructions in [Certificate Management > MTLS](/docs/configuration/certificate-management/mtls)
+* Including the CA cert of each TPP on ACP -> Settings -> Authorization tab. See detailed instructions in [Certificate Management > MTLS](/docs/configuration/certificate-management/mtls)
 * Update the filters Jwt-Verify and Jwt-Sign, udpdating the JWKS certificate (bracac). See detailed instructions in [Certificate Management > JWKS](/docs/configuration/certificate-management/jwks)
 
 ### Create the FAPI Advanced test plan
@@ -135,6 +144,10 @@ Use the JSON tab to import this sample JSON test configuration :
 
 Then go back to the Form tab to customize the following :
 
-{{% pageinfo %}}
-to be completed
-{{% /pageinfo %}}
+* Test Information : include your company name and/or environment info. the alias should be the same as in apps Redirect URI. decide wether you want to publish the result or not.
+* Server: provide the Authorization server URL (keep /.well-known/openid-configuration)
+* Client : Set OAuth client Id of TPP1, jwks with RSEAL information of TPP1
+* TLS certificates for client :  change certificate and key with BRCAC information of TPP1
+* Second client : Set OAuth client Id of TPP2, jwks with RSEAL information of TPP2
+* Second client TLS certificates :  change certificate and key with BRCAC information of TPP2.
+* Resource : update URL with domain names, update organization id.
