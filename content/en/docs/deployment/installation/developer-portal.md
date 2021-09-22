@@ -39,6 +39,8 @@ Customize the `open-banking-developer-portal/values.yaml` file as follow
 | apiportal.apiReviewEndPoint |   URL of API review service  | `https://api.<domain-name>/api/portal/v1.2/reviewapi` |
 | mysqlPortal.rootPasswd | root password for the database to be created | _portalDBRootPwd!_ |
 | mysqlPortal.adminPasswd  | admin password for the database to be created | _portalDBAdminPwd!_ |
+| apimgr.publicApiUser | username of API Manager user to access Public APIs | _publicuser_ |
+| apimgr.publicApiPassword | password of API Manager user to access Public APIs | _publicUserPwd!_ |
 
 ## Install Developer Portal Helm chart
 

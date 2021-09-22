@@ -29,11 +29,9 @@ Modify the `open-banking-acp/values.yaml` file from Axway package.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| cert.internal.certManager | Define if cert-manager is used internaly. \
-False is currently not supported | true |
+| cert.internal.certManager | Define if cert-manager is used internaly. <br>False is currently not supported | true |
 | cert.internal.certManagerNamespace | Namespace where is installed cert-manager. Use the result of the previous command. | None |
-| cert.ingress.certManager | Define if cert-manager is used externaly. \
-If set to false, define cert and keys with values below | true |
+| cert.ingress.certManager | Define if cert-manager is used externaly. <br>If set to false, define cert and keys with values below | true |
 | cert.ingress.cert | Use specific cert. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 | cert.ingress.key | Use specific key. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 
@@ -59,14 +57,10 @@ Modify the `open-banking-consent/values.yaml` file:
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| cert.internal.certManager | Define if cert-manager is used internaly. \
-False is currently not supported | true |
+| cert.internal.certManager | Define if cert-manager is used internaly.<br>False is currently not supported | true |
 | cert.internal.certManagerNamespace | Namespace where is installed cert-manager. Use the result of the previous command. | None |
-| cert.ingress.certManager | Define if cert-manager is used externaly. \
-If set to false, define cert and keys with values below | true |
-| cert.ingress.wildcard | Define wether the same wildcard certificate is used externaly fro all ingress. \
-If set to true, define wilcard certificate and its key with cert.ingress.cert/key below \
-If set to false, define custom certificate and keys with cert.ingress.\<component>.cert/key below | true |
+| cert.ingress.certManager | Define if cert-manager is used externaly.<br>If set to false, define cert and keys with values below | true |
+| cert.ingress.wildcard | Define wether the same wildcard certificate is used externaly fro all ingress.<br>If set to true, define wilcard certificate and its key with cert.ingress.cert/key below<br>If set to false, define custom certificate and keys with cert.ingress.\<component>.cert/key below | true |
 | cert.ingress.cert | Use specific wildcard certificate. Must be defined only if certManager is set to false. | None |
 | cert.ingress.key | Use specific wildcard key. Must be defined only if certManager is set to false. | None |
 | cert.ingress.consentAdmin.cert | Use dedicated certificate. Must be defined only if certManager and wildcard are set to false. | None |
@@ -83,24 +77,16 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
 | acpURL | ACP server URL | None |
-| consentPage.ingress.annotations.nginx.ingress.kubernetes.io\
-/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-page-tls  | open-banking-consent\
-/consent-openbanking-consent-page-tls |
+| consentPage.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-page-tls  | open-banking-consent<br>/consent-openbanking-consent-page-tls |
 | consentPage.ingress.hosts | update with the consent page URL | consent.\<domain-name> |
 | consentPage.ingress.tls.hosts | update with the consent page URL | consent.<domain-name> |
-| consentAdmin.ingress.annotations.nginx.ingress.kubernetes.io\
-/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-admin-tls | open-banking-consent\
-/consent-openbanking-consent-admin-tls |
+| consentAdmin.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-admin-tls | open-banking-consent<br>/consent-openbanking-consent-admin-tls |
 | consentAdmin.ingress.hosts | update with the consent admin URL | consent-admin.\<domain-name> |
 | consentAdmin.ingress.tls.hosts | update with the consent admin URL | consent-admin.\<domain-name> |
-| consentSelfservice.ingress.annotations.nginx.ingress.kubernetes.io\
-/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-self-service-tls | open-banking-consent\
-/consent-openbanking-consent-self-service-tls |
+| consentSelfservice.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-self-service-tls | open-banking-consent<br>/consent-openbanking-consent-self-service-tls |
 | consentSelfservice.ingress.hosts | update with the consent Self service URL | consent-selfservice.\<domain-name> |
 | consentSelfservice.ingress.tls.hosts | update with the consent Self service URL | consent-selfservice.\<domain-name> |
-| financroo.ingress.annotations.nginx.ingress.kubernetes.io\
-/proxy-ssl-secret | \<namespace>/consent-openbanking-financroo-tls | open-banking-consent\
-/consent-openbanking-financroo-tls |
+| financroo.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-financroo-tls | open-banking-consent<br>/consent-openbanking-financroo-tls |
 | financroo.ingress.hosts | update with the financroo URL | financroo.\<domain-name> |
 | financroo.ingress.tls.hosts | update with the financroo URL | financroo.\<domain-name>|
 | import.variables.consent_self_service_portal_url | update with the consent self service portal url | `https://consent-selfservice.<domain-name>` |

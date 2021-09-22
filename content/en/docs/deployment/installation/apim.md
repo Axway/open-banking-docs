@@ -27,8 +27,7 @@ The following parameters are required for any deployment.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| global.platform | select the platform to configure appropriate objects (like storage for RWM).\
-Possible values are AWS, AZURE, MINIKUBE | None |
+| global.platform | select the platform to configure appropriate objects (like storage for RWM).<br>Possible values are AWS, AZURE, MINIKUBE | None |
 | global.domainName | set the domainname for all ingress. | None |
 | global.env | Set the default environment | dev |
 | global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
@@ -37,6 +36,18 @@ Possible values are AWS, AZURE, MINIKUBE | None |
 | global.smtpServer.port | Smtp server port | None |
 | global.smtpServer.username | Smtp server username | None |
 | global.smtpServer.password | Smtp server password | None |
+
+<!--
+TODO:
+Add anm user and password change option. once https://jira.axway.com/browse/MED-472 and https://jira.axway.com/browse/MED-118 are solved
+
+| anm.admin.username | API Gateway admin username | admin |
+| anm.admin.password | API Gateway admin password | apiAdminPwd! |
+
+Add apimgr  user and password change option. once https://jira.axway.com/browse/MED-835 is solved
+| apimgr.admin.username | API Manager admin username | apiadmin |
+| apimgr.admin.password | API Manager admin password | apiAdminPwd! |
+-->
 
 With these base parameters set, you can already install the helm chart : [Install APIM Helm chart](#install-apim-helm-chart)
 
@@ -94,8 +105,7 @@ The APIM deployment needs a storage class in Read/Write Many. A custom storage c
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| Global.customStorageClass.scrwm | Allow to specify a storageclass to mount a “Read Write Many” volume on pod. \
- It’s used to share metrics between monitoring and analytics. | None |
+| Global.customStorageClass.scrwm | Allow to specify a storageclass to mount a “Read Write Many” volume on pod.<br>It’s used to share metrics between monitoring and analytics. | None |
 
 ### Specify a Wildcard certificate
 
@@ -251,7 +261,7 @@ kubectl get ingress -n open-banking-apim
 Verify that these ingress have been provisioned. They must have a public ip or a dns value is in the ADDRESS column.
 
 ```console
-   NAME            HOSTS                               ADDRESS                   PORTS 
+   NAME            HOSTS                               ADDRESS                        PORTS 
    apimanager      api-manager.<domain-name>           xxxxxxxxxxxxx.amazonaws.com    80, 443 
    gatewaymanager  api-gateway-manager.<domain-name>   xxxxxxxxxxxxx.amazonaws.com    80, 443 
    oauth           oauth.<domain-name>                 xxxxxxxxxxxxx.amazonaws.com    80, 443
@@ -283,6 +293,8 @@ Customize the `open-banking-apim-config/values.yaml` file as follow
 | global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
 | apimcli.settings.email | sender email address used in api-manager settings | None |
+| apimcli.users.publicApiUser | username of user to access Public APIs from API Portal | _publicuser_ |
+| apimcli.users.publicApiPassword | password of user to access Public APIs from API Portal | _publicUserPwd!_ |
 | backend.serviceincident.host | ServiceNow URL | None|
 | backend.serviceincident.username | ServiceNow username |None|
 | backend.serviceincident.password | ServiceNow password |None|
