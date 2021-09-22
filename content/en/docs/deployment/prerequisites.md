@@ -102,8 +102,6 @@ This section does not provide:
 * Recommendations on cloud providers.
 * Pricing for specific cloud provider components.
 
-This document should be read in conjunction with the [deployment guide](/docs/deployment), which provides context on the specifics of the solution and the requirements for running our solution.
-
 ### Components
 
 #### Managed Kubernetes Environments
@@ -130,7 +128,7 @@ Cloud providers offer a multitude of options based on number of cores, amount of
 
 ##### Example
 
-In the [deployment guide](/docs/deployment) the following guidelines are provided for installation of the proof-of-concept:
+In the [resources](#resources) the following guidelines is required:
 
 * 23 virtual CPUs.
 * 70 Gb memory.
@@ -140,7 +138,7 @@ AWS provides a number of [instance types](https://aws.amazon.com/ec2/instance-ty
 
 These provide 8 CPUs and 32 Gb of memory giving a total capacity of 24 CPUs and 96 Gb of memory.
 
-> In the production deployment of the OBA additional nodes will be required in order to segregate workloads. Please refer to the [deployment guide](/docs/deployment) for more details.
+> In the production deployment of the Axway Open Banking additional nodes will be required in order to segregate workloads.
 
 #### Ingress Controller
 
@@ -221,7 +219,7 @@ To summarize: the account information API is likely to result in the largest amo
 
 #### Storage
 
-Cloud providers have different storage types that are optimised for various workloads. Customers will have a variety of different workload needs depending on components in the OBA they adopted.
+Cloud providers have different storage types that are optimised for various workloads. Customers will have a variety of different workload needs depending on components of Axway Open Banking they adopted.
 
 For example:
 

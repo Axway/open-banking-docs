@@ -1,7 +1,7 @@
 ---
 title: "Component View"
 linkTitle: "Component"
-weight: 2
+weight: 1
 date: 2021-06-30
 description: A Component View of Axway Open Banking
 ---
