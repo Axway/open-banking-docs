@@ -31,28 +31,6 @@ Please note that all these tasks need to be completed for your installation to b
 
 A Kubernetes 1.16+ cluster is required to deploy the Axway Open Banking Solution.
 
-The following component are highly recommanded:
-
-* [Nginx Ingress](https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx) controller 0.35 or above (helm chart 2.15 or above).
-* [Cert-Manager](https://github.com/jetstack/cert-manager/tree/master/deploy/charts/cert-manager) for ingress certificate management.
-* [External-DNS](https://github.com/bitnami/charts/tree/master/bitnami/external-dns) to synchronize ingress hosts in a DNS zone.
-
-A more recent version of the `nginx-ingress` can impact the ingress annotations in this chart. Please review the nginx official documentation to update them
-accordingly.
-
-In case `external-dns` is not available in the cluster, a manual configuration of the ingress hosts is required in your DNS zone. Also remove the cert-manager annotation in all ingress hosts.
-
-In case `cert-manager` is not available in the cluster, a manual creation of a secret with a certificate is required. Please use the ingress names from the chart.
-
-Regarding the load balancer/ingress controler, you can use NGINX or another ingress controller with the following requirements:
-
-* Encode certificate in header X-SSL-CERT in web format
-* Return http error 400 if client use a bad certificate
-* Manage multiple root CA according different client certificates.
-* Limit cypher spec usage to “DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384
-* Compatible with request header size to 8k.
-* Deny public access to ACP path /app/default/admin
-
 ### Resources
 
 Each node in the Kubernetes environment requires:
@@ -65,8 +43,8 @@ Axway also recommends the use of Node Groups. These allow operators to group res
 The Kubernetes configuration must include three Node Groups:
 
 * Application: Hosts all Axway Open Banking components:
-  * Some components will have an Horizontal Pod Autoscaler to support the peak load (Axway recommends configuring a node autoscaler).
-  * Most components - particularly API Gateway - require low latency.
+    * Some components will have an Horizontal Pod Autoscaler to support the peak load (Axway recommends configuring a node autoscaler).
+    * Most components - particularly API Gateway - require low latency.
 * Transversal: Hosts non-application components such as monitoring tools and infrastructure components such as the Certificate Manager and external DNS. This group can be configured without a node autoscaler.
 * Database: Hosts all stateful applications.
 
@@ -82,19 +60,53 @@ A complete architecture requires a minimum of 3 subnets:
 
 * Bastion: Required for operators to connect from a Bastion host (although this can be substituted for an alternative solution). Access to pods on all required ports must be allowed. A subnet mask of /32 is considered sufficient.
 * Kubernetes: The design of this subnet can vary based on a number of conditions:
-  * This subnet must have access to both the customer backend services and the database subnet.
-  * If CNI is activated, enough IP address must be allocated for nodes and the maximum number of pods in the platform. Axway Open Banking generates between 100 and 120 objects that consume an IP address.
-  * A subnet mask /24 is therefore recommended to support scaling, upgrade and others tools for production.
+    * This subnet must have access to both the customer backend services and the database subnet.
+    * If CNI is activated, enough IP address must be allocated for nodes and the maximum number of pods in the platform. Axway Open Banking generates between 100 and 120 objects that consume an IP address.
+    * A subnet mask /24 is therefore recommended to support scaling, upgrade and others tools for production.
 * Database: For databases provided inside the Kubernetes cluster. A subnet mask of /29 is recommended.
 
 Each subnet must be protected by a firewall implemented at Layer 4 of the OSI model with open routes kept to a bare minium. 
 
-## Cloud Deployments
+### Kubernetes components
+
+The following components are highly recommanded.
+
+#### Ingress controller
+
+In order to control all external traffic, an Ingress controller is required.
+It is recommanded to use [Nginx Ingress](https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx) controller, as it would be used as a reverse proxy and manage the MTLS and TLS termination, and load-balancing when required.
+
+Select the appropriate version that is compatible with you cluster, and that is minimum 0.35. The ingress annotations of our helm chart have been written for the 0.35 version. A more recent version of the `nginx-ingress` may impact these  annotations. Please review the nginx official documentation to update them accordingly.
+
+You can use NGINX or another ingress controller with the following requirements:
+
+* Encode certificate in header X-SSL-CERT in web format
+* Return http error 400 if client use a bad certificate
+* Manage multiple root CA according different client certificates.
+* Limit cypher spec usage to “DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384
+* Compatible with request header size to 8k.
+* Deny public access to ACP path /app/default/admin
+
+#### Certificate Manager
+
+In order to manage easily certificates that are used in the Axway Open Banking Solution, we recommand to use [Cert-Manager](https://github.com/jetstack/cert-manager/tree/master/deploy/charts/cert-manager).
+
+If you have specific certificates you want use during installation, you can avoid using _cert-manager_ but you will have to do more configuration during deployment.
+
+In case _cert-manager_ is not available in the cluster, a manual creation of secret with certificates would be required. Please use the ingress names from the chart.
+
+#### DNS
+
+It is also highly recommanded to use [External-DNS](https://github.com/bitnami/charts/tree/master/bitnami/external-dns) to synchronize ingress hosts in a DNS zone.
+
+In case `external-dns` is not available in the cluster, a manual configuration of the ingress hosts is required in your DNS zone. Also remove the cert-manager annotation in all ingress hosts.
+
+## Cloud deployment recommandations
 
 This section provides additional information for customers who are targeting a cloud-based solution and require guidance on the components required from their cloud provider of choice, including:
 
 * A generic list of components that are required.
-* The sizing information for instances that will 
+* The sizing information for instances that will
 * Examples of those components on Amazon Web Services (AWS).
 
 This section does not provide:
@@ -102,9 +114,11 @@ This section does not provide:
 * Recommendations on cloud providers.
 * Pricing for specific cloud provider components.
 
-### Components
+General requirements listed previously still apply.
 
-#### Managed Kubernetes Environments
+### Required services
+
+#### Managed Kubernetes Environment
 
 Managed Kubernetes environments are commonly available across cloud providers. For example:
 
@@ -126,7 +140,7 @@ The Kubernetes cluster will require provisioning with sufficient computational r
 
 Cloud providers offer a multitude of options based on number of cores, amount of memory and assign disk.
 
-##### Example
+*Example:*
 
 In the [resources](#resources) the following guidelines is required:
 
@@ -144,11 +158,11 @@ These provide 8 CPUs and 32 Gb of memory giving a total capacity of 24 CPUs and 
 
 An Ingress Controller is a Kubernetes component that manages external access to the cluster.
 
-Axway uses the [NGINX](https://github.com/kubernetes/ingress-nginx/blob/master/README.md) Ingress Controller in the proof-of-concept solution.
+Axway recommands the use the [NGINX](https://github.com/kubernetes/ingress-nginx/blob/master/README.md) Ingress Controller for all cloud providers.
 
 However, customers may wish to use a Controller that is provided by their cloud provider.
 
-##### Example
+*Example:*
 
 AWS provides an [Ingress Controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller#readme) that provisions an Application Load Balancer.
 
@@ -158,13 +172,13 @@ This component provides additional functionality in that traffic is load balance
 
 #### DNS Services
 
-Open banking solutions are naturally exposed to Internet traffic and therefore require DNS services such as lookup.
+Open banking solution needs to be exposed to Internet traffic and therefore require DNS services such as lookup.
 
-##### Example
+*Example:*
 
 AWS provides [Route 53](https://aws.amazon.com/route53/) which autoscales to handle internet traffic.
 
-### Considerations
+### Cloud Considerations
 
 When using cloud-based infrastructure there are a number of considerations to be made that cannot be built into a sizing model for Axway Open Banking, which are listed in the following sections.
 
