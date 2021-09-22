@@ -67,9 +67,47 @@ Change the background-color of the root element.
 ### Text translations
 
 All text elements can be translated using the file in folder `consent/consent-page/templates/translations/en-us.yaml`
-Enter the file and scroll the page until you find the syntax “br.payment...”, this syntax represents the files of the consent-page.
+
+Enter the file and scroll the page until you find the syntax "br.payment...", this syntax represents the files of the consent-page.
 
 ![en-us.yaml](/Images/consent-page-language.png)
+
+You translate all texts for the desired messages in the target language
+
+### Button colors
+
+Cancel and confirm buttons are located and styled inline in consent-page files
+
+````html
+ <div class="form-actions">
+ 	<button class="mdc-button mdc-button--outlined" type="submit" name="action" value="deny" style="height: 48px; padding: 12px 24px; color: #002D4C; border-color: #002D4C">
+   <div class="mdc-button__ripple"></div>
+         <span class="mdc-button__label">{{.trans.cancel}}</span>
+      </button>
+      <button class="mdc-button mdc-button--raised" type="submit" name="action" value="continue" style="height: 48px; padding: 12px 24px; margin-left: 8px; background: #DC1B37">
+         <div class="mdc-button__ripple"></div>
+         <span class="mdc-button__label">{{.trans.confirm}}</span>
+     </button>
+ </div>
+````
+
+Change the colors, widths, shapes, borders and paddings as you like.
+
+### Payment type choice
+
+As of the date of this document the only payment type accepted is PIX, so there’s no need for a dropdown.
+Change the Payment Method of file `obbr-payment-consent-1.tmpl` from `<select>` tag to a paragraph (`<p>PIX</p>`) explicitly saying PIX.
+
+### Account list
+
+All accounts owned by the user from the bank need to be shown at Payment Account dropdown for the selection of the user. 
+The dropdown can be upgraded to a set of cards for better display of the options.
+
+### Account balance
+
+If accessible, is considered a best practice to inform the account balance under the payment amount in file `obbr-payment-consent-2.tmpl`
+
+![payment-amount](/Images/consent-page-payment-amount.png)
 
 ## Demo apps
 
