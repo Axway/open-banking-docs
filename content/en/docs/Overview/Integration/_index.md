@@ -25,7 +25,7 @@ To explain each labeled arrow in the diagram.
 |   7 | The Third-Party App will redirect the user and - depending on the deployment approach - redirect the user to Identity Management or to the Bank Identity Provider. |
 |   8 | The Consumer will login and provide confirm consent to the Third-Party App. |
 |   9 | With Consent approved and an appropriate Authorization Code the Third-Party can obtain an Access Token and retrieve data on behalf of the Consumer. |
-|  10 | The API Gateway and applications developed using API Builder will then retrieve data from the appropriate data source. This can either be from Core Banking Applications or Mock Data provided with the OBA. |
+|  10 | The API Gateway and applications developed using API Builder will then retrieve data from the appropriate data source. This can either be from Core Banking Applications or Mock Data provided with Axway Open Banking solution. |
 |  11 | The events will be logged to the Analytics component to allow deeper understanding of interactions with the platform. |
 
 The sections below expand on this through several more detailed sequence-based view.

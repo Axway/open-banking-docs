@@ -1,7 +1,7 @@
 ---
 title: "Upgrade"
 linkTitle: "Upgrade"
-weight: 2
+weight: 4
 description: Upgrading the Axway Open Banking solution
 ---
 
@@ -14,11 +14,15 @@ If a new Open Banking API is released or an existing Open Banking API is updated
 Backup your previous deployments if reusing the same directory:
 
 ```bash
-mv open-banking-developer-portal open-banking-<previous-version>/ 
-mv open-banking-apim open-banking-<previous-version>/ 
-mv open-banking-backend open-banking-<previous-version>/ 
-mv open-banking-apps open-banking-<previous-version>/ 
-mv open-banking-analytics open-banking-<previous-version>/
+mkdir previous-version
+mv open-banking-apim             previous-version/ 
+mv open-banking-apim-config      previous-version/ 
+mv open-banking-developer-portal previous-version/ 
+mv open-banking-backend-chart    previous-version/ 
+mv open-banking-analytics        previous-version/
+mv open-banking-bankio-apps      previous-version/ 
+mv open-banking-acp              previous-version/
+mv open-banking-consent          previous-version/
 ```
 
 Update your repo:
@@ -27,39 +31,23 @@ Update your repo:
 helm repo update 
 ```
 
-Fetch only the Helm charts you want to upgrade: 
+Pull only the Helm charts you want to upgrade: 
 
 ```bash
 helm search repo axway-open-banking 
-helm fetch axway-open-banking/open-banking-apim
-helm fetch axway-open-banking/open-banking-apim-config
-helm fetch axway-open-banking/open-banking-bankio-apps 
-helm fetch axway-open-banking/open-banking-developer-portal  
-helm fetch axway-open-banking/open-banking-backend-chart  
-helm fetch axway-open-banking/open-banking-analytics  
+helm pull axway-open-banking/open-banking-apim --untar       
+helm pull axway-open-banking/open-banking-apim-config --untar     
+helm pull axway-open-banking/open-banking-developer-portal --untar  
+helm pull axway-open-banking/open-banking-backend-chart --untar   
+helm pull axway-open-banking/open-banking-analytics --untar   
+helm pull axway-open-banking/open-banking-bankio-apps --untar         
 ```
 
-Update `values.yaml` for each chart your are deploying to configure it to your target environment. Transpose your previously configured values where they are not expected to change (please review the `README.md` file for more information). 
+For each new helm chart, update `open-banking-xxxxx/values.yaml` using :
 
-```bash
-tar xvf open-banking-developer-portal-1.x.x.tgz 
-vi open-banking-developer-portal/values.yaml 
-
-tar xvf open-banking-apim-1.x.x.tgz 
-vi open-banking-apim/values.yaml
-
-tar xvf open-banking-apim-config-1.x.x.tgz 
-vi open-banking-apim/values.yaml
-
-tar xvf open-banking-backend-chart-1.x.x.tgz
-vi open-banking-backend/values.yaml
-
-tar xvf open-banking-analytics-1.x.x.tgz
-vi open-banking-analytics/values.yaml 
-
-tar xvf open-banking-bankio-apps-1.x.x.tgz 
-vi open-banking-bankio-apps/values.yaml
-``` 
+* the install documentation of the components
+* the previous values used in `previous-version/open-banking-xxxxx/value.yaml`
+* the release notes in `open-banking-xxxxx/README.md`
 
 Execute the upgrade commands as required:
 

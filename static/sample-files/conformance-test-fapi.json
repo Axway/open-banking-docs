@@ -1,0 +1,120 @@
+{
+    "alias": "ob-fapi-axway-int",
+    "description": "Axway Brazil Openbanking : DCR",
+    "server": {
+        "discoveryUrl": "https://acp.int-openbanking.demoaxway.com/default/openbanking_brasil/.well-known/openid-configuration"
+    },
+    "client": {
+        "scope": "payments openid offline_access",
+        "jwks": {
+            "keys": [
+                {
+                    "kty": "RSA",
+                    "use": "sig",
+                    "alg": "PS256",
+                    "kid": "first-tpp-key",
+                    "n": "jRrE0lqZY3jNKkOqeWGSAFejHT6KhUO1WBGOhdgOQpjbd0GcOrqU0zczJQDdJP94IH-FNoFMn7SUP8nfQHqnDEsd7Pators04wr3QBPMUjLRMkVCmM9EPxE5KmpHh7PIQgxKduJHF1MCzOP3WtB8o0Id6PBZevk63pqy38CLsHirr63MBq8mKL0eJ0phbcUTPJ9ijjuPhLghD4PKoGaKuux3f8lvR-6__EvrgzBbZ3W5D3paDpcypzObVPI-8Lm4eocrFa2vwwGipZpe_ZWEsxzfw9WwjMqbgtrQ1i-cWy39OrzIuyKI3Hp9XEhMf19dHOm4vBcXZ5LgHoLxzrFrLQ",
+                    "e": "AQAB",
+                    "d": "boiLqeSCx-M3hGYhQphmEJKWGjCFvkL96ZFHPh2zfgPT16WzxmWmc5aIH_J_SZ498ecy6TF8XpbMkvOGSTJLbVvig1_xQMq5cSmD6dQYeEOKkICk3KNwaJ8LUuiSRAFXXDXYlyxGWEUUqn_homgzWohOeczdq3FU5k_000Y3pvKJWmvc-JzhOMTgmZzmyClZKaq5gOFrg1Tom1HlQrMFfoCyCPekHmLTI1FER_afa0owvTpZ48C1VUTw-jOToQlek_bVErRL3p7sVMtp6VSMC76i-6WUolQfh9XsATC3xuoI219S3BXz7iG64MDIlZRou8Da7wYwYVuyNd9NZafp2Q",
+                    "p": "_3EDEb64k-ptVhbrk1fq0jO66g4pvh8p_43kvut1jfkHaN3J1unQBdEG5bimjDoIG1LGsUrJ5V7mIHD-Am5os2hyCgWAjHFnR24fBezV0H4DxxdOiIbSdlKM_O3dmby2MRDrSJFFzh7na_wwu3B4FLmrmrW0O9PELqx7W_h1Tcc",
+                    "q": "jWnBMzuTydC8iqCIxRqwWbF1bJWY0nXHhDqmabhuOAUh8Lwt8eBTCeIqJaYuidMnSRuuKx97W3lrPRTRz1w0R3mYswg2AE78bV6ElFoWwJ9btAYX_pr74DwYUBPHlBlHI8pGZPhDCJw3UfLrApII-GwheJdo394591bV2l4Kz2s",
+                    "dp": "p6CC8h8lQzQAohEScLOuDlkSHMxEilYrGmAEL2GW2B8GxMNe0-DFuTttekzNRpJChaOxbeD1UscO31Um63OG080DoR3xOLimnNJgG2RK_7HiSsE5sRBAhpMvoD98P4n-SX6f2BQ1KclP9qYdWLO6qWcafMEm0GfsgvB_V2BZojs",
+                    "dq": "XZCVdjJ7LFLiDM7-73sjJ5VU3k102ft30TOFG_odYw9yT3gS5jDIgIeV32c-7444NhUMfhfMZM_Hdpip4YteQ9RehkZuhHG-bxbUndulpjlKUaieg6VD9i-M3p7XtFOtUC7ruK7Sm4XQzHXvrLm3GbdhxgpYJ5c_vzlDMcJ7YJU",
+                    "qi": "BV_riKZhnTOxeje-ptEpZr8tfWV85yukupVe1Bbuf2bAYxyM4SqT8Uxxye_Z45LIgqONz6_GdcTkQTjjXswYxQ1YHGLsfbbs5qAC5KmNF6kLIoSfMNR8C9PFhKnSLrBqeFFOHVAfW2CMtLxIZ_1sKYO4w6CQYed2nbwnVUt5KgU"
+                }
+            ]
+        },
+        "client_id": "c48q0jker14tj4jk2g2g"
+    },
+    "mtls": {
+        "cert": "-----BEGIN CERTIFICATE-----\nMIID7TCCAtUCCQCbbxoqqdyNtzANBgkqhkiG9w0BAQsFADBjMQswCQYDVQQGEwJC\nUjEVMBMGA1UECAwMU8ODwqNvIFBhdWxvMRUwEwYDVQQHDAxTw4PCo28gUGF1bG8x\nDjAMBgNVBAoMBUF4d2F5MRYwFAYDVQQDDA1BeHdheSBSb290IENBMB4XDTIxMDgx\nNzE0MzY0OVoXDTMxMDgxNTE0MzY0OVowggEMMR0wGwYDVQQPDBRQcml2YXRlIE9y\nZ2FuaXphdGlvbjETMBEGCysGAQQBgjc8AgEDDAJCUjEXMBUGA1UEBRMOMTg1MDU5\nMzQwMDAxNDAxCzAJBgNVBAYTAkJSMQ4wDAYDVQQKDAVBWFdBWTELMAkGA1UECAwC\nU1AxFTATBgNVBAcMDFPDg8KjbyBQYXVsbzEtMCsGA1UECwwkMDAwMDAwMDAtMDAw\nMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwMTQwMgYKCZImiZPyLGQBAQwkMDAwMDAw\nMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwMRcwFQYDVQQDDA5kZW1vLmF4\nd2F5LmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK0V0TLe4y9U\ncKjEiBgbyP5xGR19MTTH9ACjSULqooGBsPBxDsVPCXIqTmwBYxxE6mPSWHPg8H14\nOkQZtfLLs1/ouCBxN9tKO5DYp/zZTmFH4rIrRPWbw7NM09My2W1g/2nL6Qd9yWnM\nqgfzeKJYSGVv9ZQbJLhfpJ2rbkfMXbk0MUC4rt+2tZpaSFpD2Zdzdi5RgUp6MOpg\nWsmxh5touCawc0t7XFBL9c7BcNpYskLjKUa+S8Dgp0j5bKO8TQgZbbi4InmviYwU\niyYwaTKq3O6XHUcO22JN5qLfYDMquyQRF9+XV0w70GnUU91sKb3exTGgFPN1QG7O\n9IHQXIo/muECAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAde3ioGvgzET3kX8q01fJ\nToEF6QDeWn8Iu5ojfyMajIxpwN4NxhYCB1jrewd2sa/grstrnliSF7TH4qFpmpX0\nIFLltQOHjwKY199jH2wFnvrXbXXQOQangiD9sr2YgWpR9AxdcGo/9Xab0MlBrTzb\nh15yGcn8jkjmYsA4RtqOt9cci5p4qW0ZOonjXDdRWRgdQVMMpo1lg9YrUIykm7qf\nXjHtSG9+ck/hmXdYVg/XCsL3jFqHkEeXfofnsZFINUAapU3pYVdgshCcu2V/zpEk\nIABaE4k/vw7Z0o86vpCkN6nXHvmgzI/Eefks5BadUr9wGfJZXvX8e3RUtRhoshtt\nhw==\n-----END CERTIFICATE-----\n",
+        "key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCtFdEy3uMvVHCo\nxIgYG8j+cRkdfTE0x/QAo0lC6qKBgbDwcQ7FTwlyKk5sAWMcROpj0lhz4PB9eDpE\nGbXyy7Nf6LggcTfbSjuQ2Kf82U5hR+KyK0T1m8OzTNPTMtltYP9py+kHfclpzKoH\n83iiWEhlb/WUGyS4X6Sdq25HzF25NDFAuK7ftrWaWkhaQ9mXc3YuUYFKejDqYFrJ\nsYebaLgmsHNLe1xQS/XOwXDaWLJC4ylGvkvA4KdI+WyjvE0IGW24uCJ5r4mMFIsm\nMGkyqtzulx1HDttiTeai32AzKrskERffl1dMO9Bp1FPdbCm93sUxoBTzdUBuzvSB\n0FyKP5rhAgMBAAECggEBAIGKN5TEHfH5V4vn8xdgDDDqQmrAnMgs8mBb1OPhKZiV\nkPCTHQPs4Fvyb9kDvMKWjXoCHrMzYan2Bl2bhIJflDMuwEd/lNdpmmUQ0cE6fh/u\npirEmYrcdj5GPK7veq0TEHWE6DX0HX8ybvsebGXMfvp0La8YFYZsBo7+k73mpSqL\nOzwgVSljK0L/DWkCOZ3PomLkJS3KwDp6ecgVWeNrj2nufFh19swKLtWx8ftPr2fl\n06qLIAnOlsPs9UwKHkOEROFX1xZGlKr0/YHOJxMdE+HXhJRvnH2/dsTalJqrislV\n67gUNHOqULsPRaXbH/ORt5q0iOhqEVT7YdRAfbyQpDECgYEA1yLBDdHx579UgBX3\nmrq6OojCrBaAW0IKcqeYTAB4Gl9uVIkKd93yybuqu5/qGsHUyHSYJ0ltSi0SzlDB\n1mJjdYUCXhT770H8UYJl+C7GVyvj7dK0HP7MkTlO76oklgOSQFD3TpPQCOEwXW0N\n16AVRcmu47brsT12s7VAfnS//eUCgYEAzfZNmB6uxSt521PGXjV92jHpawnF9Hc5\nScRldIhzbtgXSL5eS3Wa8jGIqssorQp/zOpPYdBzmyR+Q2DcBem4aPtlQ0ygdsOn\nObwdRvJNjMaSD8oYfEY5r57d5tAkGev7D3Sc2PhPspuUyVqtp5li6XmdJ1X15aZT\nY8Z62CeTeU0CgYEAvnJltHZGT4FwrHLF3pOuiGLI8s54klDELvtuNtmzeKVCZlNq\nkPJKG4umeLH36/frBgkxKJY3yZJdM4cKEV7H7SDyF5c773Hai82Dt1CxBDo2bDI6\nf/CP5390AXX9LU+8CHOkeksfvryatBn2RwvPyRfhWnRz8VMX4b5yeX+g9oECgYB2\nddm/SrZ+1TirO432lZGjM93rIJ3os8IReZJY6jpqYINT5ZpakHPkJTVT9rGYhVdo\nRsQNoFU9wEmW+1jRVdIpH57ojGQmqvW9sUKtkaOk+nj79+MJZ2K6bgd3P/PjrOSj\nyRCFgpxkQDPdc/g5U3Gek8Id48Ugpv+DfZ8eP/UEaQKBgB0fz2+/0ww3MNNCrL8+\n4yG223tw03V46j7Mwm79FKVTs6+Z6ZRdfnW/PHNNeY5ofC43lIQErbED6GsaltDC\nn5Lm1FFcf4jOO6e54SijnH6VEBEN2pc1aRecmm6IvN0VW+HhY9vuQCjIoSEZCwWq\nL0P1wpnEiGkovNgHmLlVLXOB\n-----END PRIVATE KEY-----\n"
+    },
+    "resource": {
+        "resourceUrl": "https://mtls-api-proxy.int-openbanking.demoaxway.com/open-banking/payments/v1/pix/payments",
+        "consentUrl": "https://mtls-api-proxy.int-openbanking.demoaxway.com/open-banking/payments/v1/consents",
+        "brazilCpf": "12345678901",
+        "brazilPaymentConsent": {
+            "data": {
+                "loggedUser": {
+                    "document": {
+                        "identification": "12345678901",
+                        "rel": "CPF"
+                    }
+                },
+                "businessEntity": {
+                    "document": {
+                        "identification": "12345678901234",
+                        "rel": "CNPJ"
+                    }
+                },
+                "creditor": {
+                    "personType": "PESSOA_NATURAL",
+                    "cpfCnpj": "58764789000137",
+                    "name": "Marco Antonio de Brito"
+                },
+                "payment": {
+                    "type": "PIX",
+                    "date": "2021-01-01",
+                    "currency": "BRL",
+                    "amount": "100000.12"
+                },
+                "debtorAccount": {
+                    "ispb": "12345678",
+                    "issuer": "1774",
+                    "number": "1234567890",
+                    "accountType": "CACC"
+                }
+            }
+        },
+        "brazilPixPayment": {
+            "data": {
+                "localInstrument": "DICT",
+                "payment": {
+                    "amount": "100000.12",
+                    "currency": "BRL"
+                },
+                "creditorAccount": {
+                    "ispb": "12345678",
+                    "issuer": "1774",
+                    "number": "1234567890",
+                    "accountType": "CACC"
+                },
+                "remittanceInformation": "Pagamento da nota XPTO035-002.",
+                "qrCode": "00020104141234567890123426660014BR.GOV.BCB.PIX014466756C616E6F32303139406578616D706C652E636F6D27300012  \nBR.COM.OUTRO011001234567895204000053039865406123.455802BR5915NOMEDORECEBEDOR6008BRASILIA61087007490062  \n530515RP12345678-201950300017BR.GOV.BCB.BRCODE01051.0.080450014BR.GOV.BCB.PIX0123PADRAO.URL.PIX/0123AB  \nCD81390012BR.COM.OUTRO01190123.ABCD.3456.WXYZ6304EB76\n",
+                "proxy": "12345678901"
+            }
+        },
+        "brazilOrganizationId": "bb3b0993-554d-5ea4-91ee-13af4ffe988d",
+        "brazilCnpj": "58764789000137"
+    },
+    "client2": {
+        "client_id": "c48q61ker14tj4jk2g70",
+        "scope": "payments openid offline_access",
+        "jwks": {
+            "keys": [
+                {
+                    "kty": "RSA",
+                    "alg": "PS256",
+                    "use": "sig",
+                    "kid": "second-tpp-key",
+                    "n": "mDa8_nO7tHf1ofmXSAHPREdjHViIQdj7_5pq3Y-vJ0OowRzondDhEMbSU6998-CeqeaJ6E0aMlinmWBmGWK42z5-aLrMt6vWXSn8ZeB4mdzfzz6-qEfnt6MVP7dQUzeanBgwtVbGhj1IS8VvAoJHg08NOQ8nhy37BL2ZVLpwmRPE-0gekzhVMxOZTO05MQGlsfMzhsoREGKteSCT2PGPKQ_mAPsR7gh_26__nxeSbofL-8K1SP5_mg9MjKSuWHtq73bGwCfzANrUtDUYxFjRM6M9V3OZLLW3xId5rBO-cGnML7XZGzoKFziI8qz1jQXTv5xNobGO1MA_rn92LA3c4w",
+                    "e": "AQAB",
+                    "d": "ElPM78pZmII1JjqaN4ZYQX1i9r6ZMWyB8yXRpjnNuimQYSgs7guffdiirIbd4IZ0NDrY8gqOk-9Oxs3vnTDg1y0wJUYQrjDXj8IlbNLZUpVgsWB5rmNyCA9v2Ism9c4lJJRZEQyQvMsWMGFmW2P6XlofWnZzqPglWE3H74a_Vf72dNOXriN3Kw2g9z5f2k14yWoDtucDOgLKrYf99Jri0SPc-_0oUuKaycNH9ZOY4BPDGVho6wBj8q6vZgZPu8HSihmOttuyoktHkfIJmHEQfvPOqkZwgvC6Z-skb43PGJ6XWJyZ7ENXlYyz6w_qg0T4jmDrOERezIERatc4ljN5eQ",
+                    "p": "4FMyRZRfHOz9RbpVfXf64qToZ3Gste2bcuRMerRM0J_diXtzeQylR5AYF7V7SEfQVXWjPWhCebMg6qt4VZdAUPuc3QgnUg1jqusMB5NnW8WR3c0cU06sxV8tM-4m0wfUbgbH0DqZD6UvWTQuCTF915PfKyczpSqi1zKVpi1Kk80",
+                    "q": "rbTl-q3WB9ItryDOuCokJsgLYIHm0Rgi_CcF4YSlBccbQjdGYOqiyNAE_Ck2FSbLFa5Vo03sn3KjcEsSyky2qdXfJGSUpUxsn7zYXcVw_YYQrADpwW057E7q2uNCH6iiWIIlp8hrISb8-R6P3y4Yvzu_8A67lTjU5xuzt79N428",
+                    "dp": "P3orYpcOpw_Ex6Nnp5545wOFJCh9l-mJsGQ75Aj7J5nlRY8iaOGUL4Dt4F-haB2yLUyhibHkBa4TpXQqFAY90-yvQbiZ79UMHARxHf-vIr_we9QbrNM5foxlLSm54MN5cD0I87pxL4Uttc9XK5DOrF8SqpJoQdejxsNwp1pvnQ0",
+                    "dq": "JjJQG-Zb2Q5rg0X4juCdYHW-orMN2U6warf-ABAV5YZZxR64eBlAQF4Vqok5Xj9Qiuzx4d4BuTIRJGEtuZRS2lewIKWJVivO-vUgssX2yZjQU7JDtIfbI85asFUmtiVzxXig5RsaC4kyOWlyA4Z0ZKCz3QqwTujXUBZ0V2RWsTs",
+                    "qi": "E_qbdd8AQgCtY_uS0UiV8QmPqPhddfPHPVGzcW5-KXjxXjYAgwpafV-wzKCSTAJsY38Z0aGze7oDVJbzmQlHfWUhYOF8oIEppk-CqOuYHhvxyVLGHskImCxB01Xsf5_w5jYxwnn0QMHZt-Lc4ZN8DHEPNjDJmt0NbW0aNy8hQ9k"
+                }
+            ]
+        }
+    },
+    "mtls2": {
+        "cert": "-----BEGIN CERTIFICATE-----\nMIID7TCCAtUCCQCbbxoqqdyNuTANBgkqhkiG9w0BAQsFADBjMQswCQYDVQQGEwJC\nUjEVMBMGA1UECAwMU8ODwqNvIFBhdWxvMRUwEwYDVQQHDAxTw4PCo28gUGF1bG8x\nDjAMBgNVBAoMBUF4d2F5MRYwFAYDVQQDDA1BeHdheSBSb290IENBMB4XDTIxMDkw\nMTIxNDIxOFoXDTMxMDgzMDIxNDIxOFowggEMMR0wGwYDVQQPDBRQcml2YXRlIE9y\nZ2FuaXphdGlvbjETMBEGCysGAQQBgjc8AgEDEwJCUjEXMBUGA1UEBRMOMTg1MDU5\nMzQwMDAyNDAxCzAJBgNVBAYTAkJSMQ4wDAYDVQQKDAVBWFdBWTELMAkGA1UECAwC\nU1AxFTATBgNVBAcMDFPDg8KjbyBQYXVsbzEtMCsGA1UECwwkMTExMTExMTEtMTEx\nMS0xMTExLTExMTEtMTExMTExMTExMTExMTQwMgYKCZImiZPyLGQBAQwkMTExMTEx\nMTEtMTExMS0xMTExLTExMTEtMTExMTExMTExMTExMRcwFQYDVQQDDA5kZW1vLmF4\nd2F5LmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALVhNnjc2wAI\nfdpGUBi7QfKAE2wlUaUmos1BUtrmB6ATMiUABPWxthl7PQuLswF04tBzhZSjKdp6\nutVVBzf1aiJcNxIpCKRpqFV/ibR+l0lo5fkIgZ1zKkgMkkjfF+QvW80+6QmGpNAA\niZgmXBng45v92Ac/6z+DnekfQi1sIXCHI7bFt9XBFUXe5dXo/pU8/e4uxmeMfgFO\niytMvwij+D291HvWVF3Ugx1/skRGkUiKSvcQ7ALt5BfmOASlpvWvAVPMq/AjX1V8\nSXZKgYasBYcD5OSOOr2I9ufAPzga+pG/7lJ9eA3k+ZPiFji9VoyrgZaLpzDz4y4S\nqtmdPaRb/LMCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAZMGDRMHb+twxDdZNYRdh\n0/FcBXTwt+tsmw1mvF/dZiIhUgj1oIlfWAlV3tbBU4DnhzC7QuYgYTPHNmBhg2K7\nXN6+yXlAOZxcoqJoW1JYNNGRyeniMvmbnvwqAdyj7FvlC3AHfj4Paue5d3GSTH7n\nK01bJdSiUO42VQooRhQzGN4Xkwg7gl43OR1yvIm7AoCL5qjgjAgO898RnsU4JoIP\neVaFnlG4H6YwqnbRScrUlXDAWUEzVymPA+3dzqopD1E8mIi+iytR3jl38hbSoW0F\nPK73PutF3kL/GRGpJZq13Vbf1iFYRhBcXyYeJihqTWIyhRp9AjkxRozxrm0+ZquW\nHA==\n-----END CERTIFICATE-----\n",
+        "key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1YTZ43NsACH3a\nRlAYu0HygBNsJVGlJqLNQVLa5gegEzIlAAT1sbYZez0Li7MBdOLQc4WUoynaerrV\nVQc39WoiXDcSKQikaahVf4m0fpdJaOX5CIGdcypIDJJI3xfkL1vNPukJhqTQAImY\nJlwZ4OOb/dgHP+s/g53pH0ItbCFwhyO2xbfVwRVF3uXV6P6VPP3uLsZnjH4BTosr\nTL8Io/g9vdR71lRd1IMdf7JERpFIikr3EOwC7eQX5jgEpab1rwFTzKvwI19VfEl2\nSoGGrAWHA+Tkjjq9iPbnwD84GvqRv+5SfXgN5PmT4hY4vVaMq4GWi6cw8+MuEqrZ\nnT2kW/yzAgMBAAECggEBAIi/4XTgdtEgldpytsLetArkW0BnJpZQeeAsxw447jjX\nIDBbQmIHeVbe3piM3ApWGQe2gVkeZ1jMvX5IHCgphLqhMfgkLdrfukWz4ZvO8bss\nNm865ZZTFOa7a7M7WGT2+8zUCJjhBfO45ARtr3TnZFPg3/YfT/tT/UOdCKT8aH3Q\ncLPnx3b10AbTLc+dl+lk2PihtvhmEO4L2s2NGL8oDxRcLmXIw6CRfpQMfotzTQiS\nHWDsht3Zd+9ByWNOpPY7AiRQsAikvOi9drujkzuvZfHeA8jkMuKF89/jeBAK/k3j\n6p2Xy5FA8rOmL3Jg+tTgTmWx0CUHS9CP7cM1cV+hRLECgYEA28SHQaP3RnIa02BT\nNg+ZApcgZbyJNCBCK45MxcWyoOorkf65gmbfnY6/uigMNEZBysBJVJm7nEQl0Gtn\nhhT8Cxpsd3ATOSf079YI9ReV2Xe8RTAgBQzBRrea6tGUDSEynD3UYR3jDQMg7wSB\nkDP/cQU+BRwAZyjsEG2zC5mHR7sCgYEA00h9egeg+ezHY812sxU+lkwNo4dWCH0b\nehti81k/guWSTBgzZaCn0VaiPMJdICM72qyzUGCENZi1wRsK/YCV/NAOgOngYeBc\nSGyoE6GyZHwk0xyLHv0bm8k2ZB36Da04hSHILMp2jKKybu64+S2gnPvi6O2X/Pyz\nrQVO//OjI2kCgYAPyL66LS+eZKWeluWDFX203Ovbwr3L+6ElBbRn4/ofapI0iyoB\nvqfC5jTJBwVRX9Zr3IGnzN7Xq2FX5c7qp2ku1vgBYBBRY5hI/YNpLwd5NgtUoM87\n7Z2YGanLwb+zbbX32Mz/KKldDuN3p0gy9jkbgffhYBB7WEoUJ/zbEWzQ7wKBgHCh\n70ozcOxq/mxE5udXBvNmfcrUZdfGofQ5T0m9JS9ppNDuAdBGkc/2KCzNzIlKXykW\n8cyCd1h/HT1hZj134/1PCLxOcXCcA3YUfpFgnNIWoCbuy3dspOAqptU+acQKuNu4\nA5dlI0eboBWlK3Sij0HAwdk8d87FBB/TeabWwfwpAoGAdOzptctLJuQiIZrCip8W\nyJKZcsXMF1gaNESe02i04bke9JpP78WYIUSivWvBTlSGqKCQV/pv27PHF4rPm8UB\niQE5EyztS/ntnl+WXEvd1kiFinbIiPFKAdd+ehzMVJm1qYBhD6lf34JhfkZ5Oo4B\nBTvMegyul8vc0IMhld602x8=\n-----END PRIVATE KEY-----\n"
+    },
+    "directory": {
+        "keystore": "https://keystore.sandbox.directory.openbankingbrasil.org.br/"
+    }
+}
