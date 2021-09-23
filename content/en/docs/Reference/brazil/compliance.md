@@ -7,13 +7,13 @@ date: 2021-06-30
 type: bigtable
 ---
 
-{{% pageinfo %}}
+{{% alert title="Note" color="primary" %}}
 At the time of writing the standards for Brazil appear to change frequently. Every effort will be made to keep this page up-to-date but there will be times when it is not correct.
 
 This document only provides direct references to underlying standards and guidelines. It **does not** list every child of those references.
 
 Where a URI is referenced below the prefix ` ` is omitted for the sake of brevity.
-{{% /pageinfo %}}
+{{% /alert %}}
 
 This page provides a guide to complying with the for Open Banking Brazil standards, covering Phases 1 to 3.
 

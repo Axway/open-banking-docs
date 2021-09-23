@@ -12,9 +12,9 @@ Most features are documented in the [Axway API Manager documentation](https://do
 
 <!-- ## Settings
 
-{{% pageinfo %}}
+{{% alert title="Note" color="primary" %}}
 This page is under development
-{{% /pageinfo %}} -->
+{{% /alert %}} -->
 
 ## Email templates override
 

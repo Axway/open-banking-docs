@@ -113,6 +113,6 @@ Important: make sure to keep the indent and format similar as above, as well as 
 
 <!-- ## Secure internal connections
 
-{{% pageinfo %}}
+{{% alert title="Note" color="primary" %}}
 This section is under development
-{{% /pageinfo %}} -->
+{{% /alert %}} -->
