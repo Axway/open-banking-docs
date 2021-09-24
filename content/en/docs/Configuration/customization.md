@@ -31,31 +31,31 @@ For this you would need to customize the corresponding Docker image and replace 
 * Customize the items you need to be customized as described in the sections below
 * Rebuild the Docker image with the custom change, and tag it for your own Docker repository : this docker repository should be reachable from the Kubernetes cluster.
 
-````console
+```console
 docker build consent-page -t <your-docker-repo>/open-banking-consent-page:<image-tag>
-````
+```
 
 * Push the docker image to your docker repository.
 
-````console
+```console
 docker push  <your-docker-repo>/open-banking-consent-page:<image-tag>
-````
+```
 
-* Update the `open-banking-consent/files/consent.values.yaml` used in [Install Open Banking Consent Helm chart](/docs/deployment/installation/cloudentity.md#install-open-banking-consent-helm-chart) to  insert the _image_ record inside the _consentPage_ record as below
+* Update the `open-banking-consent/files/consent.values.yaml` used in [Install Open Banking Consent Helm chart](/docs/deployment/installation/cloudentity#install-open-banking-consent-helm-chart) to  insert the _image_ record inside the _consentPage_ record as below
 
-````yaml
+```yaml
 consentPage:
-  image:
-    repository: <your-docker-repo>/open-banking-consent-page
-    tag: <image-tag>
-    pullPolicy: IfNotPresent  
-````
+   image:
+      repository: <your-docker-repo>/open-banking-consent-page
+      tag: <image-tag>
+      pullPolicy: IfNotPresent  
+```
 
 * Upgrade the helm chart release
 
-````console
+```console
 helm upgrade consent -n open-banking-consent cloudentity/openbanking –-version <chart-version> -f open-banking-consent/files/consent.values.yaml
-````
+```
 
 The consent page should now reflect your changes on your Kubernetes environment.
 
@@ -83,11 +83,11 @@ obbr-payment-consent-2.tmpl
 
 Logo can be changed by switching the name of the file in the image tag below
 
-````html
+```html
 <div class="header">
   <img width="300px" src="/assets/images/griffinbank-logo.svg"/>
 </div>
-````
+```
 
 Host a new logo in folder `consent/consent-page/assets/images`, preferably with an SVG extension.
 Note that the set width of the template is 300px, so there’s no need for a bigger file.
@@ -113,7 +113,7 @@ You translate all texts for the desired messages in the target language
 
 Cancel and confirm buttons are located and styled inline in consent-page files
 
-````html
+```html
  <div class="form-actions">
  	<button class="mdc-button mdc-button--outlined" type="submit" name="action" value="deny" style="height: 48px; padding: 12px 24px; color: #002D4C; border-color: #002D4C">
    <div class="mdc-button__ripple"></div>
@@ -124,7 +124,7 @@ Cancel and confirm buttons are located and styled inline in consent-page files
          <span class="mdc-button__label">{{.trans.confirm}}</span>
      </button>
  </div>
-````
+```
 
 Change the colors, widths, shapes, borders and paddings as you like.
 

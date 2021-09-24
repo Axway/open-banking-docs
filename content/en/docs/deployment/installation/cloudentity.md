@@ -46,10 +46,10 @@ Update the `open-banking-acp/files/acp.values.yaml`  with all environment variab
 
 Remove the following lines if cert-manager not used for ingress:
 
-````yaml
+```yaml
 cert-manager.io/cluster-issuer: letsencrypt-prod (l22)
 cert-manager.io/acme-challenge-type: http01 (l23)
-````
+```
 
 ## Customize Open Banking Consent Helm chart
 
