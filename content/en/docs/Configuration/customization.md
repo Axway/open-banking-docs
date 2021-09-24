@@ -69,7 +69,7 @@ You can find them in `consent/consent-page/templates/base`
 
 ![Consent page image files](/Images/consent-page-files.png)
 
-There is 2 main file you can customize
+For instance, for payment, there is 2 main files you can customize
 
 ![obbr-payment-consent-1.tmpl](/Images/consent-page-obbr-payment1.png)
 
