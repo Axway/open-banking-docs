@@ -94,8 +94,8 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 | import.variables.consent_page_url | update with the consent page url | `https://consent.<domain-name>` |
 | import.variables.financroo_tpp_url | update with the financroo tpp url | `https://financroo.<domain-name>` |
 | import.variables.developer_tpp_url | update with the developer tpp url| `https://financroo.<domain-name>` |
-| import.variables.postman_client_id | update with the postman client id | postman-eks |
-| import.variables.bank_io_client_id | update with the bank.io client id | bankio-eks |
+| import.variables.postman_client_id | update with the Postman client id | postman-eks |
+| import.variables.bank_io_client_id | update with the Bank.io client id | bankio-eks |
 | import.variables.bank_io_redirect_uri | update with the bank.io redirect url | `https://services-api.<domain-name>/login` |
 
 ## Prepare deployment

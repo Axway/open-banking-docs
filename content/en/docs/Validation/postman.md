@@ -1,7 +1,7 @@
 ---
 title: "Functional tests with Postman"
 linkTitle: "Testing with Postman"
-description: Use postman to test all Open Banking APIs are working as expected
+description: Use Postman to test all Open Banking APIs are working as expected
 weight: 1
 date: 2021-09-02
 ---
@@ -10,7 +10,7 @@ Axway Open Banking solution comes with Postman collections for most Open Banking
 
 Admins or TPP Developer can test and validate their access to APIs by using Postman. Having these tests successfull helps to make sur all components of the solution is correctly integrated to the bank system.
 
-## Retrieve the postman files
+## Retrieve the Postman files
 
 First they should retrieve the "Postman Collection" and "Postman Environment"
 
@@ -20,13 +20,13 @@ First they should retrieve the "Postman Collection" and "Postman Environment"
 
 ## Import collection into Postman
 
-Import the 2 files together into postman. Note that Postman collections are different for each API while environment file is unique by environment. You might import several API collections together with the environment file.
+Import the 2 files together into Postman. Note that Postman collections are different for each API while environment file is unique by environment. You might import several API collections together with the environment file.
 
 ![payment-api-postman-file-import](/Images/postman-import.png)
 
 Once imported, you can select the collection in the left pane, and select the environment in the top right corner of postman.
 
-Update the environment details, with  client-id and the private key corresponding to the TPP client certificate for message encrytion.
+Update the environment details, with _client-id_ and the _private-key_ corresponding to the TPP client certificate for message encrytion.
 
 ![payment-api-postman-environment](/Images/postman-environment.png)
 
@@ -52,8 +52,9 @@ Use the cog button to open Settings:
 
 ## Test the API collection
 
-Simply follow the collection step-by-step flow that is different for each API.
-Some API would require to get a consent (account, credit card, payment, ) before actually using the API main methods. this would required to copy/paste some value between your browser and postman and details in the API collection method description
+Simply follow the collection step-by-step flow that is different for each API. Details may be provided in the API collection method description.
+
+Some API would require to get a consent (account, credit card, payment, etc.) before actually using the API main methods. This would required to copy/paste some values between your browser and postman.
 
 ## Examples
 
@@ -150,7 +151,7 @@ Select "GET overdraft limits by AccountId" method if you want to test getting ov
 
 Click _Send_ to get the account overdraft limits. Make sure you get a "200 OK" return code and the response body includes the overdraft limits of the requested account.
 
-![accounts-api-postman-get-overdraft-limits](/Images/accounts-api-postman-overdraft-limits.png)
+![accounts-api-postman-get-overdraft-limits](/Images/accounts-api-postman-get-overdraft-limits.png)
 
 Select "GET transactions by accountId" method if you want to test getting the transactions list of a specific account. Mouse-over on `{{accountId}}` variable in the request URL to make sure the current value match the account you'd like to retrieve.
 
