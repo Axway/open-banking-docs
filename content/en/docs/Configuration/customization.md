@@ -44,11 +44,11 @@ docker push  <your-docker-repo>/open-banking-consent-page:<image-tag>
 * Update the `open-banking-consent/files/consent.values.yaml` used in [Install Open Banking Consent Helm chart](/docs/deployment/installation/cloudentity#install-open-banking-consent-helm-chart) to  insert the _image_ record inside the _consentPage_ record as below
 
 ```yaml
-consentPage:
-    image:
-        pullPolicy: IfNotPresent  
-        repository: <your-docker-repo>/open-banking-consent-page
-        tag: <image-tag>
+  consentPage: 
+      image: 
+          pullPolicy: IfNotPresent  
+          repository: <your-docker-repo>/open-banking-consent-page
+          tag: <image-tag>
 ```
 
 * Upgrade the helm chart release
