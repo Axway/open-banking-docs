@@ -25,9 +25,37 @@ Here are the main items you can consider for branding:
 
 Each Axway Open Banking customer would need to customize the Consent page that is embedded in the solution.
 
-*For this you would need to customize the corresponding Docker image and replace its reference to yours.*
+For this you would need to customize the corresponding Docker image and replace its reference to yours.
 
 * Download the [consent-page-image](/sample-files/consent-page-image.zip) docker project that is the customization kit for the consent page.
+* Customize the items you need to be custumized as described in the sections below
+* Rebuild the docker image with the custom change, and tag it for your own docker repository : this docker repository should be reachable from the Kubernetes cluster.
+
+````console
+docker build consent-page -t <your-docker-repo>/open-banking-consent-page:<image-tag>
+````
+
+* Push the docker image to your docker repository.
+
+````console
+docker push  <your-docker-repo>/open-banking-consent-page:<image-tag>
+````
+
+* Update the `open-banking-consent/files/consent.values.yaml` used in [Install Open Banking Consent Helm chart](/docs/deployment/installation/cloudentity.md#install-open-banking-consent-helm-chart) to  insert the _image_ record inside the _consentPage_ record as below
+
+````yaml
+consentPage:
+  image:
+    repository: <your-docker-repo>/open-banking-consent-page
+    tag: <image-tag>
+    pullPolicy: IfNotPresent  
+````
+
+* Upgrade the helm chart release
+
+````console
+helm upgrade consent -n open-banking-consent cloudentity/openbanking –-version <chart-version> -f open-banking-consent/files/consent.values.yaml
+````
 
 ### Consent Page template files
 
