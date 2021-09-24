@@ -45,10 +45,10 @@ docker push  <your-docker-repo>/open-banking-consent-page:<image-tag>
 
 ```yaml
 consentPage:
-   image:
-      repository: <your-docker-repo>/open-banking-consent-page
-      tag: <image-tag>
-      pullPolicy: IfNotPresent  
+    image:
+        pullPolicy: IfNotPresent  
+        repository: <your-docker-repo>/open-banking-consent-page
+        tag: <image-tag>
 ```
 
 * Upgrade the helm chart release
