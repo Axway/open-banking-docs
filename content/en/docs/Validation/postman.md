@@ -22,13 +22,13 @@ First they should retrieve the "Postman Collection" and "Postman Environment"
 
 Import the 2 files together into postman. Note that Postman collections are different for each API while environment file is unique by environment. You might import several API collections together with the environment file.
 
-![payment-api-postman-file-import](/Images/payment-api-postman-file-import.png)
+![payment-api-postman-file-import](/Images/postman-import.png)
 
 Once imported, you can select the collection in the left pane, and select the environment in the top right corner of postman.
 
 Update the environment details, with  client-id and the private key corresponding to the TPP client certificate for message encrytion.
 
-![payment-api-postman-environment](/Images/payment-api-postman-environment.png)
+![payment-api-postman-environment](/Images/postman-environment.png)
 
 ## Postman Settings
 
@@ -36,7 +36,7 @@ Use the cog button to open Settings:
 
 * Choose the General tab. Ensure the "Automatically follow redirects" is set to OFF also turn off SSL certificate validation
 
-![payment-api-postman-settings](/Images/payment-api-postman-settings1.png)
+![payment-api-postman-settings](/Images/postman-settings1.png)
 
 * Choose the Certificates tab. Ensure a TPP client certificate is installed for the target environment. If not:
     * Click "Add Certificate"
@@ -48,7 +48,7 @@ Use the cog button to open Settings:
     * Select the certificate and private key (CRT file and KEY file respectively) to be used for MTLS connection
     * Click "Add"
 
-![payment-api-postman-settings](/Images/payment-api-postman-settings2.png)
+![payment-api-postman-settings](/Images/postman-settings2.png)
 
 ## Test the API collection
 
