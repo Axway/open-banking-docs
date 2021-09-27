@@ -18,7 +18,7 @@ Here are the main items you can consider for branding:
     ![Welcome email](/Images/homepage.png)
 * Logo and style in Email templates: [API manager > Email templates override](/docs/deployment/configuration/api-manager#email-templates-override)
     ![Welcome email](/Images/welcome-email.png)
-* Logo and style of Developer Portal: [Developer portal > Template customization](/docs/deployment/configuration/developer-portal#remplate-customization)
+* Logo and style of Developer Portal: [Developer portal > Template customization](/docs/configuration/portal/#template-customization)
 * Logo and style of Analytics homepage. Refer to deployment option for this component : [Solution Deployment](/docs/deployment/installation)
 
 ## Consent page
