@@ -16,7 +16,8 @@ This section provides a general overview of the architecture. The goal is to pr
 
 This document does not describe:
 
-* The implementation on a specific cloud providers infrastructure. Please refer to the [cloud components guide](/docs/reference/cloud) for general information.
+* The infrastructure requirements. Please refer to the [Solution deployment](/docs/deployment/prerequisites) .
+* The implementation on a specific cloud providers infrastructure. Please refer to the [Cloud deployment recommandations](/docs/deployment/prerequisites#cloud-deployment-recommandations).
 * Specific deployment instructions. Please refer to the [Installation guide](/docs/installation).
 * Detailed information on the Axway products that are used in the solution. Please refer to the [Axway Documentation Portal](https://docs.axway.com/)
-* Detailed information on the Cloudentity Open Banking Toolkit. 
+* Detailed information on the Cloudentity Authorization Controla Plane and Open Banking Toolkit.  Please refer to the (ACP Documentation)[https://docs.authorization.cloudentity.com/]
