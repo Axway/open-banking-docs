@@ -14,12 +14,12 @@ This is usually change logos and style (color palette, font, etc.)
 
 Here are the main items you can consider for branding:
 
-* Logo and style in Solution Homepage: [API Gateway > Solution Homepage](/docs/deployment/configuration/api-gateway#solution-Homepage)
+* Logo and style in Solution Homepage: [API Gateway > Solution Homepage](/docs/configuration/api-gateway#solution-homepage)
     ![Welcome email](/Images/homepage.png)
-* Logo and style in Email templates: [API manager > Email templates override](/docs/deployment/configuration/api-manager#email-templates-override)
+* Logo and style in Email templates: [API manager > Email templates override](/docs/configuration/api-manager#email-templates-override)
     ![Welcome email](/Images/welcome-email.png)
 * Logo and style of Developer Portal: [Developer portal > Template customization](/docs/configuration/portal/#template-customization)
-* Logo and style of Analytics homepage. Refer to deployment option for this component : [Solution Deployment](/docs/deployment/installation)
+* Logo and style of Analytics homepage. Refer to deployment option for this component : [Customize Analytics Helm chart](/docs/deployment/installation/analytics/#customize-analytics-helm-chart)
 
 ## Consent page
 
@@ -27,7 +27,7 @@ Each Axway Open Banking customer would need to customize the Consent page that i
 
 For this you would need to customize the corresponding Docker image and replace its reference to yours.
 
-* Download the [consent-page-image](/sample-files/consent-page-image.zip) Docker project that is the customization kit for the consent page.
+* Download the [consent-page-image](https://axway-open-banking-docs.netlify.app/sample-files/consent-page-image.zip) Docker project that is the customization kit for the consent page.
 * Customize the items you need to be customized as described in the sections below
 * Rebuild the Docker image with the custom change, and tag it for your own Docker repository : this docker repository should be reachable from the Kubernetes cluster.
 

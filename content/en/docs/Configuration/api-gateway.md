@@ -37,7 +37,7 @@ This configuration can be read at the beginning of any policy using a common pol
 | g\_extension\_2 | java.lang.String | for future use |
 | k_values | java.util.Map&lt;java.lang.String,java.lang.String&gt; | Key Value Pairs, helps in extending configuration whenever we want without deployment. New key value pairs can be added easl\ |
 
-By default, only 1 line exists with no criteria (columns b to e) and values (column k) corresponding to solution deployment parameters. Refer to [Solution Deployment](/docs/deployment/install) to see how to changes this values during deployment. 
+By default, only 1 line exists with no criteria (columns b to e) and values (column k) corresponding to solution deployment parameters. Refer to [Solution Deployment](/docs/deployment/installation) to see how to changes this values during deployment. 
 
 You can check and update your current configuration from API Gateway Manager > Settings > Key Properties Store :
 

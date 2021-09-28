@@ -34,7 +34,7 @@ This test validates the TPP creation on Authorization Server via Central Directo
 
 ### Getting Central Directory information
 
-It is important to run the test to get the following information from [Central Directory Sandbox](https://web.sandbox.directory.openbankingbrasil.org.br/):
+It is important to run the test to get the following information from [Central Directory Sandbox](https://web.sandbox.directory.openbankingbrasil.org.br/) :
 
 * Client ID : Central Directory client ID to register 
 ![client-id](/Images/central_directory_brazil_clientid.png)
@@ -88,7 +88,7 @@ Make sure the corresponding CA are configured in the Axway Open Banking solution
 Create a new plan and select Dynamic Client Registration Authorization server test:
 ![Conformance Suite : Create Plan](/Images/conformance-suite/dcr-plan-select.png)
 
-Use the JSON tab to import this sample JSON test configuration : [conformance-test-dcr.json](/sample-files/conformance-test-dcr.json)
+Use the JSON tab to import this sample JSON test configuration : [conformance-test-dcr.json](https://axway-open-banking-docs.netlify.app/sample-files/conformance-test-dcr.json)
 
 Then go back to the Form tab to customize the following :
 
@@ -141,7 +141,7 @@ Make sure the corresponding CAs are configured in the Axway Open Banking solutio
 Create a new plan and select FAPI Authorization server test:
 ![Conformance Suite : Create Plan](/Images/conformance-suite/fapi-plan-select.png)
 
-Use the JSON tab to import this sample JSON test configuration : [conformance-test-dcr.json](/sample-files/conformance-test-fapi.json)
+Use the JSON tab to import this sample JSON test configuration : [conformance-test-fapi.json](https://axway-open-banking-docs.netlify.app/sample-files/conformance-test-fapi.json)
 
 Then go back to the Form tab to customize the following :
 

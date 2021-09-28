@@ -25,7 +25,7 @@ This follows the model of for Multi-Authorization implemented in the [UK Open Ba
 Other approvers are then contacted to approve the consent based on the following generic process:
 
 * Each approver is contacted using a channel known to the bank. For example, this could be via push notification to a mobile banking app which provides a "link" to the approval workflow.
-* When the approver follows the link they will then be required to authenticate, using an appropriate number of factors. The number of factors is dependent on whether the bank requires Level of Assurance 2 or 3 based on their view of the [Brazil Security Profile requirements](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html#section-5.2.2.4).
+* When the approver follows the link they will then be required to authenticate, using an appropriate number of factors. The number of factors is dependent on whether the bank requires Level of Assurance 2 or 3 based on their view of the [Brazil Security Profile requirements](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2.html#section-5.2.2.4).
 * Once authenticated to the required level the approver will be presented with one of two screens:
   * If another approver has already refused the request for authorization a consent rejection screen should be shown.
   * If approval from all approvers is still outstanding the customer will be shown the consent confirmation screen.

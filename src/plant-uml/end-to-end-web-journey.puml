@@ -200,7 +200,7 @@ FAPI mandates the use of the [[https://openid.net/specs/openid-financial-api-par
 of OpenID Connect Core. This is a JSON Web Singature that contains parameters
 normally found in the URL (redirect_uri, state, scope, etc)
 |||
-However, FAPI has been extended by the [[https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html API Security Profile for Brazil]] where 2
+However, FAPI has been extended by the [[https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2.html API Security Profile for Brazil]] where 2
 alternatives are added to the Authorization Server (AS) in terms of Request parameter
 support:
 |||
@@ -316,7 +316,7 @@ Payment Initiation consent. The possible values are:
 * ""payments"": Payment Initiation
 
 The value of ""{consent-id}"" must be retrieved from the requested scope as
-this contains the consent resource identifier as defined in the [[https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html#section-7.1.2 Security Profile]].
+this contains the consent resource identifier as defined in the [[https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2.html#section-7.1.2 Security Profile]].
 end note
 
 ASPSP_WEB -> INGRESS: ""GET ​/open-banking​/{operation}/v1/consent/{consent-id}""

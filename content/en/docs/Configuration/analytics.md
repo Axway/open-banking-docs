@@ -20,7 +20,7 @@ All generic features of this two products are documented in the [Axway API Build
 ## Admin interface
 
 The admin interface is available on `https://kibana.<domain-name>`
-You can login with the administrator account using user and password provided in `open-banking-analytics\values.yaml`
+You can login with the administrator account using user and password provided in `open-banking-analytics/values.yaml`
 
 ```yaml
 elastic:

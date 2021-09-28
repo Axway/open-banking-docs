@@ -126,8 +126,8 @@ DNS = tpp2.demo.axway.com
 
 Download these files:
 
-* [tpp1.cnf](/sample-files/tpp1.cnf)
-* [tpp2.cnf](/sample-files/tpp2.cnf)
+* [tpp1.cnf](https://axway-open-banking-docs.netlify.app/sample-files/tpp1.cnf)
+* [tpp2.cnf](https://axway-open-banking-docs.netlify.app/sample-files/tpp2.cnf)
 
 and execute the following commands to generate the required certificates:
 

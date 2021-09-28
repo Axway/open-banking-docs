@@ -63,8 +63,6 @@ Third-party solution providers can register as organizations using this option, 
 * Log back in with new password
 * API Catalog page is displayed
 
-
-
 ## Dynamic client registration
 
 New client can directly use the Dynamic client registration (DCR) API to self-register.
@@ -72,7 +70,7 @@ For Brazil standard, and for each client, you need go through the following step
 
 ### Getting Central Directory information
 
-Each client should get the following information from [Central Directory](https://web.directory.openbankingbrasil.org.br/)
+Each client should get the following information from [Central Directory](https://web.directory.openbankingbrasil.org.br/) or [Central Directory Sandbox](https://web.sandbox.directory.openbankingbrasil.org.br/)
 
 * Client ID : Central Directory client ID to register 
 ![client-id](/Images/central_directory_brazil_clientid.png)
