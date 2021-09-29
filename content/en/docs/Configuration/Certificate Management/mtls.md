@@ -13,7 +13,7 @@ Mutual authentication is required for most of API developed for Open Banking.
 According to the Open Banking Specification, the MTLS is required for both components : Cloud Entity and the API Gateway Listener. Here is a diagram that explains how it's working.
 ![MTLS diagram](/Images/mtls.png)
 
-See more about the Certificate Verification with MTLS in Open Banking context in ![Mutual Authentication and Certificate Verification](/docs/overview/integration/mutual-auth)
+See more about the Certificate Verification with MTLS in Open Banking context in [Mutual Authentication and Certificate Verification](/docs/overview/integration/mutual-auth)
 
 ### API Gateway MTLS
 

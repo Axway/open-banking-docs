@@ -10,9 +10,9 @@ Axway Open Banking Developer Portal is based on Axway API Portal product
 
 Most features are documented in the [Axway API Portal documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apiportal_admin/apip_overview/index.html) 
 
-## Administror interface
+## Administrator interface
 
-The portal adminstration interface is available on `https://developer-portal.<domain-name>/administrator`
+The portal administration interface is available on `https://developer-portal.<domain-name>/administrator`
 It allows multiple admin actions:
 
 * general configuration
@@ -54,7 +54,7 @@ From here, you can :
 
 All API and user documentation are available from `https://developer-portal.<domain-name>/documentation/home` on the Developer Portal
 
-Adminitrator can add new documentation or update existing on from Joomla administrator interface.
+Administrator can add new documentation or update existing on from Joomla administrator interface.
 
 Navigate to Content > Articles and use New or Edit button to add or update an article. Each article will appear in the Documentation page if their category is set to 'Documentation'
 
