@@ -31,8 +31,11 @@ Update the environment details, with _client-id_ and the _private-key_ correspon
 ![payment-api-postman-environment](/Images/postman-environment.png)
 
 For the Payment API, modify the following parameters with your information : 
+
 * organizationId : the Account Service Payment Service Provider (ASPSP)
+
 * date : payment consent information for the payment initiation
+
 * cnpj : CNPJ (Brazilian National Registry of Legal Entities) of the payment initiator
 
 ## Postman Settings
