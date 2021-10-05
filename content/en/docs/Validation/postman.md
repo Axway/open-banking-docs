@@ -188,7 +188,8 @@ Click _Send_ to get Client Credentials Grant for payments. Make sure you get a "
 
 ![payment-api-postman-step1](/Images/payment-api-postman-step1.png)
 
-Select Step 2 and check the request body payload that is built is the _Pre-request Script_ tab corresponds to the payment you need.
+Select Step 2 and check the request body payload that is built is the _Pre-request Script_ tab corresponds to the payment consent you need.
+Update the "iss" field with your organization id (your ASPSP - Account Service Payment Service Provider).
 
 Click _Send_ to create the consent request. Make sure you get a "201 Created" return code. The response body should be a "application/jwt" content type.
 
@@ -242,6 +243,7 @@ Click _Send_ to create the account access token. Make sure you get a "200 OK" re
 ![payment-api-postman-step5](/Images/payment-api-postman-step5.png)
 
 Select Step 6  and check the request body payload that is built is the _Pre-request Script_ tab corresponds to the payment you need.
+Update the "iss" field with your organization id (your ASPSP - Account Service Payment Service Provider).
 
 Click _Send_ to post the payment. Make sure you get a "201 Created" return code and  the response body should be a "application/jwt" content type. You can decode it as previously to check the payment status is no more awaiting for authorization.
 
