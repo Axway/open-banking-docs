@@ -26,7 +26,7 @@ Import the 2 files together into Postman. Note that Postman collections are diff
 
 Once imported, you can select the collection in the left pane, and select the environment in the top right corner of postman.
 
-Update the environment details, with _client-id_ and the _private-key_ corresponding to the TPP client certificate for message encrytion.
+Update the environment details, with _client-id_ and the _private-key_ corresponding to the TPP client certificate for message encrytion. The private key has a signature usage, it will be used to sign messages and JWT.
 
 ![payment-api-postman-environment](/Images/postman-environment.png)
 
