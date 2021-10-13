@@ -16,14 +16,15 @@ Each instance of Axway Open Banking solution has differents keys that are corres
 The ASPSP (Account Servicing Payment Service Provider, the bank or similar institution) signing certificate must be added to the authorization server, to sign response messages.
 Here is the procedure to change it with the appropriate values:
 
-*1. Connect to the ACP Server and check the current authorization server signing certificate.*
+1. Connect to the ACP Server and check the current authorization server signing certificate.
 
 * Replace <ACP server interface> by your ACP server interface and connect to the following URL in your navigator :
    https://<ACP server interface>/app/default/admin/openbanking_brasil/workspaces/signing-keys
 * Connect with your user/admin password
 * Observe the current key in use is the default ASPSP signing certificate that you will change with this procedure.
  ![ACPSigningKey](/Images/ACPSigningKey.PNG)
-*2. Export the actual authorization server configuration with ACP API*
+   
+2. Export the actual authorization server configuration with ACP API
    * Navigate to the ACP swagger page. The previous step will keep your credentials logged in.
    Browse to the servers section, to *Get authorization server*
    https://<ACP server interface>/api/swagger/default/openbanking_brasil/#/servers/getAuthorizationServer
