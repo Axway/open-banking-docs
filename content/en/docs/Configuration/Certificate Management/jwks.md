@@ -34,13 +34,12 @@ Here is the procedure to change it with the appropriate values:
    * Execute the request
   
    ![GetAuthServer](/Images/GetAuthServer.PNG)
-  
    * Copy the response
  
 3. Convert the ASPSP certificate from PEM to JWK.
   
    You can use your own tools or find tools online to execute this operation.
-   
+  
 4. Modify the response obtained in step 2 to replace the signature entry by your ASPSP JWK certificate converted in step 3.
   
    Use the KID that comes from Central Directory
