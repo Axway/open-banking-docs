@@ -18,21 +18,21 @@ Here is the procedure to change it with the appropriate values:
 
 1. Connect to the ACP Server and check the current authorization server signing certificate.
 
-* Replace <ACP server interface> by your ACP server interface and connect to the following URL in your navigator :
-   https://<ACP server interface>/app/default/admin/openbanking_brasil/workspaces/signing-keys
-* Connect with your user/admin password
-* Observe the current key in use is the default ASPSP signing certificate that you will change with this procedure.
- ![ACPSigningKey](/Images/ACPSigningKey.PNG)
+   * Replace <ACP server interface> by your ACP server interface and connect to the following URL in your navigator :
+      https://<ACP server interface>/app/default/admin/openbanking_brasil/workspaces/signing-keys
+   * Connect with your user/admin password
+   * Observe the current key in use is the default ASPSP signing certificate that you will change with this procedure.
+    ![ACPSigningKey](/Images/ACPSigningKey.PNG)
    
 2. Export the actual authorization server configuration with ACP API
    * Navigate to the ACP swagger page. The previous step will keep your credentials logged in.
    Browse to the servers section, to *Get authorization server*
    https://<ACP server interface>/api/swagger/default/openbanking_brasil/#/servers/getAuthorizationServer
-* Click *Try it out*
-* Replace with your tid (tenant id) and aid (authorization server id). In Open Banking Brasil, *tid* is *default* and *aid* is *openbanking_brasil*
-* Execute the request
-![GetAuthServer](/Images/GetAuthServer.PNG)
-* Copy the response
+   * Click *Try it out*
+   * Replace with your tid (tenant id) and aid (authorization server id). In Open Banking Brasil, *tid* is *default* and *aid* is *openbanking_brasil*
+   * Execute the request
+   ![GetAuthServer](/Images/GetAuthServer.PNG)
+   * Copy the response
  
 3. Convert the ASPSP certificate from PEM to JWK
    You can use your own tools or find tools online to execute this operation.
@@ -41,14 +41,14 @@ Here is the procedure to change it with the appropriate values:
    Use the KID that comes from Central Directory
    
 5. Upload the configuration to the authorization server
-* Go back to the swagger page, to the section *Update authorization server*
-   https://<ACP server interface>/api/swagger/default/openbanking_brasil/#/servers/updateAuthorizationServer
-* Click *Try it out*
-* Replace with your tid (tenant id) and aid (authorization server id). In Open Banking Brasil, *tid* is *default* and *aid* is *openbanking_brasil*
-* Paste the response of the previous step 3 with the new signing certificate in the body 
-* Execute the request   
-![PutAuthServer](/Images/PutAuthServer.PNG)
-   
+   * Go back to the swagger page, to the section *Update authorization server*
+      https://<ACP server interface>/api/swagger/default/openbanking_brasil/#/servers/updateAuthorizationServer
+   * Click *Try it out*
+   * Replace with your tid (tenant id) and aid (authorization server id). In Open Banking Brasil, *tid* is *default* and *aid* is *openbanking_brasil*
+   * Paste the response of the previous step 3 with the new signing certificate in the body 
+   * Execute the request   
+   ![PutAuthServer](/Images/PutAuthServer.PNG)
+
 6. Validate the procedure
    * Refresh the ACP interface and you will see that your ASPSP signature key has been modified
 
