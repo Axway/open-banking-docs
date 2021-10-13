@@ -31,7 +31,9 @@ Here is the procedure to change it with the appropriate values:
    * Click *Try it out*
    * Replace with your tid (tenant id) and aid (authorization server id). In Open Banking Brasil, tid is *default* and aid is *openbanking_brasil*
    * Execute the request
+  
    ![GetAuthServer](/Images/GetAuthServer.PNG)
+  
    * Copy the response
  
 3. Convert the ASPSP certificate from PEM to JWK.
@@ -48,7 +50,8 @@ Here is the procedure to change it with the appropriate values:
    * Click *Try it out*
    * Replace with your tid (tenant id) and aid (authorization server id). In Open Banking Brasil, tid is *default* and aid is *openbanking_brasil*
    * Paste the response of the previous step 3 with the new signing certificate in the body 
-   * Execute the request   
+   * Execute the request
+  
    ![PutAuthServer](/Images/PutAuthServer.PNG)
 
 6. Validate the procedure
@@ -61,6 +64,7 @@ Here is the procedure to change it with the appropriate values:
 The TPP (Third Party Provider) signing certificates are located in ACP configuration.
 Connect to the ACP Interface, and navigate to your workspace (openbanking Brasil for Brasil specifications), application and click on the application name of the desired TPP
 The signing certificate is located in the OAuth tab, under client authentication, as a JSON Web Key Set. You can modify it here, then click *Save changes*
+  
 ![TPPSignatureKey](/Images/TPPSignatureKey.PNG)
    
    
