@@ -34,8 +34,7 @@ Here is the procedure to change it with the appropriate values:
    * Execute the request
   ![GetAuthServer](/Images/GetAuthServer.PNG)
    * Copy the response
-3. Convert the ASPSP certificate from PEM to JWK.
-  
+3. Convert the ASPSP certificate from PEM to JWK.  
    You can use your own tools or find tools online to execute this operation.
   
 4. Modify the response obtained in step 2 to replace the signature entry by your ASPSP JWK certificate converted in step 3.
@@ -47,10 +46,9 @@ Here is the procedure to change it with the appropriate values:
    * Click *Try it out*
    * Replace with your tid (tenant id) and aid (authorization server id). In Open Banking Brasil, tid is *default* and aid is *openbanking_brasil*
    * Paste the response of the previous step 3 with the new signing certificate in the body 
-   * Execute the request
-  
+   * Execute the request 
    ![PutAuthServer](/Images/PutAuthServer.PNG)
-
+  
 6. Validate the procedure
    * Refresh the ACP interface and you will see that your ASPSP signature key has been modified
 
