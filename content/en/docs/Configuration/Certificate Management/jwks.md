@@ -22,6 +22,7 @@ Here is the procedure to change it with the appropriate values:
       https://<ACP server interface>/app/default/admin/openbanking_brasil/workspaces/signing-keys
    * Connect with your user/admin password
    * Observe the current key in use is the default ASPSP signing certificate that you will change with this procedure.
+  
     ![ACPSigningKey](/Images/ACPSigningKey.PNG)
    
 2. Export the actual authorization server configuration with ACP API
