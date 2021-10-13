@@ -60,8 +60,8 @@ Here is the procedure to change it with the appropriate values:
   
 The TPP (Third Party Provider) signing certificates are located in ACP configuration.
 Connect to the ACP Interface, navigate to your workspace (openbanking Brasil for Brasil specifications), and click on application. Click on the application name of the desired TPP.
-The signing certificate is located in the OAuth tab, under client authentication, as a JSON Web Key Set. You can modify it here and then click *Save changes*
+The signing certificate is located in the OAuth tab, under client authentication, as a JSON Web Key Set. You can modify it here.
   
 ![TPPSignatureKey](/Images/TPPSignatureKey.PNG)
    
-   
+Then click *Save changes*
