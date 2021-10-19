@@ -6,13 +6,10 @@ weight: 1
 date: 2021-09-02
 ---
 
-Axway Open Banking solution comes with Postman collections for most Open Banking APIs that enables solution testing and validation.
-
-Admins or TPP Developer can test and validate their access to APIs by using Postman. Having these tests successfull helps to make sur all components of the solution is correctly integrated to the bank system.
+Axway Open Banking solution includes Postman collections for Open Banking APIs. The Postman collections are available for download through the developer portal. 
+Each collection includes a script that simulates a sequence of API calls to verify Open Banking API specification compliance. For example,  Accounts or Payments collections includes the sequence of user authentication, user consent and calls to methods of Accounts API or the Payments API. Successful execution of the Postman collection validates the installation of the solution and Open Banking API specification compliance. Postman collections help Third Party Providers to learn how to use the APIs. 
 
 ## Retrieve the Postman files
-
-First they should retrieve the "Postman Collection" and "Postman Environment"
 
 1. Go to the API Portal and click the "Explore APIs" button to access the API Catalog
 2. Browse to the API you'd like to test and click the "Learn More" button
@@ -20,23 +17,23 @@ First they should retrieve the "Postman Collection" and "Postman Environment"
 
 ## Import collection into Postman
 
-Import the 2 files together into Postman. Note that Postman collections are different for each API while environment file is unique by environment. You might import several API collections together with the environment file.
+Import the 2 or more collection files together into Postman. Each API has its own Postman collection. The environment file is unique for the solution environment. The environment file configurations contain parameters like solution hostnames and parameters that are used to call the APIs offered in the solution
 
 ![payment-api-postman-file-import](/Images/postman-import.png)
 
-Once imported, you can select the collection in the left pane, and select the environment in the top right corner of postman.
+Once imported, select the collection in the left pane, and select the environment in the top right corner of postman.
 
-Update the environment details, with _client-id_ and the _private-key_ corresponding to the TPP client certificate for message encrytion. The private key has a signature usage, it will be used to sign messages and JWT.
+Update the environment details, with _client-id_ and the _private-key_ corresponding to the TPP client certificate for message encrytion. The private key has a signature usage, it is used to sign messages and JWT.
 
 ![payment-api-postman-environment](/Images/postman-environment.png)
 
-For the Payment API, modify the following parameters with your information : 
+For the Payment API, modify the following parameters that correspond to the solution environment installation : 
 
-* _organizationId_ : the Account Service Payment Service Provider (ASPSP)
+* _organizationId_ : the Account Service Payment Service Provider (ASPSP). This identifier corresponds to the bank's identifier in the central bank's registry.
 
-* _date_ : payment consent information for the payment initiation
+* _date_ : date the payment consent is valid for the payment initiation
 
-* _cnpj_ : CNPJ (Brazilian National Registry of Legal Entities) of the payment initiator
+* _cnpj_ : CNPJ (Brazilian National Registry of Legal Entities) of the payment initiator ( in the other words the entity or the person who inititates the payment).
 
 ## Postman Settings
 
@@ -60,9 +57,9 @@ Use the cog button to open Settings:
 
 ## Test the API collection
 
-Simply follow the collection step-by-step flow that is different for each API. Details may be provided in the API collection method description.
+Follow the collection flow step-by-step for each of the APIs. 
 
-Some API would require to get a consent (account, credit card, payment, etc.) before actually using the API main methods. This would required to copy/paste some values between your browser and postman.
+Some API would requires user consent (account, credit card, payment, etc.). For APIs that require consent, consent data or urls are copied from the browser and pasted into the Postman collections steps.
 
 ## Examples
 
@@ -76,94 +73,94 @@ Click on the API to see details. Download the Postman collection and environment
 
 ![accounts-api-postman-file-download](/Images/accounts-api-postman-file-download.png)
 
-Note that the environment file is the same for all API from this Developer Portal.
+The environment file is the same for all APIs.
 
 Open Postman and import the Postman files :
 
-* just the collection if you already have the environment file from another API
-* both the collection and the environment file if you didn't import the environment file from another API
+* the collection file if the environment file is imported from another API
+* both the collection and the environment files if the environment file is not yet imported from another API
 
 ![accounts-api-postman-file-import](/Images/accounts-api-postman-file-import.png)
 
-Select Step 0 and click _Send_. Make sure you get a "200 OK" return code. This step is required only once by environment. This will set a global variable that is useful for next steps.
+Select Step 0 and click _Send_ to get a "200 OK" response code. This step is required only once for the environment. This sets a global variable that is useful for next steps in the sequence.
 
 ![accounts-api-postman-step0](/Images/accounts-api-postman-step0.png)
 
 Select Step 1 and mouse-over on `{{client-id}}` variable in the request body to make sure the current value is correct. If not, change it from the environement details (Use the _Eye_ icon on th top left corner and _Edit_ button) 
 
-Click _Send_ to get Client Credentials Grant for accounts. Make sure you get a "200 OK" return code and the response body includes an _access\_token_
+Click _Send_ to get Client Credentials Grant for accounts to get a "200 OK" response code and the response body with the _access\_token_
 
 ![accounts-api-postman-step1](/Images/accounts-api-postman-step1.png)
 
-Select Step 2 and check the request body corresponds to the permissions you need. 
+Select Step 2 and check the request body corresponds to the required permissions. 
 
-Click _Send_ to create the consent request. Make sure you get a "201 Created" return code and the response body includes a _consentId_
+Click _Send_ to create the consent request to get "201 Created" response code and the response body with _consentId_
 
 ![accounts-api-postman-step2](/Images/accounts-api-postman-step2.png)
 
 The Step 3 is about signing the payload with the client private key. In real life, this step would be done on the client side only.
 
-Mouse-over on `{{jwe-server}}` variable in the request URL to make sure the current value is match a existing JWE-generator service. If not, you can change the variable from the environement details (Use the _Eye_ icon on th top left corner and _Edit_ button).
+Mouse-over on `{{jwe-server}}` variable in the request URL to check if the current value matches an existing JWE-generator service.
 
-> **Warning**: in this step the private key will be sent to the signing service. Please only use test/development keys.
+> **Warning**: in this step the private key is sent to the signing service. Please use test/development keys only.
 
-Click _Send_ to create the consent request. Make sure you get a "201 Created" return code and the response body includes a _consentId_
+Click _Send_ to create the consent request to get "201 Created" as response code and the response body includes a _consentId_ value.
 
-Alternatively, you can skip this step and directly set the `{{jwe_request}}` variable with the signed payload required for Step 4.
+Alternatively, skip this step and directly set the `{{jwe_request}}` variable with the signed payload required for Step 4.
 
 ![accounts-api-postman-step3](/Images/accounts-api-postman-step3.png)
 
-Select Step 4 and mouse-over on `{{jwe_request}}` variable in the request body to make sure the current value is set.
+Select Step 4 and mouse-over on `{{jwe_request}}` variable in the request body to verify the current value is set.
 
-Click _Send_ to create the consent request. Make sure you get a "302 Found" return code and the link to the consent login page.
+Click _Send_ to create the consent request to get a "302 Found" response code and the link to the consent login page.
 
 ![accounts-api-postman-step4](/Images/accounts-api-postman-step4.png)
 
-Open the link in your browser and login with an authorized user. The login page depends on your Authorization server configuration.
+Open the link in your browser and login with an authorized user. The login page depends on the Authorization server configuration.
 
 ![accounts-api-postman-step4-login](/Images/accounts-api-postman-step4-login.png)
 
-Select the bank accounts that the user would consent to share with the TPP client app, and confirm. The consent page depends on your Authorization server configuration.
+Select the bank accounts that the correspond to the user consent, and confirm. The consent page depends on the Authorization server configuration.
 
 ![accounts-api-postman-step4-consent](/Images/accounts-api-postman-step4-consent.png)
 
-The redirect URL of the TPP client app should include `https://oauth.pstmn.io/v1/callback` so that you get a link back to Postman with the authorization code to use for the next step. Copy this code from the redirected URL.
+The redirect URL of the TPP client app should include `https://oauth.pstmn.io/v1/callback` and the link back to Postman with the authorization code to use for the next step. Copy this code from the redirected URL.
 
 ![accounts-api-postman-step4-copy-code](/Images/accounts-api-postman-step4-copy-code.png)
 
 Select Step 5 and paste the code in the `code` value of the request body form.
 
-Click _Send_ to create the account access token. Make sure you get a "200 OK" return code and the response body includes an _access\_token_
+Click _Send_ to create the account access token to get a "200 OK" response code and the response body includes an _access\_token_ value.
 
 ![accounts-api-postman-step5](/Images/accounts-api-postman-step5.png)
 
-Select "GET accounts" method if you want to test getting all consented accounts.
+Select "GET accounts" method to verify access to all accounts with user consents.
 
-Click _Send_ to get the accounts. Make sure you get a "200 OK" return code and the response body includes the list of consented accounts.
+Click _Send_ to get the accounts to get a "200 OK" response code and the response body includes the list of accounts with user consent.
 
 ![accounts-api-postman-get-all](/Images/accounts-api-postman-get-all.png)
 
-Select "GET account by accountId" method if you want to test getting a specific account. Mouse-over on `{{accountId}}` variable in the request URL to make sure the current value match the account you'd like to retrieve.
+Select "GET account by accountId" method to verify acess to a specific account. Mouse-over on `{{accountId}}` variable in the request URL to make sure the current value matches the account information.
 
-Click _Send_ to get the account. Make sure you get a "200 OK" return code and the response body includes the details of the requested account.
+Click _Send_ to get the account to get a "200 OK" response code and the response body includes the details of the requested account.
 
 ![accounts-api-postman-get-account](/Images/accounts-api-postman-get-account.png)
 
-Select "GET balances by accountId" method if you want to test getting balances of a specific account. Mouse-over on `{{accountId}}` variable in the request URL to make sure the current value match the account you'd like to retrieve.
+Select "GET balances by accountId" method to test the access to balances of a specific account. Mouse-over on `{{accountId}}` variable in the request URL to make sure the current value matches the account information.
 
 Click _Send_ to get the account balances. Make sure you get a "200 OK" return code and the response body includes the balances of the requested account.
 
 ![accounts-api-postman-get-balance](/Images/accounts-api-postman-get-balance.png)
 
-Select "GET overdraft limits by AccountId" method if you want to test getting overdraft limits of a specific account. Mouse-over on `{{accountId}}` variable in the request URL to make sure the current value match the account you'd like to retrieve.
+Select "GET overdraft limits by AccountId" method to test access overdraft limits of a specific account. Mouse-over on `{{accountId}}` variable in the request URL to verify if the current value matches the account information.
 
 Click _Send_ to get the account overdraft limits. Make sure you get a "200 OK" return code and the response body includes the overdraft limits of the requested account.
 
 ![accounts-api-postman-get-overdraft-limits](/Images/accounts-api-postman-get-overdraft-limits.png)
 
-Select "GET transactions by accountId" method if you want to test getting the transactions list of a specific account. Mouse-over on `{{accountId}}` variable in the request URL to make sure the current value match the account you'd like to retrieve.
+Select "GET transactions by accountId" method to verify the transactions list of a specific account. Mouse-over on `{{accountId}}` variable in the request URL to verify if the current value matches the account information.
 
-Click _Send_ to get the account transactions. Make sure you get a "200 OK" return code and the response body includes the transactions list of the requested account.
+Click _Send_ to get the account transactions to get a "200 OK" response code and the response body includes the transactions list of the requested account.
 
 ![accounts-api-postman-get-transactions](/Images/accounts-api-postman-get-transactions.png)
 
@@ -181,8 +178,8 @@ Note that the environment file is the same for all API from this Developer Porta
 
 Open Postman and import the Postman files :
 
-* just the collection if you already have the environment file from another API
-* both the collection and the environment file if you didn't import the environment file from another API
+* the collection file if the environment file is imported from another API
+* both the collection and the environment file if the environment file is imported from another API
 
 ![payment-api-postman-file-import](/Images/payment-api-postman-file-import.png)
 
