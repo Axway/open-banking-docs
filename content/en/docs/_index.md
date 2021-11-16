@@ -23,4 +23,8 @@ Axway Open Banking provides a way to significantly accelerate open banking adopt
 
 Axway has been helping banks solve their biggest challenges for over 20 years. That’s why 60% of the top 25 global banks trust Axway. Our Axway Open Banking platform speeds the adoption of regulatory standards while enabling financial institutions to rapidly extend into new markets with customer-driven products and services and expand their ecosystem with a compelling developer portal experience.
 
-Axway Open Banking therefore allows you can help ensure the digital capabilities you need to be successful in the open banking marketplace. As open banking drives banks to expose their capabilities as APIs, they naturally move towards becoming platforms. This puts each bank at the center of its own ecosystem, as it aims to drive platform adoption on all sides of the value chain. 
+Axway Open Banking therefore allows you can help ensure the digital capabilities you need to be successful in the open banking marketplace. As open banking drives banks to expose their capabilities as APIs, they naturally move towards becoming platforms. This puts each bank at the center of its own ecosystem, as it aims to drive platform adoption on all sides of the value chain.
+
+## Contribute to Axway Open Banking documentation
+
+Axway Open Banking documentation is written in Markdown format and is available in a [public GitHub repository](https://github.com/Axway/open-banking-docs) to enable collaboration using an open source model. For more information, see [how to contribute to Axway Open Docs](/docs/contribution_guidelines/).
