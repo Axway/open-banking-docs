@@ -101,7 +101,7 @@ It is also highly recommanded to use [External-DNS](https://github.com/bitnami/c
 
 In case `external-dns` is not available in the cluster, a manual configuration of the ingress hosts is required in your DNS zone. Also remove the cert-manager annotation in all ingress hosts.
 
-## Cloud deployment recommandations
+## Cloud deployment recommendations
 
 This section provides additional information for customers who are targeting a cloud-based solution and require guidance on the components required from their cloud provider of choice, including:
 

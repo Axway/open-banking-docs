@@ -17,10 +17,10 @@ To summarize the steps shown below:
 * The Authentication Request is then sent to the Authorization Server. An identifier is returned to the Third-Party App in the property `auth_req_id`.
 * The authentication and consent confirmation workflow then takes place. The Customer is contacted using their preferred channel, authenticates and then confirms consent and selects the payment account.
 * Once authentication and consent confirmation is complete the Third-Party App receives notification based on their registered preferences.
-* The Third-Party App then sends the payment instruction to initiate payment from the Customers account.
+* The Third-Party App then sends the payment instruction to initiate payment from the Customer's account.
 
-Note that the flow following the receipt of the Authentication Request shows a hypothetical approach to completing the authentication and consent confirmation workflow. The specifics of how this is implemented is dependent on your architecture and customer channels that can support contacting the customer out-of-band. Bear in mind that channels that do not come from a known, secure context - for example, emails and text messages that simply send a link - may be construed as phishing attempts and therefore lead to low payment completion rates.
+Note that the flow following the receipt of the Authentication Request shows a hypothetical approach to completing the authentication and consent confirmation workflow. The specifics of how this is implemented is dependent on your architecture and customer channels that can support contacting the customer out-of-band. Channels that do not come from a known, secure context (for example, emails and text messages that simply send a link) may be construed as phishing attempts and therefore lead to low payment completion rates.
 
-> **The diagram is provided for guidance and education. The authentication and consent confirmation flows will vary depending on the architecture, components and available communication channels of the target platform and must be considered on a case-by-case basis.**
+{{% alert title="Note" color="primary" %}} **The diagram is provided for guidance and education. The authentication and consent confirmation flows will vary depending on the architecture, components and available communication channels of the target platform and must be considered on a case-by-case basis.**{{% /alert %}}
 
 {{< readfile file="/static/Images/CIBA_Example_Sequence.svg" >}}
