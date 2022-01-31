@@ -6,30 +6,30 @@ description: Installing Backend services for the Axway Open Banking solution
 ---
 
 
-## Download Helm chart
+## Download the Backend Services Helm chart
 
-Download Axway Open Banking Backend Services Helm chart to customize it locally
+Download the Axway Open Banking Backend Services Helm chart to customize it locally.
 
 ```bash
 helm pull axway-open-banking/open-banking-backend-chart --untar
 ```
 
-You should get a `open-banking-backend-chart` local folder.
+You should get an `open-banking-backend-chart` local folder.
 
-## Customize Backend Services  Helm chart
+## Customize the Backend Services Helm chart
 
-Customize the `open-banking-backend-chart/values.yaml` file as follow
+Customize the `open-banking-backend-chart/values.yaml` file as follows.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
 | global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
-| mysqldb.dbname | Mock backend database name |  _medicimockbackend_ |
-| mysqldb.dbuser | Mock backend database username |  _mockbank_ |
-| secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password | _Ch@ng3M3!_ |
-| secrets.MYSQL_USER_PASSWORD | Mock backend database user password | _Ch@ng3M3!_ |
+| mysqldb.dbname | Mock backend database name. |  _medicimockbackend_ |
+| mysqldb.dbuser | Mock backend database username. |  _mockbank_ |
+| secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password. | _Ch@ng3M3!_ |
+| secrets.MYSQL_USER_PASSWORD | Mock backend database user password. | _Ch@ng3M3!_ |
 
-## Install Backend Services Helm chart
+## Install the Backend Services Helm chart
 
 Create the target namespace on the cluster:
 
@@ -37,13 +37,13 @@ Create the target namespace on the cluster:
 kubectl create namespace open-banking-backend
 ```
 
-Install the helm chart:
+Install the Backend Services Helm chart:
 
 ```bash
 helm install backend-services open-banking-backend-chart -n open-banking-backend
 ```
 
-Check that the status of the helm command is deployed:
+Check that the status of the Helm command is deployed:
 
 ```
     NAME: backend-services
@@ -62,7 +62,7 @@ Wait a few minutes and use the following commands to check the status of the dep
 kubectl get pods -n open-banking-backend
 ```
 
-Verify that :
+Verify that:
 
 * **pods** with name mysqldb-xxx-xx and those name after the api names are all **Running** and Restart is **0**.
 

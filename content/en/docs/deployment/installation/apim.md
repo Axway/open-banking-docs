@@ -207,19 +207,19 @@ Refer to [Amplify Agents](/docs/configuration/amplify-agents) to connect the Amp
 
 To install the APIM Helm chart:
 
-1. Create the target namespace on the cluster:
+Create the target namespace on the cluster:
 
 ```bash
 kubectl create namespace open-banking-apim
 ```
 
-2. Install the APIM helm charts:
+Install the APIM helm charts:
 
 ```bash
 helm install apim open-banking-apim -n open-banking-apim
 ```
 
-3. Check that the status of the helm command is deployed:
+Check that the status of the helm command is deployed:
 
 ```console
    NAME: apim 
@@ -231,6 +231,8 @@ helm install apim open-banking-apim -n open-banking-apim
 ```
 
 ### Verifications
+
+Complete the following tasks to verify the APIM Helm chart.
 
 Wait a few minutes and use the following commands to check the deployment status.
 
@@ -303,7 +305,7 @@ Customize the `open-banking-apim-config/values.yaml` file as follows.
 
 ## Install the APIM configuration Helm chart
 
-Install the APIM config helm chart:
+Run the following command to install the APIM config helm chart:
 
 ```bash
 helm install apim-config open-banking-apim-config -n open-banking-apim
@@ -322,7 +324,7 @@ Check that the status of the helm command is deployed:
 
 ### Verifications
 
-Complete the following steps to verify the APIM configuration Helm chart installation.
+Complete the following tasks to verify the APIM configuration Helm chart installation.
 
 Wait a few minutes and use the following commands to check the status of the deployment.
 
@@ -332,7 +334,7 @@ kubectl get pods -n open-banking-apim
 
 Verify that :
 
-* **jobs** with name import-api-27983c3f-xxx  are **Completed** :
+* **jobs** with name import-api-27983c3f-xxx  are **Completed**:
 
    ```
    NAME                                 READY   STATUS      RESTARTS 
@@ -346,9 +348,9 @@ Verify that :
    traffic-5d986c7d55-cv6dv             1/1     Running     0
    ```
 
-Check the following User Interfaces:
+Check the following user interfaces:
 
-* **API Manager** `https://api-manager.<domain-name>` :
+* **API Manager** `https://api-manager.<domain-name>`:
 
     * Refresh or login again
     * Make sure that Open Banking APIs are in the API Catalog
@@ -356,15 +358,15 @@ Check the following User Interfaces:
 
 ## Post Deployment
 
-Once APIM helm charts and Cloud Entity Helm chart are deployed, update the KPS configuration as follow to integrate the component together.
+Once the APIM and [Cloud Entity](/docs/deployment/installation/cloudentity) Helm charts are deployed, update the KPS configuration as follows to integrate the components together.
 
 ### Update KPS configuration
 
-You need to import some configurations in th Key Properties Store. They are used in policies for consent flows.
+You need to import some configurations in the Key Properties Store (KPS). They are used in policies for consent flows.
 
-To change the KPS
+To change the KPS:
 
-* The organization ID is different for each bank, please modify the helm chart file `open-banking-apim-config/files/kps/kpsConfig1.json` to change the organizationId with your own bank/PSPSP ID.
+* The organization ID is different for each bank. Modify the Helm chart file `open-banking-apim-config/files/kps/kpsConfig1.json` to change the organizationId with your own bank/PSPSP ID.
 
 * Execute the following command:
 
@@ -388,6 +390,6 @@ awk  -F '\t' '{ \
 
 Verify the insertion in the KPS table:
 
-* Login the API Gateway Manager UI and go on Settings > Key Property Stores
-* Click on AMPLIFY/Configuration
-* Check the column **k_values** that isn't empty. Click on it to check details
+* Log into the API Gateway Manager UI and go on Settings - Key Property Stores.
+* Click on AMPLIFY/Configuration.
+* Check the column **k_values** that is not empty. Click on it to check the details.

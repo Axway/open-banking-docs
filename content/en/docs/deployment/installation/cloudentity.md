@@ -6,32 +6,32 @@ description: Installing Cloud Entity for the Axway Open Banking solution
 ---
 
 
-## Download Helm charts
+## Download the Cloud Entity Helm charts
 
-Download Axway Open Banking Cloud Entity Helm charts to customize them locally
+Download the Axway Open Banking Cloud Entity Helm charts to customize them locally.
 
 ```bash
 helm pull axway-open-banking/open-banking-acp --untar
 helm pull axway-open-banking/open-banking-consent --untar
 ```
 
-You should get open-banking-acp and open-banking-consent local folders.
+You should get an `open-banking-acp` and `open-banking-consent` local folders.
 
-## Customize ACP Helm chart
+## Customize the ACP Helm chart
 
-Find the namespace of the cert-manager component
+Find the namespace of the cert-manager component.
 
 ```bash
 kubectl get pods -A | grep cert-manager | awk '{print $1}' | uniq
 ```
 
-Modify the `open-banking-acp/values.yaml` file from Axway package.
+Modify the `open-banking-acp/values.yaml` file from the Axway package.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| cert.internal.certManager | Define if cert-manager is used internaly. <br>False is currently not supported | true |
+| cert.internal.certManager | Define if cert-manager is used internaly. <br>False is currently not supported. | true |
 | cert.internal.certManagerNamespace | Namespace where is installed cert-manager. Use the result of the previous command. | None |
-| cert.ingress.certManager | Define if cert-manager is used externaly. <br>If set to false, define cert and keys with values below | true |
+| cert.ingress.certManager | Define if cert-manager is used externaly. <br>If set to false, define cert and keys with values below. | true |
 | cert.ingress.cert | Use specific cert. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 | cert.ingress.key | Use specific key. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 
@@ -44,33 +44,33 @@ Update the `open-banking-acp/files/acp.values.yaml`  with all environment variab
 | acp.ingress.hosts.host | ACP server URL | None |
 | acp.ingress.annotations.honginx.ingress.kubernetes.io/proxy-ssl-secretst | set to \<NAMESPACE>/acp-tls | open-banking-acp/acp-tls |
 
-Remove the following lines if cert-manager not used for ingress:
+Remove the following lines if cert-manager is not used for ingress:
 
 ```yaml
 cert-manager.io/cluster-issuer: letsencrypt-prod (l22)
 cert-manager.io/acme-challenge-type: http01 (l23)
 ```
 
-## Customize Open Banking Consent Helm chart
+## Customize the Open Banking Consent Helm chart
 
 Modify the `open-banking-consent/values.yaml` file:
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| cert.internal.certManager | Define if cert-manager is used internaly.<br>False is currently not supported | true |
-| cert.internal.certManagerNamespace | Namespace where is installed cert-manager. Use the result of the previous command. | None |
-| cert.ingress.certManager | Define if cert-manager is used externaly.<br>If set to false, define cert and keys with values below | true |
-| cert.ingress.wildcard | Define wether the same wildcard certificate is used externaly fro all ingress.<br>If set to true, define wilcard certificate and its key with cert.ingress.cert/key below<br>If set to false, define custom certificate and keys with cert.ingress.\<component>.cert/key below | true |
-| cert.ingress.cert | Use specific wildcard certificate. Must be defined only if certManager is set to false. | None |
-| cert.ingress.key | Use specific wildcard key. Must be defined only if certManager is set to false. | None |
-| cert.ingress.consentAdmin.cert | Use dedicated certificate. Must be defined only if certManager and wildcard are set to false. | None |
-| cert.ingress.consentAdmin.key | Use dedicated key. Must be defined only if certManager and wildcard are set to false. | None |
-| cert.ingress.consentPage.cert | Use dedicated certificate. Must be defined only if certManager and wildcard are set to false. | None |
-| cert.ingress.consentPage.key | Use dedicated key. Must be defined only if certManager and wildcard are set to false. | None |
-| cert.ingress.consentSS.cert | Use dedicated certificate. Must be defined only if certManager and wildcard are set to false. | None |
-| cert.ingress.consentSS.key | Use dedicated key. Must be defined only if certManager and wildcard are set to false. | None |
-| cert.ingress.financroo.cert | Use dedicated certificate. Must be defined only if certManager and wildcard are set to false. | None |
-| cert.ingress.financroo.key | Use dedicated key. Must be defined only if certManager and wildcard are set to false. | None |
+| cert.internal.certManager | Define if cert-manager is used internally.<br>False is currently not supported. | true |
+| cert.internal.certManagerNamespace | Namespace where cert-manager is installed. Use the result of the previous command. | None |
+| cert.ingress.certManager | Define if cert-manager is used externally.<br>If set to false, define cert and keys with values below. | true |
+| cert.ingress.wildcard | Define whether the same wildcard certificate is used externally for all ingress.<br>If set to true, define widcard certificate and its key with cert.ingress.cert/key below<br>If set to false, define custom certificate and keys with cert.ingress.\<component>.cert/key below | true |
+| cert.ingress.cert | Use a specific wildcard certificate. Must be defined only if certManager is set to false. | None |
+| cert.ingress.key | Use a specific wildcard key. Must be defined only if certManager is set to false. | None |
+| cert.ingress.consentAdmin.cert | Use a dedicated certificate. Must be defined only if certManager and wildcard are set to false. | None |
+| cert.ingress.consentAdmin.key | Use a dedicated key. Must be defined only if certManager and wildcard are set to false. | None |
+| cert.ingress.consentPage.cert | Use a dedicated certificate. Must be defined only if certManager and wildcard are set to false. | None |
+| cert.ingress.consentPage.key | Use a dedicated key. Must be defined only if certManager and wildcard are set to false. | None |
+| cert.ingress.consentSS.cert | Use a dedicated certificate. Must be defined only if certManager and wildcard are set to false. | None |
+| cert.ingress.consentSS.key | Use a dedicated key. Must be defined only if certManager and wildcard are set to false. | None |
+| cert.ingress.financroo.cert | Use a dedicated certificate. Must be defined only if certManager and wildcard are set to false. | None |
+| cert.ingress.financroo.key | Use a dedicated key. Must be defined only if certManager and wildcard are set to false. | None |
 
 Update the `open-banking-consent/files/consent.values.yaml` file:
 
