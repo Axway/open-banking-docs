@@ -2,7 +2,7 @@
 title: "Developer Portal Installation"
 linkTitle: "Developer Portal"
 weight: 2
-description: Installing Developer Portal of the Axway Open Banking solution
+description: Installing the Developer Portal for the Axway Open Banking solution
 ---
 
 

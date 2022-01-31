@@ -2,7 +2,7 @@
 title: "Cloud Entity Installation"
 linkTitle: "Cloud Entity"
 weight: 7
-description: Installing Cloud Entity for Axway Open Banking solution
+description: Installing Cloud Entity for the Axway Open Banking solution
 ---
 
 

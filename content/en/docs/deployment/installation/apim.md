@@ -1,14 +1,14 @@
 ---
 title: "APIM Management Installation"
-linkTitle: "APIM"
+linkTitle: "API Management"
 weight: 1
-description: Installing APIM component of the Axway Open Banking solution
+description: Installing API Management for the Axway Open Banking solution
 ---
 
 
-## Download Helm chart
+## Download the API Management (APIM) Helm chart
 
-Download Axway Open Banking APIM Helm charts to customize them locally
+Download Axway Open Banking API Management (APIM) Helm charts to customize them locally.
 
 ```bash
 helm pull axway-open-banking/open-banking-apim --untar
@@ -17,9 +17,9 @@ helm pull axway-open-banking/open-banking-apim-config --untar
 
 You should get `open-banking-apim` and `open-banking-apim-config` local folders.
 
-## Customize APIM Helm chart
+## Customize the APIM Helm chart
 
-Customize the `open-banking-apim/values.yaml` file as follow
+Customize the `open-banking-apim/values.yaml` file as follow.
 
 ### Base parameters
 
@@ -27,15 +27,15 @@ The following parameters are required for any deployment.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| global.platform | select the platform to configure appropriate objects (like storage for RWM).<br>Possible values are AWS, AZURE, MINIKUBE | None |
+| global.platform | Select the platform to configure appropriate objects (like storage for RWM).<br>Possible values are AWS, AZURE, MINIKUBE. | None |
 | global.domainName | set the domainname for all ingress. | None |
-| global.env | Set the default environment | dev |
-| global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
-| global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
-| global.smtpServer.host | Smtp server host | None |
-| global.smtpServer.port | Smtp server port | None |
-| global.smtpServer.username | Smtp server username | None |
-| global.smtpServer.password | Smtp server password | None |
+| global.env | Set the default environment. | dev |
+| global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
+| global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
+| global.smtpServer.host | Smtp server host. | None |
+| global.smtpServer.port | Smtp server port. | None |
+| global.smtpServer.username | Smtp server username. | None |
+| global.smtpServer.password | Smtp server password. | None |
 
 <!--
 TODO:
@@ -49,19 +49,19 @@ Add apimgr  user and password change option. once https://jira.axway.com/browse/
 | apimgr.admin.password | API Manager admin password | apiAdminPwd! |
 -->
 
-With these base parameters set, you can already install the helm chart : [Install APIM Helm chart](#install-apim-helm-chart)
+With these base parameters set, you can install the helm chart. See [Install APIM Helm chart](#install-apim-helm-chart).
 
-This deployment will use cert-manager and let's encrypt issuer to provide certificates. This requires to have an ingress controller (nginx) that listen on a public IP.
+This deployment will use cert-manager and let's encrypt issuer to provide certificates. This requires an ingress controller (nginx) that listen on a public IP.
 
-You can also customize further the chart values with the following sub-sections.
+You can also customize the chart values with the following sub-sections.
 
-### Product licence
+### Product license
 
 A temporary license file is embedded in the default docker image.
 
 This license key has a lifetime to 2 months maximum.
 
-This license is perfect for a demo or a POC but another License key must be added for real environments.
+This license is perfect for a demo or a proof of concept but another license key must be added for production environments.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
@@ -71,7 +71,7 @@ This license is perfect for a demo or a POC but another License key must be adde
 
 According to the reference architecture, the Cassandra database is external to the cluster. Change the following values according to the cassandra configuration.
 
-The helm chart is delivered with an internal cassandra database, that would work for non-procution environments. You can change this parameter to use an external one. It is required at least for production environments.
+The helm chart is delivered with an internal cassandra database, that would work for non-production environments. You can change this parameter to use an external one. It is required at least for production environments.
 
 ```yaml
 cassandra:
@@ -83,35 +83,35 @@ cassandra:
    host3: "cassandra"
 ```
 
-Please refer to the Axway documentation to configure and manage the Apache Cassandra database for API Gateway and API Manager: [Administer Apache Cassandra](https://docs.axway.com/bundle/axway-open-docs/page/docs/cass_admin/index.html)
+Refer to the [Administer Apache Cassandra](https://docs.axway.com/bundle/axway-open-docs/page/docs/cass_admin/index.html) in the API Management documentation to configure and manage the Apache Cassandra database for API Gateway and API Manager.
 
 ### Root CA for MTLS clients
 
-Optionnaly, you can add new root CA for MTLS ingress during the first deployment.
+Optionally, you can add new root CA for MTLS ingress during the first deployment.
 
 The mutual authentication is provided by Nginx. It requires a Kubernetes secret that contains all rootCA used for client certificates (used by TPPs).
 
-The differents root CA certificats must be concatenate and encoded in base64.
+The different root CA certificates must be concatenated and encoded in base64.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| apitraffic.ingressMtlsRootCa | all concatenate root CA encoded in base64 | yes |
+| apitraffic.ingressMtlsRootCa | all concatenatd root CA encoded in base64 | yes |
 
 ### Customize storage class
 
 Only if needed, you can change the storage class.
 
-The APIM deployment needs a storage class in Read/Write Many. A custom storage class can be setted if the cluster doesn't use the standard deployment for Azure, AWS or if the deployment is on a vanilla Kubernetes.
+The APIM deployment needs a storage class in Read/Write Many. A custom storage class can be set if the cluster does not use the standard deployment for Azure, AWS, or if the deployment is on a vanilla Kubernetes.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| Global.customStorageClass.scrwm | Allow to specify a storageclass to mount a “Read Write Many” volume on pod.<br>It’s used to share metrics between monitoring and analytics. | None |
+| Global.customStorageClass.scrwm | Allow to specify a storage class to mount a “Read Write Many” volume on pod.<br>It is used to share metrics between monitoring and analytics. | None |
 
 ### Specify a Wildcard certificate
 
-If you don't use cert-manager for your cluster, you can specify a unique certificate for all ingress of this chart.
+If you do not use cert-manager for your cluster, you can specify a unique certificate for all ingress of this chart.
 
-It's possible to use a custom wildcard certifcate. change values listed below. Note: the cert field must contains the full chain.
+It is possible to use a custom wildcard certificate by changing the values listed below. Make sure to provide the full chain of the certificate in the cert field.
 
 ```yaml
 global:
@@ -133,13 +133,13 @@ global:
          -----END RSA PRIVATE KEY-----
 ```
 
-Refer to [Certificate Management](/docs/configuration/certificate-management) for certficate configuration of the entire solution
+Refer to [Certificate Management](/docs/configuration/certificate-management) for configuring certificates for the entire solution.
 
 ### Specify different certificates
 
-If you don't use cert-manager for your cluster, you can specify a certificate for each ingress of this chart.
+If you do not use cert-manager for your cluster, you can specify a certificate for each ingress of this chart.
 
-It's possible to define a different certificate for each ingress. Change values listed below. keep an empty line after the key or the certificate.
+It is possible to define a different certificate for each ingress by changing the values listed below. Keep an empty line after the key or the certificate.
 
 ```yaml
 global:
@@ -161,7 +161,7 @@ apitraffic:
    ingressKeyHttps: ...
 ```
 
-Each cert and key should have be inserted with the following format (same indent and empty lines):
+Insert each cert and key with the following format (same indent and empty lines):
 
 ```yaml
    ingressCert: |
@@ -179,13 +179,13 @@ Each cert and key should have be inserted with the following format (same indent
 
 ```
 
-> Note : Oauth component is activated but ingress isn't enabled. It's not required to create a certificate for this ingress.
+{{% alert title="Note" color="primary" %}}Oauth component is activated but ingress is not enabled. It is not required to create a certificate for this ingress. {{% /alert %}}
 
-Refer to [Certificate Management](/docs/configuration/certificate-management) for certficate configuration of the entire solution
+Refer to [Certificate Management](/docs/configuration/certificate-management) for configuring certificates for the entire solution.
 
 ### Configure Amplify Agents
 
-The following values must be set to reports API and their usage on the **Amplify platform**.
+The following values must be set to report APIs and their usage on the **Amplify platform**.
 
 ```yaml
 amplifyAgents:
@@ -199,25 +199,27 @@ amplifyAgents:
    centralPrivateKey: <Private key for the service account on Central>
 ```
 
->Note : Private Key and Public Key must be encoded in base64.
+{{% alert title="Note" color="primary" %}}Private Key and Public Key must be encoded in base64. {{% /alert %}}
 
-Refer to [Amplify Agents](/docs/configuration/amplify-agents) to connect Amplify agent to Amplify platform.
+Refer to [Amplify Agents](/docs/configuration/amplify-agents) to connect the Amplify agent to the Amplify platform.
 
-## Install APIM Helm chart
+## Install the APIM Helm chart
 
-Create the target namespace on the cluster:
+To install the APIM Helm chart:
+
+1. Create the target namespace on the cluster:
 
 ```bash
 kubectl create namespace open-banking-apim
 ```
 
-Install the APIM  helm charts:
+2. Install the APIM helm charts:
 
 ```bash
 helm install apim open-banking-apim -n open-banking-apim
 ```
 
-Check that the status of the helm command is deployed:
+3. Check that the status of the helm command is deployed:
 
 ```console
    NAME: apim 
@@ -230,35 +232,35 @@ Check that the status of the helm command is deployed:
 
 ### Verifications
 
-Wait a few minutes and use the following commands to check the status of the deployment.
+Wait a few minutes and use the following commands to check the deployment status.
 
 ```bash
 kubectl get pods -n open-banking-apim 
 ```
 
-Verify that :
+Verify that:
 
 * **pods** with name anm-xxx-xxx, apimgr-xxx-xxx, traffic-xxx-xxx, cassandra-0 are **Running** and Restart is **0**.
 * **jobs** with name db-create-mysql-apigw-xxx is **Completed**.
 
-```console
-   NAME                                 READY   STATUS         RESTARTS 
-   anm-6d86b7dfbd-4wbnx                 1/1     Running        0 
-   apimgr-544b55fffb-qsn87              1/1     Running        0 
-   cassandra-0                          1/1     Running        0 
-   db-create-mysql-apigw-379e224c-...   0/1     Completed      0 
-   filebeat-analytics-86d588954b-lsx2p  1/1     Running        0 
-   mysql-aga-757495f88f-vpw79           1/1     Running        0 
-   traffic-5d986c7d55-cv6dv             1/1     Running        0
-```
+  ```console
+     NAME                                 READY   STATUS         RESTARTS 
+     anm-6d86b7dfbd-4wbnx                 1/1     Running        0 
+     apimgr-544b55fffb-qsn87              1/1     Running        0 
+     cassandra-0                          1/1     Running        0 
+     db-create-mysql-apigw-379e224c-...   0/1     Completed      0 
+     filebeat-analytics-86d588954b-lsx2p  1/1     Running        0 
+     mysql-aga-757495f88f-vpw79           1/1     Running        0 
+     traffic-5d986c7d55-cv6dv             1/1     Running        0
+  ```
 
-Check all ingress with this command :
+Check all ingress with this command:
 
 ```bash
 kubectl get ingress -n open-banking-apim 
 ```
 
-Verify that these ingress have been provisioned. They must have a public ip or a dns value is in the ADDRESS column.
+Verify that these ingress have been provisioned. They must have a public ip or a dns value in the ADDRESS column.
 
 ```console
    NAME            HOSTS                               ADDRESS                        PORTS 
@@ -270,36 +272,36 @@ Verify that these ingress have been provisioned. They must have a public ip or a
    trafficmtls     mtls-api.<domain-name>              xxxxxxxxxxxxx.amazonaws.com    80, 443
 ```
 
-Check that you can access the following User Interfaces:
+Check that you can access the following user interfaces:
 
 * **API Gateway Manager** `https://api-gateway-manager.<domain-name>`.
 
     * Login with username *admin* and password *apiAdminPwd!*
-    * Check in the topology section that pods apimgr and traffic are available.
+    * Check in the topology section that apimgr and traffic pods are available.
 
 * **API Manager** `https://api-manager.<domain-name>`.
 
     * Login with username *apiadmin* and password *apiAdminPwd!*
-    * Check that API and Client configurations are empty for now
+    * Check that API and Client configurations are empty for now.
 
-## Customize APIM configuration helm chart
+## Customize the APIM configuration Helm chart
 
-Customize the `open-banking-apim-config/values.yaml` file as follow
+Customize the `open-banking-apim-config/values.yaml` file as follows.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
 | global.domainName | set the domainname for all ingress. | None |
-| global.env | Set the default environment |dev |
+| global.env | Set the default environment. |dev |
 | global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
-| apimcli.settings.email | sender email address used in api-manager settings | None |
-| apimcli.users.publicApiUser | username of user to access Public APIs from API Portal | _publicuser_ |
-| apimcli.users.publicApiPassword | password of user to access Public APIs from API Portal | _publicUserPwd!_ |
-| backend.serviceincident.host | ServiceNow URL | None|
-| backend.serviceincident.username | ServiceNow username |None|
-| backend.serviceincident.password | ServiceNow password |None|
+| apimcli.settings.email | Sender email address used in api-manager settings. | None |
+| apimcli.users.publicApiUser | Username of user to access the Public APIs from the API Portal. | _publicuser_ |
+| apimcli.users.publicApiPassword | Password of user to access the Public APIs from the API Portal. | _publicUserPwd!_ |
+| backend.serviceincident.host | ServiceNow URL. | None|
+| backend.serviceincident.username | ServiceNow username. |None|
+| backend.serviceincident.password | ServiceNow password. |None|
 
-## Install APIM config helm chart
+## Install the APIM configuration Helm chart
 
 Install the APIM config helm chart:
 
@@ -319,6 +321,8 @@ Check that the status of the helm command is deployed:
    ```
 
 ### Verifications
+
+Complete the following steps to verify the APIM configuration Helm chart installation.
 
 Wait a few minutes and use the following commands to check the status of the deployment.
 

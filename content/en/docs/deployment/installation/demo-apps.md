@@ -2,7 +2,7 @@
 title: "Demo apps Installation"
 linkTitle: "Demo apps"
 weight: 5
-description: Installing Demo apps of the Axway Open Banking solution
+description: Installing Demo apps for the Axway Open Banking solution
 ---
 
 

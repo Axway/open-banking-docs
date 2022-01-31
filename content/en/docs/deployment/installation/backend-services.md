@@ -2,7 +2,7 @@
 title: "Backend services Installation"
 linkTitle: "Backend services"
 weight: 3
-description: Installing Backend services of the Axway Open Banking solution
+description: Installing Backend services for the Axway Open Banking solution
 ---
 
 
