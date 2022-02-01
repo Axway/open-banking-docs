@@ -16,7 +16,7 @@ helm pull axway-open-banking/open-banking-bankio-apps --untar
 
 You should get an `open-banking-bankio-apps` local folder.
 
-## Customize Demo Apps Helm chart
+## Customize the Demo Apps Helm chart
 
 Customize the `open-banking-bankio-app/values.yaml` file as follow
 
@@ -41,7 +41,7 @@ Create the target namespace on the cluster:
 kubectl create namespace open-banking-app
 ```
 
-Install the Helm chart:
+Install the Demo Apps Helm chart:
 
 ```bash
 helm install demo-apps open-banking-bankio-apps -n open-banking-app
@@ -58,9 +58,9 @@ Check that the status of the Helm command is deployed:
     TEST SUITE: None
 ```
 
-## Verification
+## Verify the Demo Apps Helm chart deployment
 
-Wait a few minutes and use the following commands to check the status of the deployment.
+Wait a few minutes and use the following commands to check the deployment status.
 
 ```
 kubectl get pods -n open-banking-app

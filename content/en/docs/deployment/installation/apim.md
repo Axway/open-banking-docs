@@ -6,9 +6,9 @@ description: Installing API Management for the Axway Open Banking solution
 ---
 
 
-## Download the API Management (APIM) Helm chart
+## Download the API Management (APIM) Helm charts
 
-Download Axway Open Banking API Management (APIM) Helm charts to customize them locally.
+Download the Axway Open Banking API Management (APIM) Helm charts to customize them locally.
 
 ```bash
 helm pull axway-open-banking/open-banking-apim --untar
@@ -19,7 +19,7 @@ You should get `open-banking-apim` and `open-banking-apim-config` local folders.
 
 ## Customize the APIM Helm chart
 
-Customize the `open-banking-apim/values.yaml` file as follow.
+Customize the `open-banking-apim/values.yaml` file as follows.
 
 ### Base parameters
 
@@ -49,7 +49,7 @@ Add apimgr  user and password change option. once https://jira.axway.com/browse/
 | apimgr.admin.password | API Manager admin password | apiAdminPwd! |
 -->
 
-With these base parameters set, you can install the helm chart. See [Install APIM Helm chart](#install-apim-helm-chart).
+With these base parameters set, you can install the Helm chart. See [Install APIM Helm chart](#install-apim-helm-chart).
 
 This deployment will use cert-manager and let's encrypt issuer to provide certificates. This requires an ingress controller (nginx) that listen on a public IP.
 
@@ -71,7 +71,7 @@ This license is perfect for a demo or a proof of concept but another license key
 
 According to the reference architecture, the Cassandra database is external to the cluster. Change the following values according to the cassandra configuration.
 
-The helm chart is delivered with an internal cassandra database, that would work for non-production environments. You can change this parameter to use an external one. It is required at least for production environments.
+The Helm chart is delivered with an internal cassandra database, that would work for non-production environments. You can change this parameter to use an external one. It is required at least for production environments.
 
 ```yaml
 cassandra:
@@ -205,21 +205,19 @@ Refer to [Amplify Agents](/docs/configuration/amplify-agents) to connect the Amp
 
 ## Install the APIM Helm chart
 
-To install the APIM Helm chart:
-
 Create the target namespace on the cluster:
 
 ```bash
 kubectl create namespace open-banking-apim
 ```
 
-Install the APIM helm charts:
+Install the APIM Helm charts:
 
 ```bash
 helm install apim open-banking-apim -n open-banking-apim
 ```
 
-Check that the status of the helm command is deployed:
+Check that the status of the Helm command is deployed:
 
 ```console
    NAME: apim 
@@ -230,9 +228,7 @@ Check that the status of the helm command is deployed:
    TEST SUITE: None
 ```
 
-### Verifications
-
-Complete the following tasks to verify the APIM Helm chart.
+## Verify the APIM Helm chart deployment
 
 Wait a few minutes and use the following commands to check the deployment status.
 
@@ -305,13 +301,13 @@ Customize the `open-banking-apim-config/values.yaml` file as follows.
 
 ## Install the APIM configuration Helm chart
 
-Run the following command to install the APIM config helm chart:
+Run the following command to install the APIM config Helm chart:
 
 ```bash
 helm install apim-config open-banking-apim-config -n open-banking-apim
 ```
 
-Check that the status of the helm command is deployed:
+Check that the status of the Helm command is deployed:
 
    ```
    NAME: apim-config 
@@ -322,17 +318,15 @@ Check that the status of the helm command is deployed:
    TEST SUITE: None
    ```
 
-### Verifications
+## Verify the APIM configuration Helm chart deployment
 
-Complete the following tasks to verify the APIM configuration Helm chart installation.
-
-Wait a few minutes and use the following commands to check the status of the deployment.
+Wait a few minutes and use the following commands to check the deployment status.
 
 ```
 kubectl get pods -n open-banking-apim 
 ```
 
-Verify that :
+Verify that:
 
 * **jobs** with name import-api-27983c3f-xxx  are **Completed**:
 

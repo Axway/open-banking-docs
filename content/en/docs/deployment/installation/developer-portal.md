@@ -6,7 +6,7 @@ description: Installing the Developer Portal for the Axway Open Banking solution
 ---
 
 
-## Download Developer Portal Helm chart
+## Download the Developer Portal Helm chart
 
 Download the Axway Open Banking Developer Portal Helm chart to customize it locally.
 
@@ -50,7 +50,7 @@ Create the target namespace on the cluster:
 kubectl create namespace open-banking-developer-portal
 ```
 
-Install the APIM  Developer Portal Helm charts:
+Install the Developer Portal Helm charts:
 
 ```bash
 helm install developer-portal open-banking-developer-portal -n open-banking-developer-portal
@@ -67,9 +67,9 @@ Check that the status of the Helm command is deployed:
     TEST SUITE: None
 ```
 
-### Verifications
+## Verify the Developer Portal Helm chart deployment
 
-Wait a few minutes and use the following commands to check the status of the deployment.
+Wait a few minutes and use the following commands to check the deployment status.
 
 ```
 kubectl get pods -n open-banking-developer-portal 
@@ -92,7 +92,7 @@ Check ingress with this command:
 kubectl get ingress -n open-banking-developer-portal 
 ```
 
-Verify that one ingress has been provisioned. It must have a public ip or a dns value is in the ADDRESS column.
+Verify that one ingress has been provisioned. It must have a public ip or a dns value in the ADDRESS column.
 
 ```
     NAME         HOSTS                           ADDRESS                       PORTS     AGE

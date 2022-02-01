@@ -43,7 +43,7 @@ Create the target namespace on the cluster:
 kubectl create namespace open-banking-analytics
 ```
 
-Install the Analytics helm charts:
+Install the Analytics Helm charts:
 
 ```bash
 helm install analytics open-banking-analytics -n open-banking-analytics
@@ -60,9 +60,9 @@ REVISION: 1
 TEST SUITE: None
 ```
 
-### Verifications
+## Verify the Analytics Helm chart deployment
 
-Wait a few minutes and use the following commands to check the status of the deployment.
+Wait a few minutes and use the following commands to check the deployment status.
 
 ```
 kubectl get pods -n open-banking-analytics 
@@ -89,7 +89,7 @@ Check ingress with this command:
 kubectl get ingress -n open-banking-analytics 
 ```
 
-Verify that these ingress has been provisioned. They must have a public ip or a dns value is in the ADDRESS column.
+Verify that these ingress has been provisioned. They must have a public ip or a dns value in the ADDRESS column.
 
 ```
     NAME         HOSTS                           ADDRESS                       PORTS     AGE
@@ -97,7 +97,7 @@ Verify that these ingress has been provisioned. They must have a public ip or a 
     webserver    analytics.<domain-name>         xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
 ```
 
-Check you can access the differents user interfaces:
+Check you can access the different user interfaces:
 
 * *Analytics homepage*: `https://webserver.<domain-name>`
 

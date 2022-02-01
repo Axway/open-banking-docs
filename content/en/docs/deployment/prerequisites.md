@@ -22,7 +22,7 @@ Prior to installation you will need to perform the following tasks:
 * Install the following command line tools:
     * Helm
     * Kubectl
-* Obtain a token from an Axway team to pull helm charts and docker images from with the Axway Registry.
+* Obtain a token from an Axway team to pull Helm charts and docker images from with the Axway Registry.
 * Create a Kubernetes cluster that conforms to that described in the Architecture Overview guide and reflects the architecture choices described above.
 
 These tasks must be completed for your installation to be successful.

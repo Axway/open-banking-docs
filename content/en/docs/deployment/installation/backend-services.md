@@ -54,9 +54,9 @@ Check that the status of the Helm command is deployed:
     TEST SUITE: None
 ```
 
-### Verification
+## Verify the Backend Services Helm chart deployment
 
-Wait a few minutes and use the following commands to check the status of the deployment.
+Wait a few minutes and use the following commands to check the deployment status.
 
 ```
 kubectl get pods -n open-banking-backend
