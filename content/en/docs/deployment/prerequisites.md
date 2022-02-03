@@ -76,7 +76,7 @@ The following components are highly recommended.
 To control all external traffic, an Ingress controller is required.
 It is recommended to use the [Nginx Ingress](https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx) controller, as it would be used as a reverse proxy and manage the MTLS and TLS termination, and load-balancing when required.
 
-Select the appropriate version that is compatible with your cluster and that is a minimum of 0.35. The ingress annotations of our helm chart have been written for the 0.35 version. A more recent version of the `nginx-ingress` may impact these  annotations. Please review the nginx official documentation to update them accordingly.
+Select the appropriate version that is compatible with your cluster and that is a minimum of 0.35. The ingress annotations of our Helm chart have been written for the 0.35 version. A more recent version of the `nginx-ingress` may impact these  annotations. Please review the nginx official documentation to update them accordingly.
 
 You can use NGINX or another ingress controller with the following requirements:
 

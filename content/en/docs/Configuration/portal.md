@@ -39,7 +39,7 @@ The menu and navigation has been optimized for the best developer experience in 
 
 However you can customize the menu such as item order, title, access, language, and so on.
 
-Navigate to Menu - Main Menu
+Navigate to Menu - **Main Menu**.
 
 ![thememagic](/Images/developer-portal-menu-edit.png)
 

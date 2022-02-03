@@ -8,34 +8,36 @@ date: 2021-09-02
 
 ## Context
 
-Mutual authentication is required for most of API developed for Open Banking.
+Mutual authentication is required for most APIs developed for Open Banking.
 
-According to the Open Banking Specification, the MTLS is required for both components : Cloud Entity and the API Gateway Listener. Here is a diagram that explains how it's working.
+According to the Open Banking Specification, the MTLS is required for the Cloud Entity and API Gateway Listener components. See the diagram which explains how it is working.
 ![MTLS diagram](/Images/mtls.png)
 
-See more about the Certificate Verification with MTLS in Open Banking context in [Mutual Authentication and Certificate Verification](/docs/overview/integration/mutual-auth)
+See more about the Certificate Verification with MTLS in Open Banking context in [Mutual Authentication and Certificate Verification](/docs/overview/integration/mutual-auth).
 
 ### API Gateway MTLS
 
 The reference architecture uses an ingress controller to support the MTLS capabilities.
 
-Others possibilities are :
+Others possibilities are:
 
 * Use a component in front of the Kubernetes cluster to support the MTLS termination. In this condition, Axway recommands to have a component nearest the Kubernetes cluster.
 
 * Replace the nginx ingress controller by another ingress controller that supports the required features.
 
-See the required features the ingress controler in [Deployment > Prerequisites](/docs/deployment/prerequisites)
+Refer to the required features the ingress controller in [Deployment - Prerequisites](/docs/deployment/prerequisites)
 
-Note: Usage of the MTLS Listener embedded on the API-gateway configuration would require each customer to build their own docker images, as the container maturity level doesn't allow us to externalize certificates.
+{{% alert title="Note" color="primary" %}} Usage of the MTLS Listener embedded on the API-gateway configuration would require each customer to build their own Docker images, as the container maturity level does not allow us to externalize certificates.{{% /alert %}}
 
 ### Cloud Entity MTLS
 
 Cloud Entity supports the MTLS and the root CA must be added in the component.
 
-Note : The target architecture is that API-Gateway must route the request to ACP. So ACP won't be accessible directly.
+{{% alert title="Note" color="primary" %}} The target architecture is that API-Gateway must route the request to ACP. So ACP will not be accessible directly.{{% /alert %}}
 
 ## Setup the solution for MTLS with test certificates
+
+This section includes the prerequisites and tasks to setup the solution for MTLS.
 
 ### Prerequisites
 
@@ -52,12 +54,13 @@ First, some certificates must exist to generates multiples
 openssl genrsa -out ca1.key 2048openssl req -new -x509 -days 3650 -key ca1.key -subj "/C=BR/ST=São Paulo/L=São Paulo/O=Axway/CN=Axway Root CA" -out ca1.crtopenssl genrsa -out ca2.key 2048openssl req -new -x509 -days 3650 -key ca2.key -subj "/C=BR/ST=São Paulo/L=São Paulo/O=Axway/CN=Axway Root CA" -out ca2.crt
 ```
 
-### Create certificates for the Third Party Provider App (Client Certificates for each TPP) 
+### Create certificates for the Third Party Provider App (Client Certificates for each TPP)
 
 Each certificate must have one key and signed with a root CA previously created. These configuration files below are provided as example.
 
 | tpp1.cnf |
 | ----------- |
+
 ```properties
 [req]
 default_bits = 2048
@@ -92,6 +95,7 @@ DNS = tpp1.demo.axway.com
 
 | tpp2.cnf |
 | ----------- |
+
 ```properties
 [req]
 default_bits = 2048
