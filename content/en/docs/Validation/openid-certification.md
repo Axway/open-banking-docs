@@ -24,7 +24,7 @@ Use one of the following ways to run the tests:
 * On the Open ID platform <https://www.certification.openid.net>. You must have an account to login.
 * On your local test platform that you can deploy by following these instructions: <https://gitlab.com/openid/conformance-suite/-/wikis/Developers/Build-&-Run>.
 
-You should be able to create and run new test plans.
+Then, you should be able to create and run new test plans.
 
 ![Conformance Suite : Create Plan](/Images/conformance-suite/create-plan.png)
 
@@ -127,7 +127,7 @@ Make sure that the two test TPPs are configured in ACP:
     * Choose **Private Key JWT** for tests with JWT.
     * Choose **TLS Client authentication** for tests with MTLS.
 ![app-details](/Images/acp-tpp-auth-method.png)
-* Each application should be configured with a correct client authorization details.
+* Each application should be configured with correct client authorization details.
 ![app-details](/Images/acp-tpp-auth-identifier.png)
 
 ### Solution configuration
