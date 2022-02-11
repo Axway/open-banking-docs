@@ -14,7 +14,7 @@ The sequence diagram below shows the steps required once the initial approver ha
 At the start of this sequence diagram:
 
 * The consent `status` for the consent will have been returned as `AUTHORISED`.
-* Communication of the fulfillment of the multi-party authorization is delegated to a given API. 
+* Communication of the fulfillment of the multi-party authorization is delegated to a given API.
 * The Third-Party will have possession of an Access Token they can use to query the API.
 
 This follows the model for Multi-Authorization implemented in the [UK Open Banking standards](https://openbankinguk.github.io/read-write-api-site3/v3.1.8/profiles/payment-initiation-api-profile.html#multiple-authorisation). The `status` property of the API responses returned to the TPP will be as follows:
@@ -27,16 +27,15 @@ Other approvers are then contacted to approve the consent based on the following
 * Each approver is contacted using a channel known to the bank. For example, this could be by a push notification to a mobile banking app which provides a "link" to the approval workflow.
 * When the approver follows the link they will then be required to authenticate, using an appropriate number of factors. The number of factors is dependent on whether the bank requires Level of Assurance 2 or 3 based on their view of the [Brazil Security Profile requirements](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2.html#section-5.2.2.4).
 * Once authenticated to the required level the approver will be presented with one of two screens:
-  * If another approver has already refused the request for authorization a consent rejection screen should be shown.
-  * If approval from all approvers is still outstanding the customer will be shown the consent confirmation screen.
+    * If another approver has already refused the request for authorization a consent rejection screen should be shown.
+    * If approval from all approvers is still outstanding the customer will be shown the consent confirmation screen.
 * If not rejected the customer is presented with the consent confirmation screen. The details depend on whether the subject is sharing account information or making a payment, but from a multi-party perspective they should include:
-  * The accounts selected by the initial approver.
-  * Details of who has already approved the consent.
-  * (Where applicable) the date and time by which consent needs to be approved.
+    * The accounts selected by the initial approver.
+    * Details of who has already approved the consent.
+    * (Where applicable) the date and time by which consent needs to be approved.
 * The approver can either approve or refuse the consent. If they approve the consent their approval needs to be cached **unless they are the last approver in which case**:
     * For Account Information the Resource API datastore can be if updated to change the `status` from `PENDING_AUTHORISATION` to `AVAILABLE`.
     * For Payment Initiation the payment instruction can be executed and the `status` updated according to the status within the PIX infrastructure.
 * The approver should then be shown a completion screen confirming their actions.
 
 {{< readfile file="/static/Images/Multi_Authorization_Pattern.svg" >}}
-

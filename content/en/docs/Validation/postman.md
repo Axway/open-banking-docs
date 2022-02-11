@@ -31,9 +31,9 @@ Follow the steps to import the Postman collection files.
 ![payment-api-postman-environment](/Images/postman-environment.png)
 
 4. For the Payment API, modify the following parameters that correspond to the solution environment installation:
-   * **organizationId**: The Account Service Payment Service Provider (ASPSP). This identifier corresponds to the bank's identifier in the central bank's registry.
-   * **date**: Date the payment consent is valid for the payment initiation.
-   * **cnp**: CNPJ (Brazilian National Registry of Legal Entities) of the payment initiator (the entity or the person who initiates the payment).
+   * _organizationId_: The Account Service Payment Service Provider (ASPSP). This identifier corresponds to the bank's identifier in the central bank's registry.
+   * _date_: Date the payment consent is valid for the payment initiation.
+   * _cnp_: CNPJ (Brazilian National Registry of Legal Entities) of the payment initiator (the entity or the person who initiates the payment).
 
 ## Configure Postman settings
 
@@ -197,7 +197,7 @@ Make sure it includes a _consentId_, the payment details and the status "AWAITIN
 7. Mouse-over on `{{jwe-server}}` variable in the request URL to make sure the current value is match a existing JWE-generator service. If not, you can change the variable from the environement details (Use the _Eye_ icon on th top left corner and _Edit_ button).
 {{% alert title="Warning" color="warning" %}} In this step the private key will be sent to the signing service. Please only use test/development keys.{{% /alert %}}
 
-8. Click _Send_ to create the consent request. Make sure you get a "201 Created" return code and the response body includes a _consentId_</br>
+8. Click _Send_ to create the consent request. Make sure you get a "201 Created" return code and the response body includes a _consentId_.</br></br>
 Alternatively, you can skip this step and directly set the `{{jwe_request}}` variable with the signed payload required for Step 4.
 ![payment-api-postman-step3](/Images/payment-api-postman-step3.png)
 

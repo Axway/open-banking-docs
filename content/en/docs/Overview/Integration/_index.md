@@ -16,7 +16,7 @@ Refer to the table for an explanation of each labeled arrow in the diagram.
 
 |   # | Description |
 | --: | ----------- |
-|   1 | A Third-Party Developer will use the API Portal to enrol themselves or their organization. |
+|   1 | A Third-Party Developer will use the API Portal to enroll themselves or their organization. |
 |   2 | The API Portal communicates with the API Gateway to provision applications and associated credentials. |
 |   3 | The API Gateway in turn registers those credentials in the Identity Management solution. |
 |   4 | With the application registered and having made use of the Development Tools the Third-Party developer can engineer and deploy their application. A Consumer will use that application for specific purposes, but will be required to provide consent to  the Third-Party App. |

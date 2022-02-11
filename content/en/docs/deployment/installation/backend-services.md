@@ -22,8 +22,8 @@ Customize the `open-banking-backend-chart/values.yaml` file as follows.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
-| global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
+| global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
+| global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
 | mysqldb.dbname | Mock backend database name. |  _medicimockbackend_ |
 | mysqldb.dbuser | Mock backend database username. |  _mockbank_ |
 | secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password. | _Ch@ng3M3!_ |
@@ -31,51 +31,51 @@ Customize the `open-banking-backend-chart/values.yaml` file as follows.
 
 ## Install the Backend Services Helm chart
 
-Create the target namespace on the cluster:
+1. Create the target namespace on the cluster:
 
-```bash
-kubectl create namespace open-banking-backend
-```
+   ```bash
+   kubectl create namespace open-banking-backend
+   ```
 
-Install the Backend Services Helm chart:
+2. Install the Backend Services Helm chart:
 
-```bash
-helm install backend-services open-banking-backend-chart -n open-banking-backend
-```
+   ```bash
+   helm install backend-services open-banking-backend-chart -n open-banking-backend
+   ```
 
-Check that the status of the Helm command is deployed:
+3. Check that the status of the Helm command is deployed:
 
-```
-    NAME: backend-services
-    LAST DEPLOYED: <current date and time>
-    NAMESPACE: open-banking-backend
-    STATUS: deployed
-    REVISION: 1 
-    TEST SUITE: None
-```
+   ```
+       NAME: backend-services
+       LAST DEPLOYED: <current date and time>
+       NAMESPACE: open-banking-backend
+       STATUS: deployed
+       REVISION: 1 
+       TEST SUITE: None
+   ```
 
 ## Verify the Backend Services Helm chart deployment
 
-Wait a few minutes and use the following commands to check the deployment status.
+1. Wait a few minutes and use the following commands to check the deployment status.
 
-```
-kubectl get pods -n open-banking-backend
-```
+   ```
+   kubectl get pods -n open-banking-backend
+   ```
 
-Verify that:
+2. Verify that:
 
-* **pods** with name mysqldb-xxx-xx and those name after the api names are all **Running** and Restart is **0**.
+   * **pods** with name mysqldb-xxx-xx and those name after the api names are all **Running** and Restart is **0**.
 
-```
-    NAME                   READY   STATUS    RESTARTS   AGE
-    accounts-xxx-xx        1/1     Running   0          2m
-    accounts-br-xxx-xx     1/1     Running   0          2m
-    creditcards-xxx-xx     1/1     Running   0          2m
-    customer-xxx-xx        1/1     Running   0          2m
-    discovery-xxx-xx       1/1     Running   0          2m
-    mysqldb-xxx-xx         1/1     Running   0          2m
-    payments-xxx-xx        1/1     Running   0          2m
-    products-xxx-xx        1/1     Running   0          2m
-    reviews-xxx-xx         1/1     Running   0          2m
-    servicechannel-xxx-xx  1/1     Running   0          2m
-```
+   ```
+       NAME                   READY   STATUS    RESTARTS   AGE
+       accounts-xxx-xx        1/1     Running   0          2m
+       accounts-br-xxx-xx     1/1     Running   0          2m
+       creditcards-xxx-xx     1/1     Running   0          2m
+       customer-xxx-xx        1/1     Running   0          2m
+       discovery-xxx-xx       1/1     Running   0          2m
+       mysqldb-xxx-xx         1/1     Running   0          2m
+       payments-xxx-xx        1/1     Running   0          2m
+       products-xxx-xx        1/1     Running   0          2m
+       reviews-xxx-xx         1/1     Running   0          2m
+       servicechannel-xxx-xx  1/1     Running   0          2m
+   ```

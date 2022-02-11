@@ -162,18 +162,18 @@ The secret name is apitraffic-mtls-rootca in the namespace open-banking-apim.
 
 1. First, concatenate all root CA and encode it in base64.
 
-```bash
-cat ca1.crt ca2.crt > ca.crtcat ca.crt | base64
-```
+   ```bash
+   cat ca1.crt ca2.crt > ca.crtcat ca.crt | base64
+   ```
 
 2. Edit the values.yaml file in the open-banking-apim Helm chart. Replace the encoded string on value apitraffic.mtlsRootCa.
 ![values.yaml](/Images/mtls-apim-yaml.png)
 
 3. For first installation, use the Helm install command otherwise use the Helm upgrade command.
 
-```bash
-helm install/upgrade <release name> open-banking-apim -n open-banking-apim  
-```
+   ```bash
+   helm install/upgrade <release name> open-banking-apim -n open-banking-apim  
+   ```
 
 #### NGINX
 

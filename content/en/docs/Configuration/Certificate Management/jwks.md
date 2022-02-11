@@ -13,7 +13,7 @@ Each instance of the Axway Open Banking solution has different keys that corresp
 
 ## ASPSP Signing Certificate
 
-The ASPSP (Account Servicing Payment Service Provider, the bank or similar institution) signing certificate must be added to the authorization server to sign response messages. 
+The ASPSP (Account Servicing Payment Service Provider, the bank or similar institution) signing certificate must be added to the authorization server to sign response messages.
 
 Follow this procedure to change the signing certificate with the appropriate values:
 
@@ -59,6 +59,4 @@ Follow this procedure to change the signing certificate with the appropriate val
 The TPP (Third Party Provider) signing certificates are located in the ACP configuration. Connect to the ACP Interface, navigate to your workspace (openbanking Brasil for Brasil specifications), and then click on the application. Click the application name of the desired TPP.
 The signing certificate is located in the OAuth tab, under client authentication, as a JSON Web Key Set. You can modify the signing certificate here, and then click *Save changes*.
   
-  
 ![TPPSignatureKey](/Images/TPPSignatureKey.PNG)
-

@@ -20,7 +20,7 @@ https://docker-registry.demo.axway.com/chartrepo/open-banking \
 
 {{% alert title="Note" color="primary" %}}If your token name starts with `robot$` , you should type `robot\$` if your running the command from Linux or MacOs, and you should type `robot``$` if you are using Windows Powershell.{{% /alert %}}
 
-Once the registry is added, make sure you can see the open-banking packages :
+Once the registry is added, make sure you can see the open-banking packages:
 
 ```bash
 helm repo update 

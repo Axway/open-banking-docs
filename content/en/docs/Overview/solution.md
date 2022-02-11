@@ -31,7 +31,7 @@ sections.
 
 ### Developer Experience
 
-Developer Experience is about engagement with the customers who will make use of your APIs, namely your developer community. 
+Developer Experience is about engagement with the customers who will make use of your APIs, namely your developer community.
 
 To accommodate their needs and ensure a quality experience is delivered a number of features are implemented.
 
@@ -86,7 +86,7 @@ Axway Open Banking provides the APIs required to be compliant with local market 
 
 #### Access to Account for Data
 
-Access to Account for Data is one of the roles typically granted to Third-Party Developers by local market regulations and open banking frameworks. For example, in the EU this role is termed the Account
+Access to Account for Data is one of the roles typically granted to Third-Party Developers by local market regulations and open banking frameworks. For example, in the European Union (EU) this role is termed the Account
 Information Servicing Provider (AISP).
 
 In this role Third-Party Apps can access account data to which a customer has consented. Depending on local standards the types of information available can vary and can include:
@@ -130,7 +130,7 @@ Identity and access control provide security, authentication and authorization t
 
 Lodging Intent is a pattern that appears in the majority of open banking standards. It is the means by which the consent that has been agreed between the customer and Third-Party App is sent to your organization so it can be confirmed and access to account granted. The term "intent" is used specifically because the customer has yet to authenticate themselves at the bank. Only when the customer has authenticated and "intent" has been confirmed does it become consent.
 
-Axway Open Banking supports this through the implementation of APIs that meet the requirements of local standards.
+Axway Open Banking supports intent through the implementation of APIs that meet the requirements of local standards.
 
 #### Consent Confirmation
 
@@ -149,28 +149,23 @@ Axway Open Banking provides support for FAPI [Part 1 (Read Only)](https://openid
 
 #### Consent Revocation
 
-The need to lodge intent and confirm consent is matched by the need to
-revoke consent where a customer no longer wants to share information
+The need to lodge intent and confirm consent is matched by the need to revoke consent where a customer no longer wants to share information
 with a Third-Party App.
 
-Axway Open Banking provides the means to revoke consent, both programatically by
-an API call and through an user interface (UI).
+Axway Open Banking provides the means to revoke consent, both programatically by an API call and through a user interface (UI).
 
-Note that in some markets revocation is only allowed by the Third-Party
-App and not directly at the bank. In such cases revocation by a UI can
-be disabled dependent on your organization's position on market
-regulations.
+Note that in some markets revocation is only allowed by the Third-Party App and not directly at the bank. In such cases revocation by a UI can
+be disabled dependent on your organization's position on market regulations.
 
 ### Infrastructure
 
-The Infrastructure building block brings together Axway's
-product set to power the solution.
+The Infrastructure building block brings together Axway's product set to power the solution.
 
-{{% alert title="Note" color="primary" %}} For more information on any of these products please refer to the [Axway Documentation Portal](https://docs.axway.com/).{{% /alert %}}
+{{% alert title="Note" color="primary" %}} For more information on any of these products refer to the [Axway Documentation Portal](https://docs.axway.com/).{{% /alert %}}
 
 #### API Portal
 
-The portal delivers the Developer Experience. Axway Open Banking provides a custom template that can applied to an existing Portal instance or installed from scratch.
+The portal delivers the Developer Experience. Axway Open Banking provides a custom template that can be applied to an existing Portal instance or installed from scratch.
 
 #### API Gateway
 
@@ -186,17 +181,17 @@ On installation these applications will be mapped to our mock backend and will n
 
 Our Consent Management solution is delivered using the [Cloudentity Open Banking Kit](https://cloudentity.com/open-banking/). This provides:
 
-* The means to couple consent with the authentication, authorization and access control to ensure that Third-Party Applications can access only the information to which they are entitled, and nothing more.
+* The means to couple consent with the authentication, authorization, and access control to ensure that Third-Party Applications can access only the information to which they are entitled, and nothing more.
 * An overview for your customers that allows them to browse and revoke consents for Third-Party Applications.
 * An administration view for your organization that allows you to search and manage your customers' consents.
 
 Note that in some markets Consent Management must happen at the Third-Party App and consent dashboards are prohibited.
 
-In such cases the customer-facing aspects of Consent Management can be disabled dependent on your organization's position on market regulations.
+In such cases the customer-facing aspects of Consent Management can be disabled depending on your organization's position on market regulations.
 
 #### Identity Management
 
-Identity Management adds the authentication, authorization and access control required to ensure your APIs are secure, including compliance with FAPI and local security profiles.
+Identity Management adds the authentication, authorization, and access control required to ensure your APIs are secure, including compliance with FAPI and local security profiles.
 
 The Cloudentity Open Banking Kit provides the default capability, but this can be swapped out for your existing Identity and Access Management solution.
 

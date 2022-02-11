@@ -14,10 +14,10 @@ The flow is summarized as follows:
 * The TPP presents their client certificate that is signed by the relevant certificate authority.
 * The API Gateway validates the certificate against the expected certificate chain to ensure the requestor is entitled to make a connection.
 * The certificate (and by implication the organization providing the Third-Party App) is then validated against the relevant source of truth for the market in question:
-  * In EU markets the solution calls the Konsentus API. The Konsentus solution checks the validity of the Third Party against the relevant Qualified Trust Service Provider (QTSP) and National Competent Authority (NCA).
-  * In non-EU markets Axway Open Banking solution calls the relevant Certificate Authority (CA) to ensure the Third Party is still valid.
-* Finally where certificate binding is enforced association between the Access Token and presented certificate is checked.
+    * In EU markets the solution calls the Konsentus API. The Konsentus solution checks the validity of the Third Party against the relevant Qualified Trust Service Provider (QTSP) and National Competent Authority (NCA).
+    * In non-EU markets Axway Open Banking solution calls the relevant Certificate Authority (CA) to ensure the Third Party is still valid.
+* Finally where certificate binding is enforced association between the Access Token and the presented certificate is checked.
 
-Note this pattern is not implemented for "open data" APIs such as Products & Services.
+This pattern is not implemented for "open data" APIs such as Products & Services.
 
 {{< readfile file="/static/Images/Mutual_Authentication_Sequence.svg" >}}

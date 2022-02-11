@@ -32,81 +32,76 @@ Customize the `open-banking-analytics/values.yaml` file as follows.
 
 You can update the company logo and the colors used for the navigation map.
 
-* *Company Logo*: Logo must be an svg file and must be name "company-logo.svg". Replace the file in `open-banking-analytics/branding/logo`.
-* *Navigation Map Colors*: Update the css file `open-banking-analytics/branding/css`.
+* _Company Logo_: Logo must be an svg file and must be name "company-logo.svg". Replace the file in `open-banking-analytics/branding/logo`.
+* _Navigation Map Colors_: Update the css file `open-banking-analytics/branding/css`.
 
 ## Install the Analytics Helm chart
 
-Create the target namespace on the cluster:
+1. Create the target namespace on the cluster:
 
-```bash
-kubectl create namespace open-banking-analytics
-```
+   ```bash
+   kubectl create namespace open-banking-analytics
+   ```
 
-Install the Analytics Helm charts:
+2. Install the Analytics Helm charts:
 
-```bash
-helm install analytics open-banking-analytics -n open-banking-analytics
-```
+   ```bash
+   helm install analytics open-banking-analytics -n open-banking-analytics
+   ```
 
-Check that the status of the Helm command is deployed:
+3. Check that the status of the Helm command is deployed:
 
-```
-NAME: analytics 
-LAST DEPLOYED: <current date and time>
-NAMESPACE: open-banking-analytics 
-STATUS: deployed
-REVISION: 1 
-TEST SUITE: None
-```
+   ```
+   NAME: analytics 
+   LAST DEPLOYED: <current date and time>
+   NAMESPACE: open-banking-analytics 
+   STATUS: deployed
+   REVISION: 1 
+   TEST SUITE: None
+   ```
 
 ## Verify the Analytics Helm chart deployment
 
-Wait a few minutes and use the following commands to check the deployment status.
+1. Wait a few minutes and use the following commands to check the deployment status.
 
-```
-kubectl get pods -n open-banking-analytics 
-```
+   ```
+   kubectl get pods -n open-banking-analytics 
+   ```
 
-```
-    NAME                           READY   STATUS    RESTARTS   AGE
-    elasticsearch-master-0         1/1     Running   0          57s
-    elasticsearch-master-1         1/1     Running   0          57s
-    elasticsearch-master-2         1/1     Running   0          57s
-    kibana-647679fd47-btnt6        1/1     Running   0          57s
-    logstash-0                     1/1     Running   0          57s
-    metrics-apis-8684c7594-8p46b   1/1     Running   0          52s
-    webserver-5d59fc5447-gvnmk     1/1     Running   0          50s
-```
+   ```
+       NAME                           READY   STATUS    RESTARTS   AGE
+       elasticsearch-master-0         1/1     Running   0          57s
+       elasticsearch-master-1         1/1     Running   0          57s
+       elasticsearch-master-2         1/1     Running   0          57s
+       kibana-647679fd47-btnt6        1/1     Running   0          57s
+       logstash-0                     1/1     Running   0          57s
+       metrics-apis-8684c7594-8p46b   1/1     Running   0          52s
+       webserver-5d59fc5447-gvnmk     1/1     Running   0          50s
+   ```
 
-Verify that:
+2. Verify that:
+   * **pods** with name elasticsearch-master-x, logstash-portal-x, kibana-xxx-xxx, metrics-apis-xxx-xxx, webserver-xxx-xxx are **Running** and Restart is **0**.
 
-* **pods** with name elasticsearch-master-x, logstash-portal-x, kibana-xxx-xxx, metrics-apis-xxx-xxx, webserver-xxx-xxx are **Running** and Restart is **0**.
+3. Check ingress with this command:
 
-Check ingress with this command:
+   ```bash
+   kubectl get ingress -n open-banking-analytics 
+   ```
 
-```bash
-kubectl get ingress -n open-banking-analytics 
-```
+4. Verify that these ingress has been provisioned. They must have a public ip or a dns value in the ADDRESS column.
 
-Verify that these ingress has been provisioned. They must have a public ip or a dns value in the ADDRESS column.
-
-```
+   ```
     NAME         HOSTS                           ADDRESS                       PORTS     AGE
     kibana       kibana.<domain-name>            xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
     webserver    analytics.<domain-name>         xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-```
+   ```
 
-Check you can access the different user interfaces:
-
-* *Analytics homepage*: `https://webserver.<domain-name>`
-
-    * The Dashboard and Reports navigation (top bar) should show up with custom logo and color theme.
-    * No dashboard is deployed yet.
-
-* *ELK admin interface*: `https://kibana.<domain-name>`
-
-    * You should be able to login with the credentials provided in the Helm chart values.
+5. Check you can access the different user interfaces:
+   * _Analytics homepage_: `https://webserver.<domain-name>`
+      * The Dashboard and Reports navigation (top bar) should show up with custom logo and color theme.
+      * No dashboard is deployed yet.
+   * _ELK admin interface_: `https://kibana.<domain-name>`
+      * You should be able to login with the credentials provided in the Helm chart values.
 
 ## Post Deployment
 

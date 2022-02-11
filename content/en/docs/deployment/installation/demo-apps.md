@@ -18,7 +18,7 @@ You should get an `open-banking-bankio-apps` local folder.
 
 ## Customize the Demo Apps Helm chart
 
-Customize the `open-banking-bankio-app/values.yaml` file as follow
+Customize the `open-banking-bankio-app/values.yaml` file as follows.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
@@ -35,74 +35,71 @@ Customize the `open-banking-bankio-app/values.yaml` file as follow
 
 ## Install the Demo Apps Helm chart
 
-Create the target namespace on the cluster:
+1. Create the target namespace on the cluster:
 
-```bash
-kubectl create namespace open-banking-app
-```
+   ```bash
+   kubectl create namespace open-banking-app
+   ```
 
-Install the Demo Apps Helm chart:
+2. Install the Demo Apps Helm chart:
 
-```bash
-helm install demo-apps open-banking-bankio-apps -n open-banking-app
-```
+   ```bash
+   helm install demo-apps open-banking-bankio-apps -n open-banking-app
+   ```
 
-Check that the status of the Helm command is deployed:
+3. Check that the status of the Helm command is deployed:
 
-```
-    NAME: demo-apps
+   ```
+   NAME: demo-apps
     LAST DEPLOYED: <current date and time>
     NAMESPACE: open-banking-app
     STATUS: deployed
     REVISION: 1 
     TEST SUITE: None
-```
+   ```
 
 ## Verify the Demo Apps Helm chart deployment
 
-Wait a few minutes and use the following commands to check the deployment status.
+1. Wait a few minutes and use the following commands to check the deployment status.
 
-```
-kubectl get pods -n open-banking-app
-```
+   ```
+   kubectl get pods -n open-banking-app
+   ```
 
-```
-NAME                                READY   STATUS      RESTARTS   
-auto-loan-api-deployment-xxxx-xxx   1/1     Running     0          
-bankio-init-reference-data-job-xxx  0/1     Completed   0          
-bankio-link-deployment-xxxx-xxx     1/1     Running     0          
-demo-frontends-deployment-xxxx-xxx  1/1     Running     0          
-mongo-deployment-xxxx-xxx           1/1     Running     0          
-obie-sandbox-deployment-xxxx-xxx    1/1     Running     0          
-shop-api-deployment-xxxx-xxx        1/1     Running     0          
-```
+   ```
+   NAME                                READY   STATUS      RESTARTS   
+   auto-loan-api-deployment-xxxx-xxx   1/1     Running     0          
+   bankio-init-reference-data-job-xxx  0/1     Completed   0          
+   bankio-link-deployment-xxxx-xxx     1/1     Running     0          
+   demo-frontends-deployment-xxxx-xxx  1/1     Running     0          
+   mongo-deployment-xxxx-xxx           1/1     Running     0          
+   obie-sandbox-deployment-xxxx-xxx    1/1     Running     0          
+   shop-api-deployment-xxxx-xxx        1/1     Running     0          
+   ```
 
-Verify that:
+2. Verify that:
+   * All **pods** but bankio-init-reference-data-job-xxx are  **Running** and Restart is **0**.
+   * The **pod** named bankio-init-reference-data-job-xxx is  **Completed** and Restart is **0**.
 
-* All **pods** but bankio-init-reference-data-job-xxx are  **Running** and Restart is **0**.
-* The **pod** named bankio-init-reference-data-job-xxx is  **Completed** and Restart is **0**.
+3. Check ingress with this command:
 
-Check ingress with this command:
+   ```bash
+   kubectl get ingress -n open-banking-app 
+   ```
 
-```bash
-kubectl get ingress -n open-banking-app 
-```
+4. Verify that these five ingress have been provisioned. They must have a public ip or a dns value in the ADDRESS column.
 
-Verify that these 5 ingress have been provisioned. They must have a public ip or a dns value in the ADDRESS column.
-
-```
+   ```
     NAME                     HOSTS                                   ADDRESS                       PORTS     
     auto-loan-api-ingress    auto-loan-api-demo-apps.<domain-name>   xxxxxxxxxxxxx.amazonaws.com   80, 443   
     bankio-link-ingress      tpp-demo-apps.<domain-name>             xxxxxxxxxxxxx.amazonaws.com   80, 443   
     demo-frontends-ingress   demo-apps.<domain-name>                 xxxxxxxxxxxxx.amazonaws.com   80, 443   
     obie-sandbox-ingress     obie-sandbox-demo-apps.<domain-name>    xxxxxxxxxxxxx.amazonaws.com   80, 443   
     shop-api-ingress         shop-demo-api-apps.<domain-name>        xxxxxxxxxxxxx.amazonaws.com   80, 443  
-```
+   ```
 
-Check the different user interfaces:
-
-* *Demo app 1*: `https://demo-apps.<domain-name>/account-information` shows a demo app for account aggregation
-    * If all other components are already installed and configured correctly, you should be able to test *Demo app 1* connecting a bank account from demo01 sandbox.
-* *Demo app 2*: `https://demo-apps.<domain-name>/store` shows a demo app for online store with payments.
-* *Demo app 3*: `https://demo-apps.<domain-name>/auto-loan/calculator` shows a demo app for a loan calculation.
-* *Demo app 4*: `https://demo-apps.<domain-name>/product-marketplace/compare` shows a demo app for banking products listing.
+5. Check the different user interfaces:
+   * *Demo app 1*: `https://demo-apps.<domain-name>/account-information` shows a demo app for account aggregation. If all other components are already installed and configured correctly, you should be able to test *Demo app 1* connecting a bank account from demo01 sandbox.
+   * *Demo app 2*: `https://demo-apps.<domain-name>/store` shows a demo app for online store with payments.
+   * *Demo app 3*: `https://demo-apps.<domain-name>/auto-loan/calculator` shows a demo app for a loan calculation.
+   * *Demo app 4*: `https://demo-apps.<domain-name>/product-marketplace/compare` shows a demo app for banking products listing.

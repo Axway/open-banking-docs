@@ -17,12 +17,12 @@ Prior to installation you will need to perform the following tasks:
 * Make choices that are described in the Architecture Overview guide including:
     * Choose a Kubernetes provider (cloud, on-premise, and so on).
     * Components that will be supported (Demo Applications, mock backend services, and so on).
-    * Approach to database deployment (inside Kubernetes vs. externalized services).
+    * Approach to database deployment (inside Kubernetes versus externalized services).
     * Components that reflect deployment model choice (certificate manager, load balancer/Ingress Controller, and so on).
 * Install the following command line tools:
     * Helm
     * Kubectl
-* Obtain a token from an Axway team to pull Helm charts and docker images from with the Axway Registry.
+* Obtain a token from an Axway team to pull Helm charts and Docker images from with the Axway Registry.
 * Create a Kubernetes cluster that conforms to that described in the Architecture Overview guide and reflects the architecture choices described above.
 
 These tasks must be completed for your installation to be successful.
@@ -103,7 +103,7 @@ In case `external-dns` is not available in the cluster, you must manually config
 
 ## Cloud deployment recommendations
 
-This section provides additional information for customers who are targeting a cloud-based solution and require guidance on the components required from their cloud provider of choice, including:
+This section provides additional information for customers who are targeting a cloud-based solution and require guidance on the components required from their cloud provider of choice including:
 
 * A generic list of components that are required.
 * The sizing information for instances that will
@@ -118,6 +118,8 @@ General requirements listed previously still apply.
 
 ### Required services
 
+This section includes required services for the open banking solution.
+
 #### Managed Kubernetes Environment
 
 Managed Kubernetes environments are commonly available across cloud providers. For example:
@@ -130,7 +132,7 @@ Such products are very convenient for the deployment and management of Kubernete
 
 Each of these products incorporate other cloud provider solutions that are leveraged (and charged for) to provide a fully-functioning environment, but with specific limitations.
 
-##### Example
+##### Managed Kubernetes Example
 
 EKS is available as a standalone service from AWS. Using the service is [charged at an hourly rate](https://aws.amazon.com/eks/pricing/).
 
@@ -140,41 +142,41 @@ The Kubernetes cluster will require provisioning with sufficient computational r
 
 Cloud providers offer a multitude of options based on number of cores, amount of memory, and assign disk.
 
-*Example:*
+##### Compute Example
 
 In the [resources](#resources) the following guidelines are required:
 
-* 23 virtual CPUs
-* 70 Gb memory
-* Minimum of 2 nodes (in the context of Kubernetes, a [Node](https://kubernetes.io/docs/concepts/architecture/nodes/) is a virtual or physical machine onto which Pods - and the containers therein are placed)
+* 23 virtual CPUs.
+* 70 Gb memory.
+* Minimum of 2 nodes (in the context of Kubernetes, a [Node](https://kubernetes.io/docs/concepts/architecture/nodes/) is a virtual or physical machine onto which Pods - and the containers therein are placed).
 
 AWS provides a number of [instance types](https://aws.amazon.com/ec2/instance-types/). These requirements could be fulfilled by provisioning 3 "T" nodes on EKS in the "2 x large" category (`t3.2xlarge`) for example. These nodes provide a baseline level of CPU performance that allow for "bursts" when required.
 
 These provide 8 CPUs and 32 Gb of memory giving a total capacity of 24 CPUs and 96 Gb of memory.
 
-{{% alert title="Note" color="primary" %}} In the production deployment of the Axway Open Banking additional nodes will be required in order to segregate workloads.{{% /alert %}}
+{{% alert title="Note" color="primary" %}} In the production deployment of the Axway Open Banking additional nodes will be required to segregate workloads.{{% /alert %}}
 
 #### Ingress Controller
 
 An Ingress Controller is a Kubernetes component that manages external access to the cluster.
 
-Axway recommands the use the [NGINX](https://github.com/kubernetes/ingress-nginx/blob/master/README.md) Ingress Controller for all cloud providers.
+Axway recommends the use the [NGINX](https://github.com/kubernetes/ingress-nginx/blob/master/README.md) Ingress Controller for all cloud providers.
 
 However, customers may wish to use a Controller that is provided by their cloud provider.
 
-*Example:*
+##### Ingress Controller Example
 
 AWS provides an [Ingress Controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller#readme) that provisions an Application Load Balancer.
 
 An application load balancer provides additional functionality in that traffic is load balanced across instances and availability zones, while still meeting the needs of the Ingress Controller from a Kubernetes perspective.
 
-{{% alert title="Note" color="primary" %}} Note that in the context of our solution the Ingress Controller must be capable of terminating mutally-authenticated TLS connections. This is why the Axway Open Banking solution implements the NGINX Ingress Controller.{{% /alert %}}
+{{% alert title="Note" color="primary" %}} Note that in the context of our solution the Ingress Controller must be capable of terminating mutually-authenticated TLS connections. This is why the Axway Open Banking solution implements the NGINX Ingress Controller.{{% /alert %}}
 
 #### DNS Services
 
 The open banking solution needs to be exposed to Internet traffic and therefore requires DNS services such as lookup.
 
-*Example:*
+##### DNS Services Example
 
 AWS provides [Route 53](https://aws.amazon.com/route53/) which autoscales to handle internet traffic.
 
@@ -212,7 +214,7 @@ The default tolerance is based on utilization. At a given level of utilization n
 
 #### Network Traffic
 
-Network traffic in cloud deployment scenarios has cost implications when one considers the uplift from non-production to production environments.
+Network traffic in cloud deployment scenario has cost implications when one considers the uplift from non-production to production environments.
 
 For example, as a feature of running the EKS on AWS customers are charged for network ingress/egress to and from the Internet, which is charged per Gb (charges are also made for NAT Gateways, but these are charged per hour).
 
@@ -240,12 +242,12 @@ For example:
 * Components such as the API Portal can utilize shared disk allocations.
 * Databases that are frequently reading and writing will require dedicated disk allocations.
 
-The options from cloud providers in this area are considerable and are not listed here. However, generally they can be categorized in 2 ways that are similar to sizing a physical disk:
+The options from cloud providers in this area are considerable and are not listed here. However, generally they can be categorized in two ways that are similar to sizing a physical disk:
 
 * *General purpose*: As described, for general purpose computing operations.
 * *Solid state drives*: For frequent read/write operations.
 
-These 2 types then sub-divide into a multitude of options based on reserved capacity, "burst" and so on. Refer to the cloud provider documentation for details.
+These two types then sub-divide into a multitude of options based on reserved capacity, "burst," and so on. Refer to the cloud provider documentation for details.
 
 #### Scaling
 

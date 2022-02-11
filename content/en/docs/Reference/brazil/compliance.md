@@ -59,4 +59,3 @@ This table provides supporting information.
 | 3   | Open Banking Directory Guide | [Guide (in Portuguese)](https://openbanking-brasil.github.io/areadesenvolvedor/documents/OpenBanking-Guia_Operacao_Diretorio_Central.pdf)| Provides details on how to work with the Open Banking Brazil Directory. |
 | 4   | Directory API OpenAPI document | [OpenAPI document](https://github.com/OpenBanking-Brasil/specs-directory/blob/main/openapi.yaml) | |
 | 5   | Service Desk API specification | [Guide (in Portuguese, PDF)](https://openbanking-brasil.github.io/areadesenvolvedor/documents/OpenBankingEspecificacaoAPIServiceDesk.pdf) | Describes the Open Banking Brazil Service Desk APIs. |
-

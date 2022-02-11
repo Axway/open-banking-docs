@@ -8,9 +8,9 @@ description: A Technical View of Axway Open Banking
 
 Axway Open Banking is designed with flexibility in mind. It therefore has been engineered with as few constraints as possible in terms of deployment approach.
 
-Customers can choose to install the solution either on-premise or in the cloud because the solution is built according a vanilla Kubernetes. This allows customers to make a choice about their target Kubernetes distribution and additional components.
+Customers can choose to install the solution either on-premise or in the cloud because the solution is built according to a vanilla Kubernetes. This allows customers to make a choice about their target Kubernetes distribution and additional components.
 
-{{% alert title="Note" color="primary" %}} There are required features and security constraints that customers must adhere to. For example, some ingress controllers cannot meet our requirements.{{% /alert %}}
+{{% alert title="Note" color="primary" %}} There are required features and security constraints that customers to which a customer must adhere. For example, some ingress controllers cannot meet our requirements.{{% /alert %}}
 
 ## Considerations
 

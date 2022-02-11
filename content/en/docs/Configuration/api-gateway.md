@@ -37,7 +37,7 @@ This configuration can be read at the beginning of any policy using a common pol
 | g_extension_2 | java.lang.String | For future use. |
 | k_values | java.util.Map`<java.lang.String,java.lang.String>` | Key Value Pairs, helps in extending configuration whenever we want without deployment. New key value pairs can be added easily.|
 
-By default, only 1 line exists with no criteria (columns b to e) and values (column k) corresponding to solution deployment parameters. Refer to [Solution Deployment](/docs/deployment/installation) to see how to change this values during deployment. 
+By default, only 1 line exists with no criteria (columns b to e) and values (column k) corresponding to solution deployment parameters. Refer to [Solution Deployment](/docs/deployment/installation) to see how to change this values during deployment.
 
 You can check and update your current configuration from API Gateway Manager - Settings - Key Properties Store.
 
@@ -75,7 +75,7 @@ For other environments, you need to export the Policy Studio projects and build 
 
 ## Certificates
 
-API Gateway is configured with several certificate that are used during the runtime: 
+API Gateway is configured with several certificate that are used during the runtime:
 
 * Server certificate
 * Client certificate authority

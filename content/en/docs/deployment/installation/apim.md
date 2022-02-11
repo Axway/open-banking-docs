@@ -27,8 +27,8 @@ The following parameters are required for any deployment.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| global.platform | Select the platform to configure appropriate objects (like storage for RWM).<br>Possible values are AWS, AZURE, MINIKUBE. | None |
-| global.domainName | set the domainname for all ingress. | None |
+| global.platform | Select the platform to configure appropriate objects (like storage for RWM). <br>Possible values are AWS, AZURE, MINIKUBE. | None |
+| global.domainName | Set the domainname for all ingress. | None |
 | global.env | Set the default environment. | dev |
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
@@ -57,9 +57,9 @@ You can also customize the chart values with the following sub-sections.
 
 ### Product license
 
-A temporary license file is embedded in the default docker image.
+A temporary license file is embedded in the default Docker image. 
 
-This license key has a lifetime to 2 months maximum.
+This license key has a lifetime to two months maximum.
 
 This license is perfect for a demo or a proof of concept but another license key must be added for production environments.
 
@@ -71,7 +71,7 @@ This license is perfect for a demo or a proof of concept but another license key
 
 According to the reference architecture, the Cassandra database is external to the cluster. Change the following values according to the cassandra configuration.
 
-The Helm chart is delivered with an internal cassandra database, that would work for non-production environments. You can change this parameter to use an external one. It is required at least for production environments.
+The Helm chart is delivered with an internal cassandra database that would work for non-production environments. You can change this parameter to use an external one. A Cassandra environment is required for production environments at minimum.
 
 ```yaml
 cassandra:
@@ -87,7 +87,7 @@ Refer to the [Administer Apache Cassandra](https://docs.axway.com/bundle/axway-o
 
 ### Root CA for MTLS clients
 
-Optionally, you can add new root CA for MTLS ingress during the first deployment.
+Optionally, you can add a new root CA for MTLS ingress during the first deployment.
 
 The mutual authentication is provided by Nginx. It requires a Kubernetes secret that contains all rootCA used for client certificates (used by TPPs).
 
@@ -179,7 +179,7 @@ Insert each cert and key with the following format (same indent and empty lines)
 
 ```
 
-{{% alert title="Note" color="primary" %}}Oauth component is activated but ingress is not enabled. It is not required to create a certificate for this ingress. {{% /alert %}}
+{{% alert title="Note" color="primary" %}}The Oauth component is activated but ingress is not enabled. It is not required to create a certificate for this ingress. {{% /alert %}}
 
 Refer to [Certificate Management](/docs/configuration/certificate-management) for configuring certificates for the entire solution.
 
@@ -201,86 +201,83 @@ amplifyAgents:
 
 {{% alert title="Note" color="primary" %}}Private Key and Public Key must be encoded in base64. {{% /alert %}}
 
-Refer to [Amplify Agents](/docs/configuration/amplify-agents) to connect the Amplify agent to the Amplify platform.
+Refer to [Amplify Agents](/docs/configuration/amplify-agents) to connect the Amplify agent to the **Amplify platform**.
 
 ## Install the APIM Helm chart
 
-Create the target namespace on the cluster:
+1. Create the target namespace on the cluster:
 
-```bash
-kubectl create namespace open-banking-apim
-```
+   ```bash
+   kubectl create namespace open-banking-apim
+   ```
 
-Install the APIM Helm charts:
+2. Install the APIM Helm charts:
 
-```bash
-helm install apim open-banking-apim -n open-banking-apim
-```
+   ```bash
+   helm install apim open-banking-apim -n open-banking-apim
+   ```
 
-Check that the status of the Helm command is deployed:
+3. Check that the status of the Helm command is deployed:
 
-```console
-   NAME: apim 
-   LAST DEPLOYED: <current date and time>
-   NAMESPACE: open-banking-apim 
-   STATUS: deployed 
-   REVISION: 1 
-   TEST SUITE: None
-```
+   ```console
+      NAME: apim 
+      LAST DEPLOYED: <current date and time>
+     NAMESPACE: open-banking-apim 
+     STATUS: deployed 
+      REVISION: 1 
+     TEST SUITE: None
+   ```
 
 ## Verify the APIM Helm chart deployment
 
-Wait a few minutes and use the following commands to check the deployment status.
+1. Wait a few minutes and use the following commands to check the deployment status.
 
-```bash
-kubectl get pods -n open-banking-apim 
-```
+   ```bash
+   kubectl get pods -n open-banking-apim 
+   ```
 
-Verify that:
+2. Verify that:
+   * **pods** with name anm-xxx-xxx, apimgr-xxx-xxx, traffic-xxx-xxx, cassandra-0 are **Running** and Restart is **0**.
+   * **jobs** with name db-create-mysql-apigw-xxx is **Completed**.
 
-* **pods** with name anm-xxx-xxx, apimgr-xxx-xxx, traffic-xxx-xxx, cassandra-0 are **Running** and Restart is **0**.
-* **jobs** with name db-create-mysql-apigw-xxx is **Completed**.
-
-  ```console
-     NAME                                 READY   STATUS         RESTARTS 
-     anm-6d86b7dfbd-4wbnx                 1/1     Running        0 
-     apimgr-544b55fffb-qsn87              1/1     Running        0 
-     cassandra-0                          1/1     Running        0 
-     db-create-mysql-apigw-379e224c-...   0/1     Completed      0 
-     filebeat-analytics-86d588954b-lsx2p  1/1     Running        0 
-     mysql-aga-757495f88f-vpw79           1/1     Running        0 
+   ```console
+      NAME                                 READY   STATUS         RESTARTS 
+      anm-6d86b7dfbd-4wbnx                 1/1     Running        0 
+      apimgr-544b55fffb-qsn87              1/1     Running        0 
+      cassandra-0                          1/1     Running        0 
+      db-create-mysql-apigw-379e224c-...   0/1     Completed      0 
+      filebeat-analytics-86d588954b-lsx2p  1/1     Running        0 
+      mysql-aga-757495f88f-vpw79           1/1     Running        0 
      traffic-5d986c7d55-cv6dv             1/1     Running        0
-  ```
+   ```
 
-Check all ingress with this command:
+3. Check all ingress with this command:
 
-```bash
-kubectl get ingress -n open-banking-apim 
-```
+   ```bash
+   kubectl get ingress -n open-banking-apim 
+   ```
 
-Verify that these ingress have been provisioned. They must have a public ip or a dns value in the ADDRESS column.
+4. Verify that these ingress have been provisioned. They must have a public ip or a dns value in the ADDRESS column.
 
-```console
-   NAME            HOSTS                               ADDRESS                        PORTS 
-   apimanager      api-manager.<domain-name>           xxxxxxxxxxxxx.amazonaws.com    80, 443 
-   gatewaymanager  api-gateway-manager.<domain-name>   xxxxxxxxxxxxx.amazonaws.com    80, 443 
-   oauth           oauth.<domain-name>                 xxxxxxxxxxxxx.amazonaws.com    80, 443
-   traffic         api.<domain-name>                   xxxxxxxxxxxxx.amazonaws.com    80, 443 
-   traffichttps    services-api.<domain-name>          xxxxxxxxxxxxx.amazonaws.com    80, 443 
-   trafficmtls     mtls-api.<domain-name>              xxxxxxxxxxxxx.amazonaws.com    80, 443
-```
+   ```console
+      NAME            HOSTS                               ADDRESS                        PORTS 
+      apimanager      api-manager.<domain-name>           xxxxxxxxxxxxx.amazonaws.com    80, 443 
+      gatewaymanager  api-gateway-manager.<domain-name>   xxxxxxxxxxxxx.amazonaws.com    80, 443 
+      oauth           oauth.<domain-name>                 xxxxxxxxxxxxx.amazonaws.com    80, 443
+      traffic         api.<domain-name>                   xxxxxxxxxxxxx.amazonaws.com    80, 443 
+      traffichttps    services-api.<domain-name>          xxxxxxxxxxxxx.amazonaws.com    80, 443 
+      trafficmtls     mtls-api.<domain-name>              xxxxxxxxxxxxx.amazonaws.com    80, 443
+   ```
+5. Check that you can access the following user interfaces:
+   * _API Gateway Manager_ `https://api-gateway-manager.<domain-name>`.
 
-Check that you can access the following user interfaces:
+       * Login with username *admin* and password *apiAdminPwd!*
+       * Check in the topology section that apimgr and traffic pods are available.
 
-* **API Gateway Manager** `https://api-gateway-manager.<domain-name>`.
+   * _API Manager_ `https://api-manager.<domain-name>`.
 
-    * Login with username *admin* and password *apiAdminPwd!*
-    * Check in the topology section that apimgr and traffic pods are available.
-
-* **API Manager** `https://api-manager.<domain-name>`.
-
-    * Login with username *apiadmin* and password *apiAdminPwd!*
-    * Check that API and Client configurations are empty for now.
+       * Login with username _apiadmin_ and password _apiAdminPwd!_
+       * Check that API and Client configurations are empty for now.
 
 ## Customize the APIM configuration Helm chart
 
@@ -288,10 +285,10 @@ Customize the `open-banking-apim-config/values.yaml` file as follows.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| global.domainName | set the domainname for all ingress. | None |
+| global.domainName | Set the domainname for all ingress. | None |
 | global.env | Set the default environment. |dev |
-| global.dockerRegistry.username | Login name to pull Docker images from Axway Repository. | None |
-| global.dockerRegistry.token | Password token to pull Docker images from Axway Repository. | None |
+| global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
+| global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
 | apimcli.settings.email | Sender email address used in api-manager settings. | None |
 | apimcli.users.publicApiUser | Username of user to access the Public APIs from the API Portal. | _publicuser_ |
 | apimcli.users.publicApiPassword | Password of user to access the Public APIs from the API Portal. | _publicUserPwd!_ |
@@ -301,13 +298,13 @@ Customize the `open-banking-apim-config/values.yaml` file as follows.
 
 ## Install the APIM configuration Helm chart
 
-Run the following command to install the APIM config Helm chart:
+1. Run the following command to install the APIM config Helm chart:
 
-```bash
-helm install apim-config open-banking-apim-config -n open-banking-apim
-```
+   ```bash
+   helm install apim-config open-banking-apim-config -n open-banking-apim
+   ```
 
-Check that the status of the Helm command is deployed:
+2. Check that the status of the Helm command is deployed:
 
    ```
    NAME: apim-config 
@@ -320,15 +317,14 @@ Check that the status of the Helm command is deployed:
 
 ## Verify the APIM configuration Helm chart deployment
 
-Wait a few minutes and use the following commands to check the deployment status.
+1. Wait a few minutes and use the following commands to check the deployment status.
 
-```
-kubectl get pods -n open-banking-apim 
-```
+   ```
+   kubectl get pods -n open-banking-apim 
+   ```
 
-Verify that:
-
-* **jobs** with name import-api-27983c3f-xxx  are **Completed**:
+2. Verify that:
+   * **jobs** with name import-api-27983c3f-xxx  are **Completed**:
 
    ```
    NAME                                 READY   STATUS      RESTARTS 
@@ -342,13 +338,10 @@ Verify that:
    traffic-5d986c7d55-cv6dv             1/1     Running     0
    ```
 
-Check the following user interfaces:
-
-* **API Manager** `https://api-manager.<domain-name>`:
-
-    * Refresh or login again
-    * Make sure that Open Banking APIs are in the API Catalog
-    * Make sure that Default apps are in Client applications
+3. Check API Manager `https://api-manager.<domain-name>`:
+    * Refresh or login again.
+    * Make sure that Open Banking APIs are in the API Catalog.
+    * Make sure that Default apps are in Client applications.
 
 ## Post Deployment
 
@@ -358,32 +351,29 @@ Once the APIM and [Cloud Entity](/docs/deployment/installation/cloudentity) Helm
 
 You need to import some configurations in the Key Properties Store (KPS). They are used in policies for consent flows.
 
-To change the KPS:
+1. To change the KPS:
+   * The organization ID is different for each bank. Modify the Helm chart file `open-banking-apim-config/files/kps/kpsConfig1.json` to change the organizationId with your own bank/PSPSP ID.
+   * Execute the following command:
 
-* The organization ID is different for each bank. Modify the Helm chart file `open-banking-apim-config/files/kps/kpsConfig1.json` to change the organizationId with your own bank/PSPSP ID.
+   ```shell
+   APIMGR_POD="$(kubectl get pod -n open-banking-apim -l app=apimgr -o jsonpath='{.items[0].metadata.name}')"
+   ANM_INGRESS_NAME="$(kubectl get ingress -n open-banking-apim gatewaymanager -o jsonpath='{.spec.rules[0].host}')"
+   # check variables APIMGR_POD and ANM_INGRESS_NAME are not empty
+   echo $APIMGR_POD : $ANM_INGRESS_NAME
+   ANM_USERNAME=admin
+   ANM_PASSWORD='apiAdminPwd!'
+   curl -k -X PUT -u "$ANM_USERNAME:$ANM_PASSWORD" \
+        -H "Content-Type: application/json" \
+        -d @open-banking-apim-config/files/kps/kpsConfig1.json \
+        "https://${ANM_INGRESS_NAME}:443/api/router/service/${APIMGR_POD}/api/kps/cfg/1" 
+   awk  -F '\t' '{ \
+            if ($5==Y) {$5="true"} else {$5="false"}; \
+            print "Create id"$1; \
+       system("curl -k -X PUT -u \"'"${ANM_USERNAME}"':'"${ANM_PASSWORD}"'\" -H \"Content-Type: application/json\" 'https://${ANM_INGRESS_NAME}:443'/api/router/service/'${APIMGR_POD}'/api/kps/'mediciobie_endpoint'/"$1" -d '\''{\"id\":\""$1"\",\"category\":\""$2"\",\"name\":\""$3"\",\"segment\":\""$4"\",\"used\":"$5"}'\''")}' \
+        "open-banking-apim-config/files/kps/obie_endpoint.txt"
+   ```
 
-* Execute the following command:
-
-```shell
-APIMGR_POD="$(kubectl get pod -n open-banking-apim -l app=apimgr -o jsonpath='{.items[0].metadata.name}')"
-ANM_INGRESS_NAME="$(kubectl get ingress -n open-banking-apim gatewaymanager -o jsonpath='{.spec.rules[0].host}')"
-# check variables APIMGR_POD and ANM_INGRESS_NAME are not empty
-echo $APIMGR_POD : $ANM_INGRESS_NAME
-ANM_USERNAME=admin
-ANM_PASSWORD='apiAdminPwd!'
-curl -k -X PUT -u "$ANM_USERNAME:$ANM_PASSWORD" \
-     -H "Content-Type: application/json" \
-     -d @open-banking-apim-config/files/kps/kpsConfig1.json \
-     "https://${ANM_INGRESS_NAME}:443/api/router/service/${APIMGR_POD}/api/kps/cfg/1" 
-awk  -F '\t' '{ \
-         if ($5==Y) {$5="true"} else {$5="false"}; \
-         print "Create id"$1; \
-    system("curl -k -X PUT -u \"'"${ANM_USERNAME}"':'"${ANM_PASSWORD}"'\" -H \"Content-Type: application/json\" 'https://${ANM_INGRESS_NAME}:443'/api/router/service/'${APIMGR_POD}'/api/kps/'mediciobie_endpoint'/"$1" -d '\''{\"id\":\""$1"\",\"category\":\""$2"\",\"name\":\""$3"\",\"segment\":\""$4"\",\"used\":"$5"}'\''")}' \
-     "open-banking-apim-config/files/kps/obie_endpoint.txt"
-```
-
-Verify the insertion in the KPS table:
-
-* Log into the API Gateway Manager UI and go on Settings - Key Property Stores.
-* Click on AMPLIFY/Configuration.
-* Check the column **k_values** that is not empty. Click on it to check the details.
+2. Verify the insertion in the KPS table:
+   * Log into the API Gateway Manager UI and go on Settings - Key Property Stores.
+   * Click on AMPLIFY/Configuration.
+   * Check the column **k_values** that is not empty. Click on it to check the details.

@@ -29,9 +29,9 @@ Modify the `open-banking-acp/values.yaml` file from the Axway package.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| cert.internal.certManager | Define if cert-manager is used internaly. <br>False is currently not supported. | true |
-| cert.internal.certManagerNamespace | Namespace where is installed cert-manager. Use the result of the previous command. | None |
-| cert.ingress.certManager | Define if cert-manager is used externaly. <br>If set to false, define cert and keys with values below. | true |
+| cert.internal.certManager | Define if cert-manager is used internally. <br>False is currently not supported. | true |
+| cert.internal.certManagerNamespace | Namespace where cert-manager is installed. Use the result of the previous command. | None |
+| cert.ingress.certManager | Define if cert-manager is used externally. <br>If set to false, define cert and keys with values below. | true |
 | cert.ingress.cert | Use specific cert. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 | cert.ingress.key | Use specific key. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 
@@ -100,182 +100,178 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 
 ## Prepare deployment
 
-Add the Cloud Entity Helm repository:
+1. Add the Cloud Entity Helm repository:
 
-```bash
-helm repo add cloudentity https://charts.cloudentity.io 
-helm repo update 
-```
+   ```bash
+   helm repo add cloudentity https://charts.cloudentity.io 
+   helm repo update 
+   ```
 
-Create the target namespaces on the cluster:
+2. Create the target namespaces on the cluster:
 
-```bash
-kubectl create namespace open-banking-acp 
-kubectl create namespace open-banking-consent 
-```
+   ```bash
+   kubectl create namespace open-banking-acp 
+   kubectl create namespace open-banking-consent 
+   ```
 
-Add the Docker registry to pull cloud-entity private images in both namespaces.
+3. Add the Docker registry to pull cloud-entity private images in both namespaces.
 
-```bash
-kubectl create secret docker-registry artifactory --docker-server=acp.artifactory.cloudentity.com --docker-username=USERNAME --docker-password=PASSWORD -n open-banking-acp 
-kubectl create secret docker-registry artifactory --docker-server=acp.artifactory.cloudentity.com --docker-username=USERNAME --docker-password=PASSWORD -n open-banking-consent
-```
+   ```bash
+   kubectl create secret docker-registry artifactory --docker-server=acp.artifactory.cloudentity.com --docker-username=USERNAME --docker-password=PASSWORD -n open-banking-acp 
+   kubectl create secret docker-registry artifactory --docker-server=acp.artifactory.cloudentity.com --docker-username=USERNAME --docker-password=PASSWORD -n open-banking-consent
+   ```
 
 ## Install the ACP Helm chart
 
-Deploy ACP pre-requisites Helm chart from the Axway repository:
+1. Deploy ACP pre-requisites Helm chart from the Axway repository:
 
-```bash
-helm install acp-prereq -n open-banking-acp open-banking-acp
-```
+   ```bash
+   helm install acp-prereq -n open-banking-acp open-banking-acp
+   ```
 
-Check that the status of the Helm command is deployed:
+2. Check that the status of the Helm command is deployed:
 
-```
-   NAME: acp-prereq 
-   LAST DEPLOYED: <current date and time>
-   NAMESPACE: open-banking-acp 
-   STATUS: deployed
-   REVISION: 1 
-   TEST SUITE: None
-```
+   ```
+      NAME: acp-prereq 
+      LAST DEPLOYED: <current date and time>
+      NAMESPACE: open-banking-acp 
+      STATUS: deployed
+      REVISION: 1 
+      TEST SUITE: None
+   ```
 
-Deploy the ACP Helm chart from the CloudEntity repository:
+3. Deploy the ACP Helm chart from the CloudEntity repository:
+   {{% alert title="Note" color="primary" %}}Find the ACP chart-version to be used in the `open-banking-acp/README.md`. Otherwise use the latest.{{% /alert %}}
 
-{{% alert title="Note" color="primary" %}}Find the ACP chart-version to be used in the `open-banking-acp/README.md`. Otherwise use the latest.{{% /alert %}}
+   ```bash
+   helm install acp -n open-banking-acp cloudentity/kube-acp-stack –-version <chart-version>  -f open-banking-acp/files/acp.values.yaml
+   ```
 
-```bash
-helm install acp -n open-banking-acp cloudentity/kube-acp-stack –-version <chart-version>  -f open-banking-acp/files/acp.values.yaml
-```
+4. Check that the status of the Helm command is deployed:
 
-Check that the status of the Helm command is deployed:
-
-```
-   NAME: acp
-   LAST DEPLOYED: <current date and time>
-   NAMESPACE: open-banking-acp 
-   STATUS: deployed
-   REVISION: 1 
-   TEST SUITE: None
-```
+   ```
+      NAME: acp
+      LAST DEPLOYED: <current date and time>
+      NAMESPACE: open-banking-acp 
+      STATUS: deployed
+      REVISION: 1 
+      TEST SUITE: None
+   ```
 
 ## Verify the ACP Helm chart deployment
 
-Wait a few minutes and use the following commands to check the deployment status.
+1. Wait a few minutes and use the following commands to check the deployment status.
 
-```
-kubectl get pods -n open-banking-acp 
-```
+   ```
+   kubectl get pods -n open-banking-acp 
+   ```
 
-Verify that:
-
-* **pods** with acp-xxx-xxx, name acp-cockroachdb-x, acp-redis-master-x, acp-redis-replicas-x are all **Running** and Restart is **0**.
-* **pods** with acp-cockroachdb-init-xxx is **Completed** and Restart is **0**.
+2. Verify that:
+   * **pods** with acp-xxx-xxx, name acp-cockroachdb-x, acp-redis-master-x, acp-redis-replicas-x are all **Running** and Restart is **0**.
+   * **pods** with acp-cockroachdb-init-xxx is **Completed** and Restart is **0**.
   
-```
-   NAME                         READY   STATUS      RESTARTS   AGE
-   acp-66d8797fb4-njbw6         1/1     Running     0          3m
-   acp-cockroachdb-0            1/1     Running     0          3m
-   acp-cockroachdb-init-h8hdc   0/1     Completed   0          3m
-   acp-redis-master-0           1/1     Running     0          3m
-   acp-redis-replicas-0         1/1     Running     0          3m
-   acp-redis-replicas-1         1/1     Running     0          3m
-   acp-redis-replicas-2         1/1     Running     0          3m
-```
+   ```
+      NAME                         READY   STATUS      RESTARTS   AGE
+      acp-66d8797fb4-njbw6         1/1     Running     0          3m
+      acp-cockroachdb-0            1/1     Running     0          3m
+      acp-cockroachdb-init-h8hdc   0/1     Completed   0          3m
+      acp-redis-master-0           1/1     Running     0          3m
+      acp-redis-replicas-0         1/1     Running     0          3m
+      acp-redis-replicas-1         1/1     Running     0          3m
+      acp-redis-replicas-2         1/1     Running     0          3m
+   ```
 
-Check ingress with this command:
+3. Check ingress with this command:
 
-```bash
-kubectl get ingress -n open-banking-acp 
-```
+   ```bash
+   kubectl get ingress -n open-banking-acp 
+   ```
 
-Verify that this ingress has been provisioned. It must have a public ip or a dns value in the ADDRESS column.
+4. Verify that this ingress has been provisioned. It must have a public ip or a dns value in the ADDRESS column.
 
-```
-    NAME         HOSTS                           ADDRESS                       PORTS     AGE
-    acp          acp.<domain-name>               xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-```
+   ```
+       NAME         HOSTS                           ADDRESS                       PORTS     AGE
+       acp          acp.<domain-name>               xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+   ```
 
-Connect to `https://acp.<domain-name>`  with admin / admin  and change the password immediately.
+5. Connect to `https://acp.<domain-name>`  with admin / admin  and change the password immediately.
 
-Check that you see an "openbanking" workspace.
+6. Check that you see an "openbanking" workspace.
 
 ## Install the Consent Helm chart
 
-Deploy Consent pre-requisites Helm chart from the Axway repository.
+1. Deploy Consent pre-requisites Helm chart from the Axway repository.
 
-```bash
-helm install consent-prereq -n open-banking-consent open-banking-consent  
-```
+   ```bash
+   helm install consent-prereq -n open-banking-consent open-banking-consent  
+   ```
 
-Check that the status of the Helm command is deployed:
+2. Check that the status of the Helm command is deployed:
 
-```
-   NAME: consent-prereq 
-   LAST DEPLOYED: <current date and time>
-   NAMESPACE: open-banking-consent 
-   STATUS: deployed
-   REVISION: 1 
-   TEST SUITE: None
-```
+   ```
+      NAME: consent-prereq 
+      LAST DEPLOYED: <current date and time>
+      NAMESPACE: open-banking-consent 
+      STATUS: deployed
+      REVISION: 1 
+      TEST SUITE: None
+   ```
 
-Deploy the Open Banking Consent Helm chart from the CloudEntity repository.
+3. Deploy the Open Banking Consent Helm chart from the CloudEntity repository.
+   {{% alert title="Note" color="primary" %}} Find the Open Banking Consent chart-version to be used in the `open-banking-consent/README.md`. Otherwise use the latest.{{% /alert %}}
 
-{{% alert title="Note" color="primary" %}} Find the Open Banking Consent chart-version to be used in the `open-banking-consent/README.md`. Otherwise use the latest.{{% /alert %}}
+   ```bash
+   helm install consent -n open-banking-consent cloudentity/openbanking –-version <chart-version> -f open-banking-consent/files/consent.values.yaml
+   ```
 
-```bash
-helm install consent -n open-banking-consent cloudentity/openbanking –-version <chart-version> -f open-banking-consent/files/consent.values.yaml
-```
+4. Check that the status of the Helm command is deployed:
 
-Check that the status of the Helm command is deployed:
-
-```
-   NAME: consent
-   LAST DEPLOYED: <current date and time>
-   NAMESPACE: open-banking-consent 
-   STATUS: deployed
-   REVISION: 1 
-   TEST SUITE: None
-```
+   ```
+      NAME: consent
+      LAST DEPLOYED: <current date and time>
+      NAMESPACE: open-banking-consent 
+      STATUS: deployed
+      REVISION: 1 
+      TEST SUITE: None
+   ```
 
 ## Verify the Consent Helm chart deployment
 
-Wait a few minutes and use the following commands to check the deployment status.
+1. Wait a few minutes and use the following commands to check the deployment status.
 
-```
-kubectl get pods -n open-banking-consent 
-```
+   ```
+   kubectl get pods -n open-banking-consent 
+   ```
 
-Verify that:
+2. Verify that:
+   * **pods** with consent-openbanking-bank-xxxx-xxx, consent-openbanking-consent-admin-xxxx-xxx, consent-openbanking-consent-page-xxxx-xxx, consent-openbanking-consent-self-service-xxxx-xx   are  **Running** and Restart is **0**.
+   * **pods** with consent-openbanking-import-xxx    is **Completed** and Restart is **0**.
 
-* **pods** with consent-openbanking-bank-xxxx-xxx, consent-openbanking-consent-admin-xxxx-xxx, consent-openbanking-consent-page-xxxx-xxx, consent-openbanking-consent-self-service-xxxx-xx   are  **Running** and Restart is **0**.
-* **pods** with consent-openbanking-import-xxx    is **Completed** and Restart is **0**.
+   ```
+      NAME                                                READY   STATUS      RESTARTS   
+      consent-openbanking-bank-xxxx-xxx                   1/1     Running     0          
+      consent-openbanking-consent-admin-xxxx-xxx          1/1     Running     0          
+      consent-openbanking-consent-page-xxxx-xxx           1/1     Running     0          
+      consent-openbanking-consent-self-service-xxxx-xxx   1/1     Running     0          
+      consent-openbanking-financroo-xxxx-xxx              1/1     Running     0          
+      consent-openbanking-import-xxx                      0/1     Completed   0          
+   ```
 
-```
-   NAME                                                READY   STATUS      RESTARTS   
-   consent-openbanking-bank-xxxx-xxx                   1/1     Running     0          
-   consent-openbanking-consent-admin-xxxx-xxx          1/1     Running     0          
-   consent-openbanking-consent-page-xxxx-xxx           1/1     Running     0          
-   consent-openbanking-consent-self-service-xxxx-xxx   1/1     Running     0          
-   consent-openbanking-financroo-xxxx-xxx              1/1     Running     0          
-   consent-openbanking-import-xxx                      0/1     Completed   0          
-```
+3. Check ingress with this command:
 
-Check ingress with this command:
+   ```bash
+   kubectl get ingress -n open-banking-consent 
+   ```
 
-```bash
-kubectl get ingress -n open-banking-consent 
-```
+4. Verify that these ingress have been provisioned. They must have a public ip or a dns value in the ADDRESS column.
 
-Verify that these ingress have been provisioned. They must have a public ip or a dns value in the ADDRESS column.
-
-```
-    NAME                                     HOSTS                            ADDRESS                       PORTS     AGE
-    consent-openbanking-consent-admin        consent-admin.<domain-name>       xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-    consent-openbanking-consent-page         consent.<domain-name>             xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-    consent-openbanking-consent-self-service consent-selfservice.<domain-name> xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-    consent-openbanking-financroo            financroo.<domain-name>           xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
-```
+   ```
+       NAME                                     HOSTS                            ADDRESS                       PORTS     AGE
+       consent-openbanking-consent-admin        consent-admin.<domain-name>       xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+       consent-openbanking-consent-page         consent.<domain-name>             xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+       consent-openbanking-consent-self-service consent-selfservice.<domain-name> xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+       consent-openbanking-financroo            financroo.<domain-name>           xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
+   ```
 
 ## Post Deployment
 

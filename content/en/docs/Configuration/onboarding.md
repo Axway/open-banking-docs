@@ -96,20 +96,20 @@ curl --location --request POST    https://acp.$domainName>/default/openbanking_b
 --header 'Content-Type: application/json'  \
 --cert client.crt --key client.key --cacert ca.crt \
 --data-raw '{
-	"grant_types": [
-		"authorization_code",
-		"implicit",
-		"refresh_token",
-		"client_credentials"
-	],
-	"jwks_uri": "https://keystore.sandbox.directory.openbankingbrasil.org.br/$OrganizationId/$software_id/application.jwks",
-	"token_endpoint_auth_method": "private_key_jwt",
-	"response_types": [
-		"code id_token"
-	],
-	"redirect_uris": [
-		"https://www.certification.openid.net/test/a/$test_id/callback"
-	],
-	"software_statement": "$SoftwareStatement"
+    "grant_types": [
+        "authorization_code",
+        "implicit",
+        "refresh_token",
+        "client_credentials"
+    ],
+    "jwks_uri": "https://keystore.sandbox.directory.openbankingbrasil.org.br/$OrganizationId/$software_id/application.jwks",
+    "token_endpoint_auth_method": "private_key_jwt",
+    "response_types": [
+        "code id_token"
+    ],
+    "redirect_uris": [
+        "https://www.certification.openid.net/test/a/$test_id/callback"
+    ],
+    "software_statement": "$SoftwareStatement"
 }'
 ```

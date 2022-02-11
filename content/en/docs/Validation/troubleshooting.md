@@ -68,7 +68,7 @@ If traffic debug did not help to understand a specific behavior, you can also di
 7. Browse under Policy - #AMPLIFY-OB to find the API. Or, use the search box to provide the API name.
 8. Double click the API name to open the filter path.
 
-### Take action to fix the issue
+### Review the API filter path
 
 Once you open the filter path for the API, you can do the following:
 
