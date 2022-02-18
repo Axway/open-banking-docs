@@ -20,7 +20,7 @@ Traceability Agents collect usage, metrics, and dataplane traffic details and se
 
 ## Amplify agents for Axway Open Banking
 
-The Axway Open Banking solution embeds the Discovery and traceability agent for Axway API Management. It gathers information about the Open Banking APIs to the Amplify platform.
+The Axway Open Banking solution embeds the discovery and traceability agents for Axway API Management. The agents gather information about the Open Banking APIs to send the Amplify platform.
 
 ### Amplify configuration
 

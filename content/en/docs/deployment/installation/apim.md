@@ -49,15 +49,15 @@ Add apimgr  user and password change option. once https://jira.axway.com/browse/
 | apimgr.admin.password | API Manager admin password | apiAdminPwd! |
 -->
 
-With these base parameters set, you can install the Helm chart. See [Install APIM Helm chart](#install-apim-helm-chart).
+With these base parameters set, you can install the Helm chart. See [Install the APIM Helm chart](#install-the-apim-helm-chart).
 
-This deployment will use cert-manager and let's encrypt issuer to provide certificates. This requires an ingress controller (nginx) that listen on a public IP.
+This deployment will use cert-manager and the [Let's Encrypt](https://letsencrypt.org) issuer to provide certificates. This requires an ingress controller (nginx) that listens on a public IP. You must replace the certificates provided with the sample Helm chart with your own certificates.
 
 You can also customize the chart values with the following sub-sections.
 
 ### Product license
 
-A temporary license file is embedded in the default Docker image. 
+A temporary license file is embedded in the default Docker image.
 
 This license key has a lifetime to two months maximum.
 

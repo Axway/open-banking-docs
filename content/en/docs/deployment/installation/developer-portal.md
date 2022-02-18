@@ -27,7 +27,7 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
 | apiportal.adminPasswd | Password to access the Developer Portal Joomla admin console. | _portalAdminPwd!_ |
-| apiportal.company | Name of you company, sued for brandind. | _Griffin Bank_ |
+| apiportal.company | Your company name. | _Griffin Bank_ |
 | apiportal.chatraid |  Your Chatra account. |  |
 | apiportal.recaptchkey | ReCaptcha key associated to your external domain name. |  |
 | apiportal.recaptchsecret |  Corresponding ReCaptcha key associated to your external domain name. |  |
