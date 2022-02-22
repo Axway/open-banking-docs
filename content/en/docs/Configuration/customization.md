@@ -11,7 +11,7 @@ date: 2021-09-02
 
 You can easily apply your branding on most of the solution's user interface, such as changing the logos and the style (color palette, font, and so on.)
 
-The following are the main items you can consider for branding:
+Consider the following for branding changes:
 
 * Solution Homepage logo and style: [API Gateway - Solution Homepage](/docs/configuration/api-gateway#solution-homepage).
     ![Welcome email](/Images/homepage.png)
@@ -22,7 +22,7 @@ The following are the main items you can consider for branding:
 
 ## Consent page
 
-Each Axway Open Banking customer needs to customize the Consent page that is embedded in the solution.
+The Consent page embedded in the solution is provided for demonstration purposes only. Each customer should customize the consent page to match their target application's requirements.
 
 For this you would need to customize the corresponding Docker image and replace its reference to yours.
 
@@ -62,7 +62,7 @@ The sections below details how to customize the consent page in the Docker image
 
 ### Consent Page template files
 
-The consent pages are generated based on template files that you can customize.
+The consent pages are generated based on customizable template files.
 
 You can find them in `consent/consent-page/templates/base`.
 

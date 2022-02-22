@@ -10,7 +10,7 @@ date: 2021-09-02
 
 Mutual authentication is required for most APIs developed for Open Banking.
 
-According to the Open Banking Specification, the MTLS is required for the Cloud Entity and API Gateway Listener components. See the diagram which explains how it is working.
+According to the Open Banking Specification, Mutual Transport Layer Security (MTLS) based client connection is required for the Cloud Entity and API Gateway Listener components. See the diagram for details on MTLS setup.
 ![MTLS diagram](/Images/mtls.png)
 
 See more about the Certificate Verification with MTLS in Open Banking context in [Mutual Authentication and Certificate Verification](/docs/overview/integration/mutual-auth).
@@ -21,11 +21,11 @@ The reference architecture uses an ingress controller to support the MTLS capabi
 
 Others possibilities are:
 
-* Use a component in front of the Kubernetes cluster to support the MTLS termination. In this condition, Axway recommands to have a component nearest the Kubernetes cluster.
+* Use a component in front of the Kubernetes cluster to support the MTLS termination. In this condition, Axway recommends to have a component nearest the Kubernetes cluster.
 
 * Replace the nginx ingress controller by another ingress controller that supports the required features.
 
-Refer to the required features the ingress controller in [Deployment - Prerequisites](/docs/deployment/prerequisites).
+Refer to the required features of the ingress controller in [Deployment - Prerequisites](/docs/deployment/prerequisites).
 
 {{% alert title="Note" color="primary" %}} Usage of the MTLS Listener embedded on the API-gateway configuration would require each customer to build their own Docker images, as the container maturity level does not allow us to externalize certificates.{{% /alert %}}
 
@@ -56,7 +56,7 @@ openssl genrsa -out ca1.key 2048openssl req -new -x509 -days 3650 -key ca1.key -
 
 ### Create certificates for the Third Party Provider (TPP) App (Client Certificates for each TPP)
 
-Each certificate must have one key and signed with a root CA previously created. These configuration files below are provided as examples.
+Each certificate must have one key that is signed with a previously created root certificate authority. These configuration files below are provided as examples.
 
 | tpp1.cnf |
 | ----------- |

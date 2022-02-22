@@ -37,10 +37,10 @@ These frontend API changes can be done directly on the published API.
 * API summary
 * API documentation
 
-These frontend API changes can be done only by unpublishing the API first.
+You must unpublish the API before applying these frontend API changes.
 
 * API name
-* PI tags
+* API tags
 * API inbound configuration
 * API outbound configuration
 * API security configuration
