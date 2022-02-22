@@ -1,7 +1,7 @@
 ---
 title: "Amplify agents configuration"
 linkTitle: "Amplify agents"
-description: Connect Amplify agent to Amplify platform
+description: Connect Amplify agents to Amplify platform
 weight: 6
 date: 2021-09-02
 ---
@@ -12,43 +12,40 @@ The Amplify agents are software applications that run on your host. The agents a
 
 ### Discovery Agents
 
-Discovery Agents automate the process of finding assets that are deployed in a Gateway, for example OAS 3.0, WSDL etc., and sends them to the Amplify platform where they are made available in the Catalog for people to find and use. Consumers can subscribe to use the discovered assets, and the agent helps to provision this subscription in the Gateway.
+Discovery Agents automate the process of finding assets that are deployed in a Gateway, for example OAS 3.0, WSDL and so on, and sending them to the Amplify platform where they are made available in the Catalog for people to find and use. Consumers can subscribe to use the discovered assets and the agent helps to provision this subscription in the Gateway.
 
 ### Traceability Agents
 
-Traceability Agents collect usage, metrics, and dataplane traffic details and send them to the Amplify platform. In the platform, API consumers and API providers can view the performance and behavior of the assets discovered in the dataplane.
+Traceability Agents collect usage, metrics, and dataplane traffic details and sends them to the Amplify platform. In the platform, API consumers and API providers can view the performance and behavior of the assets discovered in the dataplane.
 
 ## Amplify agents for Axway Open Banking
 
-Axway Open Banking solution embbeds the Discovery and tracability agent fo Axway API Management. It gather information about the Open Banking APIs to the Amplify platform.
+The Axway Open Banking solution embeds the discovery and traceability agents for Axway API Management. The agents gather information about the Open Banking APIs to send the Amplify platform.
 
 ### Amplify configuration
 
+This section includes details for Amplify configuration such as creating a service account, creating an environment, finding the organization ID and team details.
+
 #### Service Account Creation
 
-We must first create a service account in [Amplify platform](https://platform.axway.com).
+You must first create a service account in the [Amplify platform](https://platform.axway.com).
 
-In the drop down menu from your user, select Organization and then "Service Accounts".
-
+1. In the drop down menu from your user click Organization - **Service Accounts**.
 ![Service Account in Amplify](/Images/agents/service-account-img1.PNG)
-
-Make sure the right organization is selected.
-
-Create a new service account.
-
+2. Check the Service Accounts drop down to make sure you have the correct organization selected.
+3. Create a new service account.
 ![Service Account Creation in Amplify](/Images/agents/service-account-img3.PNG)
-
-Select a Name.
-
-For the method pick "Client Certificate" and for credentials select "Platform-generated key pair". If you have your own certificate, you can also select the first option, "Provide public key".
-
-You can add one or more organisations and teams, but the default options would work.
-
-A pop-up window will apear with the private key. Download it and keep it, it will be used in the values.yaml file.
+4. Select a Name.
+5. Complete the following fields.
+    * **Method**: select **Client Certificate**.
+    * **Credentials**: Select **Platform-generated key pair** or **Provide public key** if you have your own certificate.
+6. You can add one or more organizations and teams, but the default options would work.
+7. Click **Save**.
+8. A pop-up window will appear with the private key. Download it and save a copy as it will be used in the `values.yaml` file.
 
 ![Service Account Private key window in Amplify](/Images/agents/service-account-privatekey.PNG)
 
-The service account client id, name, public and private key  will be used in the values.yaml file in the following parameters:
+The service account client id, name, public, and private key will be used in the `values.yaml` file in the following parameters:
 
 ``` shell
 centralAuthClientID: "test-eks-openbanking_882712e1-8465-4d26-8610-c4406c90e2ea"
@@ -65,21 +62,20 @@ centralPrivateKey:  |
       -----END PUBLIC KEY-----
 
 ```
-The private key is the one downloaded right after the creation of the service account.
+
+The private key is the one you downloaded after you created the service account.
 
 ![Service Account Yaml conf](/Images/agents/service-account-yaml-conf.PNG)
 
 #### Environment Creation
 
-Go to Central and then Topology and create a new environment.
+You must create an environment.
 
+1. Go to Central, and then click **Topology** to create a new environment.
 ![Environment conf](/Images/agents/environment-img1.PNG)
-
-Select a title and a logical name and then click on "Save".
-
+2. Select a title and a logical name and then click **Save**.
 ![Environment creation](/Images/agents/environment-img2.PNG)
-
-Use the logical name in the parameter "centralEnvName" from values.yaml.
+3. Use the logical name in the **centralEnvName** parameter from `values.yaml`.
 
 ``` shell
 centralEnvName: "test-eks-int"
@@ -87,7 +83,7 @@ centralEnvName: "test-eks-int"
 
 #### Organization ID and Team
 
-For the organization id, select "Organization" from the drop down menu under your user.
+To locate the organization id, select **Organization** from the drop down menu under your user.
 
 ![Environment creation](/Images/agents/org-img1.PNG)
 
@@ -95,7 +91,7 @@ For the organization id, select "Organization" from the drop down menu under you
 centralOrgID: "20049705293414"
 ```
 
-For the "centralTeam" parameter from values.yaml, go to the "Team" menu under "Organization". 
+For the **centralTeam** parameter from `values.yaml`, click the **Teams** menu in the left navigation under **Organization**.
 
 ![Environment creation](/Images/agents/team-img1.PNG)
 
@@ -105,7 +101,7 @@ centralTeam: "Default Team"
 
 ### Agents deployment parameters
 
-This section describes how to fill the "amplifyAgents" parameters from the values.yaml file of the open-banking-apim helm chart in order to connect Amplify and the Open Banking Platform.
+This section describes how to fill the **amplifyAgents** parameters from the `values.yaml` file of the open-banking-apim helm chart to connect Amplify and the the Open Banking Platform.
 
 ``` shell
 amplifyAgents:
@@ -192,10 +188,10 @@ amplifyAgents:
       name:
 ```
 
-You have 2 options to apply this configuration:
+You have the following options to apply this configuration:
 
-* New APIM install: If you are ready with the entire setup mentionned above before the first installation of the APIM helm charts, simply follow the [Installation > APIM helm charts](/docs/deployment/installation/apim) 
-* Update APIM instance: If you want to set up these agent deployment values after a installation of the APIM helm charts, you simply need to update your existing helm chart with the amplifyAgents values.  Execute the follwoing command from the open-banking-apim parent directory:
+* **New APIM install**: If you are ready with the entire setup mentioned above, before the first installing the APIM Helm charts, simply follow the [Installation - APIM Helm charts](/docs/deployment/installation/apim).
+* **Update APIM instance**: If you want to set up these agent deployment values after installing the APIM Helm charts, you need to update your existing Helm chart with the amplifyAgents values. Execute the following command from the open-banking-apim parent directory.
 
 ``` bash
   helm upgrade apim -n open-banking-apim open-banking-apim

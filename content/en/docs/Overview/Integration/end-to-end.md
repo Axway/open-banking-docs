@@ -7,7 +7,7 @@ description: End-to-end view of Axway Open Banking Web Journey
 type: sequence
 ---
 
-This end-to-end flow for provides a means to show how individual components are used in Axway Open Banking.
+This end-to-end flow provides a means to show how individual components are used in Axway Open Banking.
 
 To summarize the diagram below:
 
@@ -17,8 +17,6 @@ To summarize the diagram below:
 * With Consent confirmed the Customer is redirected back to the TPP who then gets an Access Token.
 * The TPP can then retrieve data or initiate payment on behalf of the Customer.
 
-Note that all APIs that provide access to data are implemented in the same manner. The consent/data access pattern relating to Account Information is therefore representative regardless of the specific resource (checking accounts, credit cards, loans, etc.)
+All APIs that provide access to data are implemented in the same manner. The consent/data access pattern relating to Account Information is therefore representative regardless of the specific resource (checking accounts, credit cards, loans, and so on).
 
 {{< readfile file="/static/Images/Generic_Web_Journey_Sequence.svg" >}}
-
-

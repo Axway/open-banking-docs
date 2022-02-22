@@ -7,7 +7,7 @@ description: Upgrading the Axway Open Banking solution
 
 If a new Open Banking API is released or an existing Open Banking API is updated you can perform an upgrade to the deployed application.
 
-> If you are migrating from version 1.3 to 1.4, the API management component has been split into two Helm charts: `apim` for products and `apim-config` for configuration. In this case you must therefore uninstall `apim`, verify it has been completely removed, and then install `apim` and `apim-config`. 
+{{% alert title="Note" color="primary" %}} If you are migrating from version 1.3 to 1.4, the API management component has been split into two Helm charts: `apim` for products and `apim-config` for configuration. In this case you must therefore uninstall `apim`, verify it has been completely removed, and then install `apim` and `apim-config`.{{% /alert %}}
 
 ## Steps
 
@@ -31,7 +31,7 @@ Update your repo:
 helm repo update 
 ```
 
-Pull only the Helm charts you want to upgrade: 
+Pull only the Helm charts you want to upgrade:
 
 ```bash
 helm search repo axway-open-banking 
@@ -43,11 +43,11 @@ helm pull axway-open-banking/open-banking-analytics --untar
 helm pull axway-open-banking/open-banking-bankio-apps --untar         
 ```
 
-For each new helm chart, update `open-banking-xxxxx/values.yaml` using :
+For each new Helm chart, update `open-banking-xxxxx/values.yaml` using the:
 
-* the install documentation of the components
-* the previous values used in `previous-version/open-banking-xxxxx/value.yaml`
-* the release notes in `open-banking-xxxxx/README.md`
+* Install documentation of the components.
+* Previous values used in `previous-version/open-banking-xxxxx/value.yaml`.
+* Release notes in `open-banking-xxxxx/README.md`.
 
 Execute the upgrade commands as required:
 

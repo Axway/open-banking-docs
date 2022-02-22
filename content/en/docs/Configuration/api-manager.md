@@ -6,9 +6,9 @@ weight: 2
 date: 2021-09-02
 ---
 
-Axway Open Banking API Manager is based on Axway API Manager product
+Axway Open Banking API Manager is based on the Axway API Manager product.
 
-Most features are documented in the [Axway API Manager documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apimgr_admin/index.html) 
+Most features are documented in the [Axway API Manager documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apimgr_admin/index.html).
 
 <!-- ## Settings
 
@@ -18,43 +18,45 @@ This page is under development
 
 ## Email templates override
 
-Emails are sent to API developpers when they register, activate their account, or change password.
+Emails are sent to API developers when they register, activate their account, or change their password.
+
 ![Welcome email](/Images/welcome-email.png)
-You can customize the email templates used for developer notifications in `/opt/Axway/apigateway/system/conf/apiportal/email` folder of the apimngr pod.
+
+You can customize the email templates used for developer notifications in the  `/opt/Axway/apigateway/system/conf/apiportal/email` folder of the apimngr pod.
 
 ## API Management
 
-Upon solution deployment, several Open Banking APIs are deployed and publish in the catalog.
-You can us the admin interface to update them:
+Upon solution deployment, several Open Banking APIs are deployed and published in the catalog.
+You can use the admin interface to update the APIs.
 
 ![open banking apis](/Images/api-manager-apis.png)
 
-These frontend API changes can be done directly on published API:
+These frontend API changes can be done directly on the published API.
 
-* change API logo
-* change API summary
-* change API documentation
+* API logo
+* API summary
+* API documentation
 
-These Frontend API changes can be done only by unpublishing the API first:
+You must unpublish the API before applying these frontend API changes.
 
-* change API name
-* change API tags
-* change API inbound configuration
-* change API outbound configuration
-* change API security configuration
+* API name
+* API tags
+* API inbound configuration
+* API outbound configuration
+* API security configuration
 
-See here how to manage APIs details in [Axway API Manager documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web/index.html)
+Refer to the details in the [Axway API Manager documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web/index.html) to manage API details.
 
 ## Client management
 
-Admin can use the API Manager interface to manage organization, developers and applications.
+An administrator can use the API Manager interface to manage organizations, developers, and applications.
 
 ![client apps](/Images/api-manager-client-apps.png)
 
-This is can be used to support TPP in changing their app status, getting access to specic APIs, to revoke some API access, etc.
+API Manager can be used to support TPP in changing their app status, getting access to specific APIs, to revoke some API access, and so on.
 
 ![client apps apis access](/Images/api-manager-client-apps-apis.png)
 
-This is can be used to support TPP in check their OAuth confguration such as the client ID or the redirect URLs.
+API Manager can be used to support TPP to check their OAuth configuration such as the client ID or redirect URLs.
 
 ![client apps auth](/Images/api-manager-client-apps-auth.png)
