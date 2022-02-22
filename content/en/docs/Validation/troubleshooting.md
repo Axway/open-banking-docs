@@ -31,7 +31,7 @@ Second, run your test again and identify the call in the traffic to troubleshoot
 2. Click the method you want to troubleshoot to open the details.
 3. The first section details the execution path.
 ![api-gateway-manager-debug](/Images/api-gateway-manager-traffic-execution-path.png)
-You can identify the execution path, the policy used, and where some filter failed. According to the API configuration in API Manager, you will see one or several API policies executed. This could be Inbound Security Policy, Request Policy, Routing Policy, Response Policy, or Fault Handler Policy. Find our more about this policy configuration in [API Manager documentation > custom policies](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies/index.html).
+You can identify the execution path, the policy used, and where some filter failed. According to the API configuration in API Manager, you will see one or several API policies executed. This could be Inbound Security Policy, Request Policy, Routing Policy, Response Policy, or Fault Handler Policy. Find our more about this policy configuration in [API Manager documentation - custom policies](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies/index.html).
 4. The next sections provide all internal or external requests and responses, with header and body, that are involved in this API call.
 ![api-gateway-manager-debug](/Images/api-gateway-manager-traffic-requests.png)
 You can investigate the intermediate request parameters and responses to better understand the current behavior.

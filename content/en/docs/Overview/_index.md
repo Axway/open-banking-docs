@@ -20,4 +20,4 @@ This section does not describe:
 * The implementation on a specific cloud provider's infrastructure. Refer to the [Cloud deployment recommendations](/docs/deployment/prerequisites#cloud-deployment-recommendations).
 * Specific deployment instructions. Refer to the [Installation guide](/docs/deployment/installation).
 * Detailed information on the Axway API Management products that are used in the solution. Refer to the [Axway Documentation Portal](https://docs.axway.com/category/apim).
-* Detailed information on the Cloudentity Authorization Control Plane and Open Banking Toolkit.  Refer to the [ACP Documentation](https://docs.authorization.cloudentity.com/).
+* Detailed information on the Cloudentity Authorization Control Plane and Open Banking Toolkit. Refer to the [ACP Documentation](https://docs.authorization.cloudentity.com/).
