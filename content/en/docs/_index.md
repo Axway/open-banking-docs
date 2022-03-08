@@ -17,7 +17,7 @@ Traditionally, banking was confined to a closed ecosystem with data access in si
 
 Open banking can be defined as an ecosystem that furnishes the end user with data from a myriad of financial institutions by application programming interfaces (APIs). APIs help a software or application (app) to communicate and work with another application and seamlessly share information. Open Banking APIs allow third parties to securely access banking or financial information data in real-time, enabling them to integrate their respective systems, processing the data and offering more valuable insights and services, and powering the digital experiences of tomorrow.
 
-## How Can We Help?
+## How can we help?
 
 Axway Open Banking provides a way to significantly accelerate open banking adoption. With a tailored developer experience, APIs built to open banking standards, and a robust integration platform, Axway Open Banking enables banks to move beyond regulatory compliance to a true open banking platform.
 

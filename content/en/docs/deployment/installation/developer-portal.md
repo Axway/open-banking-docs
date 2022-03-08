@@ -1,10 +1,9 @@
 ---
-title: "Developer Portal Installation"
+title: "Developer Portal installation"
 linkTitle: "Developer Portal"
 weight: 2
-description: Installing the Developer Portal for the Axway Open Banking solution
 ---
-
+Install the Developer Portal for the Axway Open Banking solution.
 
 ## Download the Developer Portal Helm chart
 
@@ -76,7 +75,7 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
    ```
 
 2. Verify that:
-   * _pods_ with name api-portal-xxx-xxx, mysql-portal-xxx-xxx, redis-xxx-xxx are **Running** and Restart is **0**.
+   * **pods** with name api-portal-xxx-xxx, mysql-portal-xxx-xxx, redis-xxx-xxx are **Running** and Restart is **0**.
 
    ```
        NAME                            READY   STATUS    RESTARTS   AGE  
@@ -99,5 +98,5 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
    ```
 
 5. Check the different user interfaces:
-   * _Developer Portal home page_: `https://developer-portal.<domain-name>`. If the APIM Helm charts were successfully deployed, you should already be able to see APIs on the API Catalog (click on API tab).
+   * _Developer Portal home page_: `https://developer-portal.<domain-name>`. If the APIM Helm charts are successfully deployed, you should see APIs on the API Catalog (click the API tab).
    * _Joomla admin interface_: `https://developer-portal.<domain-name>/administrator`. Login with username _apiadmin_ and password _apiAdminPwd!_.

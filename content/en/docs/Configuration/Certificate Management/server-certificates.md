@@ -1,10 +1,12 @@
 ---
 title: "Server certificates"
 linkTitle: "Server certificates"
-description: How to change and test the server certificate configurations used for https services
+description: 
 weight: 1
 date: 2021-09-02
 ---
+
+How to change and test the server certificate configurations used for https services.
 
 ## Secure external access to services
 

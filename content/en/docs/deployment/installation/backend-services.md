@@ -1,10 +1,9 @@
 ---
-title: "Backend services Installation"
-linkTitle: "Backend services"
+title: "Backend Services installation"
+linkTitle: "Backend Services"
 weight: 3
-description: Installing Backend services for the Axway Open Banking solution
 ---
-
+Install Backend Services for the Axway Open Banking solution.
 
 ## Download the Backend Services Helm chart
 

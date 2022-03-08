@@ -2,7 +2,6 @@
 title: "Installation"
 linkTitle: "Installation"
 weight: 2
-description: Installing the Axway Open Banking solution
 ---
 
 This guide describes how to install the Axway Open Banking solution.

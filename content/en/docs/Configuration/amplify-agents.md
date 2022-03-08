@@ -1,7 +1,6 @@
 ---
 title: "Amplify agents configuration"
 linkTitle: "Amplify agents"
-description: Connect Amplify agents to Amplify platform
 weight: 6
 date: 2021-09-02
 ---
@@ -10,11 +9,11 @@ date: 2021-09-02
 
 The Amplify agents are software applications that run on your host. The agents are responsible for gathering information that is happening in your data plane and sending it to the [Amplify platform](https://platform.axway.com). The two types of agents that are supported are Discovery and Traceability Agents.
 
-### Discovery Agents
+### Discovery agents
 
 Discovery Agents automate the process of finding assets that are deployed in a Gateway, for example OAS 3.0, WSDL and so on, and sending them to the Amplify platform where they are made available in the Catalog for people to find and use. Consumers can subscribe to use the discovered assets and the agent helps to provision this subscription in the Gateway.
 
-### Traceability Agents
+### Traceability agents
 
 Traceability Agents collect usage, metrics, and dataplane traffic details and sends them to the Amplify platform. In the platform, API consumers and API providers can view the performance and behavior of the assets discovered in the dataplane.
 
@@ -26,7 +25,7 @@ The Axway Open Banking solution embeds the discovery and traceability agents for
 
 This section includes details for Amplify configuration such as creating a service account, creating an environment, finding the organization ID and team details.
 
-#### Service Account Creation
+#### Service account creation
 
 You must first create a service account in the [Amplify platform](https://platform.axway.com).
 
@@ -67,7 +66,7 @@ The private key is the one you downloaded after you created the service account.
 
 ![Service Account Yaml conf](/Images/agents/service-account-yaml-conf.PNG)
 
-#### Environment Creation
+#### Environment creation
 
 You must create an environment.
 
@@ -81,7 +80,7 @@ You must create an environment.
 centralEnvName: "test-eks-int"
 ```
 
-#### Organization ID and Team
+#### Organization ID and team
 
 To locate the organization id, select **Organization** from the drop down menu under your user.
 

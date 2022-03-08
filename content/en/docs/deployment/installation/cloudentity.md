@@ -1,10 +1,9 @@
 ---
-title: "Cloud Entity Installation"
+title: "Cloud Entity installation"
 linkTitle: "Cloud Entity"
 weight: 7
-description: Installing Cloud Entity for the Axway Open Banking solution
 ---
-
+Install Cloud Entity for the Axway Open Banking solution.
 
 ## Download the Cloud Entity Helm charts
 
@@ -60,7 +59,7 @@ Modify the `open-banking-consent/values.yaml` file:
 | cert.internal.certManager | Define if cert-manager is used internally.<br>False is currently not supported. | true |
 | cert.internal.certManagerNamespace | Namespace where cert-manager is installed. Use the result of the previous command. | None |
 | cert.ingress.certManager | Define if cert-manager is used externally.<br>If set to false, define cert and keys with values below. | true |
-| cert.ingress.wildcard | Define whether the same wildcard certificate is used externally for all ingress.<br>If set to true, define wildcard certificate and its key with cert.ingress.cert/key below<br>If set to false, define custom certificate and keys with cert.ingress.\<component>.cert/key below | true |
+| cert.ingress.wildcard | Define whether the same wildcard certificate is used externally for all ingress.<br>If set to true, define wildcard certificate and its key with cert.ingress.cert/key below.<br>If set to false, define custom certificate and keys with cert.ingress.\<component>.cert/key below. | true |
 | cert.ingress.cert | Use a specific wildcard certificate. Must be defined only if certManager is set to false. | None |
 | cert.ingress.key | Use a specific wildcard key. Must be defined only if certManager is set to false. | None |
 | cert.ingress.consentAdmin.cert | Use a dedicated certificate. Must be defined only if certManager and wildcard are set to false. | None |
@@ -123,7 +122,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 
 ## Install the ACP Helm chart
 
-1. Deploy ACP pre-requisites Helm chart from the Axway repository:
+1. Deploy the ACP pre-requisites Helm chart from the Axway repository:
 
    ```bash
    helm install acp-prereq -n open-banking-acp open-banking-acp
@@ -141,7 +140,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
    ```
 
 3. Deploy the ACP Helm chart from the CloudEntity repository:
-   {{% alert title="Note" color="primary" %}}Find the ACP chart-version to be used in the `open-banking-acp/README.md`. Otherwise use the latest.{{% /alert %}}
+   {{% alert title="Note" color="primary" %}}Find the ACP chart-version to use in the `open-banking-acp/README.md`. Otherwise use the latest.{{% /alert %}}
 
    ```bash
    helm install acp -n open-banking-acp cloudentity/kube-acp-stack –-version <chart-version>  -f open-banking-acp/files/acp.values.yaml
@@ -187,7 +186,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
    kubectl get ingress -n open-banking-acp 
    ```
 
-4. Verify that this ingress has been provisioned. It must have a public ip or a dns value in the ADDRESS column.
+4. Verify that this ingress is provisioned. It must have a public ip or a dns value in the ADDRESS column.
 
    ```
        NAME         HOSTS                           ADDRESS                       PORTS     AGE
@@ -200,7 +199,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 
 ## Install the Consent Helm chart
 
-1. Deploy Consent pre-requisites Helm chart from the Axway repository.
+1. Deploy the Consent pre-requisites Helm chart from the Axway repository.
 
    ```bash
    helm install consent-prereq -n open-banking-consent open-banking-consent  
@@ -218,7 +217,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
    ```
 
 3. Deploy the Open Banking Consent Helm chart from the CloudEntity repository.
-   {{% alert title="Note" color="primary" %}} Find the Open Banking Consent chart-version to be used in the `open-banking-consent/README.md`. Otherwise use the latest.{{% /alert %}}
+   {{% alert title="Note" color="primary" %}} Find the Open Banking Consent chart-version to use in the `open-banking-consent/README.md`. Otherwise use the latest.{{% /alert %}}
 
    ```bash
    helm install consent -n open-banking-consent cloudentity/openbanking –-version <chart-version> -f open-banking-consent/files/consent.values.yaml
@@ -263,7 +262,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
    kubectl get ingress -n open-banking-consent 
    ```
 
-4. Verify that these ingress have been provisioned. They must have a public ip or a dns value in the ADDRESS column.
+4. Verify that these ingress is provisioned. They must have a public ip or a dns value in the ADDRESS column.
 
    ```
        NAME                                     HOSTS                            ADDRESS                       PORTS     AGE

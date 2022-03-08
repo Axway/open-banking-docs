@@ -1,9 +1,8 @@
 ---
-title: "Infrastructure View"
+title: "Infrastructure view"
 linkTitle: "Infrastructure"
 weight: 2
 date: 2021-06-30
-description: An Infrastructure View of Axway Open Banking
 ---
 
 The diagram below shows an outline infrastructure view of Axway Open Banking.

@@ -1,13 +1,12 @@
 ---
 title: "Customization"
 linkTitle: "Customization"
-description: Find all info on how to customize the solution.
 weight: 10
 date: 2021-09-02
 ---
+This section includes details to customize the Axway Open Banking solution.
 
-
-## Solution Branding
+## Solution branding
 
 You can easily apply your branding on most of the solution's user interface, such as changing the logos and the style (color palette, font, and so on.)
 
@@ -60,7 +59,7 @@ The consent page should now reflect your changes on your Kubernetes environment.
 
 The sections below details how to customize the consent page in the Docker image project.
 
-### Consent Page template files
+### Consent page template files
 
 The consent pages are generated based on customizable template files.
 
@@ -68,7 +67,7 @@ You can find them in `consent/consent-page/templates/base`.
 
 ![Consent page image files](/Images/consent-page-files.png)
 
-For instance, there are 2 main files you can customize for payment.
+For instance, there are two main files you can customize for payment.
 ![obbr-payment-consent-1.tmpl](/Images/consent-page-obbr-payment1.png)
 
 * obbr-payment-consent-1.tmpl
@@ -136,7 +135,7 @@ All accounts owned by the user from the bank need to be shown at the Payment Acc
 
 ### Account balance
 
-If accessible, it is considered a best practice to inform the account balance under the payment amount in file `obbr-payment-consent-2.tmpl`.
+If accessible, it is considered a best practice to inform the account balance under the payment amount in the `obbr-payment-consent-2.tmpl` file.
 
 ![payment-amount](/Images/consent-page-payment-amount.png)
 

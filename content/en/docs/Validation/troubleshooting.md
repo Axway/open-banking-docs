@@ -1,16 +1,16 @@
 ---
 title: "Troubleshooting"
 linkTitle: "Troubleshooting"
-description: Find useful logs, enable debug options, connect to UIs to help you identify any error cause.
 weight: 5
 date: 2021-09-02
 ---
+Find useful logs, enable debug options, and connect to UIs to help identify the cause for errors.
 
 ## Debug API traffic
 
 Every time you get an unexpected response from one of the solution APIs, you can check the traffic details to understand the return code or message that was provided.
 
-### Enable Debug and full data log on the API endpoint listener
+### Enable debug and full data log on the API endpoint listener
 
 First, enable debug and the full data log on the API endpoint listener to troubleshoot and debug API traffic.
 
@@ -54,7 +54,7 @@ Once analyzed, you might take one or several actions to fix the issue:
 
 Once solved, make sure to reduce the log level back to default.
 
-## API Policy debug
+## API policy debug
 
 If traffic debug did not help to understand a specific behavior, you can also dive into the policy level.
 
@@ -104,19 +104,19 @@ Use `-f` command option to get help to follow the logs stream.
 ## Portal debug options
 
 1. Navigate to Menu - System - **Global configuration**.
-2. Select the System tab, and then select **Yes** for *Debug Server*: Diagnostic information, language translation, and SQL errors (if present) will be displayed. The information will be displayed at the foot of every page you view within the Joomla Backend and Frontend.
+2. Select the System tab, and then select **Yes** for *Debug Server*: Diagnostic information, language translation, and SQL errors (if present) are displayed. The information is displayed at the footer of every page you view within the Joomla Backend and Frontend.
 ![developer-portal-config-debug](/Images/developer-portal-config-debug.png)
-3. Select the Server tab, and then select **Maximum** for _Error Reporting_: This parameter sets the level of error reporting to be used by PHP on the Joomla site. _Maximum_ would override the server setting to give the reporting of all errors.
+3. Select the Server tab, and then select **Maximum** for _Error Reporting_: This parameter sets the level of error reporting to be used by PHP on the Joomla site. _Maximum_ overrides the server setting to give the reporting of all errors.
 ![developer-portal-config-debug](/Images/developer-portal-config-error-reporting.png)
-   * You will get diagnostic information and error reporting directly while navigating on the Developer Portal in your web browser. It is recommended to use this option only in a non-production environment, and for a limited period in time.
+   * You will get diagnostic information and error reporting directly while navigating on the Developer Portal in your web browser. It is recommended to use this option only in a non-production environment and for a limited period in time.
 4. You can also get logs on the server side by accessing the container standard output. In the Kubernetes cluster:
-    * Identify the api-portal-xxxxx-xxx pod name
+    * Identify the api-portal-xxxxx-xxx pod name.
 
     ```bash
     kubectl get pods -n open-banking-developer-portal 
     ```
 
-    * Display the logs:
+    * Display the logs.
 
     ```bash
     kubectl logs api-portal-xxxxx-xxx -n open-banking-developer-portal 
@@ -125,11 +125,11 @@ Use `-f` command option to get help to follow the logs stream.
 
 ## Analytics search
 
-Analytics dashboard, reports, and metrics API should reflect every Open Banking API calls.
+The Analytics dashboard, reports, and metrics API should reflect every Open Banking API calls.
 
 If you need to check correct Analytics integration, run a couple API call tests and use the Kibana interface to search for the corresponding events.
 
-1. Click on Kibana - Discover.
+1. Click Kibana - Discover.
 2. (Optional) Use filters, like app (name of the client app) or service (name of the API).
-3. Select the corresponding timerange
+3. Select the corresponding time range.
 ![analytics-search](/Images/analytics-search.png)

@@ -1,14 +1,13 @@
 ---
 title: "Developer Portal"
 linkTitle: "Developer Portal"
-description: Configure and customize the Developer Portal
 weight: 3
 date: 2021-09-02
 ---
 
-The Axway Open Banking Developer Portal is based on the Axway API Portal product.
+Configure and customize the Developer Portal.
 
-Most features are documented in the [Axway API Portal documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apiportal_admin/apip_overview/index.html).
+The Axway Open Banking Developer Portal is based on the Axway API Portal product. Most features are documented in the [Axway API Portal documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apiportal_admin/apip_overview/index.html).
 
 ## Administrator interface
 

@@ -1,9 +1,9 @@
 ---
-title: "Analytics Installation"
+title: "Analytics installation"
 linkTitle: "Analytics"
 weight: 4
-description: Installing Analytics for the Axway Open Banking solution
 ---
+Install Analytics for the Axway Open Banking solution.
 
 ## Download the Analytics Helm chart
 
@@ -24,16 +24,16 @@ Customize the `open-banking-analytics/values.yaml` file as follows.
 | global.domainName | Set the domainname for all ingress. | \<domain-name> |
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
-| elastic.password | Password used for "elastic" user. | _Open*Banking*2021_ |
+| elastic.password | Password used for "elastic" user. | Open*Banking*2021 |
 | metrics.apiKey | API Key used for the metrics. Used by Webserver and APIM. | \<api-key> |
 | kibana.ingress.dnsprefix | Set the domain name for kibana. | kibana |
-| webserver.ingress.dnsprefix | Frequency of reports generation. | analytics |
-| webserver.report.frequency | Frequency of reports generation. | 00 00 \* \* \* (Every day at midnight) |
+| webserver.ingress.dnsprefix | Set the domain name for the web server used for Analytics. | analytics |
+| webserver.report.frequency | Frequency of reports generation. | 00 00 \* \* \* (Every day at midnight) in UNIX chron format |
 
 You can update the company logo and the colors used for the navigation map.
 
-* _Company Logo_: Logo must be an svg file and must be name "company-logo.svg". Replace the file in `open-banking-analytics/branding/logo`.
-* _Navigation Map Colors_: Update the css file `open-banking-analytics/branding/css`.
+* *Company Logo*: Logo must be an svg file and must be name "company-logo.svg". Replace the file in `open-banking-analytics/branding/logo`.
+* *Navigation Map Colors*: Update the css file `open-banking-analytics/branding/css`.
 
 ## Install the Analytics Helm chart
 
@@ -88,7 +88,7 @@ You can update the company logo and the colors used for the navigation map.
    kubectl get ingress -n open-banking-analytics 
    ```
 
-4. Verify that these ingress has been provisioned. They must have a public ip or a dns value in the ADDRESS column.
+4. Verify that these ingress are provisioned. They must have a public ip or a dns value in the ADDRESS column.
 
    ```
     NAME         HOSTS                           ADDRESS                       PORTS     AGE
@@ -96,9 +96,9 @@ You can update the company logo and the colors used for the navigation map.
     webserver    analytics.<domain-name>         xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
    ```
 
-5. Check you can access the different user interfaces:
+5. Check that you can access the different user interfaces:
    * _Analytics homepage_: `https://webserver.<domain-name>`
-      * The Dashboard and Reports navigation (top bar) should show up with custom logo and color theme.
+      * The Dashboard and Reports navigation (top bar) should show up with the custom logo and color theme.
       * No dashboard is deployed yet.
    * _ELK admin interface_: `https://kibana.<domain-name>`
       * You should be able to login with the credentials provided in the Helm chart values.

@@ -1,9 +1,8 @@
 ---
-title: "Solution Architecture"
+title: "Solution architecture"
 linkTitle: "Solution"
 weight: 1
 date: 2021-06-22
-description: Overview of Solution Architecture
 ---
 
 Axway Open Banking is built on five solution building blocks as shown below.
@@ -29,31 +28,31 @@ Each building block is critical to the success of your open banking platform and
 The features of the solution are further clarified in the following
 sections.
 
-### Developer Experience
+### Developer experience
 
 Developer Experience is about engagement with the customers who will make use of your APIs, namely your developer community.
 
 To accommodate their needs and ensure a quality experience is delivered a number of features are implemented.
 
-#### API Catalog and documentation
+#### API catalog and documentation
 
 We provide a comprehensive, pre-built catalog of the APIs available in the solution that is tailored based on the certification of the developer (that is independent developer versus entity) regulated by the National Competent Authority (NCA).
 
-#### Demo Applications
+#### Demo applications
 
 Our Demo Applications are web-based and provide a realistic view of the types of applications that Third-Party developers might use.
 
 For example, an account aggregator demo is provided that demonstrates a personal financial management (PFM) tool.
 
-#### Developer and Organization Onboarding
+#### Developer and organization onboarding
 
 Developer and Organization Onboarding is the ability to seamlessly onboard a developer or their organization.
 
-#### Application and Credential Management
+#### Application and credential management
 
 Application and Credential Management is the means by which developers can create an application against which credentials to access the open banking APIs can be registered. API registration includes an x.509 public certificate to facilitate Mutual Authentication as implemented in the [Financial-grade API (FAPI) standards.](https://openid.net/wg/fapi/)
 
-#### Development Tools
+#### Development tools
 
 Development Tools are the affordances offered to developers to aid them in their task of building applications that consume your organization's APIs. These include:
 
@@ -61,19 +60,19 @@ Development Tools are the affordances offered to developers to aid them in their
 * Software Development Kits (SDK)
 * Interactive API explorers
 
-#### Application and API Usage
+#### Application and API usage
 
 Application and API usage analytics allow developers to understand the success of their applications.
 
-#### Service Desk and Collaboration
+#### Service desk and collaboration
 
 Service desk and collaboration are the means to collect reviews, publish blogs, and interact with your developer community in a meaningful way.
 
-### Open Banking APIs
+### Open banking APIs
 
 Open banking APIs provide the means to achieve compliance with standards while integrating with your backend applications.
 
-#### Open Data
+#### Open data
 
 Open data APIs provide freely available information to Third-Party Apps. In the context of open banking this includes information on topics such as:
 
@@ -84,7 +83,7 @@ Open data APIs provide freely available information to Third-Party Apps. In the 
 
 Axway Open Banking provides the APIs required to be compliant with local market regulations.
 
-#### Access to Account for Data
+#### Access to account for data
 
 Access to Account for Data is one of the roles typically granted to Third-Party Developers by local market regulations and open banking frameworks. For example, in the European Union (EU) this role is termed the Account
 Information Servicing Provider (AISP).
@@ -98,7 +97,7 @@ In this role Third-Party Apps can access account data to which a customer has co
 
 Axway Open Banking provides the APIs required to be compliant with local market regulations.
 
-#### Access to Account for Payments
+#### Access to account for payments
 
 Access to Account for Payments is one of the roles typically granted to Third-Party Developers by local market regulations and open banking frameworks. For example, in the EU this role is termed the Payment Initiation Servicing Provider (PISP).
 
@@ -110,29 +109,29 @@ In this role Third-Party Apps can initiate payment on behalf of the customer dep
 
 Axway Open Banking provides the APIs required to be compliant with local market regulations.
 
-#### Standards Compliance
+#### Standards compliance
 
 Compliance with local standards is critical when building an open banking platform, especially where organizations face regulation and possible financial penalties if they are not compliant.
 
 Axway Open Banking provides both the means to be compliant with current standards and support for future versions.
 
-#### Bank Use Cases
+#### Bank use cases
 
 Alongside the means to comply with open banking regulations and standards Axway Open Banking also offers organizations the means to exploit their investment by supporting other use cases.
 
 Organizations can implement these use cases using the components described in the Infrastructure section below.
 
-### Identity and Access Control
+### Identity and access control
 
 Identity and access control provide security, authentication and authorization through consent and compliance with security protocols defined by standards.
 
-#### Lodging Intent
+#### Lodging intent
 
 Lodging Intent is a pattern that appears in the majority of open banking standards. It is the means by which the consent that has been agreed between the customer and Third-Party App is sent to your organization so it can be confirmed and access to account granted. The term "intent" is used specifically because the customer has yet to authenticate themselves at the bank. Only when the customer has authenticated and "intent" has been confirmed does it become consent.
 
 Axway Open Banking supports intent through the implementation of APIs that meet the requirements of local standards.
 
-#### Consent Confirmation
+#### Consent confirmation
 
 In order for Third-Party Apps to access the data or services to which a customer has consented that customer must confirm the consent is correct.
 
@@ -140,14 +139,14 @@ Axway Open Banking provides the means to do this through a number of web compone
 
 As consent varies according to market Axway Open Banking will support the local requirements included aspects such as rendering of data clusters and wording appropriate to the local customer experience guidelines.
 
-#### FAPI
+#### Financial-grade API (FAPI)
 
 The FAPI standards provide an OpenID Connect profile for financial services APIs. This standard has become the *de facto* standard for open banking standards and is currently used in the United Kingdom, Brazil, Australia, and the Financial Data Exchange (FDX) standards.
 
 Axway Open Banking provides support for FAPI [Part 1 (Read Only)](https://openid.net/specs/openid-financial-api-part-1-ID2.html), [Part 2 (Advanced)](https://openid.net/specs/openid-financial-api-part-2-1_0.html) and [Client-Initiated Backchannel Authentication
 (CIBA)](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html).
 
-#### Consent Revocation
+#### Consent revocation
 
 The need to lodge intent and confirm consent is matched by the need to revoke consent where a customer no longer wants to share information
 with a Third-Party App.
@@ -177,7 +176,7 @@ To integrate with your backend the solution uses API Builder. This technology al
 
 On installation these applications will be mapped to our mock backend and will need to be reconfigured appropriately.
 
-#### Consent Management
+#### Consent management
 
 Our Consent Management solution is delivered using the [Cloudentity Open Banking Kit](https://cloudentity.com/open-banking/). This provides:
 
@@ -189,7 +188,7 @@ Note that in some markets Consent Management must happen at the Third-Party App 
 
 In such cases the customer-facing aspects of Consent Management can be disabled depending on your organization's position on market regulations.
 
-#### Identity Management
+#### Identity management
 
 Identity Management adds the authentication, authorization, and access control required to ensure your APIs are secure, including compliance with FAPI and local security profiles.
 
