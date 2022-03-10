@@ -1,14 +1,13 @@
 ---
 title: "API Manager configuration"
 linkTitle: "API Manager"
-description: Configure the Open Banking API Manager settings, clients and APIS, as well as the email templates.
 weight: 2
 date: 2021-09-02
 ---
 
-Axway Open Banking API Manager is based on the Axway API Manager product.
+Configure the Open Banking API Manager settings, clients and APIS, as well as the email templates. 
 
-Most features are documented in the [Axway API Manager documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apimgr_admin/index.html).
+Axway Open Banking API Manager is based on the Axway API Manager product.Most features are documented in the [Axway API Manager documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apimgr_admin/index.html).
 
 <!-- ## Settings
 
@@ -53,7 +52,7 @@ An administrator can use the API Manager interface to manage organizations, deve
 
 ![client apps](/Images/api-manager-client-apps.png)
 
-API Manager can be used to support TPP in changing their app status, getting access to specific APIs, to revoke some API access, and so on.
+API Manager can be used to support the third-party provider (TPP) in changing their app status, getting access to specific APIs, to revoke some API access, and so on.
 
 ![client apps apis access](/Images/api-manager-client-apps-apis.png)
 

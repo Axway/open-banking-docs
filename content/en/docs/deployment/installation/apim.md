@@ -1,10 +1,9 @@
 ---
-title: "APIM Management Installation"
+title: "APIM Management installation"
 linkTitle: "API Management"
 weight: 1
-description: Installing API Management for the Axway Open Banking solution
 ---
-
+Install API Management for the Axway Open Banking solution.
 
 ## Download the API Management (APIM) Helm charts
 
@@ -15,7 +14,7 @@ helm pull axway-open-banking/open-banking-apim --untar
 helm pull axway-open-banking/open-banking-apim-config --untar
 ```
 
-You should get `open-banking-apim` and `open-banking-apim-config` local folders.
+You should get the `open-banking-apim` and `open-banking-apim-config` local folders.
 
 ## Customize the APIM Helm chart
 
@@ -51,7 +50,7 @@ Add apimgr  user and password change option. once https://jira.axway.com/browse/
 
 With these base parameters set, you can install the Helm chart. See [Install the APIM Helm chart](#install-the-apim-helm-chart).
 
-This deployment will use cert-manager and the [Let's Encrypt](https://letsencrypt.org) issuer to provide certificates. This requires an ingress controller (nginx) that listens on a public IP. You must replace the certificates provided with the sample Helm chart with your own certificates.
+This deployment uses cert-manager and the [Let's Encrypt](https://letsencrypt.org) issuer to provide certificates. This requires an ingress controller (nginx) that listens on a public IP. You must replace the certificates provided with the sample Helm chart with your own certificates.
 
 You can also customize the chart values with the following sub-sections.
 
@@ -95,7 +94,7 @@ The different root CA certificates must be concatenated and encoded in base64.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| apitraffic.ingressMtlsRootCa | all concatenatd root CA encoded in base64 | yes |
+| apitraffic.ingressMtlsRootCa | All concatenatd root CA encoded in base64. | yes |
 
 ### Customize storage class
 
@@ -257,7 +256,7 @@ Refer to [Amplify Agents](/docs/configuration/amplify-agents) to connect the Amp
    kubectl get ingress -n open-banking-apim 
    ```
 
-4. Verify that these ingress have been provisioned. They must have a public ip or a dns value in the ADDRESS column.
+4. Verify that these ingress are provisioned. They must have a public ip or a dns value in the ADDRESS column.
 
    ```console
       NAME            HOSTS                               ADDRESS                        PORTS 
@@ -269,14 +268,14 @@ Refer to [Amplify Agents](/docs/configuration/amplify-agents) to connect the Amp
       trafficmtls     mtls-api.<domain-name>              xxxxxxxxxxxxx.amazonaws.com    80, 443
    ```
 5. Check that you can access the following user interfaces:
-   * _API Gateway Manager_ `https://api-gateway-manager.<domain-name>`.
+   * *API Gateway Manager* `https://api-gateway-manager.<domain-name>`.
 
        * Login with username *admin* and password *apiAdminPwd!*
        * Check in the topology section that apimgr and traffic pods are available.
 
-   * _API Manager_ `https://api-manager.<domain-name>`.
+   * *API Manager* `https://api-manager.<domain-name>`.
 
-       * Login with username _apiadmin_ and password _apiAdminPwd!_
+       * Login with username *apiadmin* and password *apiAdminPwd!*
        * Check that API and Client configurations are empty for now.
 
 ## Customize the APIM configuration Helm chart
@@ -290,8 +289,8 @@ Customize the `open-banking-apim-config/values.yaml` file as follows.
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
 | apimcli.settings.email | Sender email address used in api-manager settings. | None |
-| apimcli.users.publicApiUser | Username of user to access the Public APIs from the API Portal. | _publicuser_ |
-| apimcli.users.publicApiPassword | Password of user to access the Public APIs from the API Portal. | _publicUserPwd!_ |
+| apimcli.users.publicApiUser | Username of user to access the Public APIs from the API Portal. | *publicuser* |
+| apimcli.users.publicApiPassword | Password of user to access the Public APIs from the API Portal. | *publicUserPwd!* |
 | backend.serviceincident.host | ServiceNow URL. | None|
 | backend.serviceincident.username | ServiceNow username. |None|
 | backend.serviceincident.password | ServiceNow password. |None|
@@ -343,7 +342,7 @@ Customize the `open-banking-apim-config/values.yaml` file as follows.
     * Make sure that Open Banking APIs are in the API Catalog.
     * Make sure that Default apps are in Client applications.
 
-## Post Deployment
+## Post deployment
 
 Once the APIM and [Cloud Entity](/docs/deployment/installation/cloudentity) Helm charts are deployed, update the KPS configuration as follows to integrate the components together.
 

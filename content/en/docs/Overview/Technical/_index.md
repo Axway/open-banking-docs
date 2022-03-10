@@ -1,9 +1,8 @@
 ---
-title: "Technical Architecture"
+title: "Technical architecture"
 linkTitle: "Technical"
 weight: 3
 date: 2021-06-30
-description: A Technical View of Axway Open Banking
 ---
 
 Axway Open Banking is designed with flexibility in mind. It therefore has been engineered with as few constraints as possible in terms of deployment approach.

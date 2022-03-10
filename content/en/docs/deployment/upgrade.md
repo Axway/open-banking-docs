@@ -2,7 +2,6 @@
 title: "Upgrade"
 linkTitle: "Upgrade"
 weight: 4
-description: Upgrading the Axway Open Banking solution
 ---
 
 If a new Open Banking API is released or an existing Open Banking API is updated you can perform an upgrade to the deployed application.

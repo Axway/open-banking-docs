@@ -1,7 +1,6 @@
 ---
 title: "API Gateway configuration"
 linkTitle: "API Gateway"
-description: Configure the Open Banking homepage content, KPS, the policies and security.
 weight: 1
 date: 2021-09-02
 ---
@@ -10,12 +9,12 @@ Axway Open Banking API Gateway is based on the Axway API Gateway product.
 
 Most features are documented in the [Axway API Gateway documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apigtw_admin/index.html).
 
-## Solution Homepage
+## Solution homepage
 
-The solution homepage is available on `https://services-api.<domain-name>/open-banking/`
-![Solution Homepage](/Images/homepage.png)
+The solution homepage is available on `https://services-api.<domain-name>/open-banking/`.
+![Solution Homepage](/Images/homepage.png).
 
-The solution homepage is a static html page using CSS and a logo image that are easy to customize.
+The solution homepage is a static html page using CSS and a logo image that is easy to customize.
 
 You can change titles and add or update links by modifying the index.html that is defined in `open-banking-apim/configmaps/apimgr-homepage-index`.
 
@@ -37,17 +36,17 @@ This configuration can be read at the beginning of any policy using a common pol
 | g_extension_2 | java.lang.String | For future use. |
 | k_values | java.util.Map`<java.lang.String,java.lang.String>` | Key Value Pairs, helps in extending configuration whenever we want without deployment. New key value pairs can be added easily.|
 
-By default, only 1 line exists with no criteria (columns b to e) and values (column k) corresponding to solution deployment parameters. Refer to [Solution Deployment](/docs/deployment/installation) to see how to change this values during deployment.
+By default, only one line exists with no criteria (columns b to e) and values (column k) corresponding to solution deployment parameters. Refer to [Solution Deployment](/docs/deployment/installation) to see how to change these values during deployment.
 
-You can check and update your current configuration from API Gateway Manager - Settings - Key Properties Store.
+You can check and update your current configuration from API Gateway Manager - Settings - Key Property Stores.
 
 ![kps-configuration](/Images/api-gateway-manager-kps-configuration.png)
 
-Click on configuration and on the line to be checked or updated.
+Click on configuration and the line to be checked or updated.
 
 ![kps-values](/Images/api-gateway-manager-kps-values.png)
 
-Several values should correspond to the settings of CLOUDENTITY ACP or it consent module. See the mapping table to check that the KPS values are correct.
+Several values should correspond to the settings of CLOUDENTITY ACP or its consent module. See the mapping table to check that the KPS values are correct.
 
 | KPS Values | How to retrieve check this values in cloudentity ACP UI |
 | --- | --- |
@@ -61,7 +60,7 @@ Several values should correspond to the settings of CLOUDENTITY ACP or it consen
 | oauth_introspect_clientid | App is bank in openbanking workspace. |
 | oauth_tenantid | Tenant id in ACP server. |
 
-## API Policies
+## API policies
 
 API Gateway is configured with several API policies that are used with Open Banking flows.
 You may want to customize some of these policies.
@@ -75,7 +74,7 @@ For other environments, you need to export the Policy Studio projects and build 
 
 ## Certificates
 
-API Gateway is configured with several certificate that are used during the runtime:
+API Gateway is configured with several certificates that are used during the runtime:
 
 * Server certificate
 * Client certificate authority
@@ -83,8 +82,8 @@ API Gateway is configured with several certificate that are used during the runt
 * Keys
 
 You can check which ones are in use by opening Policy Studio and navigating to Environment Configuration - Certificate and Keys - Certificates.
-Right-click a certificate to see if there any references to it, meaning that they are currently in use.
+Right-click a certificate to see if there are any references to it, meaning that they are currently in use.
 
 ![apim-policy-studio-certificates](/Images/apim-policy-studio-certificates.png)
 
-If you identify the need to change one of them, refer to the API Gateway instructions that you can find under each sections of [Certificate Management](/docs/configuration/certificate-management).
+If you identify the need to change one of them, refer to the API Gateway instructions that you can find under each section of [Certificate Management](/docs/configuration/certificate-management).

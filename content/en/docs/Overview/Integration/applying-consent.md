@@ -1,13 +1,12 @@
 ---
-title: "Applying Access Controls based on Consent to an API Request"
-linkTitle: "Applying Consent"
+title: "Applying access controls based on consent to an API request"
+linkTitle: "Applying consent"
 weight: 1
 date: 2021-06-22
-description: View of Applying Access Controls based on Consent
 type: sequence
 ---
 
-Access controls need to be applied based on the customer consent to return only the data to which a TPP is permitted to retrieve.
+Access controls need to be applied based on the customer consent to return only the data to which a Third-Party Provider (TPP) is permitted to retrieve.
 
 This shows the approach based on retrieving account information. The preferred implementation is summarized as follows:
 
@@ -18,6 +17,6 @@ This shows the approach based on retrieving account information. The preferred i
 * The data is then returned to the API Builder Application which formats the response to the required standard.
 * In turn the response is returned to the Third-Party App by the API Gateway.
 
-For optimal performance filtering data based on customer should be executed **as close to the data as possible**. This will therefore require customers to implement this at the source of data.
+For optimal performance filtering data based on the customer should be executed **as close to the data as possible**. This therefore requires customers to implement this at the source of data.
 
 {{< readfile file="/static/Images/Applying_Consent_Sequence.svg" >}}

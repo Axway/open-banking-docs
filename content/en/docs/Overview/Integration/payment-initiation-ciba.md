@@ -1,15 +1,14 @@
 ---
-title: "Payment Initiation using Client-Initiated Backchannel Authentication (CIBA)"
+title: "Payment initiation using Client-Initiated Backchannel Authentication (CIBA)"
 linkTitle: "Payment Initiation using CIBA"
 weight: 4
 date: 2021-06-28
-description: An Example CIBA flow in the context of Axway Open Banking
 type: sequence
 ---
 
 The diagram below provides an overview of payment initiation using Client-Initiated Backchannel Authentication (CIBA) to send an Authentication Request.
 
-To summarize the steps shown below:
+The flow is summarized as follows:
 
 * The Third-Party App first registers its notification preferences and parameters with the Authorization Server.
 * Once registered the payment consent is created which contains the `consentId`.

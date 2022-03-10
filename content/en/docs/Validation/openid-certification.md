@@ -1,7 +1,6 @@
 ---
 title: "OpenID Security conformance"
 linkTitle: "Security conformance"
-description: How to use OpenID test suite to certify your solution deployment
 weight: 2
 date: 2021-09-02
 ---
@@ -51,7 +50,7 @@ It is important to run the test to get the following information from the [Centr
 
 {{% alert title="Note" color="primary" %}} This release has a limitation that the ClientID is not automatically created on APIM.{{% /alert %}}
 
-On APIM there is an organization named *Testing* to support this test. And a new Application for the ClientID that will be used for this test needs to be created.
+On APIM there is an organization named *Testing* to support this test. And a new Application for the ClientID that is used for this test needs to be created.
 
 1. Create a new Application on the organization named *Testing* with access to the payment API.
 
@@ -98,7 +97,7 @@ Make sure the corresponding CAs are configured in the Axway Open Banking solutio
    * *TLS certificates for client*:  Change certificate and key with BRCAC information.
    * *Directory*: Change client ID with the new TPP client ID to register.
 
-## Financial-grade API (FAPI) Advanced Tests
+## Financial-grade API (FAPI) advanced tests
 
 This section includes the steps to complete the FAPI advanced test.
 
@@ -138,7 +137,7 @@ Make sure the corresponding CAs are configured in the Axway Open Banking solutio
 * Including the CA cert of each TPP on the ACP - Settings - Authorization tab. See detailed instructions in [Certificate Management - MTLS](/docs/configuration/certificate-management/mtls).
 * Update the filters Jwt-Verify and Jwt-Sign, updating the JWKS certificate (BRCAC). See detailed instructions in [Certificate Management - JWKS](/docs/configuration/certificate-management/jwks).
 
-### Create the FAPI Advanced test plan
+### Create the FAPI advanced test plan
 
 1. Create a new plan, and then select **FAPI Authorization server test**:
 ![Conformance Suite : Create Plan](/Images/conformance-suite/fapi-plan-select.png)

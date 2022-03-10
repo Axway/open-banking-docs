@@ -1,10 +1,9 @@
 ---
-title: "Demo apps Installation"
-linkTitle: "Demo apps"
+title: "Demo Apps installation"
+linkTitle: "Demo Apps"
 weight: 5
-description: Installing Demo apps for the Axway Open Banking solution
 ---
-
+Install Demo Apps for the Axway Open Banking solution.
 
 ## Download the Demo Apps Helm chart
 
@@ -99,7 +98,7 @@ Customize the `open-banking-bankio-app/values.yaml` file as follows.
    ```
 
 5. Check the different user interfaces:
-   * *Demo app 1*: `https://demo-apps.<domain-name>/account-information` shows a demo app for account aggregation. If all other components are already installed and configured correctly, you should be able to test *Demo app 1* connecting a bank account from demo01 sandbox.
-   * *Demo app 2*: `https://demo-apps.<domain-name>/store` shows a demo app for online store with payments.
-   * *Demo app 3*: `https://demo-apps.<domain-name>/auto-loan/calculator` shows a demo app for a loan calculation.
-   * *Demo app 4*: `https://demo-apps.<domain-name>/product-marketplace/compare` shows a demo app for banking products listing.
+   * _Demo app 1_: `https://demo-apps.<domain-name>/account-information` shows a demo app for account aggregation. If all other components are already installed and configured correctly, you should be able to test _Demo app 1_ connecting a bank account from demo01 sandbox.
+   * _Demo app 2_: `https://demo-apps.<domain-name>/store` shows a demo app for online store with payments.
+   * _Demo app 3_: `https://demo-apps.<domain-name>/auto-loan/calculator` shows a demo app for a loan calculation.
+   * _Demo app 4_: `https://demo-apps.<domain-name>/product-marketplace/compare` shows a demo app for banking products listing.
