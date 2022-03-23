@@ -106,7 +106,7 @@ Use `-f` command option to get help to follow the logs stream.
 1. Navigate to Menu - System - **Global configuration**.
 2. Select the System tab, and then select **Yes** for *Debug Server*: Diagnostic information, language translation, and SQL errors (if present) are displayed. The information is displayed at the footer of every page you view within the Joomla Backend and Frontend.
 ![developer-portal-config-debug](/Images/developer-portal-config-debug.png)
-3. Select the Server tab, and then select **Maximum** for _Error Reporting_: This parameter sets the level of error reporting to be used by PHP on the Joomla site. _Maximum_ overrides the server setting to give the reporting of all errors.
+3. Select the Server tab, and then select **Maximum** for *Error Reporting*: This parameter sets the level of error reporting to be used by PHP on the Joomla site. *Maximum* overrides the server setting to give the reporting of all errors.
 ![developer-portal-config-debug](/Images/developer-portal-config-error-reporting.png)
    * You will get diagnostic information and error reporting directly while navigating on the Developer Portal in your web browser. It is recommended to use this option only in a non-production environment and for a limited period in time.
 4. You can also get logs on the server side by accessing the container standard output. In the Kubernetes cluster:

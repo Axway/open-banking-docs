@@ -78,7 +78,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 | acpURL | ACP server URL. | None |
 | consentPage.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-page-tls.  | open-banking-consent<br>/consent-openbanking-consent-page-tls |
 | consentPage.ingress.hosts | Update with the consent page URL. | consent.\<domain-name> |
-| consentPage.ingress.tls.hosts | Update with the consent page URL. | consent.<domain-name> |
+| consentPage.ingress.tls.hosts | Update with the consent page URL. | consent.\<domain-name> |
 | consentAdmin.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-admin-tls. | open-banking-consent<br>/consent-openbanking-consent-admin-tls |
 | consentAdmin.ingress.hosts | Update with the consent admin URL. | consent-admin.\<domain-name> |
 | consentAdmin.ingress.tls.hosts | Update with the consent admin URL. | consent-admin.\<domain-name> |

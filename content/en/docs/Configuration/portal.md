@@ -28,7 +28,7 @@ Navigate to Extension - Templates - Styles to identify the style in use. For eac
 * Select the new theme and change the company name and logo in the Theme tab.
 ![thememagic](/Images/developer-portal-style-edit.png)
 
-Complete the above steps for the _Default_ and _Homepage_ styles.
+Complete the above steps for the *Default* and *Homepage* styles.
 
 For more customization details, refer to [Customize API Portal look and feel](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apiportal_admin/customize_getting_started/index.html).
 
@@ -46,9 +46,9 @@ From the Main Menu, you can:
 
 * Reorder menu items (drag and drop lines).
 * Edit the existing menu (simply click on the title).
-    * Edit _API Catalog_ to change Swagger options, SDK download options, tags filters, try-it access, and so on.
-    * Edit _Applications_ to change create/delete options, credential access, scope access, and tags filters.
-* Create new menu items (click the _New_ button).
+    * Edit *API Catalog* to change Swagger options, SDK download options, tags filters, try-it access, and so on.
+    * Edit *Applications* to change create/delete options, credential access, scope access, and tags filters.
+* Create new menu items (click the *New* button).
   
 ## Documentation creation and update
 
