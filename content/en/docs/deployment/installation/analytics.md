@@ -97,10 +97,10 @@ You can update the company logo and the colors used for the navigation map.
    ```
 
 5. Check that you can access the different user interfaces:
-   * _Analytics homepage_: `https://webserver.<domain-name>`
+   * *Analytics homepage*: `https://webserver.<domain-name>`
       * The Dashboard and Reports navigation (top bar) should show up with the custom logo and color theme.
       * No dashboard is deployed yet.
-   * _ELK admin interface_: `https://kibana.<domain-name>`
+   * *ELK admin interface*: `https://kibana.<domain-name>`
       * You should be able to login with the credentials provided in the Helm chart values.
 
 ## Post Deployment
