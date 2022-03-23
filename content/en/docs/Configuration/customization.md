@@ -111,7 +111,7 @@ Cancel and confirm buttons are located and styled inline in the consent-page fil
 
 ```html
  <div class="form-actions">
- 	<button class="mdc-button mdc-button--outlined" type="submit" name="action" value="deny" style="height: 48px; padding: 12px 24px; color: #002D4C; border-color: #002D4C">
+  <button class="mdc-button mdc-button--outlined" type="submit" name="action" value="deny" style="height: 48px; padding: 12px 24px; color: #002D4C; border-color: #002D4C">
    <div class="mdc-button__ripple"></div>
          <span class="mdc-button__label">{{.trans.cancel}}</span>
       </button>
