@@ -10,7 +10,7 @@ Install Backend Services for the Axway Open Banking solution.
 Download the Axway Open Banking Backend Services Helm chart to customize it locally.
 
 ```bash
-helm pull axway-open-banking/open-banking-backend-chart --untar
+helm pull open-banking/open-banking-backend-chart --untar
 ```
 
 You should get an `open-banking-backend-chart` local folder.
@@ -23,6 +23,8 @@ Customize the `open-banking-backend-chart/values.yaml` file as follows.
 |:------------- |:------------------------------------- |:-------------- |
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
+| global.apihost | MTLS apigateway endpoint. | None |
+| global.apidomain | MTLS apigateway endpoint. | None |
 | mysqldb.dbname | Mock backend database name. |  _medicimockbackend_ |
 | mysqldb.dbuser | Mock backend database username. |  _mockbank_ |
 | secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password. | _Ch@ng3M3!_ |

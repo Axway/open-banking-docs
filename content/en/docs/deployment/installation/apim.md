@@ -10,8 +10,8 @@ Install API Management for the Axway Open Banking solution.
 Download the Axway Open Banking API Management (APIM) Helm charts to customize them locally.
 
 ```bash
-helm pull axway-open-banking/open-banking-apim --untar
-helm pull axway-open-banking/open-banking-apim-config --untar
+helm pull open-banking/open-banking-apim --untar
+helm pull open-banking/open-banking-apim-config --untar
 ```
 
 You should get the `open-banking-apim` and `open-banking-apim-config` local folders.
@@ -31,10 +31,14 @@ The following parameters are required for any deployment.
 | global.env | Set the default environment. | dev |
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
+| global.denyDemoLogin | It disable the demo login idp. It should be disabled on customer environment. | false |
 | global.smtpServer.host | Smtp server host. | None |
 | global.smtpServer.port | Smtp server port. | None |
 | global.smtpServer.username | Smtp server username. | None |
 | global.smtpServer.password | Smtp server password. | None |
+| global.smtpServer.protocol | Smtp server protocol as SSL, TLS or NONE. | None |
+
+
 
 <!--
 TODO:
@@ -182,6 +186,26 @@ Insert each cert and key with the following format (same indent and empty lines)
 
 Refer to [Certificate Management](/docs/configuration/certificate-management) for configuring certificates for the entire solution.
 
+### Defining the number of api traffic replicas
+
+If it is necessary to adjust the number of API traffic replicas, you can adjust on the following parameters:
+
+| Value         | Description                           | Default value  |
+|:------------- |:------------------------------------- |:-------------- |
+| apitraffic.replicaCount | Number of initial replicas for API traffic. | 3 |
+| apitraffic.autoscalling.enable | Enabling the autoscaling feature. | true |
+| apitraffic.maxreplicas | Maximum number of API traffic replicas. | 5 |
+
+### Defining the information required for Openbanking
+
+There are some specific information related to Openbanking Brasil for each institution. And it can be defined here: 
+
+| Value         | Description                           | Default value  |
+|:------------- |:------------------------------------- |:-------------- |
+| bank.jwtsign.cert | Certificate of the bank used to sign the JWT. | None |
+| bank.jwtsign.key | Private key of the bank used to sign the JWT. | None |
+| bank.jwtkid | Bank certificate identification (JWKID).  | None |
+
 ### Configure Amplify Agents
 
 The following values must be set to report APIs and their usage on the **Amplify platform**.
@@ -288,12 +312,15 @@ Customize the `open-banking-apim-config/values.yaml` file as follows.
 | global.env | Set the default environment. |dev |
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
+| apimcli.langage | Defining the language used to describe the APIs on API Manager . | pt-BR |
 | apimcli.settings.email | Sender email address used in api-manager settings. | None |
 | apimcli.users.publicApiUser | Username of user to access the Public APIs from the API Portal. | *publicuser* |
 | apimcli.users.publicApiPassword | Password of user to access the Public APIs from the API Portal. | *publicUserPwd!* |
 | backend.serviceincident.host | ServiceNow URL. | None|
 | backend.serviceincident.username | ServiceNow username. |None|
-| backend.serviceincident.password | ServiceNow password. |None|
+| demoapp.bankio.clientId | Defining the bankio client id. | None |
+| demoapp.postman.clientId | Defining the postman client id. |None|
+
 
 ## Install the APIM configuration Helm chart
 
