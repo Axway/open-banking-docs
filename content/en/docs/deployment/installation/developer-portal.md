@@ -111,22 +111,17 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
 1. Customizing the brand.
    If needed, you can easily brand the developer portal with your logo and brand colors.
    Connect the the adminstrator UI and navigate to:
-   
    ```
        Extentions > Templates > Style -  Choose a Style profile, then click `Theme` tab, next click `Theme Magic` button top of screen.
    ```
-   
    Key Colors:
-   
    ```
        Brand Color: The base color of the site
    ```
-   
    Basic Colors:
    ```
        @page-text-color: The base text color of the site
    ```
-         
    Save the theme by clicking the arrow button next to preview button to `Save As`
 2. Apply Theme
    To apply them exit out of the Theme Magic (Back to Administrator) then change the `Theme` dropdown to select your new theme.
