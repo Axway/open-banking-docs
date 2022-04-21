@@ -46,8 +46,6 @@ Customize the `open-banking-bankio-app/values.yaml` file as follows.
 | griffin.aispEndpoint | Account endpoint of Open Banking API used by demo apps. Change the domainname value. | `https://mtls-api-proxy.<domain-name>/open-banking/accounts/v1` |
 | griffin.pispEndpoint | Payment endpoint of Open Banking API used by demo apps. Change the domainname value. | `https://mtls-api-proxy.<domain-name>/open-banking/payments/v1` |
 
-
-
 ## Install the Demo Apps Helm chart
 
 1. Create the target namespace on the cluster:
