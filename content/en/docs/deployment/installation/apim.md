@@ -196,7 +196,7 @@ If it is necessary to adjust the number of API traffic replicas, you can adjust 
 
 ### Defining the information required for Openbanking
 
-There are some specific information related to Openbanking Brasil for each institution. And it can be defined here: 
+There are some specific information related to Openbanking Brasil for each institution. And it can be defined here:
 | Value         | Description                           | Default value |
 |:------------- |:------------------------------------- |:-------------- |
 | bank.jwtsign.cert | Certificate of the bank used to sign the JWT. | None |
@@ -317,7 +317,6 @@ Customize the `open-banking-apim-config/values.yaml` file as follows.
 | backend.serviceincident.username | ServiceNow username. |None|
 | demoapp.bankio.clientId | Defining the bankio client id. | None |
 | demoapp.postman.clientId | Defining the postman client id. |None|
-
 
 ## Install the APIM configuration Helm chart
 
