@@ -38,8 +38,6 @@ The following parameters are required for any deployment.
 | global.smtpServer.password | Smtp server password. | None |
 | global.smtpServer.protocol | Smtp server protocol as SSL, TLS or NONE. | None |
 
-
-
 <!--
 TODO:
 Add anm user and password change option. once https://jira.axway.com/browse/MED-472 and https://jira.axway.com/browse/MED-118 are solved
@@ -199,12 +197,11 @@ If it is necessary to adjust the number of API traffic replicas, you can adjust 
 ### Defining the information required for Openbanking
 
 There are some specific information related to Openbanking Brasil for each institution. And it can be defined here: 
-
-| Value         | Description                           | Default value  |
+| Value         | Description                           | Default value |
 |:------------- |:------------------------------------- |:-------------- |
 | bank.jwtsign.cert | Certificate of the bank used to sign the JWT. | None |
 | bank.jwtsign.key | Private key of the bank used to sign the JWT. | None |
-| bank.jwtkid | Bank certificate identification (JWKID).  | None |
+| bank.jwtkid | Bank certificate identification (JWKID). | None |
 
 ### Configure Amplify Agents
 
