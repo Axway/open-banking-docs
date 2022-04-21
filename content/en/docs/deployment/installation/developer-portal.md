@@ -46,7 +46,6 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
 | apimgr.trafficServer | CNAME for API manager traffic endpoint. Reviewing the domain.| `api.<domain-name>` |
 | apimgr.mtlsProxyServer | CNAME for API manager MTLS traffic endpoint. Reviewing the domain.| `mtls-proxy-api.<domain-name>` |
 
-
 ## Install the Developer Portal Helm chart
 
 1. Create the target namespace on the cluster:
@@ -107,7 +106,6 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
    * _Developer Portal home page_: `https://developer-portal.<domain-name>`. If the APIM Helm charts are successfully deployed, you should see APIs on the API Catalog (click the API tab).
    * _Joomla admin interface_: `https://developer-portal.<domain-name>/administrator`. Login with username _apiadmin_ and password _apiAdminPwd!_.
 
-
 ## Post Install steps
 
 1. Customizing the brand.
@@ -129,11 +127,9 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
 2. Apply Theme
    To apply them exit out of the Theme Magic (Back to Administrator) then change the `Theme` dropdown to select your new theme. 
 
-
 3. Customizing the Logo   
    To change the logo use the `Logo Image` Selector under the same Theme tab.
    
 4. Saving the changes   
    Theme Magice only needs to be done once but to apply the theme saving will need to be done for each style you want to apply this to.
-   
    
