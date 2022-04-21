@@ -73,7 +73,7 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
 
 ## Verify the Developer Portal Helm chart deployment
 
-1. Wait a few minutes and use the following commands to check the deployment status.
+1. Wait a few minutes and use the following commands to check the deployment status:
 
    ```
    kubectl get pods -n open-banking-developer-portal 
@@ -95,7 +95,7 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
    kubectl get ingress -n open-banking-developer-portal 
    ```
 
-4. Verify that one ingress has been provisioned. It must have a public ip or a dns value in the ADDRESS column.
+4. Verify that one ingress has been provisioned. It must have a public ip or a dns value in the ADDRESS column:
 
    ```
        NAME         HOSTS                           ADDRESS                       PORTS     AGE
@@ -110,20 +110,22 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
 
 1. Customizing the brand.
    If needed, you can easily brand the developer portal with your logo and brand colors.
-   
    Connect the the adminstrator UI and navigate to:
    
    ```
        Extentions > Templates > Style -  Choose a Style profile, then click `Theme` tab, next click `Theme Magic` button top of screen.
-   ```       
+   ```
+   
    Key Colors:
+   
    ```
        Brand Color: The base color of the site
    ```
+   
    Basic Colors:
    ```
        @page-text-color: The base text color of the site
-   ```         
+   ```
          
    Save the theme by clicking the arrow button next to preview button to `Save As`
 2. Apply Theme
