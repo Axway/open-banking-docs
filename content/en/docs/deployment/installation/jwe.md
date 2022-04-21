@@ -25,7 +25,6 @@ Customize the `jwe-generator/values.yaml` file as follows.
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
 
-
 ## Install the JWE key generator Helm chart
 
 1. Create the target namespace on the cluster:
@@ -57,9 +56,6 @@ Customize the `jwe-generator/values.yaml` file as follows.
 
    ```
    kubectl get pods -n jwe-generator 
-   ```
-
-   ```
        NAME                                         READY   STATUS    RESTARTS   AGE
        jwe-jwe-generator-6ff796599c-pdxph           1/1     Running   0          57s
        
