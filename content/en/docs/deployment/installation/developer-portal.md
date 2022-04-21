@@ -120,14 +120,10 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
 
          Basic Colors:
             `@page-text-color`: The base text color of the site
-
    Save the theme by clicking the arrow button next to preview button to `Save As`
-
 2. Apply Theme
    To apply them exit out of the Theme Magic (Back to Administrator) then change the `Theme` dropdown to select your new theme. 
-
 3. Customizing the Logo
    To change the logo use the `Logo Image` Selector under the same Theme tab.
-
 4. Saving the changes
    Theme Magice only needs to be done once but to apply the theme saving will need to be done for each style you want to apply this to.
