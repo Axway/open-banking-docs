@@ -43,11 +43,9 @@ Modify the `open-banking-acp/values.yaml` file from the Axway package.
 | acp.config.data.storage.audit_events.retention.batch_limit | Audit events retention batch delete limit | 1000 |
 | acp.config.data.storage.audit_events.retention.max_age | Remove audit events older than max age limit | 6h0m0s |
 | acp.config.data.server.obbr_base_paths | Open banking Brasil API base path whitelist. | None |
-
 | acp.ingress.hosts.host | ACP server URL | None |
-| acp.ingress.customAnnotations. nginx.ingress.kubernetes.io/proxy-ssl-secret |   Secret to keep the ssl cert. It should be NAMESPACE]/acp-tls | open-banking-acp/acp-tls |
-| acp.features.swagger_ui |  Enabele swagger UI.  | true |
-
+| acp.ingress.customAnnotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | Secret to keep the ssl cert. It should be NAMESPACE]/acp-tls | open-banking-acp/acp-tls |
+| acp.features.swagger_ui | Enable swagger UI. | true |
 
 Remove the following lines if cert-manager is not used for ingress:
 
@@ -57,16 +55,6 @@ cert-manager.io/acme-challenge-type: http01 (l23)
 ```
 
 ## Customize the Consent Helm chart
-
-This package includes some demo consent pages those can be used as initial reference for each customer deployment.
-The main pages are:
-- Consent UI page - consent approval page , integrated with a sample custom IDP.
-- Consent Self Service admin page  - consent self-service page, where the user can manage his consentIds.
-- Consent Admin Page - interface used for the bank admin manage the consentIDs.
-This pagkage also includes the configuration of some additional clients used for test and development proposal:
-- BankIO ClientID - used for demoapps sample applications.
-- FirstTPP and SecondTPP client IDs - Sample TPP ids used for security tests. 
-- Postman ClientID - used for postman requests. 
 
 Modify the `open-banking-consent/values.yaml` file:
 
@@ -119,7 +107,6 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 | Import.Variables.first_tpp_redirect_uri | Sample TPP1 used. | None |
 | Import.Variables.second_tpp_redirect_uri | Sample TPP1 used. | None |
 
-
 ## Prepare deployment
 
 1. Add the Cloud Entity Helm repository:
@@ -136,9 +123,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
    kubectl create namespace open-banking-consent 
    ```
 
-
 ## Install the ACP Helm chart
-
 
 1. Deploy the ACP Helm chart from the CloudEntity repository:
    {{% alert title="Note" color="primary" %}}Find the ACP chart-version to use in the `open-banking-acp/README.md`. Otherwise use the latest.{{% /alert %}}
