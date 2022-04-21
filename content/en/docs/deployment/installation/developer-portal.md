@@ -132,4 +132,3 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
    
 4. Saving the changes   
    Theme Magice only needs to be done once but to apply the theme saving will need to be done for each style you want to apply this to.
-   
