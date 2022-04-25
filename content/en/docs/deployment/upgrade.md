@@ -12,7 +12,7 @@ If you are migrating from version 1.3 to 1.4, the API management component has b
 
 If you are upgrading from old version of API management component (before apim helmchart 1.7 ), it will be ncessary to upgrade the  cassandra database from v2.x to 3.11 before upgrade the APIM package - please follow the <https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_upgrade/upgrade_cassandra/index.html>  document.
 
-## ACP component prerequisite 
+## ACP component prerequisite
 
 If you are upgrading the ACP components from previous releases previous than helmchart 2.0 , it is necessary to update the cockroachdb to v21.2 before the upgrade of acp package:
 
@@ -26,7 +26,7 @@ Wait for all pods to be running and now uninstall the acp-prereq.
 helm uninstall [ACP_PREREQ_RELEASE_NAME] -n [NAMESPACE]
 ```
 
-After this it is reqdy to upgrade process. 
+After this it is reqdy to upgrade process.
 
 ## Steps
 
@@ -35,11 +35,11 @@ Backup your previous deployments if reusing the same directory:
 ```bash
 mkdir previous-version
 mv open-banking-apim             previous-version/ 
-mv open-banking-apim-config      previous-version/ 
-mv open-banking-developer-portal previous-version/ 
-mv open-banking-backend-chart    previous-version/ 
+mv open-banking-apim-config      previous-version/
+mv open-banking-developer-portal previous-version/
+mv open-banking-backend-chart    previous-version/
 mv open-banking-analytics        previous-version/
-mv open-banking-bankio-apps      previous-version/ 
+mv open-banking-bankio-apps      previous-version/
 mv open-banking-acp              previous-version/
 mv open-banking-consent          previous-version/
 ```
