@@ -12,13 +12,16 @@ If a new Open Banking API is released or an existing Open Banking API is updated
 
 {{% alert title="Note" color="primary" %}} If you are upgrading the ACP components from previous releases previous than helmchart 2.0 , it is necessary to update the cockroachdb to v21.2 before the upgrade of acp package:
 
-```console
+```bash
 helm upgrade -n open-banking-acp acp acp/kube-acp-stack -f open-banking-acp/files/acp.values.yaml --version 0.15.3
 ```
-Wait for all pods to be running and now uninstall the acp-prereq
-```console
+
+Wait for all pods to be running and now uninstall the acp-prereq.
+
+```bash
 helm uninstall [ACP_PREREQ_RELEASE_NAME] -n [NAMESPACE]
 ```
+
 After this it is reqdy to upgrade process. {{% /alert %}}
 
 ## Steps
