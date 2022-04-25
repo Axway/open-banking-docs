@@ -8,6 +8,19 @@ If a new Open Banking API is released or an existing Open Banking API is updated
 
 {{% alert title="Note" color="primary" %}} If you are migrating from version 1.3 to 1.4, the API management component has been split into two Helm charts: `apim` for products and `apim-config` for configuration. In this case you must therefore uninstall `apim`, verify it has been completely removed, and then install `apim` and `apim-config`.{{% /alert %}}
 
+{{% alert title="Note" color="primary" %}} If you are upgrading from old version of API management component (before apim helmchart 1.7 ), it will be ncessary to upgrade the  cassandra database from v2.x to 3.11 before upgrade the APIM package - please follow the https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_upgrade/upgrade_cassandra/index.html process. {{% /alert %}}
+
+{{% alert title="Note" color="primary" %}} If you are upgrading the ACP components from previous releases previous than helmchart 2.0 , it is necessary to update the cockroachdb to v21.2 before the upgrade of acp package:
+
+```console
+helm upgrade -n open-banking-acp acp acp/kube-acp-stack -f open-banking-acp/files/acp.values.yaml --version 0.15.3
+```
+Wait for all pods to be running and now uninstall the acp-prereq
+```console
+helm uninstall [ACP_PREREQ_RELEASE_NAME] -n [NAMESPACE]
+```
+After this it is reqdy to upgrade process. {{% /alert %}}
+
 ## Steps
 
 Backup your previous deployments if reusing the same directory:
