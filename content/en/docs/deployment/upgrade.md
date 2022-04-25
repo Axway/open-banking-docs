@@ -6,7 +6,8 @@ weight: 4
 
 If a new Open Banking API is released or an existing Open Banking API is updated you can perform an upgrade to the deployed application.
 
-## API Managemente component prerequisites
+## API Management component prerequisites
+
 
 If you are migrating from version 1.3 to 1.4, the API management component has been split into two Helm charts: `apim` for products and `apim-config` for configuration. In this case you must therefore uninstall `apim`, verify it has been completely removed, and then install `apim` and `apim-config`.
 
