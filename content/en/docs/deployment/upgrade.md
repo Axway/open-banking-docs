@@ -26,7 +26,7 @@ Wait for all pods to be running and now uninstall the acp-prereq.
 helm uninstall [ACP_PREREQ_RELEASE_NAME] -n [NAMESPACE]
 ```
 
-After this it is reqdy to upgrade process.
+After this it is ready to upgrade process.
 
 ## Steps
 
