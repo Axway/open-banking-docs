@@ -16,7 +16,8 @@ If you are upgrading from old version of API management component (before apim h
 
 ## ACP component prerequisite
 
-If you are upgrading the ACP components from previous releases previous than helmchart 2.0 , it is necessary to update the cockroachdb to v21.2 before the upgrade of acp package:
+If you are upgrading the ACP components from previous releases before Helm chart v2.0, it is necessary to update the CockroachDB to v21.2 before you upgrade the acp package:
+
 
 ```bash
 helm upgrade -n open-banking-acp acp acp/kube-acp-stack -f open-banking-acp/files/acp.values.yaml --version 0.15.3
