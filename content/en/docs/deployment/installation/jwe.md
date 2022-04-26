@@ -25,7 +25,7 @@ Customize the `jwe-generator/values.yaml` file as follows.
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
 
-## Install the JWE key generator Helm chart
+## Install the JWE key generator tool Helm chart
 
 1. Create the target namespace on the cluster:
 
