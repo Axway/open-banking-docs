@@ -52,7 +52,7 @@ Customize the `jwe-generator/values.yaml` file as follows.
 
 ## Verify the JWE key generator tool Helm chart deployment
 
-1. Wait a few minutes and use the following commands to check the deployment status.
+Wait a few minutes and use the following commands to check the deployment status.
 
    ```
    kubectl get pods -n jwe-generator 
