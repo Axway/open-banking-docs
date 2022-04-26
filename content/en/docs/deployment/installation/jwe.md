@@ -50,7 +50,7 @@ Customize the `jwe-generator/values.yaml` file as follows.
    TEST SUITE: None
    ```
 
-## Verify the JWE key generator Helm chart deployment
+## Verify the JWE key generator tool Helm chart deployment
 
 1. Wait a few minutes and use the following commands to check the deployment status.
 
