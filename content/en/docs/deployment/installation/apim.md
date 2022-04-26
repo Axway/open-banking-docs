@@ -191,7 +191,7 @@ If it is necessary to adjust the number of API traffic replicas, you can adjust 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
 | apitraffic.replicaCount | Number of initial replicas for API traffic. | 3 |
-| apitraffic.autoscalling.enable | Enabling the autoscaling feature. | true |
+| apitraffic.autoscalling.enable | Enable the autoscaling feature. | true |
 | apitraffic.maxreplicas | Maximum number of API traffic replicas. | 5 |
 
 ### Defining the information required for Openbanking
