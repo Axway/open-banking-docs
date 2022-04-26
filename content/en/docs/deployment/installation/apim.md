@@ -31,7 +31,7 @@ The following parameters are required for any deployment.
 | global.env | Set the default environment. | dev |
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
-| global.denyDemoLogin | It disable the demo login idp. It should be disabled on customer environment. | false |
+| global.denyDemoLogin | Disables the demo login idp. It should be disabled on the customer environment. | false |
 | global.smtpServer.host | Smtp server host. | None |
 | global.smtpServer.port | Smtp server port. | None |
 | global.smtpServer.username | Smtp server username. | None |
