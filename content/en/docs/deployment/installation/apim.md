@@ -36,7 +36,7 @@ The following parameters are required for any deployment.
 | global.smtpServer.port | Smtp server port. | None |
 | global.smtpServer.username | Smtp server username. | None |
 | global.smtpServer.password | Smtp server password. | None |
-| global.smtpServer.protocol | Smtp server protocol as SSL, TLS or NONE. | None |
+| global.smtpServer.protocol | Smtp server protocol as SSL, TLS, or None. | None |
 
 <!--
 TODO:
