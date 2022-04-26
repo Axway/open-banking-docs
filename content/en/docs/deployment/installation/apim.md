@@ -310,7 +310,7 @@ Customize the `open-banking-apim-config/values.yaml` file as follows.
 | global.env | Set the default environment. |dev |
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
-| apimcli.langage | Defining the language used to describe the APIs on API Manager . | pt-BR |
+| apimcli.language | The language used to describe the APIs on API Manager. | pt-BR |
 | apimcli.settings.email | Sender email address used in api-manager settings. | None |
 | apimcli.users.publicApiUser | Username of user to access the Public APIs from the API Portal. | *publicuser* |
 | apimcli.users.publicApiPassword | Password of user to access the Public APIs from the API Portal. | *publicUserPwd!* |
