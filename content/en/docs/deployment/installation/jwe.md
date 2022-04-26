@@ -33,7 +33,7 @@ Customize the `jwe-generator/values.yaml` file as follows.
    kubectl create namespace jwe-generator
    ```
 
-2. Install the Analytics Helm charts:
+2. Install the JWE key generator Helm charts:
 
    ```bash
    helm install jwe jwe-generator -n jwe-generator
