@@ -194,9 +194,9 @@ If it is necessary to adjust the number of API traffic replicas, you can adjust 
 | apitraffic.autoscalling.enable | Enable the autoscaling feature. | true |
 | apitraffic.maxreplicas | Maximum number of API traffic replicas. | 5 |
 
-### Defining the information required for Openbanking
+### Defining the information required for Open Banking Brazil
 
-There are some specific information related to Openbanking Brasil for each institution. And it can be defined here:
+There are some specific information related to Open Banking Brazil for each institution. And it can be defined here:
 
 | Value         | Description                           | Default value |
 |:------------- |:------------------------------------- |:-------------- |
@@ -316,8 +316,8 @@ Customize the `open-banking-apim-config/values.yaml` file as follows.
 | apimcli.users.publicApiPassword | Password of user to access the Public APIs from the API Portal. | *publicUserPwd!* |
 | backend.serviceincident.host | ServiceNow URL. | None|
 | backend.serviceincident.username | ServiceNow username. |None|
-| demoapp.bankio.clientId | Defining the bankio client id. | None |
-| demoapp.postman.clientId | Defining the postman client id. |None|
+| demoapp.bankio.clientId | The bankio client id. | None |
+| demoapp.postman.clientId | The postman client id. |None|
 
 ## Install the APIM configuration Helm chart
 
@@ -399,4 +399,4 @@ You need to import some configurations in the Key Properties Store (KPS). They a
 2. Verify the insertion in the KPS table:
    * Log into the API Gateway Manager UI and go on Settings - Key Property Stores.
    * Click on AMPLIFY/Configuration.
-   * Check the column **k_values** that is not empty. Click on it to check the details.
+   * Check that the column **k_values** is not empty. Click on it to check the details.

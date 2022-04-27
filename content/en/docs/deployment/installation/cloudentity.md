@@ -30,10 +30,9 @@ Modify the `open-banking-acp/values.yaml` file from the Axway package.
 |:------------- |:------------------------------------- |:-------------- |
 | global.dockerRegistry.username | Defining Cloudentity repository username. | None |
 | global.dockerRegistry.password | Defining Cloudentity repository password. | None |
-| redis-cluster.password| Defining ACP's Redis password. | p@ssw0rd! |
-| acp-prereq.cert.internal.certManager| | Define if cert-manager is used internally. <br>False is currently not supported. | true |
+| redis-cluster.password | Defining ACP's Redis password. | *p@ssw0rd!* |
+| acp-prereq.cert.internal.certManager | Define if cert-manager is used internally. <br>False is currently not supported. | true |
 | acp-prereq.cert.internal.certManagerNamespace | Namespace where cert-manager is installed. Use the result of the previous command. | None |
-
 | acp-prereq.cert.ingress.certManager | Define if cert-manager is used externally. <br>If set to false, define cert and keys with values below. | true |
 | acp-prereq.cert.ingress.cert | Use specific cert. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 | acp-prereq.cert.ingress.key | Use specific key. It can be a wildcard. Must be defined only if certManager is set to false. | None |

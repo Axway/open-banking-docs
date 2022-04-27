@@ -29,20 +29,20 @@ Customize the `open-banking-bankio-app/values.yaml` file as follows.
 | ingress.cert |  Wildcard cert information. | None |
 | ingress.key |  Wildcard key information. | None |
 | ingress.frontEnd.cname | FrontEnd server address. Change the domainname value. | demo-apps.\<domain-name> |
-| ingress.frontEnd.cert | Custom cert for FrontEnd server endpoint.  if certManager is true, cert and key will be ignored.| None |
-| ingress.frontEnd.key | Custom key for FrontEnd server endpoint. if certManager is true, cert and key will be ignored. | None |
+| ingress.frontEnd.cert | Custom cert for FrontEnd server endpoint. If certManager is true, the cert and key is ignored.| None |
+| ingress.frontEnd.key | Custom key for FrontEnd server endpoint. If certManager is true, the cert and key is ignored. | None |
 | ingress.tppApi.cname | tppApi server address. Change the domainname value. | tpp-demo-apps.\<domain-name> |
-| ingress.tppApi.cert | Custom cert for tppApi server endpoint.  if certManager is true, cert and key will be ignored. | None |
-| ingress.tppApi.key | Custom key for tppApi server endpoint. if certManager is true, cert and key will be ignored. | None |
+| ingress.tppApi.cert | Custom cert for tppApi server endpoint. If certManager is true, the cert and key is ignored. | None |
+| ingress.tppApi.key | Custom key for tppApi server endpoint. If certManager is true, the cert and key is ignored. | None |
 | ingress.autoLoanApi.cname | autoLoanApi server address. Change the domainname value. | auto-loan-api-demo-apps.\<domain-name> |
-| ingress.autoLoanApi.cert | Custom cert for autoLoanApi server endpoint. if certManager is true, cert and key will be ignored. | None |
-| ingress.autoLoanApi.key | Custom key for autoLoanApi server endpoint.  if certManager is true, cert and key will be ignored. | None |
+| ingress.autoLoanApi.cert | Custom cert for autoLoanApi server endpoint. If certManager is true, the cert and key is ignored. | None |
+| ingress.autoLoanApi.key | Custom key for autoLoanApi server endpoint.  If certManager is true, the cert and key is ignored. | None |
 | ingress.shopApi.cname | shopApi server address. Change the domainname value. |shop-demo-api-apps.\<domain-name> |
-| ingress.shopApi.cert | Custom cert for shopApi endpoint. if certManager is true, cert and key will be ignored. | None |
-| ingress.shopApi.key | Custom key for shopApi endpoint. if certManager is true, cert and key will be ignored.| None |
+| ingress.shopApi.cert | Custom cert for shopApi endpoint. If certManager is true, the cert and key is ignored. | None |
+| ingress.shopApi.key | Custom key for shopApi endpoint. If certManager is true, the cert and key is ignored.| None |
 | griffin.tokenEndpoint | Token endpoint of Authorization server used by demo apps. Change the domainname value.| `https://acp.<domain-name>/default/openbanking_brasil/oauth2/token` |
 | griffin.authorizationEndpoint | Authorization endpoint of Authorization server used by demo apps. Change the domainname value. | `https://acp.<domain-name>/default/openbanking_brasil/oauth2/authorize` |
-| griffin.jwksEndpoint | JWKS well known endpoint . Change the domainname value. | `https://acp.<domain-name>/default/openbanking_brasil/.well-known/jwks.json` |
+| griffin.jwksEndpoint | JWKS well known endpoint. Change the domainname value. | `https://acp.<domain-name>/default/openbanking_brasil/.well-known/jwks.json` |
 | griffin.aispEndpoint | Account endpoint of Open Banking API used by demo apps. Change the domainname value. | `https://mtls-api-proxy.<domain-name>/open-banking/accounts/v1` |
 | griffin.pispEndpoint | Payment endpoint of Open Banking API used by demo apps. Change the domainname value. | `https://mtls-api-proxy.<domain-name>/open-banking/payments/v1` |
 

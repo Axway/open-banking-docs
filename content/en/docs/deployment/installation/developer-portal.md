@@ -27,7 +27,7 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
 | apiportal.adminPasswd | Password to access the Developer Portal Joomla admin console. | _portalAdminPwd!_ |
 | apiportal.company | Your company name. | _Griffin Bank_ |
-| apiportal.langage | Default API Portal language. | pt-BR |
+| apiportal.language | Default API Portal language. | pt-BR |
 | apiportal.chatraid |  Your Chatra account. |  |
 | apiportal.recaptchkey | ReCaptcha key associated to your external domain name. |  |
 | apiportal.recaptchsecret |  Corresponding ReCaptcha key associated to your external domain name. |  |
@@ -37,14 +37,14 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
 | apiportal.oauthWhitelist |  Comma-separated list of hosts used for external Oauth. | acp.\<domain-name> |
 | apiportal.serviceDeskEndPoint | URL of service desk service.  | `https://api.<domain-name>/services/v1/incident`   |
 | apiportal.apiReviewEndPoint |   URL of API review service.  | `https://api.<domain-name>/api/portal/v1.2/reviewapi` |
-| mysqlPortal.external | Enabling external DB for Developer portal.  | false |
-| mysqlPortal.dbname | DB Name for Developer portal.  | false |
+| mysqlPortal.external | Enabling the external database for the Developer Portal.  | false |
+| mysqlPortal.dbname | Database name for the Developer Portal.  | false |
 | mysqlPortal.rootPasswd | Root password for the database to be created. | _portalDBRootPwd!_ |
 | mysqlPortal.adminPasswd  | Admin password for the database to be created. | _portalDBAdminPwd!_ |
 | apimgr.publicApiUser | Username of API Manager user to access Public APIs. | _publicuser_ |
 | apimgr.publicApiPassword | Password of API Manager user to access Public APIs. | _publicUserPwd!_ |
-| apimgr.trafficServer | CNAME for API manager traffic endpoint. Reviewing the domain.| `api.<domain-name>` |
-| apimgr.mtlsProxyServer | CNAME for API manager MTLS traffic endpoint. Reviewing the domain.| `mtls-proxy-api.<domain-name>` |
+| apimgr.trafficServer | CNAME for the API manager traffic endpoint. Reviewing the domain.| `api.<domain-name>` |
+| apimgr.mtlsProxyServer | CNAME for the API manager MTLS traffic endpoint. Reviewing the domain.| `mtls-proxy-api.<domain-name>` |
 
 ## Install the Developer Portal Helm chart
 
@@ -108,24 +108,23 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
 
 ## Post Install steps
 
-1. Customizing the brand.
-   If needed, you can easily brand the developer portal with your logo and brand colors.
-   Connect the the adminstrator UI and navigate to:
+1. Customize the brand. If needed, you can easily brand the Developer Portal with your logo and brand colors.
+   Connect the the administrator user interface and navigate to Theme Magic:
    ```
-       Extentions > Templates > Style -  Choose a Style profile, then click `Theme` tab, next click `Theme Magic` button top of screen.
+       Extensions > Templates > Style - Choose a Style profile > Click the Theme tab > Click the Theme Magic button (at the top of the screen).
    ```
    Key Colors:
    ```
-       Brand Color: The base color of the site
+       Brand Color: The base color of the site.
    ```
    Basic Colors:
    ```
-       @page-text-color: The base text color of the site
+       @page-text-color: The base text color of the site.
    ```
-   Save the theme by clicking the arrow button next to preview button to `Save As`
-2. Apply Theme
-   To apply them exit out of the Theme Magic (Back to Administrator) then change the `Theme` dropdown to select your new theme.
-3. Customizing the Logo
-   To change the logo use the `Logo Image` Selector under the same Theme tab.
-4. Saving the changes
-   Theme Magice only needs to be done once but to apply the theme saving will need to be done for each style you want to apply this to.
+   Save the theme by clicking the arrow button next to the preview button to `Save As`.
+
+2. Apply the theme. To apply the theme exit out of Theme Magic (you are returned to Administrator), and then change the *Theme* dropdown to select your new theme.
+
+3. Customize the logo. To change the logo select an image from the the *Logo Image* selector under the Theme tab.
+
+4. Save the changes. Theme Magic needs to be saved once. To apply the theme, saving must be done for each style you want to apply the saved theme to.
