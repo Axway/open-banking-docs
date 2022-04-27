@@ -123,8 +123,8 @@ Customize the `open-banking-developer-portal/values.yaml` file as follows.
    ```
    Save the theme by clicking the arrow button next to the preview button to `Save As`.
 
-2. Apply the theme. To apply the theme exit out of Theme Magic (you are returned to Administrator), and then change the *Theme* dropdown to select your new theme.
+2. Apply the theme. To apply the theme exit out of Theme Magic (you are returned to Administrator), and then change the _Theme_ dropdown to select your new theme.
 
-3. Customize the logo. To change the logo select an image from the the *Logo Image* selector under the Theme tab.
+3. Customize the logo. To change the logo select an image from the the _Logo Image_ selector under the Theme tab.
 
 4. Save the changes. Theme Magic needs to be saved once. To apply the theme, saving must be done for each style you want to apply the saved theme to.
