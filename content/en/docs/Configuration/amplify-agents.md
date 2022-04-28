@@ -48,18 +48,13 @@ The service account client id, name, public, and private key will be used in the
 
 ``` shell
 centralAuthClientID: "test-eks-openbanking_882712e1-8465-4d26-8610-c4406c90e2ea"
-serviceAccountName: "test-eks-openbanking"
 
-centralPrivateKey:  |
-      -----BEGIN PRIVATE KEY-----
-      <<insert private key from service account>>
-      -----END PRIVATE KEY-----
+centralPrivateKey:  
+      <<insert base64 format private key from service account - e.g "LS0tLS1CRUdJTiBQUklWQ..." >>
       
-   centralPublicKey: |
-      -----BEGIN PUBLIC KEY-----
-      <<insert public key from service account>>
-      -----END PUBLIC KEY-----
-
+centralPublicKey: |
+      <<insert base64 format public key from service account - e.g "LS0tLS1CRUdJTiBQVUJMSU..." >>
+      
 ```
 
 The private key is the one you downloaded after you created the service account.
@@ -108,7 +103,6 @@ amplifyAgents:
    repository: axway.jfrog.io/ampc-public-docker-release/agent
    statusPort: 8990
    centralAuthClientID: "DOSA_xx_yy_zz"
-   serviceAccountName: "example-xxxx"
    centralOrgID: "ORGANIZATION_ID"
    centralEnvName: "ENVIRONMENT_NAME"
    centralTeam: "TEAM"
@@ -184,7 +178,7 @@ amplifyAgents:
       create: true
       # The name of the service account to use.
       # If not set and create is true, a name is generated using the fullname template
-      name:
+      name: "test-eks-openbanking"
 ```
 
 You have the following options to apply this configuration:
