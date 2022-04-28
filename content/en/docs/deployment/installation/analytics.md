@@ -24,9 +24,15 @@ Customize the `open-banking-analytics/values.yaml` file as follows.
 | global.domainName | Set the domainname for all ingress. | \<domain-name> |
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
+| global.ingress.certManager | Enabling the certmanager to issue the external endpoint certificates. | true |
+| global.ingress.certManagerNamespace | Defining the namespace where the certmanager is hosted. | None |
+| global.ingress.issuedByLetsEncrypt | Enabling the letsEncrypt to issue the external certificates endpoints. | true |
+| global.ingress.wildcard | Enabling the wildcard certificate for the endpoints. If the certmanager is true, this value is ignored. | false |
+| global.ingress.cert | Defining the cert for wildcard option. | None |
+| global.ingress.key | Defining the key for wildcard option. | None |
 | elastic.password | Password used for "elastic" user. | Open*Banking*2021 |
 | metrics.apiKey | API Key used for the metrics. Used by Webserver and APIM. | \<api-key> |
-| kibana.ingress.dnsprefix | Set the domain name for kibana. | kibana |
+| global.ingress.kibana.dnsprefix | Set the domain name for kibana. | kibana |
 | webserver.ingress.dnsprefix | Set the domain name for the web server used for Analytics. | analytics |
 | webserver.report.frequency | Frequency of reports generation. | 00 00 \* \* \* (Every day at midnight) in UNIX chron format |
 

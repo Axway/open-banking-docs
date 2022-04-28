@@ -10,8 +10,8 @@ Install Cloud Entity for the Axway Open Banking solution.
 Download the Axway Open Banking Cloud Entity Helm charts to customize them locally.
 
 ```bash
-helm pull axway-open-banking/open-banking-acp --untar
-helm pull axway-open-banking/open-banking-consent --untar
+helm pull open-banking/open-banking-acp --untar
+helm pull open-banking/open-banking-consent --untar
 ```
 
 You should get an `open-banking-acp` and `open-banking-consent` local folders.
@@ -28,20 +28,23 @@ Modify the `open-banking-acp/values.yaml` file from the Axway package.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| cert.internal.certManager | Define if cert-manager is used internally. <br>False is currently not supported. | true |
-| cert.internal.certManagerNamespace | Namespace where cert-manager is installed. Use the result of the previous command. | None |
-| cert.ingress.certManager | Define if cert-manager is used externally. <br>If set to false, define cert and keys with values below. | true |
-| cert.ingress.cert | Use specific cert. It can be a wildcard. Must be defined only if certManager is set to false. | None |
-| cert.ingress.key | Use specific key. It can be a wildcard. Must be defined only if certManager is set to false. | None |
-
-Update the `open-banking-acp/files/acp.values.yaml`  with all environment variables required:
-
-| Value         | Description                           | Default value  |
-|:------------- |:------------------------------------- |:-------------- |
+| global.dockerRegistry.username | Defining Cloudentity repository username. | None |
+| global.dockerRegistry.password | Defining Cloudentity repository password. | None |
+| redis-cluster.password | Defining ACP's Redis password. | *p@ssw0rd!* |
+| acp-prereq.cert.internal.certManager | Define if cert-manager is used internally. <br>False is currently not supported. | true |
+| acp-prereq.cert.internal.certManagerNamespace | Namespace where cert-manager is installed. Use the result of the previous command. | None |
+| acp-prereq.cert.ingress.certManager | Define if cert-manager is used externally. <br>If set to false, define cert and keys with values below. | true |
+| acp-prereq.cert.ingress.cert | Use specific cert. It can be a wildcard. Must be defined only if certManager is set to false. | None |
+| acp-prereq.cert.ingress.key | Use specific key. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 | acp.serverURL | ACP server URL | None |
-| acp.ingress.tls.hosts | ACP server URL | None |
+| acp.serverURLMtls | ACP server URL | None |
+| acp.config.data.storage.audit_events.retention.enabled | Enable audit events retention | true |
+| acp.config.data.storage.audit_events.retention.batch_limit | Audit events retention batch delete limit | 1000 |
+| acp.config.data.storage.audit_events.retention.max_age | Remove audit events older than max age limit | 6h0m0s |
+| acp.config.data.server.obbr_base_paths | Open banking Brasil API base path whitelist. | None |
 | acp.ingress.hosts.host | ACP server URL | None |
-| acp.ingress.annotations.honginx.ingress.kubernetes.io/proxy-ssl-secretst | set to \<NAMESPACE>/acp-tls | open-banking-acp/acp-tls |
+| acp.ingress.customAnnotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | Secret to keep the ssl cert. It should be NAMESPACE]/acp-tls | open-banking-acp/acp-tls |
+| acp.features.swagger_ui | Enable swagger UI. | true |
 
 Remove the following lines if cert-manager is not used for ingress:
 
@@ -56,6 +59,8 @@ Modify the `open-banking-consent/values.yaml` file:
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
+| dockerRegistry.username | Cloudentity repo username. | None |
+| dockerRegistry.token | Cloudentity repo token. | None |
 | cert.internal.certManager | Define if cert-manager is used internally.<br>False is currently not supported. | true |
 | cert.internal.certManagerNamespace | Namespace where cert-manager is installed. Use the result of the previous command. | None |
 | cert.ingress.certManager | Define if cert-manager is used externally.<br>If set to false, define cert and keys with values below. | true |
@@ -96,6 +101,10 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 | import.variables.postman_client_id | Update with the Postman client id. | postman-eks |
 | import.variables.bank_io_client_id | Update with the Bank.io client id. | bankio-eks |
 | import.variables.bank_io_redirect_uri | Update with the bank.io redirect url. | `https://services-api.<domain-name>/login` |
+| Import.Variables. dcr_jwks_uri | Openbanking central directory jwks info. | OBB Sandbox |
+| Import.Variables.organization_id | Bank Organization ID registered at Central Directory. | None |
+| Import.Variables.first_tpp_redirect_uri | Sample TPP1 used. | None |
+| Import.Variables.second_tpp_redirect_uri | Sample TPP1 used. | None |
 
 ## Prepare deployment
 
@@ -113,40 +122,16 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
    kubectl create namespace open-banking-consent 
    ```
 
-3. Add the Docker registry to pull cloud-entity private images in both namespaces.
-
-   ```bash
-   kubectl create secret docker-registry artifactory --docker-server=acp.artifactory.cloudentity.com --docker-username=USERNAME --docker-password=PASSWORD -n open-banking-acp 
-   kubectl create secret docker-registry artifactory --docker-server=acp.artifactory.cloudentity.com --docker-username=USERNAME --docker-password=PASSWORD -n open-banking-consent
-   ```
-
 ## Install the ACP Helm chart
 
-1. Deploy the ACP pre-requisites Helm chart from the Axway repository:
-
-   ```bash
-   helm install acp-prereq -n open-banking-acp open-banking-acp
-   ```
-
-2. Check that the status of the Helm command is deployed:
-
-   ```
-      NAME: acp-prereq 
-      LAST DEPLOYED: <current date and time>
-      NAMESPACE: open-banking-acp 
-      STATUS: deployed
-      REVISION: 1 
-      TEST SUITE: None
-   ```
-
-3. Deploy the ACP Helm chart from the CloudEntity repository:
+1. Deploy the ACP Helm chart from the CloudEntity repository:
    {{% alert title="Note" color="primary" %}}Find the ACP chart-version to use in the `open-banking-acp/README.md`. Otherwise use the latest.{{% /alert %}}
 
    ```bash
-   helm install acp -n open-banking-acp cloudentity/kube-acp-stack –-version <chart-version>  -f open-banking-acp/files/acp.values.yaml
+   helm install acp -n open-banking-acp ./open-banking-acp
    ```
 
-4. Check that the status of the Helm command is deployed:
+2. Check that the status of the Helm command is deployed:
 
    ```
       NAME: acp
@@ -220,7 +205,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
    {{% alert title="Note" color="primary" %}} Find the Open Banking Consent chart-version to use in the `open-banking-consent/README.md`. Otherwise use the latest.{{% /alert %}}
 
    ```bash
-   helm install consent -n open-banking-consent cloudentity/openbanking –-version <chart-version> -f open-banking-consent/files/consent.values.yaml
+   helm install consent -n open-banking-consent cloudentity/openbanking –-version <chart-version> -f open-banking-consent/files/consent.values.yaml --version 0.1.9
    ```
 
 4. Check that the status of the Helm command is deployed:
