@@ -23,13 +23,13 @@ The Axway Open Banking solution embeds the discovery and traceability agents for
 
 ### Amplify configuration
 
-This section includes details for Amplify configuration such as creating a service account, creating an environment, finding the organization ID and team details.
+This section includes details for Amplify configuration such as creating a service account, creating an environment, and finding the organization ID and team details.
 
 #### Service account creation
 
 You must first create a service account in the [Amplify platform](https://platform.axway.com).
 
-1. In the drop down menu from your user click Organization - **Service Accounts**.
+1. From the user menu select Organization, and then click **Service Accounts**.
 ![Service Account in Amplify](/Images/agents/service-account-img1.PNG)
 2. Check the Service Accounts drop down to make sure you have the correct organization selected.
 3. Create a new service account.
@@ -40,7 +40,7 @@ You must first create a service account in the [Amplify platform](https://platfo
     * **Credentials**: Select **Platform-generated key pair** or **Provide public key** if you have your own certificate.
 6. You can add one or more organizations and teams, but the default options would work.
 7. Click **Save**.
-8. A pop-up window will appear with the private key. Download it and save a copy as it will be used in the `values.yaml` file.
+8. A pop-up window appears with the private key. Download it and save a copy as it will be used in the `values.yaml` file.
 
 ![Service Account Private key window in Amplify](/Images/agents/service-account-privatekey.PNG)
 
@@ -48,18 +48,13 @@ The service account client id, name, public, and private key will be used in the
 
 ``` shell
 centralAuthClientID: "test-eks-openbanking_882712e1-8465-4d26-8610-c4406c90e2ea"
-serviceAccountName: "test-eks-openbanking"
 
-centralPrivateKey:  |
-      -----BEGIN PRIVATE KEY-----
-      <<insert private key from service account>>
-      -----END PRIVATE KEY-----
+centralPrivateKey:  
+      <<insert base64 format private key from service account - e.g "LS0tLS1CRUdJTiBQUklWQ..." >>
       
-   centralPublicKey: |
-      -----BEGIN PUBLIC KEY-----
-      <<insert public key from service account>>
-      -----END PUBLIC KEY-----
-
+centralPublicKey: |
+      <<insert base64 format public key from service account - e.g "LS0tLS1CRUdJTiBQVUJMSU..." >>
+      
 ```
 
 The private key is the one you downloaded after you created the service account.
@@ -74,7 +69,7 @@ You must create an environment.
 ![Environment conf](/Images/agents/environment-img1.PNG)
 2. Select a title and a logical name and then click **Save**.
 ![Environment creation](/Images/agents/environment-img2.PNG)
-3. Use the logical name in the **centralEnvName** parameter from `values.yaml`.
+3. Use the logical name in the **centralEnvName** parameter from the `values.yaml`.
 
 ``` shell
 centralEnvName: "test-eks-int"
@@ -82,7 +77,7 @@ centralEnvName: "test-eks-int"
 
 #### Organization ID and team
 
-To locate the organization id, select **Organization** from the drop down menu under your user.
+To locate the organization id, select **Organization** from the user menu.
 
 ![Environment creation](/Images/agents/org-img1.PNG)
 
@@ -90,7 +85,7 @@ To locate the organization id, select **Organization** from the drop down menu u
 centralOrgID: "20049705293414"
 ```
 
-For the **centralTeam** parameter from `values.yaml`, click the **Teams** menu in the left navigation under **Organization**.
+For the **centralTeam** parameter from the `values.yaml`, click the **Teams** menu in the left navigation under **Organization**.
 
 ![Environment creation](/Images/agents/team-img1.PNG)
 
@@ -100,7 +95,7 @@ centralTeam: "Default Team"
 
 ### Agents deployment parameters
 
-This section describes how to fill the **amplifyAgents** parameters from the `values.yaml` file of the open-banking-apim helm chart to connect Amplify and the the Open Banking Platform.
+This section describes how to fill the **amplifyAgents** parameters from the `values.yaml` file of the open-banking-apim Helm chart to connect Amplify and the Open Banking Platform.
 
 ``` shell
 amplifyAgents:
@@ -108,7 +103,6 @@ amplifyAgents:
    repository: axway.jfrog.io/ampc-public-docker-release/agent
    statusPort: 8990
    centralAuthClientID: "DOSA_xx_yy_zz"
-   serviceAccountName: "example-xxxx"
    centralOrgID: "ORGANIZATION_ID"
    centralEnvName: "ENVIRONMENT_NAME"
    centralTeam: "TEAM"
@@ -184,7 +178,7 @@ amplifyAgents:
       create: true
       # The name of the service account to use.
       # If not set and create is true, a name is generated using the fullname template
-      name:
+      name: "test-eks-openbanking"
 ```
 
 You have the following options to apply this configuration:
