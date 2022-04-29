@@ -205,7 +205,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
    {{% alert title="Note" color="primary" %}} Find the Open Banking Consent chart-version to use in the `open-banking-consent/README.md`. Otherwise use the latest.{{% /alert %}}
 
    ```bash
-   helm install consent -n open-banking-consent cloudentity/openbanking –-version <chart-version> -f open-banking-consent/files/consent.values.yaml --version 0.1.9
+   helm install consent -n open-banking-consent cloudentity/openbanking –-version 0.1.9 -f open-banking-consent/files/consent.values.yaml
    ```
 
 4. Check that the status of the Helm command is deployed:
