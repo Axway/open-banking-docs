@@ -41,10 +41,10 @@ The minimum recommended hardware infrastructure recomendation for these componen
     * 4 GB of memory.
     * 60 GB of disk.
 
-* Cassandra Database: 1 cluster with 3 nodes, each one with the following configuration:
-   * 2 CPUs.
-   * 8 GB of memory.
-   * 60 GB of disk.
+* Cassandra Database: 1 cluster with 3 nodes, each one with the following configuration: 
+    * 2 CPUs.
+    * 8 GB of memory.
+    * 60 GB of disk.
 
 ## Kubernetes setup requirements
 
@@ -72,7 +72,7 @@ The Kubernetes configuration must include three Node Groups:
 | API Management  | API Gateway Manager | 1 |
 | API Management  | APIManager | 1 |
 | API Management  | Filebeat  | 1 |
-| API Management  | APIGateway Traffic | 3-6 | 
+| API Management  | APIGateway Traffic | 3-6 |
 | Identity  | ACP | 1-3 |
 | Identity  | cockroachdb | 1-3 |
 | Identity  | redis | 1-3 |
@@ -92,13 +92,13 @@ An affinity node is used on each component to deploy them on the appropriate nod
 The typical infrastructure requirement for Kubernetes cluster are:
 
 * Non-Production environment:
-   * 23 vCPus.
-   * 70 GB of Memory.
-   * 150 GB of disk. 
+    * 23 vCPus.
+    * 70 GB of Memory.
+    * 150 GB of disk.
 * Production environment:
-   * 48 vCPUs.
-   * 100 GB of memory.
-   * 500 GB of disk.  
+    * 48 vCPUs.
+    * 100 GB of memory.
+    * 500 GB of disk.  
 
 {{% alert title="Note" color="primary" %}} The configuration of master nodes is out-of-scope on this page.{{% /alert %}}
 
