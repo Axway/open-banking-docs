@@ -30,20 +30,21 @@ These tasks must be completed for a successful installation.
 ## Database requirements
 
 The solutions use the following database components:
+
 * MySQL or MariaDB for APIM gateway analytics and API Portal components.
 * Cassandra for API Manager catalog.
 
 The minimum recommended hardware infrastructure recomendation for these components are:
 
-* MySQL Database: 1 node or cluster (if HA is required)
-    * 2 CPUs
-    * 4 GB of memory
-    * 60 GB of disk
+* MySQL Database: 1 node or cluster (if HA is required):
+    * 2 CPUs.
+    * 4 GB of memory.
+    * 60 GB of disk.
 
 * Cassandra Database: 1 cluster with 3 nodes, each one with the following configuration:
-   * 2 CPUs
-   * 8 GB of memory
-   * 60 GB of disk
+   * 2 CPUs.
+   * 8 GB of memory.
+   * 60 GB of disk.
 
 ## Kubernetes setup requirements
 
@@ -89,14 +90,15 @@ The Kubernetes configuration must include three Node Groups:
 An affinity node is used on each component to deploy them on the appropriate nodes.
 
 The typical infrastructure requirement for Kubernetes cluster are:
+
 * Non-Production environment:
-   * 23 vCPus
-   * 70 GB of Memory
-   * 150 GB of disk ( dedicated + shared storage) 
+   * 23 vCPus.
+   * 70 GB of Memory.
+   * 150 GB of disk. 
 * Production environment:
-   * 48 vCPUs 
-   * 100 GB of memory
-   * 500 GB of disk ( dedicated + shared storage)  
+   * 48 vCPUs.
+   * 100 GB of memory.
+   * 500 GB of disk.  
 
 {{% alert title="Note" color="primary" %}} The configuration of master nodes is out-of-scope on this page.{{% /alert %}}
 
