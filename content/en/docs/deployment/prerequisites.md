@@ -41,7 +41,7 @@ The minimum recommended hardware infrastructure recomendation for these componen
     * 4 GB of memory.
     * 60 GB of disk.
 
-* Cassandra Database: 1 cluster with 3 nodes, each one with the following configuration: 
+* Cassandra Database: 1 cluster with 3 nodes, each one with the following configuration:
     * 2 CPUs.
     * 8 GB of memory.
     * 60 GB of disk.
