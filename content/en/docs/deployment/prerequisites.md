@@ -22,9 +22,29 @@ Prior to installation you need to perform the following tasks:
     * Helm
     * Kubectl
 * Obtain a token from an Axway team to pull Helm charts and Docker images from with the Axway Registry.
+* Deploy the external MySQL and Cassandra databases infrastructure.
 * Create a Kubernetes cluster that conforms to that described in the Architecture Overview guide and reflects the architecture choices described above.
 
 These tasks must be completed for a successful installation.
+
+## Database requirements
+
+The solutions use the following database components:
+
+* MySQL or MariaDB for API Management (APIM) gateway analytics and API Portal components.
+* Cassandra for API Manager catalog.
+
+The minimum recommended hardware infrastructure for these components are:
+
+* MySQL Database: 1 node or cluster (if HA is required):
+    * 2 CPUs.
+    * 4 GB of memory.
+    * 60 GB of disk.
+
+* Cassandra Database: 1 cluster with 3 nodes, each with the following configuration:
+    * 2 CPUs.
+    * 8 GB of memory.
+    * 60 GB of disk.
 
 ## Kubernetes setup requirements
 
@@ -44,12 +64,41 @@ The Kubernetes configuration must include three Node Groups:
 * *Application*: Hosts all Axway Open Banking components:
     * Some components will have a Horizontal Pod Autoscaler to support the peak load (Axway recommends configuring a node autoscaler).
     * Most components, particularly API Gateway, require low latency.
+    * The typical components for the production environment are:
+
+| Application   | Component                             | Replicas  |
+|:------------- |:------------------------------------- |:--------- |
+| API Management  | API Portal | 1 |
+| API Management  | API Gateway Manager | 1 |
+| API Management  | APIManager | 1 |
+| API Management  | Filebeat  | 1 |
+| API Management  | APIGateway Traffic | 3-6 |
+| Identity  | ACP | 1-3 |
+| Identity  | CockroachDB | 1-3 |
+| Identity  | Redis | 1-3 |
+| Analytics  | Elasticsearch | 3 |
+| Analytics  | Kibana | 1 |
+| Analytics  | Webserver | 1 |
+| Analytics  | Logstash | 1 |
+| Analytics  | metrics-api | 1 |
+
+{{% alert title="Note" color="primary" %}} The consent and backend components are not considered here, because they usually are replaced by customer's custom components.{{% /alert %}}
+
 * *Transversal*: Hosts non-application components such as monitoring tools and infrastructure components such as the Certificate Manager and external DNS. This group can be configured without a node autoscaler.
 * *Database*: Hosts all stateful applications.
 
 An affinity node is used on each component to deploy them on the appropriate nodes.
 
-In cases where a customer deploys all their database within the Kubernetes cluster Axway recommends dedicating Cassandra pods to nodes on a one-to-one basis.
+The typical infrastructure requirement for Kubernetes cluster are:
+
+* Non-Production environment:
+    * 23 vCPus.
+    * 70 GB of memory.
+    * 150 GB of disk.
+* Production environment:
+    * 48 vCPUs.
+    * 100 GB of memory.
+    * 500 GB of disk.  
 
 {{% alert title="Note" color="primary" %}} The configuration of master nodes is out-of-scope on this page.{{% /alert %}}
 
