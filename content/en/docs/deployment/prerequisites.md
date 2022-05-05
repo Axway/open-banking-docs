@@ -22,7 +22,7 @@ Prior to installation you need to perform the following tasks:
     * Helm
     * Kubectl
 * Obtain a token from an Axway team to pull Helm charts and Docker images from with the Axway Registry.
-* Deploy the external mysql and cassandra databases infrastructure.
+* Deploy the external MySQL and Cassandra databases infrastructure.
 * Create a Kubernetes cluster that conforms to that described in the Architecture Overview guide and reflects the architecture choices described above.
 
 These tasks must be completed for a successful installation.
@@ -31,17 +31,17 @@ These tasks must be completed for a successful installation.
 
 The solutions use the following database components:
 
-* MySQL or MariaDB for APIM gateway analytics and API Portal components.
+* MySQL or MariaDB for API Management (APIM) gateway analytics and API Portal components.
 * Cassandra for API Manager catalog.
 
-The minimum recommended hardware infrastructure recomendation for these components are:
+The minimum recommended hardware infrastructure for these components are:
 
 * MySQL Database: 1 node or cluster (if HA is required):
     * 2 CPUs.
     * 4 GB of memory.
     * 60 GB of disk.
 
-* Cassandra Database: 1 cluster with 3 nodes, each one with the following configuration:
+* Cassandra Database: 1 cluster with 3 nodes, each with the following configuration:
     * 2 CPUs.
     * 8 GB of memory.
     * 60 GB of disk.
@@ -64,7 +64,7 @@ The Kubernetes configuration must include three Node Groups:
 * *Application*: Hosts all Axway Open Banking components:
     * Some components will have a Horizontal Pod Autoscaler to support the peak load (Axway recommends configuring a node autoscaler).
     * Most components, particularly API Gateway, require low latency.
-    * The typical components for production environment are:
+    * The typical components for the production environment are:
 
 | Application   | Component                             | Replicas  |
 |:------------- |:------------------------------------- |:--------- |
@@ -74,8 +74,8 @@ The Kubernetes configuration must include three Node Groups:
 | API Management  | Filebeat  | 1 |
 | API Management  | APIGateway Traffic | 3-6 |
 | Identity  | ACP | 1-3 |
-| Identity  | cockroachdb | 1-3 |
-| Identity  | redis | 1-3 |
+| Identity  | CockroachDB | 1-3 |
+| Identity  | Redis | 1-3 |
 | Analytics  | Elasticsearch | 3 |
 | Analytics  | Kibana | 1 |
 | Analytics  | Webserver | 1 |
@@ -93,7 +93,7 @@ The typical infrastructure requirement for Kubernetes cluster are:
 
 * Non-Production environment:
     * 23 vCPus.
-    * 70 GB of Memory.
+    * 70 GB of memory.
     * 150 GB of disk.
 * Production environment:
     * 48 vCPUs.
