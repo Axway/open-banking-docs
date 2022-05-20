@@ -2,7 +2,7 @@
 title: "Amplify agents configuration"
 linkTitle: "Amplify agents"
 weight: 6
-date: 2021-09-02
+date: 2022-05-20
 ---
 
 ## Amplify agents
@@ -92,6 +92,13 @@ For the **centralTeam** parameter from the `values.yaml`, click the **Teams** me
 ``` shell
 centralTeam: "Default Team"
 ```
+Before move to agents deployment, please validate if the Discovery Agent (DA) and Traceability Agent (TA) resources are available:
+``` shell
+$ axway central get da -s EnvironmentName
+$ axway central get ta -s EnvironmentName
+```
+For additional information about the trobleshooting process - [
+](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connected_agent_common_reference/upgrade_agent/index.html#why-can-t-i-see-my-agent-status-in-the-topology-environment-details-page).
 
 ### Agents deployment parameters
 
@@ -112,15 +119,17 @@ amplifyAgents:
    traceability:
       name: traceability-agent
       imageName: v7-traceability-agent
-      imageTag: 1.0.20210616
+      imageTag: 1.1.17
       replicaCount: 1
       statusPort: 8990
+      centralAgentName: "TA_RESOURCE_NAME"
    discovery:
       name: discovery-agent
       imageName: v7-discovery-agent
       imageTag: 1.0.20210616
       replicaCount: 1
       statusPort: 8990
+      centralAgentName: "DA_RESOURCE_NAME"
 ```
 
 Example:
@@ -149,6 +158,7 @@ amplifyAgents:
       statusPort: 8990
       traceabilityHost: "ingestion-lumberjack.visibility.eu-fr.axway.com:453"
       centralDeployment: "prod-eu"
+      centralAgentName: "cli-162461957429"
       apigatewayHealthcheckProtocol: "https"
       traceabilityProtocol: "tcp"
       logPathInstance: "axwayDemo"
@@ -166,6 +176,7 @@ amplifyAgents:
       imageTag: 1.0.20210616
       replicaCount: 1
       statusPort: 8989
+      centralAgentName: "cli-162461957429"
       resources:
         limits:
           cpu: 100m
