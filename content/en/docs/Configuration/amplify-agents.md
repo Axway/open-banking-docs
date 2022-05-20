@@ -92,11 +92,13 @@ For the **centralTeam** parameter from the `values.yaml`, click the **Teams** me
 ``` shell
 centralTeam: "Default Team"
 ```
+
 Before move to agents deployment, please validate if the Discovery Agent (DA) and Traceability Agent (TA) resources are available:
 ``` shell
 $ axway central get da -s EnvironmentName
 $ axway central get ta -s EnvironmentName
 ```
+
 For additional information about the trobleshooting process - [
 ](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connected_agent_common_reference/upgrade_agent/index.html#why-can-t-i-see-my-agent-status-in-the-topology-environment-details-page).
 
