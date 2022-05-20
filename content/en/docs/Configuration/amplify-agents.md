@@ -94,6 +94,7 @@ centralTeam: "Default Team"
 ```
 
 Before move to agents deployment, please validate if the Discovery Agent (DA) and Traceability Agent (TA) resources are available:
+
 ``` shell
 $ axway central get da -s EnvironmentName
 $ axway central get ta -s EnvironmentName
