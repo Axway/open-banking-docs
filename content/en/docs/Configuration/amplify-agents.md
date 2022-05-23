@@ -2,7 +2,7 @@
 title: "Amplify agents configuration"
 linkTitle: "Amplify agents"
 weight: 6
-date: 2022-05-20
+date: 2021-09-02
 ---
 
 ## Amplify agents
@@ -15,11 +15,11 @@ Discovery Agents automate the process of finding assets that are deployed in a G
 
 ### Traceability agents
 
-Traceability Agents collect usage, metrics, and dataplane traffic details and sends them to the Amplify platform. In the platform, API consumers and API providers can view the performance and behavior of the assets discovered in the dataplane.
+Traceability Agents collect usage, metrics, and data plane traffic details and sends them to the Amplify platform. In the platform, API consumers and API providers can view the performance and behavior of the assets discovered in the data plane.
 
 ## Amplify agents for Axway Open Banking
 
-The Axway Open Banking solution embeds the discovery and traceability agents for Axway API Management. The agents gather information about the Open Banking APIs to send the Amplify platform.
+The Axway Open Banking solution embeds the discovery and traceability agents for Axway API Management. The agents gather information about the Open Banking APIs to send to the Amplify platform.
 
 ### Amplify configuration
 
@@ -44,7 +44,7 @@ You must first create a service account in the [Amplify platform](https://platfo
 
 ![Service Account Private key window in Amplify](/Images/agents/service-account-privatekey.PNG)
 
-The service account client id, name, public, and private key will be used in the `values.yaml` file in the following parameters:
+The service account client id, name, public, and private key are used in the `values.yaml` file in the following parameters:
 
 ``` shell
 centralAuthClientID: "test-eks-openbanking_882712e1-8465-4d26-8610-c4406c90e2ea"
@@ -93,14 +93,14 @@ For the **centralTeam** parameter from the `values.yaml`, click the **Teams** me
 centralTeam: "Default Team"
 ```
 
-Before move to agents deployment, please validate if the Discovery Agent (DA) and Traceability Agent (TA) resources are available:
+Validate that the Discovery Agent (DA) and Traceability Agent (TA) resources are available:
 
 ``` shell
 C:\> axway central get da -s EnvironmentName
 C:\> axway central get ta -s EnvironmentName
 ```
 
-For additional information about the trobleshooting process - [Amplify Central - Upgrade Agent](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connected_agent_common_reference/upgrade_agent/index.html#why-can-t-i-see-my-agent-status-in-the-topology-environment-details-page).
+For additional information about the troubleshooting process, refer to [Amplify Central - Upgrade Agent](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connected_agent_common_reference/upgrade_agent/index.html#why-can-t-i-see-my-agent-status-in-the-topology-environment-details-page).
 
 ### Agents deployment parameters
 
@@ -196,7 +196,7 @@ amplifyAgents:
 
 You have the following options to apply this configuration:
 
-* **New APIM install**: If you are ready with the entire setup mentioned above, before the first installing the APIM Helm charts, simply follow the [Installation - APIM Helm charts](/docs/deployment/installation/apim).
+* **New APIM install**: If you are ready with the entire setup mentioned above before installing the APIM Helm charts, complete the [APIM Helm charts installation](/docs/deployment/installation/apim).
 * **Update APIM instance**: If you want to set up these agent deployment values after installing the APIM Helm charts, you need to update your existing Helm chart with the amplifyAgents values. Execute the following command from the open-banking-apim parent directory.
 
 ``` bash
