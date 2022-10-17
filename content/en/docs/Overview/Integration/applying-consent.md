@@ -19,4 +19,11 @@ This shows the approach based on retrieving account information. The preferred i
 
 For optimal performance filtering data based on the customer should be executed **as close to the data as possible**. This therefore requires customers to implement this at the source of data.
 
+different way to reference (original svg image)
 {{< readfile file="/static/Images/Applying_Consent_Sequence.svg" >}}
+
+usual way to reference (original svg image)
+![Applying consent sequence](/Images/Applying_Consent_Sequence.svg)
+
+png image
+![Applying consent sequence](/Images/applying_consent.png)
