@@ -18,4 +18,4 @@ The flow is summarized as follows:
 
 All APIs that provide access to data are implemented in the same manner. The consent/data access pattern relating to Account Information is therefore representative regardless of the specific resource (checking accounts, credit cards, loans, and so on).
 
-{{< readfile file="/static/Images/Generic_Web_Journey_Sequence.svg" >}}
+![End-to-end web journey sequence](/Images/Generic_Web_Journey_Sequence.svg)

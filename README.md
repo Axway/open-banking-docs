@@ -72,23 +72,24 @@ To create *new content in a new directory*:
 
 All sequence diagrams are written using [PlantUML](https://plantuml.com/sequence-diagram) syntax. This is a text-based language that is transformed to a display format by the PlantUML Java Library.
 
-Whilst there are solutions that support the real-time rendering of native PlantUML content this does not appear to be supported by our current docs-as-code stack. The PlantUML must therefore be converted to SVG and stored as an image as follows:
+While there are solutions that support the real-time rendering of native PlantUML content this does not appear to be supported by our current docs-as-code stack. The PlantUML must therefore be converted to SVG and stored as an image as follows:
 
 * Convert the source PlantUML file using a converter of your choice or the [conversion script](scripts/convert-plantuml.sh) in this repository. Note to use this **you must have `plantuml.jar` installed locally**.
 * Copy the SVG file to `static/Images`.
-* Include the snippet below where you want the imagine displayed (obviously changing the name to match the filename). This prevents the need to embed the SVG directly in your Markdown, avoiding an unholy mess.
+<!--* Include the snippet below where you want the image displayed (obviously changing the name to match the filename). This prevents the need to embed the SVG directly in your Markdown, avoiding an unholy mess. UPDATE: After implementing this in docs-as-code, this never worked. This method was resulting in the image being cut off by Zoomin.
 
 ```yaml
 {{< readfile file="/static/Images/Generic_Web_Journey_Sequence.svg" >}}
-```
+```-->
 
+<!--Netlify would render the content properly but, Zoomin would not. In Zoomin, the content was cut off. It is believed that Theirry worked with Paul, but no solution was found using the javascript files. The key/value pairs exist in the front matter of the related files, but they do not change any behavior once published by Zoomin.
 ### Static Assets
 
 Static assets support the site functionality. There are two customizations in this site, namely 2 layouts that are designed to improve user experience. Both can be found in the default `layouts` directory.
 
 #### Sequence Layout
 
-The sequence layout maximises the available SVG viewport for the display of a sequence diagram by:
+The sequence layout maximizes the available SVG viewport for the display of a sequence diagram by:
 
 * The right sidebar is hidden.
 * Injecting JavaScript that allows the sequence diagram headings to scroll down the page.
@@ -101,9 +102,9 @@ The JavaScript that allows the headings to scroll is also checked-in as a static
 
 #### Big Table Layout
 
-The sequence layout maximises the available view area for the display of a table by hiding the right sidebar. An example is the [Brazil Compliance Guide](content/en/docs/reference/brazil/compliance.md).
+The sequence layout maximizes the available view area for the display of a table by hiding the right sidebar. An example is the [Brazil Compliance Guide](content/en/docs/reference/brazil/compliance.md).
 
-To use this layout add the key/value `type: bigtable`.
+To use this layout add the key/value `type: bigtable`.-->
 
 ### Front Matter
 

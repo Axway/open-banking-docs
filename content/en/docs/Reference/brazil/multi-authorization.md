@@ -37,4 +37,4 @@ Other approvers are then contacted to approve the consent based on the following
     * For Payment Initiation the payment instruction can be executed and the `status` updated according to the status within the PIX infrastructure.
 * The approver is shown a completion screen confirming their actions.
 
-{{< readfile file="/static/Images/Multi_Authorization_Pattern.svg" >}}
+![Multi-party authorization pattern sequence](/Images/Multi_Authorization_Pattern.svg)
