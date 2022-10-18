@@ -19,4 +19,4 @@ The flow is summarized as follows:
 
 This pattern is not implemented for "open data" APIs such as Products & Services.
 
-{{< readfile file="/static/Images/Mutual_Authentication_Sequence.svg" >}}
+![Mutual authentication sequence](/Images/Mutual_Authentication_Sequence.svg)
