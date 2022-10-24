@@ -4,7 +4,6 @@ linkTitle: "obconfigure"
 weight: 8
 ---
 Build and execution of the obconfigure CLI tool for the Axway Open Banking solution.
-https://git.ecd.axway.org/medici/common/obconfigure
 
 ## Building the tool on Linux
 
