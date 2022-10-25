@@ -187,7 +187,7 @@ Finally, just execute the binary.
 Besides simple mappings, the `mappings.yaml` accepts some operations over the values that are set to the target
 paths. Please find below a list of all operations a user can make.
 
-1. Simple mappings:
+1. Simple mappings.
 
    ```bash
    accountsbr_v2.name: obbrPhase2V2.accountsbrV2.name
@@ -196,7 +196,7 @@ paths. Please find below a list of all operations a user can make.
    The value from the path in the right (obbrPhase2V2.accountsbrV2.name from the master file) will be set to the
    path in the left (accountsbr_v2.name from the target `values.yaml` file).
 
-2. Passing simple constants:
+2. Passing simple constants.
 
    ```bash
    accountsbr_v2.name: (some constant)
@@ -204,7 +204,7 @@ paths. Please find below a list of all operations a user can make.
 
    The values between '()' are constant Strings, and they can be passed as values.
 
-3. Mapping with concatenation:
+3. Mapping with concatenation.
 
    ```bash
    griffin.tokenEndpoint: (https://) + acp.ingressName + (.) + global.domainName + (/default/openbanking_brasil/oauth2/token)
@@ -214,7 +214,7 @@ paths. Please find below a list of all operations a user can make.
    final value. For example, consider that acp.ingressName: "something" and global.domainName: "anything", the result
    from the above concatenation will be "https://something.anything/default/openbanking_brasil/oauth2/token".
 
-4. AND (&&) boolean operations:
+4. AND (&&) boolean operations.
 
    ```bash
    oauth.ingressEnabled: oauth.enable && oauth.ingressEnabled
@@ -224,7 +224,7 @@ paths. Please find below a list of all operations a user can make.
    Boolean properties can be used in AND operations using &&. The result can also be negated using the keyword "not"
    followed by an operation inside brackets.
 
-5. OR (||) operations for String assignment:
+5. OR (||) operations for String assignment.
 
    ```bash
    global.apiDomain: (https://) + apitraffic.ingressName + (.) + (global.externalDomainName || global.domainName)
@@ -234,7 +234,7 @@ paths. Please find below a list of all operations a user can make.
    operation. If global.externalDomainName is present then it will be used in the final concatenation. If not, then
    global.domainName will be evaluated.
 
-6. Adding line breaks with <ADD_LINE_BREAK>
+6. Adding line breaks with <ADD_LINE_BREAK>.
 
    ```bash
    global.dockerRegistry.token: global.dockerRegistry.token + <ADD_LINE_BREAK>
