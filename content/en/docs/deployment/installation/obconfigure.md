@@ -3,12 +3,10 @@ title: "obconfigure"
 linkTitle: "obconfigure"
 weight: 8
 ---
-obconfigure is a CLI Linux application for reading a master YAML file and copying the values into the target YAML files.
-Build and execution of the obconfigure CLI tool for the Axway Open Banking solution.
+obconfigure is a CLI tool (Linux and Windows) for reading a master YAML file and copying the values into the target YAML files.
+This will guide on the build and execution of the obconfigure for the Axway Open Banking solution.
 
 ## Building the tool on Linux
-
-It is recommended to create the binary using GraalVM's native-image on Linux.
 
 1) Download GraalVM
 ```bash
@@ -61,9 +59,9 @@ gu install native-image
 ```
 5) As a GraalVM workaround on Windows, copy the
 ```bash
-<GRAAVM_HOME>\lib\svm\bin\native-image.exe
+<GRAALVM_HOME>\lib\svm\bin\native-image.exe
 to
-><GRAAVM_HOME>\bin
+<GRAALVM_HOME>\bin
 ```
 
 6) Install Visual Studio Build Tools and Windows 10 SDK. You can use Visual Studio 2017 version 15.9 or later.
@@ -93,7 +91,9 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vcva
 
 Then within the correct command prompt, execute the below maven command.
 
->mvn clean package
+```bash
+mvn clean package
+```
 
 The .exe will be generated under /target folder.
 
@@ -104,15 +104,15 @@ https://medium.com/graalvm/using-graalvm-and-native-image-on-windows-10-9954dc07
 
 Thanks to the author of the article.
 
-## Installation package
+## Tool package
 
-The installation package of the obconfigure tool contains the following files:
+The obconfigure package tool contains the following files:
 
 ```bash
 /obconfigure  
-&emsp;&emsp;obconfigure (binary) 
-&emsp;&emsp;values.master.yaml  
-&emsp;&emsp;mappings.yaml
+   obconfigure (binary) 
+   values.master.yaml  
+   mappings.yaml
 ```
 
 The application requires 2 files to be located at the same package as the binary.
