@@ -95,9 +95,9 @@ The binary will be generated under /target folder.
 
    On Windows, the native-image builder will only work when it’s executed from the x64 Native Tools Command Prompt.
    The command for initiating an x64 Native Tools command prompt is different if you only have the Visual Studio Build Tools installed, versus if you have the full VS Code 2019 installed.
-      
+
    Use this command if you have the Visual Studio Build Tools installed:
-      
+
    ```bash
    C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvars64.bat
    ```
