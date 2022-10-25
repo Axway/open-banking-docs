@@ -101,27 +101,27 @@ The binary will be generated under /target folder.
    ```bash
    C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvars64.bat
    ```
-      
+
    And use this command if you installed the full VS Code 2019:
-      
+
    ```bash
    C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vcvars64.bat
    ```
-      
+
    Then within the correct command prompt, execute the below maven command.
-      
+
    ```bash
    mvn clean package
    ```
-      
+
    The .exe will be generated under /target folder.
-      
+
    Windows instructions were obtained from the following link:
-      
+
    ```bash
    https://medium.com/graalvm/using-graalvm-and-native-image-on-windows-10-9954dc071311
    ```
-      
+
    Thanks to the author of the article.
 
 ## Tool package
@@ -205,7 +205,7 @@ paths. Please find below a list of all operations an user can make.
    ```bash
    griffin.tokenEndpoint: (https://) + acp.ingressName + (.) + global.domainName + (/default/openbanking_brasil/oauth2/token)
    ```
-      
+
    Constant Strings can also be concatenated with properties from the master to produce a
    final value. For example, consider that acp.ingressName: "something" and global.domainName: "anything", the result
    from the above concatenation will be "https://something.anything/default/openbanking_brasil/oauth2/token"
@@ -216,7 +216,7 @@ paths. Please find below a list of all operations an user can make.
    oauth.ingressEnabled: oauth.enable && oauth.ingressEnabled
    backends.accountsBr_v2.disabled: not (obbrPhase2.enable && obbrPhase2.accountsbr.enable)
    ```
-      
+
    Boolean properties can be used in AND operations using &&. The result can also be negated using the keyword "not"
    followed by an operation inside brackets.
 
@@ -225,7 +225,7 @@ paths. Please find below a list of all operations an user can make.
    ```bash
    global.apiDomain: (https://) + apitraffic.ingressName + (.) + (global.externalDomainName || global.domainName)
    ```
-      
+
    Sometimes we may want to assign one of two or more values, whichever is present first. This can be done using the OR
    operation. If global.externalDomainName is present then it will be used in the final concatenation. If not, then
    global.domainName will be evaluated.
@@ -235,7 +235,7 @@ paths. Please find below a list of all operations an user can make.
    ```bash
    global.dockerRegistry.token: global.dockerRegistry.token + <ADD_LINE_BREAK>
    ```
-      
+
    If a line break is desired after a property in the YAML file, just concatenate the 'ADD_LINE_BREAK' to the end of
    the mapping. This is not needed for certificates (in most of the cases), as the tool will identify the end of the
    certificate by the "-----END" token. If you are not sure if this token will be present, just add the <ADD_LINE_BREAK>.
