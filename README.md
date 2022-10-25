@@ -127,7 +127,7 @@ The keys in this example are defined as follows:
 
 * `title`: Sets the page title.
 * `linkTitle`: Sets the name of any links to the page rendered in the sidebar or by a parent page.
-* `weight`: Sets the ordering of the page in the sidebar - the higher the number, the higher up in the list of links the page link is rendered.
+* `weight`: Sets the ordering of the page in the sidebar - a lower number displays the page in the navigation list first while a higher number displays the page in the navigation list last. To avoid renumbering existing pages when a new page is added, it is suggested to spread the numbers used for the weight out by increments of 5 or more.
 * `description`: Description of the page, which is rendered on the page under the title.
 
 Its worth noting that both `title` and `description` provide a useful introduction to a given page, so should be used rather than Markdown content containing the same thing. This looks neater and stops repetitive content being served.
