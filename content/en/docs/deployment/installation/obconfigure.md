@@ -1,9 +1,9 @@
 ---
-title: "obconfigure"
-linkTitle: "obconfigure"
+title: "Obconfigure CLI tool"
+linkTitle: "Obconfigure CLI tool"
 weight: 8
 ---
-obconfigure is a CLI tool (Linux and Windows) for reading a master YAML file and copying the values into the target YAML files.
+Obconfigure is a Linux and Windows CLI tool for reading a master YAML file and copying the values into the target YAML files.
 This will guide on the build and execution of the obconfigure for the Axway Open Banking solution.
 
 ## Building the tool on Linux
