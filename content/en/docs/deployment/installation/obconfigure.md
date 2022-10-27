@@ -4,129 +4,11 @@ linkTitle: "Obconfigure CLI tool"
 weight: 8
 ---
 Obconfigure is a Linux and Windows CLI tool for reading a master YAML file and copying the values into the target YAML files.
-This section includes how to build and execute the obconfigure tool for the Axway Open Banking solution.
 
-## Building the tool on Linux
+## Compatibility
 
-This section includes how to build obconfigure on Linux.
-
-1. Download GraalVM.
-
-   ```bash
-   https://github.com/graalvm/graalvm-ce-builds/releases
-   ```
-
-2. Extract and configure GraalVM JRE.
-
-   ```bash
-   tar -xzf graalvm-ce-java11-linux-amd64-22.2.0.tar.gz
-   export PATH=/path/to/graalvm/graalvm-ce-java11-22.2.0/bin:$PATH
-   export JAVA_HOME=/path/to/graalvm/graalvm-ce-java11-22.2.0/
-   ```
-
-3. Check that the Java version is OK.
-
-   ```bash
-   java -version
-   ```
-
-4. Install dependencies.
-
-   ```bash
-   gu install native-image
-   sudo apt-get install libc6-dev
-   sudo apt install zlib1g-dev
-   ```
-
-5. Package the application with Maven.
-
-   ```bash
-   mvn clean package
-   ```
-
-The binary is generated under the `/target` folder.
-
-## Building the tool on Windows 10
-
-This section includes how to build obconfigure on Windows 10.
-
-1. Download GraalVM.
-
-   ```bash
-   https://github.com/graalvm/graalvm-ce-builds/releases
-   ```
-
-2. Configure GraalVM.
-
-   ```bash
-   setx /M PATH "C:\Program Files\Java\graalvm-ce-java11-22.2.0\bin;%PATH%"
-   setx /M JAVA_HOME "C:\Program Files\Java\graalvm-ce-java11-22.2.0"
-   ```
-
-3. Check that the Java version is OK.
-
-   ```bash
-   java -version
-   ```
-
-4. Install dependencies.
-
-   ```bash
-   gu install native-image
-   ```
-
-5. Complete the following as a GraalVM workaround on Windows. Copy the `GRAALVM_HOME` parameter.
-
-   ```bash
-   <GRAALVM_HOME>\lib\svm\bin\native-image.exe
-   to
-   <GRAALVM_HOME>\bin
-   ```
-
-6. Install Visual Studio Build Tools and Windows 10 SDK. You can use Visual Studio 2017 version 15.9 or later.
-
-   * Download the Visual Studio Build Tools (C development environment from visualstudio.microsoft.com).
-   * Start the Visual Studio Build Tools installation by clicking on the `.exe` file, and then click **Continue**.
-   * Check the Desktop development with C++ box in the main window. Also, on the right side under Installation Details, choose Windows 10 SDK, and then click **Install**.
-   * After the installation completes, reboot your system.
-   * If you have Visual Studio 2019 installed, you will need to ensure Windows 10 SDK is available too.
-   * Open the Visual Studio Installer.
-   * Under the Installed tab, click **Modify** and select **Individual Components**.
-   * Scroll to the bottom and check if Windows 10 SDK is installed and confirm the build tools are installed.
-   * Now that you have the Windows 10 SDK and Visual Studio tooling installed, you can start using GraalVM Native Image.
-
-7. Package the application with Maven.
-
-   On Windows, the native-image builder only works when it is executed from the x64 Native Tools Command Prompt.
-   The command for initiating an x64 Native Tools command prompt is different if you only have the Visual Studio Build Tools installed, versus if you have the full VS Code 2019 installed.
-
-   Use this command if you installed Visual Studio Build Tools:
-
-   ```bash
-   C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvars64.bat
-   ```
-
-   And use this command if you installed the full VS Code 2019:
-
-   ```bash
-   C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vcvars64.bat
-   ```
-
-   Then within the correct command prompt, execute the Maven command.
-
-   ```bash
-   mvn clean package
-   ```
-
-   The `.exe` is generated under the `/target` folder.
-
-   Windows instructions were obtained from the following link:
-
-   ```bash
-   https://medium.com/graalvm/using-graalvm-and-native-image-on-windows-10-9954dc071311
-   ```
-
-   Thanks to the author of the article.
+Obconfigure was tested in Windows 10, Linux Mint 21 and Amazon Linux 2. It should run without problems in other
+distributions as well.
 
 ## Tool package
 
@@ -134,12 +16,12 @@ The obconfigure package tool contains the following files:
 
 ```bash
 /obconfigure  
-   obconfigure (binary) 
+   obconfigure (executable) 
    values.master.yaml  
    mappings.yaml
 ```
 
-The application requires two files to be located at the same package as the binary.
+The application requires two files to be located at the same package as the executable.
 
 ```bash
 values.master.yaml
@@ -176,10 +58,11 @@ When PROD is in use, the following property(ies) are ignored:
 demoapp
 ```
 
-Finally, just execute the binary.
+Finally, just execute it.
 
 ```bash
-./obconfigure
+Linux: ./obconfigure
+Windows: obconfigure.exe
 ```
 
 ## Mappings.yaml syntax
