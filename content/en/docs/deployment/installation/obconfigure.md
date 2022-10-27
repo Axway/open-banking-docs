@@ -7,7 +7,7 @@ Obconfigure is a Linux and Windows CLI tool for reading a master YAML file and c
 
 ## Compatibility
 
-Obconfigure was tested in Windows 10, Linux Mint 21 and Amazon Linux 2. It should run without problems in other 
+Obconfigure was tested in Windows 10, Linux Mint 21 and Amazon Linux 2. It should run without problems in other
 distributions as well.
 
 ## Tool package
