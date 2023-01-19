@@ -29,13 +29,12 @@ set -e
 
 DEBUG=${DEBUG:-false}
 MODE=dev
-while getopts ":np" opt; do
+
+while getopts ":m:" opt; do
     case ${opt} in
-        n ) MODE=nelify
+        m ) MODE=$OPTARG
              ;;
-        p ) MODE=nelify-preview
-             ;;
-        * ) exit 1
+        * ) echo "[ERROR] Invalid option [${OPTARG}]!!";exit 1
             ;;
     esac
 done
@@ -64,7 +63,7 @@ function fCheckoutSubmodule() {
         exit 1
     fi
     # the npm packages doesn't seem to be needed on the netify build server...this is just for developers
-    if [[ "${MODE}" == "dev" ]];then
+    #if [[ "${MODE}" == "dev" ]];then
         echo "[INFO] Install npm packages required by docsy."
     	if [[ ! -d "node_modules" ]];then
             if [[ -f "package.json" ]];then
@@ -75,6 +74,30 @@ function fCheckoutSubmodule() {
     		    npm install -D --save postcss-cli
             fi
     	fi
+    #fi
+}
+
+# fCheckAnchorSyntax:
+#   - updates in Zoomin have broken the importing of html files that has links with anchors
+#   - the Zoomin process is blindly adding in "/index.html" before "#" which creates these broken links:
+#       a. "<url>//index.html#<anchor_name>"
+#       b. "<url>/index.html/index.html#<anchor_name>"
+#   - the MD syntax are actually all fine and it's a problem with Zoomin's import scripts
+#   - they have fixed the problem with "a" but "b" might not get fixed
+#   - so this function is a failsafe to break the build before it gets that far
+#   - also note that using index.html in the link is needed for external links
+function fCheckAnchorSyntax() {
+    local pattern="/index.html#"
+    local fail_build="false"
+    for file in $(grep -r "${pattern}" content/ | grep "(/docs/"| cut -d : -f 1);do
+        if [[ "${fail_build}" == "false" ]];then
+            echo "[ERROR] Following files have internal anchor links using syntax [${pattern}]:"
+        fi
+        echo "[ERROR]   - $file"
+        fail_build="true"
+    done
+    if [[ "${fail_build}" == "true" ]];then
+        exit 1
     fi
 }
 
@@ -91,6 +114,7 @@ function fMergeContent() {
     local _c_context
     local _c_path
     local _c_name
+    local _branch_name
     local _ln_opt='-sf'
     if [[ "$DEBUG" == "true" ]];then
         _ln_opt='-vsf'
@@ -136,6 +160,17 @@ function fMergeContent() {
         fi
     done
 
+    # Update the github_branch Param value in config.toml. This is used by the github edit link. If
+    # the BRANCH_NAME is not set then it's either a local build or a PR. We don't want to enable the
+    # github edit link when in this scenario.
+    _branch_name=${BRANCH_NAME} # the BRANCH_NAME variable comes from Jenkins
+    if [[ ! "${_branch_name}" =~ ^"PR-"* ]];then
+        unlink build/config.toml
+        cp -f config.toml build/config.toml
+        sed -i "s|# github_branch|github_branch|g" build/config.toml
+        sed -i "s|github_branch = .*|github_branch = \"${_branch_name}\"|g" build/config.toml
+    fi
+
     # This soft link makes the git info available for hugo to populate the date with git hash in the footer.
     # Note that common files coming from axway-open-docs-common will not have this information and the pages
     # will use the "date" value at the top of the page.
@@ -153,23 +188,21 @@ function fRunHugo() {
     cd ${BUILD_DIR}
     mkdir public
     case "${MODE}" in
-        "dev") 
-            hugo server
-            ;;
-        "nelify") 
-            hugo
-            # Moving the "publish" directory to the ROOT of the workspace. Netlify can't publish a
-            # different directory even if the "Publish directory" is changed to specify a different directory.
-            mv -f ${BUILD_DIR}/public ${PROJECT_DIR}
-            ;;
-        "nelify-preview") 
-            hugo -b $DEPLOY_PRIME_URL
-            mv -f ${BUILD_DIR}/public ${PROJECT_DIR}
-            ;;
+      "dev") 
+          hugo server
+          ;;
+      "ci")
+          hugo
+          ;;
+      *)
+          echo "[ERROR] Build MODE [${MODE}] is invalid!!"
+          exit 1
+          ;;
     esac
 }
 
 fCheckoutSubmodule
+#fCheckAnchorSyntax
 fMergeContent
 fRunHugo
-echo "[INFO] Done"
+echo "[INFO] Done."
