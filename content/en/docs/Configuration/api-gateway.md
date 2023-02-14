@@ -5,7 +5,7 @@ weight: 1
 date: 2021-09-02
 ---
 
-Axway Open Banking API Gateway is based on the Axway API Gateway product.
+Amplify Open Banking API Gateway is based on the Axway API Gateway product.
 
 Most features are documented in the [Axway API Gateway documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apigtw_admin/index.html).
 

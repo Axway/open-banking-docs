@@ -5,7 +5,7 @@ weight: 3
 date: 2021-06-30
 ---
 
-Axway Open Banking is designed with flexibility in mind. It therefore has been engineered with as few constraints as possible in terms of deployment approach.
+Amplify Open Banking is designed with flexibility in mind. It therefore has been engineered with as few constraints as possible in terms of deployment approach.
 
 Customers can choose to install the solution either on-premise or in the cloud because the solution is built according to a vanilla Kubernetes. This allows customers to make a choice about their target Kubernetes distribution and additional components.
 

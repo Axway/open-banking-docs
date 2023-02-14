@@ -4,7 +4,7 @@ linkTitle: "Customization"
 weight: 10
 date: 2021-09-02
 ---
-This section includes details to customize the Axway Open Banking solution.
+This section includes details to customize the Amplify Open Banking solution.
 
 ## Solution branding
 

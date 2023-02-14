@@ -5,7 +5,7 @@ weight: 1
 date: 2021-09-02
 ---
 
-The Axway Open Banking solution includes Postman collections for Open Banking APIs. The Postman collections are available for download through the Developer Portal.
+The Amplify Open Banking solution includes Postman collections for Open Banking APIs. The Postman collections are available for download through the Developer Portal.
 
 Each collection includes a script that simulates a sequence of API calls to verify Open Banking API specification compliance. For example, the Accounts or Payments collections includes the sequence of user authentication, user consent, and calls to methods of Accounts API or the Payments API. Successful execution of the Postman collection validates the installation of the solution and Open Banking API specification compliance. Postman collections help Third-Party Providers (TPP) to learn how to use the APIs.
 
@@ -26,7 +26,7 @@ Import the Postman collection files.
 
 2. Once imported, select the collection in the left pane, and then select the environment in the top right corner of postman.
 
-3. Update the environment details, with _client-id_ and the _private-key_ corresponding to the TPP client certificate for message encrytion. The private key has a signature usage, it is used to sign messages and JWT.
+3. Update the environment details, with _client-id_ and the _private-key_ corresponding to the TPP client certificate for message encryption. The private key has a signature usage, it is used to sign messages and JWT.
 ![payment-api-postman-environment](/Images/postman-environment.png)
 
 4. For the Payment API, modify the following parameters that correspond to the solution environment installation:
@@ -190,7 +190,7 @@ Start testing the Payment API in Postman.
 1. Select Step 0 and click _Send_. Make sure you get a "200 OK" return code. This step is required only once by environment. This will set a global variable that is useful for next steps.
 ![payment-api-postman-step0](/Images/payment-api-postman-step0.png)
 
-2. Select Step 1 and mouse-over on the `{{client-id}}` variable in the request body to make sure the current value is correct. If not, change it from the environement details (Use the _Eye_ icon on th top left corner and _Edit_ button).
+2. Select Step 1 and mouse-over on the `{{client-id}}` variable in the request body to make sure the current value is correct. If not, change it from the environment details (Use the _Eye_ icon on th top left corner and _Edit_ button).
 
 3. Click _Send_ to get Client Credentials Grant for payments. Make sure you get a "200 OK" return code and the response body includes an _access\_token_.
 ![payment-api-postman-step1](/Images/payment-api-postman-step1.png)
@@ -205,7 +205,7 @@ Make sure it includes a _consentId_, the payment details and the status "AWAITIN
 
 6. The Step 3 is about signing the payload with the client private key. In real life, this step would be done on the client side only.
 
-7. Mouse-over on the `{{jwe-server}}` variable in the request URL to make sure the current value is match a existing JWE-generator service. If not, you can change the variable from the environement details (Use the _Eye_ icon on th top left corner and _Edit_ button).
+7. Mouse-over on the `{{jwe-server}}` variable in the request URL to make sure the current value is a match to an existing JWE-generator service. If not, you can change the variable from the environment details (Use the _Eye_ icon on th top left corner and _Edit_ button).
 {{% alert title="Warning" color="warning" %}} In this step the private key will be sent to the signing service. Please only use test/development keys.{{% /alert %}}
 
 8. Click _Send_ to create the consent request. Make sure you get a "201 Created" return code and the response body includes a _consentId_.</br></br>

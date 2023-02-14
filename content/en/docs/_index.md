@@ -1,6 +1,6 @@
 ---
-title: "Axway Open Banking"
-linkTitle: "Axway Open Banking"
+title: "Amplify Open Banking"
+linkTitle: "Amplify Open Banking"
 weight: 20
 menu:
   main:
@@ -19,8 +19,8 @@ Open banking can be defined as an ecosystem that furnishes the end user with dat
 
 ## How can we help?
 
-Axway Open Banking provides a way to significantly accelerate open banking adoption. With a tailored developer experience, APIs built to open banking standards, and a robust integration platform, Axway Open Banking enables banks to move beyond regulatory compliance to a true open banking platform.
+Amplify Open Banking provides a way to significantly accelerate open banking adoption. With a tailored developer experience, APIs built to open banking standards, and a robust integration platform, Amplify Open Banking enables banks to move beyond regulatory compliance to a true open banking platform.
 
-Axway has been helping banks solve their biggest challenges for over 20 years. That’s why 60% of the top 25 global banks trust Axway. Our Axway Open Banking platform speeds the adoption of regulatory standards while enabling financial institutions to rapidly extend into new markets with customer-driven products and services and expand their ecosystem with a compelling developer portal experience.
+Axway has been helping banks solve their biggest challenges for over 20 years. That’s why 60% of the top 25 global banks trust Axway. Our Amplify Open Banking platform speeds the adoption of regulatory standards while enabling financial institutions to rapidly extend into new markets with customer-driven products and services and expand their ecosystem with a compelling developer portal experience.
 
-Axway Open Banking ensures you have the digital capabilities you need to be successful in the open banking marketplace. As open banking drives banks to expose their capabilities as APIs, they naturally move towards becoming platforms. This puts each bank at the center of its own ecosystem, as it aims to drive platform adoption on all sides of the value chain.
+Amplify Open Banking ensures you have the digital capabilities you need to be successful in the open banking marketplace. As open banking drives banks to expose their capabilities as APIs, they naturally move towards becoming platforms. This puts each bank at the center of its own ecosystem, as it aims to drive platform adoption on all sides of the value chain.

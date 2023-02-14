@@ -4,7 +4,7 @@ linkTitle: "Prerequisites"
 weight: 1
 ---
 
-Axway Open Banking is developed on Kubernetes with a "button-click" style deployment that allows customers to use the Kubernetes solution of their choice.
+Amplify Open Banking is developed on Kubernetes with a "button-click" style deployment that allows customers to use the Kubernetes solution of their choice.
 
 Preparing a Kubernetes cluster with the appropriate services and settings is required prior to the solution installation.
 
@@ -48,7 +48,7 @@ The minimum recommended hardware infrastructure for these components are:
 
 ## Kubernetes setup requirements
 
-A Kubernetes 1.16+ cluster is required to deploy the Axway Open Banking Solution.
+A Kubernetes 1.16+ cluster is required to deploy the Amplify Open Banking Solution.
 
 ### Resources
 
@@ -61,7 +61,7 @@ Axway also recommends using Node Groups. Node Groups allow operators to group re
 
 The Kubernetes configuration must include three Node Groups:
 
-* *Application*: Hosts all Axway Open Banking components:
+* *Application*: Hosts all Amplify Open Banking components:
     * Some components will have a Horizontal Pod Autoscaler to support the peak load (Axway recommends configuring a node autoscaler).
     * Most components, particularly API Gateway, require low latency.
     * The typical components for the production environment are:
@@ -109,7 +109,7 @@ A complete architecture requires a minimum of 3 subnets:
 * *Bastion*: Required for operators to connect from a Bastion host (although this can be substituted for an alternative solution). Access to pods on all required ports must be allowed. A subnet mask of /32 is considered sufficient.
 * *Kubernetes*: The design of this subnet can vary based on a number of conditions:
     * This subnet must have access to both the customer backend services and the database subnet.
-    * If CNI is activated, enough IP addresses must be allocated for nodes and the maximum number of pods in the platform. Axway Open Banking generates between 100 and 120 objects that consume an IP address.
+    * If CNI is activated, enough IP addresses must be allocated for nodes and the maximum number of pods in the platform. Amplify Open Banking generates between 100 and 120 objects that consume an IP address.
     * A subnet mask /24 is therefore recommended to support scaling, upgrade, and others tools for production.
 * *Database*: For databases provided inside the Kubernetes cluster a subnet mask of /29 is recommended.
 
@@ -136,7 +136,7 @@ You can use NGINX or another ingress controller with the following requirements:
 
 #### Certificate Manager
 
-We recommend that you use [Cert-Manager](https://github.com/jetstack/cert-manager/tree/master/deploy/charts/cert-manager) to easily manage certificates that are used in the Axway Open Banking Solution.
+We recommend that you use [Cert-Manager](https://github.com/jetstack/cert-manager/tree/master/deploy/charts/cert-manager) to easily manage certificates that are used in the Amplify Open Banking Solution.
 
 If you have specific certificates you want to use during installation, you can avoid using *cert-manager* but more configuration is required during deployment.
 

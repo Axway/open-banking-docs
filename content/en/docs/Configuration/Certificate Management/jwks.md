@@ -8,7 +8,7 @@ date: 2021-10-13
 Some Open Banking flows are using JSON Web Tokens (JWT) for security purpose, for example the payment API.
 To sign or to verify these tokens, the Open Banking solution needs keys that are stored in a JSON Web Key Set (JWKS).
 
-Each instance of the Axway Open Banking solution has different keys that correspond to the bank and environment in use.
+Each instance of the Amplify Open Banking solution has different keys that correspond to the bank and environment in use.
 
 ## ASPSP signing certificate
 

@@ -5,14 +5,14 @@ weight: 5
 date: 2021-09-02
 ---
 
-Configure and customize the Analytics for Axway Open Banking.
+Configure and customize the Analytics for Amplify Open Banking.
 
-Axway Open Banking Analytics is based on:
+Amplify Open Banking Analytics is based on:
 
 * **ELK** (ElasticSearch + Logstash + Kibana ) stack for the Dashboards, reports, and data collection and processing.
     * logstash: listening to api calls events (coming from filebeat), pushes data to elastic.
     * elasticsearch: data storage for the api calls.
-    * kibana: configuation of visualizations and dashboards.
+    * kibana: configuration of visualizations and dashboards.
 * Axway **API Builder** for the Metrics API: Exposing APIs to query data from elasticsearch.
 * a nodeJs **webserver** to expose both dashboard and reports from a customizable web interface.
 

@@ -3,11 +3,11 @@ title: "JWE key generator tool installation"
 linkTitle: "JWE Generator"
 weight: 4
 ---
-Install the JWE key generator tool for the Axway Open Banking solution.
+Install the JWE key generator tool for the Amplify Open Banking solution.
 
 ## Download the JWE key generator tool Helm chart
 
-Download the Axway Open Banking JWE key generator tool Helm chart to customize it locally.
+Download the Amplify Open Banking JWE key generator tool Helm chart to customize it locally.
 
 ```bash
 helm pull open-banking/jwe-generator --untar

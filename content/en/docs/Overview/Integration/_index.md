@@ -5,7 +5,7 @@ weight: 2
 date: 2021-06-22
 ---
 
-The diagram below shows a high-level integration view of the Axway Open Banking architecture.
+The diagram below shows a high-level integration view of the Amplify Open Banking architecture.
 
 The aim of this diagram is to provide an initial understanding of the integration between components.
 
@@ -24,7 +24,7 @@ Refer to the table for an explanation of each labeled arrow in the diagram.
 |   7 | The Third-Party App redirects the user to Identity Management or the Bank Identity Provider depending on the deployment approach. |
 |   8 | The Consumer log ins and provides confirm consent to the Third-Party App. |
 |   9 | With Consent approved and an appropriate Authorization Code the Third-Party obtains an Access Token and retrieves data on behalf of the Consumer. |
-|  10 | The API Gateway and applications developed using API Builder retrieves data from the appropriate data source. This can either be from Core Banking Applications or Mock Data provided with the Axway Open Banking solution. |
+|  10 | The API Gateway and applications developed using API Builder retrieves data from the appropriate data source. This can either be from Core Banking Applications or Mock Data provided with the Amplify Open Banking solution. |
 |  11 | The events are logged to the Analytics component to allow deeper understanding of interactions with the platform. |
 
 The sections below expand on this through several more detailed sequence-based views.

@@ -5,7 +5,7 @@ weight: 1
 date: 2021-06-30
 ---
 
-The diagram below shows a component view of the Axway Open Banking solution.
+The diagram below shows a component view of the Amplify Open Banking solution.
 
 ![Component View](/Images/Component_View.jpg)
 

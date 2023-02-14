@@ -3,11 +3,11 @@ title: "Analytics installation"
 linkTitle: "Analytics"
 weight: 4
 ---
-Install Analytics for the Axway Open Banking solution.
+Install Analytics for the Amplify Open Banking solution.
 
 ## Download the Analytics Helm chart
 
-Download the Axway Open Banking Analytics Helm chart to customize it locally.
+Download the Amplify Open Banking Analytics Helm chart to customize it locally.
 
 ```bash
 helm pull axway-open-banking/open-banking-analytics --untar
