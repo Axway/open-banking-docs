@@ -7,9 +7,9 @@
     'MD026': {'punctuation': '.,;:!'},
     'MD029': {'style': 'ordered'},
     'MD031': {'list_items': false},
-    'MD033': { 'allowed_elements': [ 'br', 'li', 'ul' ] },
+    'MD033': { 'allowed_elements': [ 'a', 'br', 'li', 'ul' ] },
     'MD040': false,
     'MD041': false,
     'MD046': {'style': 'fenced'},
-    'MD047': false,
+    'MD047': false
 }
