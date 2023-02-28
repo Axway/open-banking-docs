@@ -9,17 +9,6 @@ Amplify Open Banking API Gateway is based on the Axway API Gateway product.
 
 Most features are documented in the [Axway API Gateway documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apigtw_admin/index.html).
 
-## Solution homepage
-
-The solution homepage is available on `https://services-api.<domain-name>/open-banking/`.
-![Solution Homepage](/Images/homepage.png).
-
-The solution homepage is a static html page using CSS and a logo image that is easy to customize.
-
-You can change titles and add or update links by modifying the index.html that is defined in `open-banking-apim/configmaps/apimgr-homepage-index`.
-
-You can further customize the homepage by modifying the files in the `/opt/Axway/apigateway/openbanking/homepage` folder of the apimngr pod.
-
 ## Key Properties Store (KPS) configuration
 
 The Key Properties Store of API Gateway is used to store the solution configuration variables.
