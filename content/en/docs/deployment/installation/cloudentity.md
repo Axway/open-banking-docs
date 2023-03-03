@@ -3,11 +3,11 @@ title: "Cloud Entity installation"
 linkTitle: "Cloud Entity"
 weight: 7
 ---
-Install Cloud Entity for the Axway Open Banking solution.
+Install Cloud Entity for the Amplify Open Banking solution.
 
 ## Download the Cloud Entity Helm charts
 
-Download the Axway Open Banking Cloud Entity Helm charts to customize them locally.
+Download the Amplify Open Banking Cloud Entity Helm charts to customize them locally.
 
 ```bash
 helm pull open-banking/open-banking-acp --untar

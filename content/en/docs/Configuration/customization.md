@@ -4,7 +4,7 @@ linkTitle: "Customization"
 weight: 10
 date: 2021-09-02
 ---
-This section includes details to customize the Axway Open Banking solution.
+This section includes details to customize the Amplify Open Banking solution.
 
 ## Solution branding
 
@@ -12,8 +12,6 @@ You can easily apply your branding on most of the solution's user interface, suc
 
 Consider the following for branding changes:
 
-* Solution Homepage logo and style: [API Gateway - Solution Homepage](/docs/configuration/api-gateway#solution-homepage).
-    ![Welcome email](/Images/homepage.png)
 * Email templates logo and style: [API manager - Email templates override](/docs/configuration/api-manager#email-templates-override).
     ![Welcome email](/Images/welcome-email.png)
 * Developer Portal logo and style: [Developer portal - Template customization](/docs/configuration/portal/#template-customization).

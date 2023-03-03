@@ -1,6 +1,6 @@
-# Axway Open Banking Docs
+# Amplify Open Banking Docs
 
-This repository contains the documentation for the Axway Open Banking solution. It follows the docs-as-code approach currently used by Axway for publishing product documentation.
+This repository contains the documentation for the Amplify Open Banking solution. It follows the docs-as-code approach currently used by Axway for publishing product documentation.
 
 This overview outlines the main points of note in that context with some "Getting Stared" style sections for making developers as productive as possible.
 
@@ -119,7 +119,7 @@ An example of Front Matter is shown below (note this is not exhaustive and there
 title: "Deployment"
 linkTitle: "Deployment"
 weight: 4
-description: Deploying the Axway Open Banking solution
+description: Deploying the Amplify Open Banking solution
 ---
 ```
 

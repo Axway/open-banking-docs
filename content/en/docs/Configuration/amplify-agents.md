@@ -17,9 +17,9 @@ Discovery Agents automate the process of finding assets that are deployed in a G
 
 Traceability Agents collect usage, metrics, and data plane traffic details and sends them to the Amplify platform. In the platform, API consumers and API providers can view the performance and behavior of the assets discovered in the data plane.
 
-## Amplify agents for Axway Open Banking
+## Amplify agents for Amplify Open Banking
 
-The Axway Open Banking solution embeds the discovery and traceability agents for Axway API Management. The agents gather information about the Open Banking APIs to send to the Amplify platform.
+The Amplify Open Banking solution embeds the discovery and traceability agents for Axway API Management. The agents gather information about the Open Banking APIs to send to the Amplify platform.
 
 ### Amplify configuration
 

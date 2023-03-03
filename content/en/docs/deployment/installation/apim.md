@@ -3,11 +3,11 @@ title: "APIM Management installation"
 linkTitle: "API Management"
 weight: 1
 ---
-Install API Management for the Axway Open Banking solution.
+Install API Management for the Amplify Open Banking solution.
 
 ## Download the API Management (APIM) Helm charts
 
-Download the Axway Open Banking API Management (APIM) Helm charts to customize them locally.
+Download the Amplify Open Banking API Management (APIM) Helm charts to customize them locally.
 
 ```bash
 helm pull open-banking/open-banking-apim --untar
@@ -96,7 +96,7 @@ The different root CA certificates must be concatenated and encoded in base64.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| apitraffic.ingressMtlsRootCa | All concatenatd root CA encoded in base64. | yes |
+| apitraffic.ingressMtlsRootCa | All concatenated root CA encoded in base64. | yes |
 
 ### Customize storage class
 

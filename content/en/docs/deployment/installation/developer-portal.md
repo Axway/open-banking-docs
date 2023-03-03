@@ -3,11 +3,11 @@ title: "Developer Portal installation"
 linkTitle: "Developer Portal"
 weight: 2
 ---
-Install the Developer Portal for the Axway Open Banking solution.
+Install the Developer Portal for the Amplify Open Banking solution.
 
 ## Download the Developer Portal Helm chart
 
-Download the Axway Open Banking Developer Portal Helm chart to customize it locally.
+Download the Amplify Open Banking Developer Portal Helm chart to customize it locally.
 
 ```bash
 helm pull axway-open-banking/open-banking-developer-portal --untar

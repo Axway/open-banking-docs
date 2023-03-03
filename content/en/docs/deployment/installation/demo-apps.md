@@ -3,11 +3,11 @@ title: "Demo Apps installation"
 linkTitle: "Demo Apps"
 weight: 5
 ---
-Install Demo Apps for the Axway Open Banking solution.
+Install Demo Apps for the Amplify Open Banking solution.
 
 ## Download the Demo Apps Helm chart
 
-Download the Axway Open Banking Demo Apps Helm chart to customize it locally.
+Download the Amplify Open Banking Demo Apps Helm chart to customize it locally.
 
 ```bash
 helm pull open-banking/open-banking-bankio-apps --untar

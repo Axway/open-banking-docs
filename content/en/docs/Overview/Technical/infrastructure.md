@@ -5,7 +5,7 @@ weight: 2
 date: 2021-06-30
 ---
 
-The diagram below shows an outline infrastructure view of Axway Open Banking.
+The diagram below shows an outline infrastructure view of Amplify Open Banking.
 
 ![Infrastructure View](/Images/Infrastructure_View.jpg)
 

@@ -7,7 +7,7 @@ date: 2021-09-02
 
 Configure and customize the Developer Portal.
 
-The Axway Open Banking Developer Portal is based on the Axway API Portal product. Most features are documented in the [Axway API Portal documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apiportal_admin/apip_overview/index.html).
+The Amplify Open Banking Developer Portal is based on the Axway API Portal product. Most features are documented in the [Axway API Portal documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apiportal_admin/apip_overview/index.html).
 
 ## Administrator interface
 

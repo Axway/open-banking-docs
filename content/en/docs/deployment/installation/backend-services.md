@@ -3,11 +3,11 @@ title: "Backend Services installation"
 linkTitle: "Backend Services"
 weight: 3
 ---
-Install Backend Services for the Axway Open Banking solution.
+Install Backend Services for the Amplify Open Banking solution.
 
 ## Download the Backend Services Helm chart
 
-Download the Axway Open Banking Backend Services Helm chart to customize it locally.
+Download the Amplify Open Banking Backend Services Helm chart to customize it locally.
 
 ```bash
 helm pull open-banking/open-banking-backend-chart --untar

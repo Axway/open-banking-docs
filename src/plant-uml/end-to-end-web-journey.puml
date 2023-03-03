@@ -197,7 +197,7 @@ note right of TPP
 **API Security Profile**
 ---
 FAPI mandates the use of the [[https://openid.net/specs/openid-financial-api-part-2-ID2.html#authorization-server Authentication Request object]] which is defined in [[https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests Section 6]]
-of OpenID Connect Core. This is a JSON Web Singature that contains parameters
+of OpenID Connect Core. This is a JSON Web Signature that contains parameters
 normally found in the URL (redirect_uri, state, scope, etc)
 |||
 However, FAPI has been extended by the [[https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2.html API Security Profile for Brazil]] where 2
@@ -211,7 +211,7 @@ Support for either approach should be included in the OpenID Configuration avail
 through Discovery that banks are obliged to provide under the API Security Profile.
 Both options are shown in the sequence diagram.
 |||
-**Note that Axway Open Banking will initially support the first approach, namely a signed**
+**Note that Amplify Open Banking will initially support the first approach, namely a signed**
 **and encrypted JSON Web Token and introduce support for PAR in a later release.**
 end note
 
@@ -279,7 +279,7 @@ API_GATEWAY <- IAM: Return redirect URL
 note right of PSU
 The following steps can vary according the bank's requirements
 for authentication and authorization but these steps provide
-an accurate overview in the context of the Axway Open Banking.
+an accurate overview in the context of the Amplify Open Banking.
 end note
 
 PSU <-- API_GATEWAY: Redirect Customer
@@ -334,7 +334,7 @@ note right of ASPSP_WEB
 ---
 When creating the Consent Confirmation screen the
 permission codes held in the "Intent" need to be
-coverted to something that will be meaningful to the
+converted to something that will be meaningful to the
 Customer. The wording should adhere to that detailed
 in the [[https://github.com/OpenBanking-Brasil/areadesenvolvedor/raw/gh-pages/documents/GuiaDeExperienciaDoUsuarioCompartilhamentoDeDadosEIniciacaoDePagamento_v3.02.03.pdf Customer Experience Guidelines]].
 end note
@@ -438,7 +438,7 @@ INGRESS <-- API_GATEWAY: ""200 OK {redirect_to: "..."}""
 ASPSP_WEB <-- INGRESS: ""200 OK {redirect_to: "..."}""
 
 note right of PSU
-The Customer is redirected back to the Axway Open Banking stack from
+The Customer is redirected back to the Amplify Open Banking stack from
 the bank's Identity Provider in order to complete Hybrid Flow, using
 the value of the ""redirect_uri"" property returned in the response
 from the call to the consent API.

@@ -6,7 +6,7 @@ date: 2021-06-22
 type: sequence
 ---
 
-This end-to-end flow provides a means to show how individual components are used in Axway Open Banking.
+This end-to-end flow provides a means to show how individual components are used in Amplify Open Banking.
 
 The flow is summarized as follows:
 

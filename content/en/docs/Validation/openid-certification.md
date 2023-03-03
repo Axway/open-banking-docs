@@ -81,7 +81,7 @@ curl --location --request POST 'https://api-manager.<domain-name>/api/portal/v1.
 
 ### Certificate configuration
 
-Make sure the corresponding CAs are configured in the Axway Open Banking solution by following each section of [Certificate Management](/docs/configuration/certificate-management).
+Make sure the corresponding CAs are configured in the Amplify Open Banking solution by following each section of [Certificate Management](/docs/configuration/certificate-management).
 
 ### Create the DCR test plan
 
@@ -131,7 +131,7 @@ Make sure that the two test TPPs are configured in ACP:
 
 ### Solution configuration
 
-Make sure the corresponding CAs are configured in the Axway Open Banking solution:
+Make sure the corresponding CAs are configured in the Amplify Open Banking solution:
 
 * Including the CA cert of each TPP on IngressMTLSCA entry of `values.yaml` of the APIM package. See detailed instructions in [Certificate Management - MTLS](/docs/configuration/certificate-management/mtls).
 * Including the CA cert of each TPP on the ACP - Settings - Authorization tab. See detailed instructions in [Certificate Management - MTLS](/docs/configuration/certificate-management/mtls).
