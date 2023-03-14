@@ -15,7 +15,7 @@ To clarify the purpose of each building block:
 * The rationale for **Open Banking APIs** is twofold:
     * Your organization needs to achieve **compliance** with local standards by providing the APIs dictated by open banking regulations.
     * You want to **take advantage of demand in the market** by exposing open APIs that provide data or services that make your organization unique and therefore attractive to consumers of those services.
-* Clearly **Identity and Access Control** are vital to ensuring the **security** of your APIs. This includes ensuring that access is granted to Third-Party Apps only when a customer has given due consent and that consent has been confirmed.
+* Clearly **Identity and Access Control** are vital to ensuring the **security** of your APIs. This includes ensuring that access is granted to Data Recipient Apps only when a customer has given due consent and that consent has been confirmed.
 * Naturally the solution needs to be delivered by appropriate **Infrastructure**. Axway's API Management solution provides the means to deliver this on robust, proven technology.
 * The final piece of the puzzle is what your organization brings, namely the **Core Banking Applications** that provide capabilities that the open APIs you provide are based on.
 
@@ -34,39 +34,39 @@ Developer Experience is about engagement with the customers who will make use of
 
 To accommodate their needs and ensure a quality experience is delivered a number of features are implemented.
 
-#### API catalog and documentation
+#### API product catalog and documentation - to be reviewd
 
-We provide a comprehensive, pre-built catalog of the APIs available in the solution that is tailored based on the certification of the developer (that is independent developer versus entity) regulated by the National Competent Authority (NCA).
-
-#### Demo applications
-
-Our Demo Applications are web-based and provide a realistic view of the types of applications that Third-Party developers might use.
-
-For example, an account aggregator demo is provided that demonstrates a personal financial management (PFM) tool.
+We provide a comprehensive, pre-built catalog of the API Products available in the solution that is tailored based on the certification of the developer (that is independent developer versus entity) regulated by the National Competent Authority (NCA).
 
 #### Developer and organization onboarding
 
 Developer and Organization Onboarding is the ability to seamlessly onboard a developer or their organization.
 
+#### Usage Plans and Subscriptions
+
+Subscriptions are free or paid consumption options to access certain API from resources in products to help provide business case solutions. Consumers browse products, but must subscribe, request access, and be approved before products can be consumed with an application.
+
 #### Application and credential management
 
-Application and Credential Management is the means by which developers can create an application against which credentials to access the open banking APIs can be registered. API registration includes an x.509 public certificate to facilitate Mutual Authentication as implemented in the [Financial-grade API (FAPI) standards.](https://openid.net/wg/fapi/)
+Application and Credential Management is the means by which developers can create an application against which credentials to access the open banking APIs can be registered. Credential creation includes an x.509 public certificate to facilitate Mutual Authentication as implemented in the [Financial-grade API (FAPI) standards.](https://openid.net/wg/fapi/)
 
 #### Development tools
 
 Development Tools are the affordances offered to developers to aid them in their task of building applications that consume your organization's APIs. These include:
 
 * Postman collections
-* Software Development Kits (SDK)
 * Interactive API explorers
 
-#### Application and API usage
+#### Subscriptions, Application and API Usage
 
-Application and API usage analytics allow developers to understand the success of their applications.
+Consumer insights provides API Consumers with secure, self-service access to actionable insights regarding their usage of the APIs from the Marketplace. Application and API usage analytics allow developers to understand the success of their applications.
 
-#### Service desk and collaboration
+#### Support
 
-Service desk and collaboration are the means to collect reviews, publish blogs, and interact with your developer community in a meaningful way.
+The goal of the product support contact is to give the subscriber a way to contact the product provider for any kind of assistance.
+The support contact is composed of a name, email, phone number associated with office hours and alternative support methods, including: Website URL, Slack channel, or MS Teams channel.
+
+### Amplify Infrastructure - what should be included ?
 
 ### Open banking APIs
 
@@ -74,7 +74,7 @@ Open banking APIs provide the means to achieve compliance with standards while i
 
 #### Open data
 
-Open data APIs provide freely available information to Third-Party Apps. In the context of open banking this includes information on topics such as:
+Open data APIs provide freely available information to Data Recipient Apps. In the context of open banking this includes information on topics such as:
 
 * Branches
 * ATMs
@@ -85,10 +85,9 @@ Amplify Open Banking provides the APIs required to be compliant with local marke
 
 #### Access to account for data
 
-Access to Account for Data is one of the roles typically granted to Third-Party Developers by local market regulations and open banking frameworks. For example, in the European Union (EU) this role is termed the Account
-Information Servicing Provider (AISP).
+Access to Account for Data is one of the roles typically granted to Data Recipient Developers by local market regulations and open banking frameworks.
 
-In this role Third-Party Apps can access account data to which a customer has consented. Depending on local standards the types of information available can vary and can include:
+In this role Data Recipient Apps can access account data to which a customer has consented. Depending on local standards the types of information available can vary and can include:
 
 * Payment accounts
 * Savings accounts
@@ -99,9 +98,9 @@ Amplify Open Banking provides the APIs required to be compliant with local marke
 
 #### Access to account for payments
 
-Access to Account for Payments is one of the roles typically granted to Third-Party Developers by local market regulations and open banking frameworks. For example, in the EU this role is termed the Payment Initiation Servicing Provider (PISP).
+Access to Account for Payments is one of the roles typically granted to Data Recipient Developers by local market regulations and open banking frameworks. 
 
-In this role Third-Party Apps can initiate payment on behalf of the customer dependent on properties of the payment they have consented to. Depending on local standards the types of payment available can vary and can include:
+In this role Data Recipient Apps can initiate payment on behalf of the customer dependent on properties of the payment they have consented to. Depending on local standards the types of payment available can vary and can include:
 
 * Single immediate payments
 * Scheduled payments
@@ -127,13 +126,13 @@ Identity and access control provide security, authentication and authorization t
 
 #### Lodging intent
 
-Lodging Intent is a pattern that appears in the majority of open banking standards. It is the means by which the consent that has been agreed between the customer and Third-Party App is sent to your organization so it can be confirmed and access to account granted. The term "intent" is used specifically because the customer has yet to authenticate themselves at the bank. Only when the customer has authenticated and "intent" has been confirmed does it become consent.
+Lodging Intent is a pattern that appears in the majority of open banking standards. It is the means by which the consent that has been agreed between the customer and Data Recipient App is sent to your organization so it can be confirmed and access to account granted. The term "intent" is used specifically because the customer has yet to authenticate themselves at the bank. Only when the customer has authenticated and "intent" has been confirmed does it become consent.
 
 Amplify Open Banking supports intent through the implementation of APIs that meet the requirements of local standards.
 
 #### Consent confirmation
 
-In order for Third-Party Apps to access the data or services to which a customer has consented that customer must confirm the consent is correct.
+In order for Data Recipient Apps to access the data or services to which a customer has consented that customer must confirm the consent is correct.
 
 Amplify Open Banking provides the means to do this through a number of web components that can be configured according to your organization's needs. The components render the requested consent and allows customers to indicate that it is correct.
 
@@ -149,11 +148,11 @@ Amplify Open Banking provides support for FAPI [Part 1 (Read Only)](https://open
 #### Consent revocation
 
 The need to lodge intent and confirm consent is matched by the need to revoke consent where a customer no longer wants to share information
-with a Third-Party App.
+with a Data Recipient App.
 
 Amplify Open Banking provides the means to revoke consent, both programmatically by an API call and through a user interface (UI).
 
-Note that in some markets revocation is only allowed by the Third-Party App and not directly at the bank. In such cases revocation by a UI can
+Note that in some markets revocation is only allowed by the Data Recipient App and not directly at the bank. In such cases revocation by a UI can
 be disabled dependent on your organization's position on market regulations.
 
 ### Infrastructure
@@ -162,29 +161,19 @@ The Infrastructure building block brings together Axway's product set to power t
 
 {{% alert title="Note" color="primary" %}} For more information on any of these products refer to the [Axway Documentation Portal](https://docs.axway.com/).{{% /alert %}}
 
-#### API Portal
-
-The portal delivers the Developer Experience. Amplify Open Banking provides a custom template that can be applied to an existing Portal instance or installed from scratch.
-
 #### API Gateway
 
 The API Gateway provides access to and protection for your APIs using Axway's industry leading technology.
-
-#### API Builder
-
-To integrate with your backend the solution uses API Builder. This technology allows an application to be created that can map between the API specification defined by the standards and your existing sources of data.
-
-On installation these applications will be mapped to our mock backend and will need to be reconfigured appropriately.
 
 #### Consent management
 
 Our Consent Management solution is delivered using the [Cloudentity Open Banking Kit](https://cloudentity.com/open-banking/). This provides:
 
 * The means to couple consent with the authentication, authorization, and access control to ensure that Third-Party Applications can access only the information to which they are entitled, and nothing more.
-* An overview for your customers that allows them to browse and revoke consents for Third-Party Applications.
+* An overview for your customers that allows them to browse and revoke consents for Data Recipient Applications.
 * An administration view for your organization that allows you to search and manage your customers' consents.
 
-Note that in some markets Consent Management must happen at the Third-Party App and consent dashboards are prohibited.
+Note that in some markets Consent Management must happen at the Data Recipient App and consent dashboards are prohibited.
 
 In such cases the customer-facing aspects of Consent Management can be disabled depending on your organization's position on market regulations.
 
@@ -194,19 +183,17 @@ Identity Management adds the authentication, authorization, and access control r
 
 The Cloudentity Open Banking Kit provides the default capability, but this can be swapped out for your existing Identity and Access Management solution.
 
-#### Analytics
+#### Amplify Agents
 
-A detailed view of developer interaction and API usage is vital to your success as an open banking platform.
+Amplify agents are lightweight software applications that run on your data plane host. These agents are responsible for gathering information that is happening in your data plane and sending it to the Amplify platform:
 
-Amplify Open Banking provides detailed analytics through an ELK (Elasticsearch, Kibana and Logstash) implementation. This also powers the Metrics API, one of the mandatory APIs for organizations implementing Phase 1 of the Brazil Open Banking standards.
+* **Discovery Agents** automate the process of finding assets deployed in a Gateway (for example, OAS 3.0, WSDL, etc.), and sending them to the Amplify platform where they are made available in the Catalog. Consumers can subscribe to use the discovered assets, at which point the agent helps to natively provision this subscription in the Gateway.
+* **Traceability Agents** collect usage, metrics, and data plane transaction metadata and send them to the Amplify platform for additional insights. In the platform, API consumers and API providers gain visibility into the performance and behavior of the assets discovered in the data plane.
 
-Customers are free to use their own analytics solutions and plug-in to the log streams provided by the solution.
-
-#### Utilities
+#### Utilities - to be reviewd
 
 Utilities describes the features of the solution that are developed specifically to help with the open banking solution. Utilities include:
 
-* *Demo Applications*: This incorporates both front- and backend applications that serve the Demo Application experience in the API Portal.
 * *Mock Backends*: The solution provides mock backends for all the regulatory APIs. The Mock Backend applications are implemented using API Builder and MySQL.
 
 Customers can use these components as they see fit and can swap them out for existing functionality or use source data they may have.

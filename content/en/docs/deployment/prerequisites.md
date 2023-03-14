@@ -15,13 +15,13 @@ Prior to installation you need to perform the following tasks:
 * Read and understand the Architecture Overview guide.
 * Make choices that are described in the Architecture Overview guide including:
     * Choose a Kubernetes provider (cloud, on-premise, and so on).
-    * Components that will be supported (Demo Applications, mock backend services, and so on).
+    * Components that will be supported (analytics, mock backend services, and so on).
     * Approach to database deployment (inside Kubernetes versus externalized services).
     * Components that reflect deployment model choice (certificate manager, load balancer/Ingress Controller, and so on).
 * Install the following command line tools:
     * Helm
     * Kubectl
-* Obtain a token from an Axway team to pull Helm charts and Docker images from with the Axway Registry.
+* Create a [service account](https://docs.axway.com/bundle/platform-management/page/docs/management_guide/organizations/managing_organizations/managing_service_accounts/index.html) in your organization in Amplify Platform to pull Helm charts and Docker images from the [Axway Repository](https://repository.axway.com/).
 * Deploy the external MySQL and Cassandra databases infrastructure.
 * Create a Kubernetes cluster that conforms to that described in the Architecture Overview guide and reflects the architecture choices described above.
 
@@ -31,7 +31,7 @@ These tasks must be completed for a successful installation.
 
 The solutions use the following database components:
 
-* MySQL or MariaDB for API Management (APIM) gateway analytics and API Portal components.
+* MySQL or MariaDB for API Management (APIM) gateway analytics (Optional).
 * Cassandra for API Manager catalog.
 
 The minimum recommended hardware infrastructure for these components are:

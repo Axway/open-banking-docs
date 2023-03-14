@@ -2,11 +2,11 @@
 
 title \n\n
 
-participant "Third-Party\nApp" as TPP
+participant "Data\nRecipient" as DR
 
 box Open Banking APIs #e06666 
 participant "API\nGateway" as API_GATEWAY
-participant "API\nBuilder" as API_BUILDER
+participant "Backend\nIntegration\nApplication" as BIA
 end box
 
 box Identity and Access Control #94c47d
@@ -20,7 +20,7 @@ end box
 hide footbox
 
 
-note right of TPP
+note right of DR
 Overview
 ===
 Filtering responses for account/permissions at the Gateway
@@ -35,47 +35,47 @@ terms of solutions is:
 3. Filter at the Gateway.
 end note
 
-TPP -> API_GATEWAY: Request Account Information Resource\nwith valid Access Token
+DR -> API_GATEWAY: Request Account Information Resource\nwith valid Access Token
 
 API_GATEWAY -> IAM: Call Access Token Introspect Endpoint
 API_GATEWAY <-- IAM: Return introspection information
 API_GATEWAY -> API_GATEWAY: Inspect request
 
-alt TPP does not have Consent for the requested account or resource
+alt DR does not have Consent for the requested account or resource
 
-note right of TPP
+note right of DR
 In some cases the permissions are binary i.e. the
-TPP does or does not have permission to access
+DR does or does not have permission to access
 a given endpoint. In such cases the Gateway can
 immediately respond without going to the backend.
 end note
 
-TPP <-- API_GATEWAY: Respond with 403 (Forbidden)
+DR <-- API_GATEWAY: Respond with 403 (Forbidden)
 
-else TPP has Consent to access requested resource
+else DR has Consent to access requested resource
 
 alt Filtering is performed outside Gateway
 API_GATEWAY -> API_GATEWAY: Augment request\nwith consented accounts/permissions
 
 alt Filtering is performed at Core Banking Application
 
-API_GATEWAY -> API_BUILDER: Forward request with\nconsented accounts/permissions
-API_BUILDER -> API_BUILDER: Create request for consented accounts
-API_BUILDER -> ASPSP_API: Request data for consented accounts
+API_GATEWAY -> BIA: Forward request with\nconsented accounts/permissions
+BIA -> BIA: Create request for consented accounts
+BIA -> ASPSP_API: Request data for consented accounts
 ASPSP_API -> ASPSP_API: Retrieve data for consented accounts
 ASPSP_API -> ASPSP_API: Apply permissions to requested data
-API_BUILDER <-- ASPSP_API: Return data for consented accounts
-API_GATEWAY <-- API_BUILDER: Return response
+BIA <-- ASPSP_API: Return data for consented accounts
+API_GATEWAY <-- BIA: Return response
 
-else Filtering is performed at API Builder Application
+else Filtering is performed at Backend Integration Application
 
-API_GATEWAY -> API_BUILDER: Forward request with\nconsented accounts/permissions
-API_BUILDER -> API_BUILDER: Create request for consented accounts
-API_BUILDER -> ASPSP_API: Request data for consented accounts
+API_GATEWAY -> BIA: Forward request with\nconsented accounts/permissions
+BIA -> BIA: Create request for consented accounts
+BIA -> ASPSP_API: Request data for consented accounts
 ASPSP_API -> ASPSP_API: Retrieve data for consented accounts
-API_BUILDER <-- ASPSP_API: Return data for consented accounts
-API_BUILDER -> API_BUILDER: Apply correct permissions to response data
-API_GATEWAY <-- API_BUILDER: Return response
+BIA <-- ASPSP_API: Return data for consented accounts
+BIA -> BIA: Apply correct permissions to response data
+API_GATEWAY <-- BIA: Return response
 
 end alt
 
@@ -103,6 +103,6 @@ end alt
 end alt
 
 API_GATEWAY -> API_GATEWAY: Format response for standards
-TPP <-- API_GATEWAY: Return response
+DR <-- API_GATEWAY: Return response
 
 @enduml
