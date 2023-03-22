@@ -1,7 +1,7 @@
 ---
 title: "Mutual authentication and certificate verification"
 linkTitle: "Mutual Authentication"
-weight: 3
+weight: 2
 date: 2021-06-22
 type: sequence
 ---

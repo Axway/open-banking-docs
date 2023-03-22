@@ -1,16 +1,18 @@
 ---
-title: "JWE key generator tool installation"
+title: "JWE Generator Installation"
 linkTitle: "JWE Generator"
-weight: 4
+weight: 30
 ---
-Install the JWE key generator tool for the Amplify Open Banking solution.
+Install the JWE Generator utility for the Amplify Open Banking solution.
+
+{{% alert title="Note" color="primary" %}} This component is only required for Open Finance Brazil deployments.{{% /alert %}}
 
 ## Download the JWE key generator tool Helm chart
 
 Download the Amplify Open Banking JWE key generator tool Helm chart to customize it locally.
 
 ```bash
-helm pull open-banking/jwe-generator --untar
+helm pull axway/jwe-generator --untar
 ```
 
 You should get an `jwe-generator` local folder.
@@ -57,6 +59,6 @@ Wait a few minutes and use the following commands to check the deployment status
    ```
    kubectl get pods -n jwe-generator 
        NAME                                         READY   STATUS    RESTARTS   AGE
-       jwe-jwe-generator-6ff796599c-pdxph           1/1     Running   0          57s
+       jwe-jwe-generator-xxx-xx                     1/1     Running   0          57s
        
    ```

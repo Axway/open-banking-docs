@@ -1,15 +1,17 @@
 ---
-title: "API Gateway configuration"
-linkTitle: "API Gateway"
+title: "API Management Configuration"
+linkTitle: "API Management"
 weight: 1
 date: 2021-09-02
 ---
+
+## API Gateway
 
 Amplify Open Banking API Gateway is based on the Axway API Gateway product.
 
 Most features are documented in the [Axway API Gateway documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apigtw_admin/index.html).
 
-## Key Properties Store (KPS) configuration
+### Key Properties Store (KPS) configuration
 
 The Key Properties Store of API Gateway is used to store the solution configuration variables.
 This configuration can be read at the beginning of any policy using a common policy "Read Configuration."
@@ -21,13 +23,17 @@ This configuration can be read at the beginning of any policy using a common pol
 | c_name | java.lang.String | API Name. |
 | d_version | java.lang.String | API Version. |
 | e_method | java.lang.String | API Method. |
-| f_extension_1 | java.lang.String | For future use (example: HTTP Method). |
+| f_extension_1 | java.lang.String | For future use |
 | g_extension_2 | java.lang.String | For future use. |
 | k_values | java.util.Map`<java.lang.String,java.lang.String>` | Key Value Pairs, helps in extending configuration whenever we want without deployment. New key value pairs can be added easily.|
 
-By default, only one line exists with no criteria (columns b to e) and values (column k) corresponding to solution deployment parameters. Refer to [Solution Deployment](/docs/deployment/installation) to see how to change these values during deployment.
+In FDX deployment, by default, there is at least one row for each API and a row with generic information which is applicable to all APIs.
 
-You can check and update your current configuration from API Gateway Manager - Settings - Key Property Stores.
+In Open Finance Brazil deployment, by default, only one line exists with no criteria (columns b to e) and values (column k) corresponding to solution deployment parameters. 
+
+Refer to [Solution Deployment](/docs/deployment/installation) to see how to change these values during deployment.
+
+Additionally, you can check and update your current configuration from API Gateway Manager - Settings - Key Property Stores.
 
 ![kps-configuration](/Images/api-gateway-manager-kps-configuration.png)
 
@@ -49,7 +55,7 @@ Several values should correspond to the settings of CLOUDENTITY ACP or its conse
 | oauth_introspect_clientid | App is bank in openbanking workspace. |
 | oauth_tenantid | Tenant id in ACP server. |
 
-## API policies
+### API policies
 
 API Gateway is configured with several API policies that are used with Open Banking flows.
 You may want to customize some of these policies.
@@ -61,7 +67,7 @@ You can check the following policy definitions by opening Policy Studio and navi
 If you decide to change one of them, you can use Policy Studio directly for the development environment only.
 For other environments, you need to export the Policy Studio projects and build new APIM Docker images to use instead of the standard ones.
 
-## Certificates
+### Certificates
 
 API Gateway is configured with several certificates that are used during the runtime:
 
@@ -76,3 +82,38 @@ Right-click a certificate to see if there are any references to it, meaning that
 ![apim-policy-studio-certificates](/Images/apim-policy-studio-certificates.png)
 
 If you identify the need to change one of them, refer to the API Gateway instructions that you can find under each section of [Certificate Management](/docs/configuration/certificate-management).
+
+## API Manager
+
+Configure the Open Banking API Manager settings, APIs and organizations and applications.
+
+Amplify Open Banking API Manager is based on the Axway API Manager product. Most features are documented in the [Axway API Manager documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apimgr_admin/index.html).
+
+<!-- ## Settings
+
+{{% alert title="Note" color="primary" %}}
+This page is under development
+{{% /alert %}} -->
+
+### API Management
+
+Upon solution deployment, several Open Banking APIs are deployed and published in the catalog.
+You can use the admin interface to update the APIs.
+
+![open banking apis](/Images/api-manager-apis.png)
+
+These frontend API changes can be done directly on the published API.
+
+* API logo
+* API summary
+* API documentation
+
+You must unpublish the API before applying these frontend API changes.
+
+* API name
+* API tags
+* API inbound configuration
+* API outbound configuration
+* API security configuration
+
+Refer to the details in the [Axway API Manager documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web/index.html) to manage API details.

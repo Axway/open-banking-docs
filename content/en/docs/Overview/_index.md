@@ -10,7 +10,7 @@ The Amplify Open Banking solution provides the means to deliver standards-based 
 This section provides a general overview of the architecture. The goal is to provide customers with a complete understanding of what the solution provides, how the components are integrated, and how the solution is deployed. The document includes:
 
 * A [solution overview](/docs/overview/solution) that describes the solution features.
-* An [integration architecture](/docs/overview/integration) that shows a number of different flows.
+* An [functional architecture](/docs/overview/integration) that shows a number of different flows.
 * A [technical view](/docs/overview/technical) of the Kubernetes architecture and component deployment.
 
 This section does not describe:

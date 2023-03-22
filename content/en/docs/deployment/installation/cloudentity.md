@@ -1,7 +1,7 @@
 ---
 title: "Cloud Entity installation"
 linkTitle: "Cloud Entity"
-weight: 7
+weight: 20
 ---
 Install Cloud Entity for the Amplify Open Banking solution.
 

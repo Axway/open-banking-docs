@@ -1,6 +1,6 @@
 ---
-title: "Open Finance Brazil"
-linkTitle: "Open Finance Brazil"
+title: "Financial Data Exchange"
+linkTitle: "FDX"
 weight: 9
 ---
 

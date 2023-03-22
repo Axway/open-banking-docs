@@ -1,7 +1,7 @@
 ---
 title: "Reference"
 linkTitle: "Reference"
-weight: 9
+weight: 15
 ---
 
 This section provides a variety of information useful in the context of Amplify Open Banking.

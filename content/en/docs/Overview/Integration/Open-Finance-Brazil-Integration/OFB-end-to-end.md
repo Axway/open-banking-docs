@@ -1,6 +1,6 @@
 ---
-title: "End-to-end web journey"
-linkTitle: "End-to-end web journey"
+title: "Open Finance Brazil End-to-End Web Journey"
+linkTitle: "Open Finance Brazil End-to-End Web Journey"
 weight: 1
 date: 2021-06-22
 type: sequence

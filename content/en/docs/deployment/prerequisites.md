@@ -15,7 +15,7 @@ Prior to installation you need to perform the following tasks:
 * Read and understand the Architecture Overview guide.
 * Make choices that are described in the Architecture Overview guide including:
     * Choose a Kubernetes provider (cloud, on-premise, and so on).
-    * Components that will be supported (analytics, mock backend services, and so on).
+    * Components that will be supported (consent applications, mock backend services, and so on).
     * Approach to database deployment (inside Kubernetes versus externalized services).
     * Components that reflect deployment model choice (certificate manager, load balancer/Ingress Controller, and so on).
 * Install the following command line tools:
@@ -23,7 +23,7 @@ Prior to installation you need to perform the following tasks:
     * Kubectl
 * Create a [service account](https://docs.axway.com/bundle/platform-management/page/docs/management_guide/organizations/managing_organizations/managing_service_accounts/index.html) in your organization in Amplify Platform to pull Helm charts and Docker images from the [Axway Repository](https://repository.axway.com/).
 * Deploy the external MySQL and Cassandra databases infrastructure.
-* Create a Kubernetes cluster that conforms to that described in the Architecture Overview guide and reflects the architecture choices described above.
+* Create a Kubernetes cluster that conforms to the architecture described in the Architecture Overview guide and reflects the architecture choices described above.
 
 These tasks must be completed for a successful installation.
 
@@ -45,6 +45,8 @@ The minimum recommended hardware infrastructure for these components are:
     * 2 CPUs.
     * 8 GB of memory.
     * 60 GB of disk.
+
+    For more infomration, refer to [cassandra installation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigtw_install/cassandra_install/index.html).
 
 ## Kubernetes setup requirements
 
@@ -68,19 +70,14 @@ The Kubernetes configuration must include three Node Groups:
 
 | Application   | Component                             | Replicas  |
 |:------------- |:------------------------------------- |:--------- |
-| API Management  | API Portal | 1 |
 | API Management  | API Gateway Manager | 1 |
 | API Management  | APIManager | 1 |
-| API Management  | Filebeat  | 1 |
 | API Management  | APIGateway Traffic | 3-6 |
+| Amplify Agents  | Discovery Agent  | 1 |
+| Amplify Agents  | Traceability Agent  | 1 |
 | Identity  | ACP | 1-3 |
 | Identity  | CockroachDB | 1-3 |
 | Identity  | Redis | 1-3 |
-| Analytics  | Elasticsearch | 3 |
-| Analytics  | Kibana | 1 |
-| Analytics  | Webserver | 1 |
-| Analytics  | Logstash | 1 |
-| Analytics  | metrics-api | 1 |
 
 {{% alert title="Note" color="primary" %}} The consent and backend components are not considered here, because they usually are replaced by customer's custom components.{{% /alert %}}
 

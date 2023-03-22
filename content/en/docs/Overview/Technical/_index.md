@@ -1,6 +1,6 @@
 ---
-title: "Technical architecture"
-linkTitle: "Technical"
+title: "Technical Architecture"
+linkTitle: "Technical Architecture"
 weight: 3
 date: 2021-06-30
 ---
@@ -9,7 +9,7 @@ Amplify Open Banking is designed with flexibility in mind. It therefore has been
 
 Customers can choose to install the solution either on-premise or in the cloud because the solution is built according to a vanilla Kubernetes. This allows customers to make a choice about their target Kubernetes distribution and additional components.
 
-{{% alert title="Note" color="primary" %}} There are required features and security constraints that customers to which a customer must adhere. For example, some ingress controllers cannot meet our requirements.{{% /alert %}}
+{{% alert title="Note" color="primary" %}} There are required features and security constraints that customers must adhere. For example, some ingress controllers cannot meet our requirements.{{% /alert %}}
 
 ## Considerations
 

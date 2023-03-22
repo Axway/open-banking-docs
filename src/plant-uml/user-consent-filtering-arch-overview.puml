@@ -19,6 +19,7 @@ end box
 
 hide footbox
 
+skinparam BoxPadding 20
 
 note right of DR
 Overview

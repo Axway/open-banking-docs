@@ -64,6 +64,6 @@ BIA -> ASPSP_API: Request backend data or service
 BIA <-- ASPSP_API: Response
 API_GATEWAY <-- BIA: Response
 INGRESS <-- API_GATEWAY: Response
-DR <-- API_GATEWAY: Response
+DR <-- INGRESS: Response
 
 @enduml

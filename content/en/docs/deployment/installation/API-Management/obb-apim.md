@@ -1,20 +1,8 @@
 ---
-title: "APIM Management installation"
-linkTitle: "API Management"
-weight: 1
+title: "Open Finance Brazil API Management Installation"
+linkTitle: "Open Finance Brazil API Management"
+weight: 2
 ---
-Install API Management for the Amplify Open Banking solution.
-
-## Download the API Management (APIM) Helm charts
-
-Download the Amplify Open Banking API Management (APIM) Helm charts to customize them locally.
-
-```bash
-helm pull open-banking/open-banking-apim --untar
-helm pull open-banking/open-banking-apim-config --untar
-```
-
-You should get the `open-banking-apim` and `open-banking-apim-config` local folders.
 
 ## Customize the APIM Helm chart
 

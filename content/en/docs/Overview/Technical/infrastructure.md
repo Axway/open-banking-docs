@@ -1,13 +1,13 @@
 ---
-title: "Infrastructure view"
-linkTitle: "Infrastructure"
+title: "Infrastructure View"
+linkTitle: "Infrastructure View"
 weight: 2
 date: 2021-06-30
 ---
 
-The diagram below shows an outline infrastructure view of Amplify Open Banking.
+The diagram below shows an outline infrastructure view of Amplify Open Banking in AWS.
 
-![Infrastructure View](/Images/Infrastructure_View.jpg)
+![Infrastructure View](/Images/Infrastructure_View_0.png)
 
 Axway recommends the following:
 

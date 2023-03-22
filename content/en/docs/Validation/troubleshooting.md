@@ -1,7 +1,7 @@
 ---
 title: "Troubleshooting"
 linkTitle: "Troubleshooting"
-weight: 5
+weight: 10
 date: 2021-09-02
 ---
 Find useful logs, enable debug options, and connect to UIs to help identify the cause for errors.
@@ -100,36 +100,3 @@ kubectl logs acp-xxxxx-xxx -n open-banking-acp
 ```
 
 Use `-f` command option to get help to follow the logs stream.
-
-## Portal debug options
-
-1. Navigate to Menu - System - **Global configuration**.
-2. Select the System tab, and then select **Yes** for *Debug Server*: Diagnostic information, language translation, and SQL errors (if present) are displayed. The information is displayed at the footer of every page you view within the Joomla Backend and Frontend.
-![developer-portal-config-debug](/Images/developer-portal-config-debug.png)
-3. Select the Server tab, and then select **Maximum** for *Error Reporting*: This parameter sets the level of error reporting to be used by PHP on the Joomla site. *Maximum* overrides the server setting to give the reporting of all errors.
-![developer-portal-config-debug](/Images/developer-portal-config-error-reporting.png)
-   * You will get diagnostic information and error reporting directly while navigating on the Developer Portal in your web browser. It is recommended to use this option only in a non-production environment and for a limited period in time.
-4. You can also get logs on the server side by accessing the container standard output. In the Kubernetes cluster:
-    * Identify the api-portal-xxxxx-xxx pod name.
-
-    ```bash
-    kubectl get pods -n open-banking-developer-portal 
-    ```
-
-    * Display the logs.
-
-    ```bash
-    kubectl logs api-portal-xxxxx-xxx -n open-banking-developer-portal 
-    ```
-    Use `-f` command option to get help to follow the logs stream.
-
-## Analytics search
-
-The Analytics dashboard, reports, and metrics API should reflect every Open Banking API calls.
-
-If you need to check correct Analytics integration, run a couple API call tests and use the Kibana interface to search for the corresponding events.
-
-1. Click Kibana - Discover.
-2. (Optional) Use filters, like app (name of the client app) or service (name of the API).
-3. Select the corresponding time range.
-![analytics-search](/Images/analytics-search.png)

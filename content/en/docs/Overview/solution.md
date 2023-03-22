@@ -1,27 +1,27 @@
 ---
-title: "Solution architecture"
-linkTitle: "Solution"
+title: "Solution Overview"
+linkTitle: "Solution Overview"
 weight: 1
 date: 2021-06-22
 ---
 
 Amplify Open Banking is built on five solution building blocks as shown below.
 
-![Solution Building Blocks](/Images/Solution_Building_Blocks.png)
+![Solution Building Blocks](/Images/Solution_Building_Blocks.svg)
 
 To clarify the purpose of each building block:
 
-* **Developer Experience** is all about **engagement**. Giving developers what they need, when they need it is critical by putting the tools in their hands that will make their applications a success.
+* **Developer Experience** is all about **engagement**. Giving developers what they need, when they need it is critical by putting the tools in their hands that will make their applications a success. Amplify Marketplace delivers a set of features to productize APIs in a storefront where APIs are published as products that are discoverable and available for both internal and external consumption.
 * The rationale for **Open Banking APIs** is twofold:
     * Your organization needs to achieve **compliance** with local standards by providing the APIs dictated by open banking regulations.
     * You want to **take advantage of demand in the market** by exposing open APIs that provide data or services that make your organization unique and therefore attractive to consumers of those services.
-* Clearly **Identity and Access Control** are vital to ensuring the **security** of your APIs. This includes ensuring that access is granted to Data Recipient Apps only when a customer has given due consent and that consent has been confirmed.
-* Naturally the solution needs to be delivered by appropriate **Infrastructure**. Axway's API Management solution provides the means to deliver this on robust, proven technology.
-* The final piece of the puzzle is what your organization brings, namely the **Core Banking Applications** that provide capabilities that the open APIs you provide are based on.
+* **Identity and Access Control** are vital to ensuring the **security** of your APIs. This includes ensuring that access is granted to Data Recipient Apps only when a customer has given consent and that consent has been confirmed.
+* Naturally the solution needs to be delivered via the appropriate **Infrastructure**. Axway's API Management solution provides the means to deliver this on robust, proven technology.
+* The final piece of the puzzle is what your organization brings; namely the **Core Banking Applications** that provide capabilities that the open APIs you provide are based on.
 
 Each building block is critical to the success of your open banking platform and each building block provides a number of features. The features are based on the capabilities that the solution delivers and are summarized as shown below.
 
-![Solution Overview](/Images/Solution_Overview.png)
+![Solution Overview](/Images/Solution_Overview_0.svg)
 
 ## Features
 
@@ -30,13 +30,11 @@ sections.
 
 ### Developer experience
 
-Developer Experience is about engagement with the customers who will make use of your APIs, namely your developer community.
+Developer experience is about engagement and productization of APIs. A storefront experience enables closer engagement with internal and external consumers.
 
-To accommodate their needs and ensure a quality experience is delivered a number of features are implemented.
+#### API product catalog and documentation
 
-#### API product catalog and documentation - to be reviewd
-
-We provide a comprehensive, pre-built catalog of the API Products available in the solution that is tailored based on the certification of the developer (that is independent developer versus entity) regulated by the National Competent Authority (NCA).
+We provide a comprehensive, pre-built catalog of the API Products available in the solution that is tailored based on the open banking specifications used in the region.
 
 #### Developer and organization onboarding
 
@@ -57,7 +55,7 @@ Development Tools are the affordances offered to developers to aid them in their
 * Postman collections
 * Interactive API explorers
 
-#### Subscriptions, Application and API Usage
+#### Subscription, Application and API Usage
 
 Consumer insights provides API Consumers with secure, self-service access to actionable insights regarding their usage of the APIs from the Marketplace. Application and API usage analytics allow developers to understand the success of their applications.
 
@@ -126,7 +124,7 @@ Identity and access control provide security, authentication and authorization t
 
 #### Lodging intent
 
-Lodging Intent is a pattern that appears in the majority of open banking standards. It is the means by which the consent that has been agreed between the customer and Data Recipient App is sent to your organization so it can be confirmed and access to account granted. The term "intent" is used specifically because the customer has yet to authenticate themselves at the bank. Only when the customer has authenticated and "intent" has been confirmed does it become consent.
+Lodging Intent is a pattern that appears in the majority of open banking standards. It is the means by which the consent that has been agreed between the customer and Data Recipient App is sent to your organization so it can be confirmed and access to the account granted. The term "intent" is used specifically because the customer has yet to authenticate themselves at the bank. Only when the customer has authenticated and "intent" has been confirmed does it become consent.
 
 Amplify Open Banking supports intent through the implementation of APIs that meet the requirements of local standards.
 
@@ -169,7 +167,7 @@ The API Gateway provides access to and protection for your APIs using Axway's in
 
 Our Consent Management solution is delivered using the [Cloudentity Open Banking Kit](https://cloudentity.com/open-banking/). This provides:
 
-* The means to couple consent with the authentication, authorization, and access control to ensure that Third-Party Applications can access only the information to which they are entitled, and nothing more.
+* The means to couple consent with the authentication, authorization, and access control to ensure that Data Recipient Applications can access only the information to which they are entitled, and nothing more.
 * An overview for your customers that allows them to browse and revoke consents for Data Recipient Applications.
 * An administration view for your organization that allows you to search and manage your customers' consents.
 
@@ -185,15 +183,16 @@ The Cloudentity Open Banking Kit provides the default capability, but this can b
 
 #### Amplify Agents
 
-Amplify agents are lightweight software applications that run on your data plane host. These agents are responsible for gathering information that is happening in your data plane and sending it to the Amplify platform:
+Amplify agents are lightweight software applications that run on your data plane host. These agents are responsible for gathering information on what is happening in your data plane and sending it to the Amplify platform:
 
 * **Discovery Agents** automate the process of finding assets deployed in a Gateway (for example, OAS 3.0, WSDL, etc.), and sending them to the Amplify platform where they are made available in the Catalog. Consumers can subscribe to use the discovered assets, at which point the agent helps to natively provision this subscription in the Gateway.
 * **Traceability Agents** collect usage, metrics, and data plane transaction metadata and send them to the Amplify platform for additional insights. In the platform, API consumers and API providers gain visibility into the performance and behavior of the assets discovered in the data plane.
 
-#### Utilities - to be reviewd
+#### Utilities
 
 Utilities describes the features of the solution that are developed specifically to help with the open banking solution. Utilities include:
 
 * *Mock Backends*: The solution provides mock backends for all the regulatory APIs. The Mock Backend applications are implemented using API Builder and MySQL.
+* *JWE Generator*: The solution provides JWE generator to help organizations test the APIs which require JWE payload.
 
 Customers can use these components as they see fit and can swap them out for existing functionality or use source data they may have.
