@@ -1,6 +1,6 @@
 ---
-title: "OpenID Security conformance"
-linkTitle: "Security conformance"
+title: "OpenID Security Conformance"
+linkTitle: "OpenID Security Conformance"
 weight: 2
 date: 2021-09-02
 ---

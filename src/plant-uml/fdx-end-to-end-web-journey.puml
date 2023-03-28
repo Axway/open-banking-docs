@@ -15,7 +15,7 @@ participant "Identity Management\n---\nAuthorisation Server" as IAM
 participant "Consent\nManagement" as CONSENT
 end box
 
-box Open Banking APIs #e06666
+box Open Banking APIs #fc877e
 participant "Backend\nIntegration\nApplication" as BIA
 end box
 
@@ -34,7 +34,7 @@ participant "Certificate\nAuthority\n---\nOCSP Endpoint" as OCSP
 '/
 
 hide footbox
-skinparam defaultFontName Roboto
+'skinparam defaultFontName Roboto
 skinparam BoxPadding 20
 
 note right of PSU

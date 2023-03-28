@@ -10,7 +10,7 @@ Mutual Authentication is an important part of security in open banking. It is co
 
 The flow is summarized as follows:
 
-* The Data Recipient application (DR) presents their client certificate that is signed by the relevant certificate authority.
+* The Data Recipient (DR) application presents their client certificate that is signed by the relevant certificate authority.
 * The API Gateway validates the certificate against the expected certificate chain to ensure the requestor is entitled to make a connection.
 * The certificate (and by implication the organization providing the Data Recipient App) is then validated against the relevant source of truth for the market in question. Amplify Open Banking solution calls the relevant Certificate Authority (CA) to ensure the Data Recipient is still valid.
 * Finally where certificate binding is enforced association between the Access Token and the presented certificate is checked.

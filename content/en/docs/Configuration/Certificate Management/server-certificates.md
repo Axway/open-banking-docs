@@ -15,23 +15,14 @@ Server certificate are required for all of the following ingresses:
 | Ingress Name                              | External address                       | NAMESPACE                      |
 |-------------------------------------------|----------------------------------------|--------------------------------|
 | acp                                       | acp.`<domain-name>`                    | open-banking-acp               |
-| kibana                                    | kibana.`<domain-name>`                 | open-banking-analytics         |
-| webserver                                 | analytics.`<domain-name>`              | open-banking-analytics         |
 | apimanager                                | api-manager.`<domain-name>`            | open-banking-apim              |
 | gatewaymanager                            | api-gateway-manager.`<domain-name>`    | open-banking-apim              |
 | traffic                                   | api.`<domain-name>`                    | open-banking-apim              |
 | traffichttps                              | services-api.`<domain-name>`           | open-banking-apim              |
 | trafficmtls                               | mtls-api-proxy.`<domain-name>`         | open-banking-apim              |
-| auto-loan-api-ingress                     | auto-loan-api-demo-apps.`<domain-name>`| open-banking-app               |
-| bankio-link-ingress                       | tpp-demo-apps.`<domain-name>`          | open-banking-app               |
-| demo-frontends-ingress                    | demo-apps.`<domain-name>`              | open-banking-app               |
-| obie-sandbox-ingress                      | obie-sandbox-demo-apps.`<domain-name>` | open-banking-app               |
-| shop-api-ingress                          | shop-demo-api-apps.`<domain-name>`     | open-banking-app               |
 | consent-openbanking-consent-admin         | consent-admin.`<domain-name>`          | open-banking-consent           |
 | consent-openbanking-consent-page          | consent.`<domain-name>`                | open-banking-consent           |
 | consent-openbanking-consent-self-service  | consent-selfservice.`<domain-name>`    | open-banking-consent           |
-| consent-openbanking-financroo             | financroo.`<domain-name>`              | open-banking-consent           |
-| api-portal                                | developer-portal.`<domain-name>`       | open-banking-developer-portal  |
 | jwe-generator                             | jwe.`<domain-name>`                    | open-banking-jwe               |
 
 These certificates are set at the deployment on each Ingress. See the following options to use your own certificates.
@@ -41,7 +32,7 @@ These certificates are set at the deployment on each Ingress. See the following 
 You can configure [cert-manager](https://cert-manager.io/) at the ingress controller level. This tool is recommended to manage all certificates of your cluster from the same component.
 You can configure your issuers, assignment rules, and so on. Refer to <https://cert-manager.io/docs> for more details.
 
-See this tutorial on how to configure cert-manager a Kubertnetes cluster using Let's Encrypt: <https://cert-manager.io/docs/tutorials/acme/ingress/>.
+See this tutorial on how to configure cert-manager a Kubertnetes cluster using Let's Encrypt: <https://cert-manager.io/docs/tutorials/acme/nginx-ingress/>.
 
 ### Use a wildcard certificate
 

@@ -11,11 +11,11 @@ participant "API\nGateway" as API_GATEWAY
 end box
 
 box Identity and Access Control #94c47d
-participant "Identity Management\n---\nAuthorisation Server" as IAM
+participant "Identity Management\n---\nAuthorization Server" as IAM
 participant "Consent\nManagement" as CONSENT
 end box
 
-box Open Banking APIs #e06666
+box Open Banking APIs #fc877e
 participant "Backend\nIntegration\nApplication" as BIA
 end box
 
@@ -32,7 +32,7 @@ end box
 participant "Certificate\nAuthority\n---\nOCSP Endpoint" as OCSP
 
 hide footbox
-skinparam defaultFontName Roboto
+'skinparam defaultFontName Roboto
 skinparam BoxPadding 10
 
 note right of PSU
@@ -65,7 +65,7 @@ PSU -> DR: Confirm bank selection
 == Part 2: DR Creates and Lodges "Intent" ==
 
 note right of DR
-With the consent of the Consumer obtained the DR can now call the Consent API at the correct bank. Note at this point Consent is usual termed "Intent" as it has
+With the consent of the Consumer obtained the DR can now call the Consent API at the correct bank. Note at this point Consent is usually termed "Intent" as it has
 yet to confirmed at the bank.
 end note
 
@@ -88,14 +88,14 @@ DR -> OBD_PARTICIPANTS: Get List of Participants
 DR <-- OBD_PARTICIPANTS: Response
 
 note right of DR
-The discovery endpoint value is stored in the ""OpenIDDiscoveryDocument"" property of the banks
-entry in the list
+The discovery endpoint value is stored in the ""OpenIDDiscoveryDocument"" property 
+of the bank's entry in the list
 end note
 
 DR -> DR: Get Discovery endpoint for target bank
 
 note right of DR
-The OpenID Configuration is hosted at Authorization Server. This is an open URL
+The OpenID Configuration is hosted on Authorization Server. This is an open URL
 that does not require authentication.
 end note
 
@@ -205,7 +205,7 @@ FAPI mandates the use of the [[https://openid.net/specs/openid-financial-api-par
 of OpenID Connect Core. This is a JSON Web Signature that contains parameters
 normally found in the URL (redirect_uri, state, scope, etc)
 |||
-However, FAPI has been extended by the [[https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID2.html API Security Profile for Brazil]] where 2
+However, FAPI has been extended by the [[https://openfinancebrasil.atlassian.net/wiki/spaces/OF/pages/17378280/Perfil+de+Seguran+a+do+Open+Finance+Brasil API Security Profile for Brazil]] where 2
 alternatives are added to the Authorization Server (AS) in terms of Request parameter
 support:
 |||

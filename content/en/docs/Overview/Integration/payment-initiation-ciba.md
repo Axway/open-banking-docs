@@ -1,5 +1,5 @@
 ---
-title: "Payment initiation using Client-Initiated Backchannel Authentication (CIBA)"
+title: "Payment Initiation using Client-Initiated Backchannel Authentication (CIBA)"
 linkTitle: "Payment Initiation using CIBA"
 weight: 10
 date: 2021-06-28

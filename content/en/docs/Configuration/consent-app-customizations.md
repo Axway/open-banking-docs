@@ -1,10 +1,10 @@
 ---
-title: "Customization"
-linkTitle: "Customization"
+title: "Consent Apps Customization"
+linkTitle: "Consent Apps Customization"
 weight: 10
 date: 2021-09-02
 ---
-This section includes details to customize the Amplify Open Banking solution.
+This section includes details to customize the Amplify Open Banking Consent Apps.
 
 ## Consent page
 
@@ -122,6 +122,6 @@ All accounts owned by the user from the bank need to be shown at the Payment Acc
 
 ### Account balance
 
-If accessible, it is considered a best practice to inform the account balance under the payment amount in the `obbr-payment-consent-2.tmpl` file.
+If accessible, it is considered a best practice to present the account balance under the payment amount in the `obbr-payment-consent-2.tmpl` file.
 
 ![payment-amount](/Images/consent-page-payment-amount.png)

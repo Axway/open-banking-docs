@@ -1,10 +1,20 @@
 ---
-title: "Open Finance Brazil"
-linkTitle: "Open Finance Brazil"
+title: "Open Finance Brazil End to End Journey"
+linkTitle: "Open Finance Brazil End to End Journey"
 weight: 7
 date: 2023-03-15
 ---
 
-The section below expand on this through detailed sequence-based views. 
+This end-to-end flow provides a means to show how individual components are used in Amplify Open Banking.
 
-Note this sequence diagram **focus largely on the happy path** and do not show specific error flows for the sake of brevity.
+The flow is summarized as follows:
+
+* The Data Recipient (DR) obtains Consent from the Customer to access their data or make payments on their behalf at a given bank.
+* The DR creates ("lodges") Consent at the target bank and redirects the Customer to the bank.
+* The Customer authenticates themselves using their online banking credentials and confirms the Consent is correct.
+* With Consent confirmed the Customer is redirected back to the DR who then gets an Access Token.
+* The DR can then retrieve data or initiate payment on behalf of the Customer.
+
+All APIs that provide access to data are implemented in the same manner. The consent/data access pattern relating to Account Information is therefore representative regardless of the specific resource (checking accounts, credit cards, loans, and so on).
+
+![End-to-end web journey sequence](/Images/Generic_Web_Journey_Sequence.svg)

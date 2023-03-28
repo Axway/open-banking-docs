@@ -192,26 +192,6 @@ There are some specific information related to Open Banking Brazil for each inst
 | bank.jwtsign.key | Private key of the bank used to sign the JWT. | None |
 | bank.jwtkid | Bank certificate identification (JWKID). | None |
 
-### Configure Amplify Agents
-
-The following values must be set to report APIs and their usage on the **Amplify platform**.
-
-```yaml
-amplifyAgents:
-   enabled: true
-   centralOrgID:  "ORGANIZATION_ID"
-   centralAuthClientID: "DOSA_xx_yy_zz"
-   centralEnvName:  "ENVIRONMENT_NAME"
-   centralTeam: "Default Team"   
-   centralUrl: "https://apicentral.axway.com"  
-   centralPublicKey:  <Public key for the service account on Central>
-   centralPrivateKey: <Private key for the service account on Central>
-```
-
-{{% alert title="Note" color="primary" %}}Private Key and Public Key must be encoded in base64. {{% /alert %}}
-
-Refer to [Amplify Agents](/docs/configuration/amplify-agents) to connect the Amplify agent to the **Amplify platform**.
-
 ## Install the APIM Helm chart
 
 1. Create the target namespace on the cluster:

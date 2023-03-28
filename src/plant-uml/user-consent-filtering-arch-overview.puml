@@ -4,7 +4,7 @@ title \n\n
 
 participant "Data\nRecipient" as DR
 
-box Open Banking APIs #e06666 
+box Open Banking APIs #fc877e
 participant "API\nGateway" as API_GATEWAY
 participant "Backend\nIntegration\nApplication" as BIA
 end box
@@ -28,7 +28,7 @@ Filtering responses for account/permissions at the Gateway
 is pragmatic in many use cases but is ultimately not scaleable
 due to load and determinism for features such as pagination.
 It should therefore be implemented as close to the system of record
-as possible i.e. Core Banking Applications. The order of prefer in
+as possible i.e. Core Banking Applications. The order of preference in
 terms of solutions is:
 |||
 1. Filter at the Core Banking Application.
@@ -87,8 +87,8 @@ The assumption here is that the API Gateway will
 connect to the Core Banking Applications 
 directly.
 |||
-Note this approach works fine where low-volumes
-are expected. However in scenarios where a high-volume
+Note this approach works fine where low volumes of transactions
+are expected. However in scenarios where a high volume
 is expected it may not be hugely efficient i.e. lots
 more data is returned to the gateway, then filtered.
 Unless the API Gateway has some means for managing state

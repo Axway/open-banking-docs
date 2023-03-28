@@ -31,22 +31,16 @@ These tasks must be completed for a successful installation.
 
 The solutions use the following database components:
 
-* MySQL or MariaDB for API Management (APIM) gateway analytics (Optional).
 * Cassandra for API Manager catalog.
 
 The minimum recommended hardware infrastructure for these components are:
-
-* MySQL Database: 1 node or cluster (if HA is required):
-    * 2 CPUs.
-    * 4 GB of memory.
-    * 60 GB of disk.
 
 * Cassandra Database: 1 cluster with 3 nodes, each with the following configuration:
     * 2 CPUs.
     * 8 GB of memory.
     * 60 GB of disk.
 
-    For more infomration, refer to [cassandra installation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigtw_install/cassandra_install/index.html).
+    For more information, refer to [cassandra installation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigtw_install/cassandra_install/index.html).
 
 ## Kubernetes setup requirements
 
@@ -143,6 +137,8 @@ It is also highly recommended to use [External-DNS](https://github.com/bitnami/c
 
 In case `external-dns` is not available in the cluster, you must manually configure the ingress host in your DNS zone. Also remove the cert-manager annotation in all ingress hosts.
 
+<!--
 Axway uses the Externally Managed Topology (EMT) approach for scaling so instances can be managed by Kubernetes.
 
 Read [our guide](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/container_getstarted/index.html) on using EMT for further details.
+-->

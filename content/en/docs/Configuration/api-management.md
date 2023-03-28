@@ -25,7 +25,7 @@ This configuration can be read at the beginning of any policy using a common pol
 | e_method | java.lang.String | API Method. |
 | f_extension_1 | java.lang.String | For future use |
 | g_extension_2 | java.lang.String | For future use. |
-| k_values | java.util.Map`<java.lang.String,java.lang.String>` | Key Value Pairs, helps in extending configuration whenever we want without deployment. New key value pairs can be added easily.|
+| k_values | java.util.Map`<java.lang.String,java.lang.String>` | Key Value Pairs help in extending configuration whenever we want without deployment. New key value pairs can be added easily.|
 
 In FDX deployment, by default, there is at least one row for each API and a row with generic information which is applicable to all APIs.
 
@@ -41,9 +41,24 @@ Click on configuration and the line to be checked or updated.
 
 ![kps-values](/Images/api-gateway-manager-kps-values.png)
 
-Several values should correspond to the settings of CLOUDENTITY ACP or its consent module. See the mapping table to check that the KPS values are correct.
+Several values should correspond to the settings of Cloudentity ACP or its consent module. See the below mapping table to check that the KPS values are correct.
 
-| KPS Values | How to retrieve check this values in cloudentity ACP UI |
+#### Mapping table for FDX
+
+| KPS Values | How to retrieve or check this values in ACP UI |
+| --- | --- |
+| oauth_ce_host | hostname of acp server |
+| oauth_ce_port | port of acp server |
+| oauth_ce_tenantid | tenant id in ACP server |
+| oauth_ce_id | workspace id in ACP where client applications are created and consents are stored |
+| oauth_introspect_client_id | client id of app named "bank" in FDX workspace |
+| oauth_ce_idp_clientId | client id of the custom IdP configured in FDX workspace |
+| oauth_ce_idp_clientSecret | client secret of the custom IdP configured in FDX workspace |
+| oauth_consent_user_clientSecret | client secret of the custom IdP configured in bank-customers workspace |
+
+#### Mapping table for Open Finance Brazil
+
+| KPS Values | How to retrieve or check this values in ACP UI |
 | --- | --- |
 | oauth_consent_clientId | Custom IDP Demo bank login ID: bank customer. |
 | oauth_consent_clientSecret | Custom IDP Demo bank login secret: bank customer. |
@@ -60,12 +75,18 @@ Several values should correspond to the settings of CLOUDENTITY ACP or its conse
 API Gateway is configured with several API policies that are used with Open Banking flows.
 You may want to customize some of these policies.
 
-You can check the following policy definitions by opening Policy Studio and navigating to Policy - #AMPLIFY-OB.
+You can check the following policy definitions by opening Policy Studio and navigating to Policies.
+
+For FDX deployment policy container name is - #AMPLIFY-OB-FDX.
+
+For Open Finance Brazil deployment policy container name is - #AMPLIFY-OB.
 
 ![apim-policy-studio-apis](/Images/apim-policy-studio-api-containers.png)
 
 If you decide to change one of them, you can use Policy Studio directly for the development environment only.
 For other environments, you need to export the Policy Studio projects and build new APIM Docker images to use instead of the standard ones.
+
+{{% alert title="Note" color="primary" %}} If you make changes to any of the policies in this container then those changes will be overridden by future upgrades {{% /alert %}}
 
 ### Certificates
 
@@ -101,19 +122,5 @@ Upon solution deployment, several Open Banking APIs are deployed and published i
 You can use the admin interface to update the APIs.
 
 ![open banking apis](/Images/api-manager-apis.png)
-
-These frontend API changes can be done directly on the published API.
-
-* API logo
-* API summary
-* API documentation
-
-You must unpublish the API before applying these frontend API changes.
-
-* API name
-* API tags
-* API inbound configuration
-* API outbound configuration
-* API security configuration
 
 Refer to the details in the [Axway API Manager documentation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web/index.html) to manage API details.

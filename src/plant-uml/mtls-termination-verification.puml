@@ -9,7 +9,7 @@ participant "Ingress\nController" as INGRESS
 participant "API\nGateway" as API_GATEWAY
 end box
 
-box Open Banking APIs #e06666 
+box Open Banking APIs #fc877e 
 'participant "API\nGateway" as API_GATEWAY
 participant "Backend\nIntegration\nApplication" as BIA
 end box
@@ -26,7 +26,7 @@ participant "Banking\nSystems" as ASPSP_API
 end box
 
 hide footbox
-skinparam defaultFontName Roboto
+'skinparam defaultFontName Roboto
 skinparam BoxPadding 10
 
 note right of DR

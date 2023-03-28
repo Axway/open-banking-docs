@@ -14,7 +14,9 @@ helm pull open-banking/open-banking-acp --untar
 helm pull open-banking/open-banking-consent --untar
 ```
 
-You should get an `open-banking-acp` and `open-banking-consent` local folders.
+You should get `open-banking-acp` and `open-banking-consent` local folders.
+
+{{% alert title="Note" color="primary" %}} open-banking-consent helmchart help you deploy sample Consent applications. These apps are not developed for production usage. For more information please see [Component View](/docs/overview/technical/component).{{% /alert %}}
 
 ## Customize the ACP Helm chart
 
@@ -43,7 +45,7 @@ Modify the `open-banking-acp/values.yaml` file from the Axway package.
 | acp.config.data.storage.audit_events.retention.max_age | Remove audit events older than max age limit | 6h0m0s |
 | acp.config.data.server.obbr_base_paths | Open banking Brasil API base path whitelist. | None |
 | acp.ingress.hosts.host | ACP server URL | None |
-| acp.ingress.customAnnotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | Secret to keep the ssl cert. It should be NAMESPACE]/acp-tls | open-banking-acp/acp-tls |
+| acp.ingress.customAnnotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | Secret to keep the ssl cert. It should be [NAMESPACE]/acp-tls | open-banking-acp/acp-tls |
 | acp.features.swagger_ui | Enable swagger UI. | true |
 
 Remove the following lines if cert-manager is not used for ingress:
@@ -247,7 +249,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
    kubectl get ingress -n open-banking-consent 
    ```
 
-4. Verify that these ingress is provisioned. They must have a public ip or a dns value in the ADDRESS column.
+4. Verify that these ingresses are provisioned. They must have a public ip or a dns value in the ADDRESS column.
 
    ```
        NAME                                     HOSTS                            ADDRESS                       PORTS     AGE
@@ -259,7 +261,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 
 ## Post Deployment
 
-* Update the APIM KPS deployment values using the instructions in [APIM Management Installation - Post Deployment](/docs/deployment/installation/apim#update-kps-configuration) file to reflect all oauth*clientId and oauth*clientSecret values as deployed in ACP.
+* Update the APIM KPS deployment values using the instructions in [APIM Management Installation - Post Deployment](/docs/deployment/installation/api-management/obb-apim/#update-kps-configuration) file to reflect all oauth*clientId and oauth*clientSecret values as deployed in ACP.
 
 * Navigate to Openbanking workspace, Settings - Authorization - Trusted client certificates, and update the Trusted client certificates content with the `open-banking-consent/files/cert.pem` file attached.
 

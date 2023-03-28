@@ -15,7 +15,7 @@ participant "Identity Management\n---\nAuthorisation Server" as IAM
 participant "Consent\nManagement" as CONSENT
 end box
 
-box Open Banking APIs #e06666
+box Open Banking APIs #fc877e
 participant "Bacend\nIntegration\nApplication" as BIA
 end box
 

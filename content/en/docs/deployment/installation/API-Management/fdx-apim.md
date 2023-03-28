@@ -20,12 +20,12 @@ The following parameters are required for any deployment.
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
 | global.denyDemoLogin | Disables the demo login idp. It should be disabled on the customer environment. | false |
-| global.awsVolumeHandle | Value available only for AWS | |
+| global.awsVolumeHandle | Value available only for AWS | None |
 | anm.admin.username | API Gateway admin username | admin |
-| anm.admin.password | API Gateway admin password | |
+| anm.admin.password | API Gateway admin password | None |
 | apimgr.admin.username | API Manager admin username | apiadmin |
-| apimgr.admin.initPassword | API Manager initial admin password | |
-| apimgr.admin.password | API Manager admin password | |
+| apimgr.admin.initPassword | API Manager initial admin password | None |
+| apimgr.admin.password | API Manager admin password | None |
 
 With these base parameters set, you can install the Helm chart. See [Install the APIM Helm chart](#install-the-apim-helm-chart).
 
@@ -320,7 +320,7 @@ You need to import some configurations in the Key Properties Store (KPS). They a
 
 2. You can use the below sample script to import data in KPS.
 
-   ```bash
+   ```shell
    #!/bin/bash
 
    function usage {

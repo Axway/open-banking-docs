@@ -10,10 +10,10 @@ Install Backend Services for the Amplify Open Banking solution.
 Download the Amplify Open Banking Backend Services Helm chart to customize it locally.
 
 ```bash
-helm pull axway/open-banking-fdx-backend-chart --untar
+helm pull axway/open-banking-fdx-backend --untar
 ```
 
-You should get an `open-banking-fdx-backend-chart` local folder.
+You should get an `open-banking-fdx-backend` local folder.
 
 ### Customize the Backend Services Helm chart
 
@@ -29,6 +29,7 @@ Customize the `values.yaml` file as follows.
 | mysqldb.dbuser | Mock backend database username. |  _mockbank_ |
 | secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password. | None|
 | secrets.MYSQL_USER_PASSWORD | Mock backend database user password. | None |
+| *apiname*.enable | To disable the API deployment set it to false | true |
 
 ### Install the Backend Services Helm chart
 
@@ -41,7 +42,7 @@ Customize the `values.yaml` file as follows.
 2. Install the Backend Services Helm chart:
 
    ```bash
-   helm install backend-services open-banking-fdx-backend-chart -n open-banking-backend
+   helm install backend-services open-banking-fdx-backend -n open-banking-backend
    ```
 
 3. Check that the status of the Helm command is deployed:
@@ -102,6 +103,7 @@ Customize the `values.yaml` file as follows.
 | mysqldb.dbuser | Mock backend database username. |  _mockbank_ |
 | secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password. | None|
 | secrets.MYSQL_USER_PASSWORD | Mock backend database user password. | None |
+| *apiname*.disable | To disable the API deployment set it to true | false |
 
 ### Install the Backend Services Helm chart
 
