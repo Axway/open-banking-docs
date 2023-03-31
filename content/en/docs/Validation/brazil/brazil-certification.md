@@ -19,3 +19,28 @@ Use one of the following ways to run the tests:
 Then, you should be able to create and run new test plans.
 
 ![Conformance Suite : Create Plan](/Images/conformance-suite/create-plan-ob.png)
+
+Create a new test plan:
+
+* To create a new test plan for the open data API, registration/transactional data and services, among other necessary OBB validations;
+* To configure the new test plan, the information will be found in the ACP - (Authorization Control Plane Admin Portal), in Workspace: Openbanking Brasil - Applications.
+
+View all available test logs:
+
+* All past testicle logs remain available for consultation.
+
+View Published Test Logs:
+
+* All public testicle logs remain available for viewing.
+
+View all available test plans:
+
+* All past test plans remain available for consultation, making it possible to visually check the validated or not validated scenarios.
+
+View published test plans:
+
+* All public test plans are available for further reference.
+
+View API documentation
+
+* Documents about the compliance engine

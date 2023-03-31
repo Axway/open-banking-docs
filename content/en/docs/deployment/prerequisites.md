@@ -48,10 +48,6 @@ A Kubernetes 1.16+ cluster is required to deploy the Amplify Open Banking Soluti
 
 ### Resources
 
-Each node in the Kubernetes environment requires:
-
-* 23 virtual CPUs
-* 70 Gb RAM
 
 Axway also recommends using Node Groups. Node Groups allow operators to group resources by node type based on characteristics such as machine resources, capabilities, or the virtual machine type. Taking this approach can reduce costs, increase performance, and allow specific type of machines to be managed discretely.
 
@@ -83,12 +79,12 @@ An affinity node is used on each component to deploy them on the appropriate nod
 The typical infrastructure requirement for Kubernetes cluster are:
 
 * Non-Production environment:
-    * 23 vCPus.
-    * 70 GB of memory.
+    * 24 vCPus.
+    * 48 GB of memory.
     * 150 GB of disk.
 * Production environment:
-    * 48 vCPUs.
-    * 100 GB of memory.
+    * 38 vCPUs.
+    * 76 GB of memory.
     * 500 GB of disk.  
 
 {{% alert title="Note" color="primary" %}} The configuration of master nodes is out-of-scope on this page.{{% /alert %}}

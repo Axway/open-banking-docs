@@ -5,7 +5,7 @@ weight: 1
 date: 2021-09-02
 ---
 
-The Amplify Open Banking solution includes Postman collections for Open Banking APIs. The Postman collections are available for download through the Developer Portal.
+The Amplify Open Banking solution includes Postman collections for Open Banking APIs.The Postman collections are available to download through the Marketplace.
 
 Each collection includes a script that simulates a sequence of API calls to verify Open Banking API specification compliance. For example, the Accounts or Payments collections includes the sequence of user authentication, user consent, and calls to methods of Accounts API or the Payments API. Successful execution of the Postman collection validates the installation of the solution and Open Banking API specification compliance. Postman collections help Third-Party Providers (TPP) to learn how to use the APIs.
 
@@ -13,9 +13,10 @@ Each collection includes a script that simulates a sequence of API calls to veri
 
 Retrieve the postman files.
 
-1. Go to the API Portal and click **Explore APIs** to access the API Catalog.
-2. Browse to the API you would like to test, and then click **Learn More**.
-3. Click the **Postman Collection** and **Postman Environment** links to download the Collection and Environment files.
+1. Go to the Marketplace and click Products to access the API Product.
+2. Browse to the API Product you would like to test and go to Documentation tab. Alternatively you can click on How To Consume APIs section from the Overview tab.
+3. Click the Postman Collection and Postman Environment links to download the Collection and Environment files.
+"Note" Postman collections also have their own documentation and you can follow these instructions within postman after importing the collection.
 
 ## Import the collection files into Postman
 
@@ -68,22 +69,6 @@ This section includes examples for testing the Accounts and Payment APIs.
 ### Accounts API
 
 Use Postman to test the Accounts API.
-
-#### Download the Postman files for the Accounts API
-
-Download the Postman files.
-
-1. Connect to the Developer Portal and find the _Accounts_ API in the API Catalog.
-![accounts-api-catalog](/Images/accounts-api-catalog.png)
-
-2. Click the API to see details. In the Overview section, download the Postman collection and environment files from **Download Postman files**.
-![accounts-api-postman-file-download](/Images/accounts-api-postman-file-download.png)
-The environment file is the same for all APIs.
-
-3. Open Postman and import the Postman files:
-   * The collection file if the environment file is imported from another API.
-   * Both the collection and the environment files if the environment file is not yet imported from another API.
-![accounts-api-postman-file-import](/Images/accounts-api-postman-file-import.png)
 
 #### Start the steps in Postman to test the Accounts API
 
@@ -166,22 +151,6 @@ Finish testing the Accounts API in Postman.
 ### Payment API
 
 Use Postman to test the Payment API.
-
-#### Download the Postman files for the Payment API
-
-Download the Postman files.
-
-1. Connect to the Develop Portal and find _Payment_ API in the API Catalog.
-![payment-api-catalog](/Images/payment-api-catalog.png)
-
-2. Click on the API to see details. Download the Postman collection and environment files from here.
-![payment-api-postman-file-download](/Images/payment-api-postman-file-download.png)
-{{% alert title="Note" color="primary" %}} The environment file is the same for all APIs from this Developer Portal.{{% /alert %}}
-
-3. Open Postman and import the Postman files:
-   * The collection file if the environment file is imported from another API.
-   * Both the collection and the environment file if the environment file is imported from another API.
-![payment-api-postman-file-import](/Images/payment-api-postman-file-import.png)
 
 #### Start the steps in Postman to test the Payment API
 
