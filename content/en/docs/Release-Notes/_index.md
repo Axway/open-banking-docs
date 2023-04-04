@@ -9,7 +9,7 @@ Amplify Open Banking updates are cumulative, comprising new features and changes
 ## Release v3.1.0
 Release notes for Amplify Open Banking v3.1.0. In this update, we have added support for Financial Data Exchange (FDX) APIs. These new APIs will allow customers in North America to deploy the Amplify Open Banking solution.
 
-We have also updated underlying API Gateway solution to the latest version.
+Axway API Gateway is upgraded to the  "Nov 2022 release(7.7-20221130)"  in the FDX deployment.
 
 In addition, we have made a significant update and restructuring of our documentation to reflect these changes.
 
@@ -44,4 +44,4 @@ The following are known issues for this update.
 
 #### External clients are not created in API Manager applications
 
-During installation of `open-banking-fdx-apim-config` helm chart, some applciaitons are created but in these applications external client is not configured. We are working on the fix of this functionality, to be released in a future update of Amplify Open Banking. As a workaround you need to log in to API Manager and add the external client configuration in existing applications.
+External Client is not configured in the applications created during the installation of `open-banking-fdx-apim-config` helm chart. Use API Manager to add the external client configuration in existing applications.
