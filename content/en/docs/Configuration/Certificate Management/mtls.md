@@ -11,8 +11,8 @@ How to change and test the certificate configurations required for Mutual Authen
 
 Mutual authentication is required for most APIs developed for Open Banking.
 
-According to the Open Banking Specification, Mutual Transport Layer Security (MTLS) based client connection is required for the Cloud Entity and API Gateway Listener components. See the diagram for details on MTLS setup.
-![MTLS diagram](/Images/mtls.png)
+According to the Open Banking Specification, Mutual Transport Layer Security (MTLS) client connections are required for the Cloud Entity and API Gateway Listener components. See the diagram for details on MTLS setup.
+![MTLS diagram](/Images/MTLS.svg)
 
 See more about the Certificate Verification with MTLS in Open Banking context in [Mutual Authentication and Certificate Verification](/docs/overview/integration/mutual-auth).
 
@@ -34,8 +34,6 @@ Refer to the required features of the ingress controller in [Deployment - Prereq
 
 Cloud Entity supports the MTLS and the root CA must be added in the component.
 
-{{% alert title="Note" color="primary" %}} The target architecture is that API-Gateway must route the request to ACP. So ACP will not be accessible directly.{{% /alert %}}
-
 ## Setup the solution for MTLS with test certificates
 
 This section includes the prerequisites and tasks to setup the solution for MTLS.
@@ -55,7 +53,9 @@ First, some certificates must exist to generates multiples
 openssl genrsa -out ca1.key 2048openssl req -new -x509 -days 3650 -key ca1.key -subj "/C=BR/ST=São Paulo/L=São Paulo/O=Axway/CN=Axway Root CA" -out ca1.crtopenssl genrsa -out ca2.key 2048openssl req -new -x509 -days 3650 -key ca2.key -subj "/C=BR/ST=São Paulo/L=São Paulo/O=Axway/CN=Axway Root CA" -out ca2.crt
 ```
 
-### Create certificates for the Third Party Provider (TPP) App (Client Certificates for each TPP)
+### Create Client Certificates
+
+The Data Recipient or Third-Party Provider (TPP) Applications need the client certificate for MTLS. In this section there are sample instructions to generate certificates for testing purposes.
 
 Each certificate must have one key that is signed with a previously created root certificate authority. These configuration files below are provided as examples.
 

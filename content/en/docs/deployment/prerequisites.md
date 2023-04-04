@@ -15,15 +15,15 @@ Prior to installation you need to perform the following tasks:
 * Read and understand the Architecture Overview guide.
 * Make choices that are described in the Architecture Overview guide including:
     * Choose a Kubernetes provider (cloud, on-premise, and so on).
-    * Components that will be supported (Demo Applications, mock backend services, and so on).
+    * Components that will be supported (consent applications, mock backend services, and so on).
     * Approach to database deployment (inside Kubernetes versus externalized services).
     * Components that reflect deployment model choice (certificate manager, load balancer/Ingress Controller, and so on).
 * Install the following command line tools:
     * Helm
     * Kubectl
-* Obtain a token from an Axway team to pull Helm charts and Docker images from with the Axway Registry.
+* Create a [service account](https://docs.axway.com/bundle/platform-management/page/docs/management_guide/organizations/managing_organizations/managing_service_accounts/index.html) in your organization in Amplify Platform to pull Helm charts and Docker images from the [Axway Repository](https://repository.axway.com/).
 * Deploy the external MySQL and Cassandra databases infrastructure.
-* Create a Kubernetes cluster that conforms to that described in the Architecture Overview guide and reflects the architecture choices described above.
+* Create a Kubernetes cluster that conforms to the architecture described in the Architecture Overview guide and reflects the architecture choices described above.
 
 These tasks must be completed for a successful installation.
 
@@ -31,20 +31,16 @@ These tasks must be completed for a successful installation.
 
 The solutions use the following database components:
 
-* MySQL or MariaDB for API Management (APIM) gateway analytics and API Portal components.
 * Cassandra for API Manager catalog.
 
 The minimum recommended hardware infrastructure for these components are:
-
-* MySQL Database: 1 node or cluster (if HA is required):
-    * 2 CPUs.
-    * 4 GB of memory.
-    * 60 GB of disk.
 
 * Cassandra Database: 1 cluster with 3 nodes, each with the following configuration:
     * 2 CPUs.
     * 8 GB of memory.
     * 60 GB of disk.
+
+    For more information, refer to [cassandra installation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigtw_install/cassandra_install/index.html).
 
 ## Kubernetes setup requirements
 
@@ -52,10 +48,6 @@ A Kubernetes 1.16+ cluster is required to deploy the Amplify Open Banking Soluti
 
 ### Resources
 
-Each node in the Kubernetes environment requires:
-
-* 23 virtual CPUs
-* 70 Gb RAM
 
 Axway also recommends using Node Groups. Node Groups allow operators to group resources by node type based on characteristics such as machine resources, capabilities, or the virtual machine type. Taking this approach can reduce costs, increase performance, and allow specific type of machines to be managed discretely.
 
@@ -68,19 +60,14 @@ The Kubernetes configuration must include three Node Groups:
 
 | Application   | Component                             | Replicas  |
 |:------------- |:------------------------------------- |:--------- |
-| API Management  | API Portal | 1 |
 | API Management  | API Gateway Manager | 1 |
 | API Management  | APIManager | 1 |
-| API Management  | Filebeat  | 1 |
 | API Management  | APIGateway Traffic | 3-6 |
+| Amplify Agents  | Discovery Agent  | 1 |
+| Amplify Agents  | Traceability Agent  | 1 |
 | Identity  | ACP | 1-3 |
 | Identity  | CockroachDB | 1-3 |
 | Identity  | Redis | 1-3 |
-| Analytics  | Elasticsearch | 3 |
-| Analytics  | Kibana | 1 |
-| Analytics  | Webserver | 1 |
-| Analytics  | Logstash | 1 |
-| Analytics  | metrics-api | 1 |
 
 {{% alert title="Note" color="primary" %}} The consent and backend components are not considered here, because they usually are replaced by customer's custom components.{{% /alert %}}
 
@@ -92,12 +79,12 @@ An affinity node is used on each component to deploy them on the appropriate nod
 The typical infrastructure requirement for Kubernetes cluster are:
 
 * Non-Production environment:
-    * 23 vCPus.
-    * 70 GB of memory.
+    * 24 vCPus.
+    * 48 GB of memory.
     * 150 GB of disk.
 * Production environment:
-    * 48 vCPUs.
-    * 100 GB of memory.
+    * 38 vCPUs.
+    * 76 GB of memory.
     * 500 GB of disk.  
 
 {{% alert title="Note" color="primary" %}} The configuration of master nodes is out-of-scope on this page.{{% /alert %}}
@@ -146,6 +133,8 @@ It is also highly recommended to use [External-DNS](https://github.com/bitnami/c
 
 In case `external-dns` is not available in the cluster, you must manually configure the ingress host in your DNS zone. Also remove the cert-manager annotation in all ingress hosts.
 
+<!--
 Axway uses the Externally Managed Topology (EMT) approach for scaling so instances can be managed by Kubernetes.
 
 Read [our guide](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/container_getstarted/index.html) on using EMT for further details.
+-->

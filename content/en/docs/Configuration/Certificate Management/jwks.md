@@ -5,10 +5,12 @@ weight: 3
 date: 2021-10-13
 ---
 
-Some Open Banking flows are using JSON Web Tokens (JWT) for security purpose, for example the payment API.
+Some Open Banking flows are using JSON Web Tokens (JWT) for security purposes, for example the Open Finance Brazil Payment API.
 To sign or to verify these tokens, the Open Banking solution needs keys that are stored in a JSON Web Key Set (JWKS).
 
 Each instance of the Amplify Open Banking solution has different keys that correspond to the bank and environment in use.
+
+{{% alert title="Note" color="primary" %}} The following steps are necessary only for Open Finance Brazil deployments.{{% /alert %}}
 
 ## ASPSP signing certificate
 

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="2157px" preserveAspectRatio="none" style="width:1590px;height:2157px;background:#FFFFFF;" version="1.1" viewBox="0 0 1590 2157" width="1590px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="75.1875" id="_title" style="stroke:none;stroke-width:1.0;" width="15" x="783.75" y="10"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="5" x="788.75" y="27.9951"> </text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="5" x="788.75" y="44.292"> </text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="5" x="788.75" y="60.5889"> </text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="5" x="788.75" y="76.8857"> </text><rect fill="#6FA8DC" height="2052.6484" style="stroke:#181818;stroke-width:0.5;" width="172" x="348" y="92.1875"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="101" x="381" y="104.2544">Infrastructure</text><rect fill="#94C47D" height="2052.6484" style="stroke:#181818;stroke-width:0.5;" width="369" x="691" y="92.1875"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="203" x="771.5" y="104.2544">Identity and Access Control</text><rect fill="#FC877E" height="2052.6484" style="stroke:#181818;stroke-width:0.5;" width="152" x="1102" y="92.1875"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="141" x="1105" y="104.2544">Open Banking APIs</text><rect fill="#D5A6BD" height="2052.6484" style="stroke:#181818;stroke-width:0.5;" width="206" x="1356.5" y="92.1875"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="195" x="1359.5" y="104.2544">Core Banking Applications</text><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="39" x2="39" y1="175.2109" y2="2150.8359"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="240" x2="240" y1="175.2109" y2="2150.8359"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="392" x2="392" y1="175.2109" y2="2150.8359"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="479" x2="479" y1="175.2109" y2="2150.8359"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="774" x2="774" y1="175.2109" y2="2150.8359"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1003" x2="1003" y1="175.2109" y2="2150.8359"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1177.5" x2="1177.5" y1="175.2109" y2="2150.8359"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1418" x2="1418" y1="175.2109" y2="2150.8359"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1499" x2="1499" y1="175.2109" y2="2150.8359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63" x="5" y="171.9092">End User</text><ellipse cx="39.5" cy="107.4141" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M39.5,115.4141 L39.5,142.4141 M26.5,123.4141 L52.5,123.4141 M39.5,142.4141 L26.5,157.4141 M39.5,142.4141 L52.5,157.4141 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><rect fill="#E2E2F0" height="46.5938" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="79" x="201" y="127.6172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="224.5" y="147.6123">Data</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="208" y="163.9092">Recipient</text><rect fill="#E2E2F0" height="46.5938" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="81" x="352" y="127.6172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="367" y="147.6123">Ingress</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67" x="359" y="163.9092">Controller</text><rect fill="#E2E2F0" height="46.5938" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="73" x="443" y="127.6172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="21" x="469" y="147.6123">API</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="450" y="163.9092">Gateway</text><rect fill="#E2E2F0" height="62.8906" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="159" x="695" y="111.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145" x="702" y="131.3154">Identity Management</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="15" x="767" y="147.6123">---</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="705" y="163.9092">Authorisation Server</text><rect fill="#E2E2F0" height="46.5938" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="105" x="951" y="127.6172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="974" y="147.6123">Consent</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="958" y="163.9092">Management</text><rect fill="#E2E2F0" height="62.8906" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="89" x="1133.5" y="111.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="1147.5" y="131.3154">Backend</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="1141" y="147.6123">Integration</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="1140.5" y="163.9092">Application</text><rect fill="#E2E2F0" height="62.8906" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="70" x="1383" y="111.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="1390" y="131.3154">Banking</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="1393" y="147.6123">Identity</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="1390" y="163.9092">Provider</text><rect fill="#E2E2F0" height="46.5938" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="73" x="1463" y="127.6172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="1471.5" y="147.6123">Banking</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="1470" y="163.9092">Systems</text><path d="M44,190.2109 L44,268.2109 L669,268.2109 L669,200.2109 L659,190.2109 L44,190.2109 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M659,190.2109 L659,200.2109 L669,200.2109 L659,190.2109 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="57" x="50" y="207.2778">Overview</text><line style="stroke:#181818;stroke-width:1.0;" x1="45" x2="668" y1="210.3438" y2="210.3438"/><line style="stroke:#181818;stroke-width:1.0;" x1="45" x2="668" y1="212.3438" y2="212.3438"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="589" x="50" y="226.4106">This diagram shows the end-to-end web journey for obtaining Consent and starting to collect</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="604" x="50" y="241.5435">Account Information data. The goal is to place the components from the Architecture Overview</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="67" x="50" y="256.6763">in context.</text><rect fill="#EEEEEE" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="1583.5" x="0" y="294.3086"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="1583.5" y1="294.3086" y2="294.3086"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="1583.5" y1="297.3086" y2="297.3086"/><rect fill="#EEEEEE" height="23.1328" style="stroke:#000000;stroke-width:2.0;" width="293" x="645.25" y="283.7422"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="274" x="651.25" y="299.8091">Part 1: DR Obtains End User Consent</text><path d="M44,321.875 L44,395.875 L676,395.875 L676,331.875 L666,321.875 L44,321.875 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M666,321.875 L666,331.875 L676,331.875 L666,321.875 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="595" x="50" y="338.9419">Obtaining Consent from the End User is usually outside the scope of technical standards. The</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="611" x="50" y="354.0747">Customer Experience Guidelines in FDX informs how Consent should be displayed and obtained.</text><line style="stroke:#000000;stroke-width:0.5;" x1="50" x2="50" y1="359.1406" y2="359.1406"/><line style="stroke:#000000;stroke-width:0.5;" x1="50" x2="50" y1="359.1406" y2="359.1406"/><line style="stroke:#000000;stroke-width:0.5;" x1="50" x2="50" y1="359.1406" y2="359.1406"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="542" x="50" y="373.2075">The specifics of this process are therefore not shown here. The Data Recipient (DR) is</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="424" x="50" y="388.3403">assumed to have implemented this within the guidelines specified.</text><polygon fill="#181818" points="228.5,418.5391,238.5,422.5391,228.5,426.5391,232.5,422.5391" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="39.5" x2="234.5" y1="422.5391" y2="422.5391"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="171" x="46.5" y="417.4731">Indicate wish to share data</text><polygon fill="#181818" points="50.5,477.9375,40.5,481.9375,50.5,485.9375,46.5,481.9375" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="44.5" x2="239.5" y1="481.9375" y2="481.9375"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="97" x="56.5" y="446.606">Display "Intent"</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="153" x="56.5" y="461.7388">i.e. data to be accessed</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="152" x="56.5" y="476.8716">or payment to be made</text><polygon fill="#181818" points="228.5,507.0703,238.5,511.0703,228.5,515.0703,232.5,511.0703" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="39.5" x2="234.5" y1="511.0703" y2="511.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="91" x="46.5" y="506.0044">Confirm intent</text><polygon fill="#181818" points="50.5,536.2031,40.5,540.2031,50.5,544.2031,46.5,540.2031" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="44.5" x2="239.5" y1="540.2031" y2="540.2031"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="177" x="56.5" y="535.1372">Show bank selection screen</text><polygon fill="#181818" points="228.5,565.3359,238.5,569.3359,228.5,573.3359,232.5,569.3359" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="39.5" x2="234.5" y1="569.3359" y2="569.3359"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="146" x="46.5" y="564.27">Confirm bank selection</text><rect fill="#EEEEEE" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="1583.5" x="0" y="597.9023"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="1583.5" y1="597.9023" y2="597.9023"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="1583.5" y1="600.9023" y2="600.9023"/><rect fill="#EEEEEE" height="23.1328" style="stroke:#000000;stroke-width:2.0;" width="311" x="636.25" y="587.3359"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="292" x="642.25" y="603.4028">Part 2: DR Creates and Lodges "Intent"</text><path d="M245,625.4688 L245,680.4688 L717,680.4688 L717,635.4688 L707,625.4688 L245,625.4688 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M707,625.4688 L707,635.4688 L717,635.4688 L707,625.4688 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="423" x="251" y="642.5356">With the consent of the End User obtained the DR can now call the</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="400" x="251" y="657.6685">Authorization Server API at the correct bank. Note at this point</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="451" x="251" y="672.8013">Consent is usual termed "Intent" as it hasyet to confirmed at the bank.</text><line style="stroke:#181818;stroke-width:1.0;" x1="240.5" x2="282.5" y1="707" y2="707"/><line style="stroke:#181818;stroke-width:1.0;" x1="282.5" x2="282.5" y1="707" y2="720"/><line style="stroke:#181818;stroke-width:1.0;" x1="241.5" x2="282.5" y1="720" y2="720"/><polygon fill="#181818" points="251.5,716,241.5,720,251.5,724,247.5,720" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="247.5" y="701.9341">Create Intent payload</text><path d="M245,733 L245,1099 L685,1099 L685,743 L675,733 L245,733 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M675,733 L675,743 L685,743 L675,733 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="213" x="251" y="750.0669">Send Push Authorization Request</text><line style="stroke:#000000;stroke-width:0.5;" x1="251" x2="251" y1="755.1328" y2="755.1328"/><line style="stroke:#000000;stroke-width:0.5;" x1="251" x2="251" y1="755.1328" y2="755.1328"/><line style="stroke:#000000;stroke-width:0.5;" x1="251" x2="251" y1="755.1328" y2="755.1328"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="419" x="251" y="769.1997">The par request MUST contain an authorization details parameter</text><line style="stroke:#000000;stroke-width:0.5;" x1="251" x2="251" y1="774.2656" y2="774.2656"/><line style="stroke:#000000;stroke-width:0.5;" x1="251" x2="251" y1="774.2656" y2="774.2656"/><line style="stroke:#000000;stroke-width:0.5;" x1="251" x2="251" y1="774.2656" y2="774.2656"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="251" y="788.3325">{</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="156" x="259" y="803.4653">"authorization_details": [</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="267" y="818.5981">{</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="113" x="275" y="833.731">"type": "fdx_v1.0",</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="129" x="275" y="848.8638">"consentRequest": {</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="172" x="283" y="863.9966">"durationType": "ONETIME",</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="134" x="283" y="879.1294">"lookbackPeriod": 60,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="86" x="283" y="894.2622">"resources": [</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="291" y="909.395">{</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="182" x="299" y="924.5278">"resourceType": "ACCOUNT",</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="104" x="299" y="939.6606">"dataClusters": [</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="147" x="307" y="954.7935">"ACCOUNT_DETAILED",</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="114" x="307" y="969.9263">"TRANSACTIONS",</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="95" x="307" y="985.0591">"STATEMENTS"</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="299" y="1000.1919">]</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="291" y="1015.3247">}</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="283" y="1030.4575">]</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="275" y="1045.5903">}</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="267" y="1060.7231">}</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="259" y="1075.856">]</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="251" y="1090.9888">}</text><polygon fill="#181818" points="762.5,1121.1875,772.5,1125.1875,762.5,1129.1875,766.5,1125.1875" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="240.5" x2="768.5" y1="1125.1875" y2="1125.1875"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="505" x="247.5" y="1120.1216">POST /par "{"authorization_details":[{"type":"fdx_v1.0","consentRequest":"...."}]</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="752.5" y="1120.1216">"</text><polygon fill="#181818" points="251.5,1150.3203,241.5,1154.3203,251.5,1158.3203,247.5,1154.3203" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="245.5" x2="773.5" y1="1154.3203" y2="1154.3203"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="115" x="257.5" y="1149.2544">return request_uri</text><rect fill="#EEEEEE" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="1583.5" x="0" y="1182.8867"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="1583.5" y1="1182.8867" y2="1182.8867"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="1583.5" y1="1185.8867" y2="1185.8867"/><rect fill="#EEEEEE" height="23.1328" style="stroke:#000000;stroke-width:2.0;" width="421" x="581.25" y="1172.3203"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="402" x="587.25" y="1188.3872">Part 3: User authentication, consent and authorization</text><path d="M245,1210.4531 L245,1235.4531 L444,1235.4531 L444,1220.4531 L434,1210.4531 L245,1210.4531 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M434,1210.4531 L434,1220.4531 L444,1220.4531 L434,1210.4531 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="178" x="251" y="1227.52">Send Authorization Request</text><polygon fill="#181818" points="762.5,1257.7188,772.5,1261.7188,762.5,1265.7188,766.5,1261.7188" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="240.5" x2="768.5" y1="1261.7188" y2="1261.7188"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="187" x="247.5" y="1256.6528">GET /authorize&amp;request_uri=</text><polygon fill="#181818" points="1406,1286.8516,1416,1290.8516,1406,1294.8516,1410,1290.8516" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="774.5" x2="1412" y1="1290.8516" y2="1290.8516"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="99" x="781.5" y="1285.7856">REDIRECT /login</text><polygon fill="#181818" points="50.5,1315.9844,40.5,1319.9844,50.5,1323.9844,46.5,1319.9844" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="44.5" x2="1417" y1="1319.9844" y2="1319.9844"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="69" x="56.5" y="1314.9185">USER login</text><polygon fill="#181818" points="1406,1345.1172,1416,1349.1172,1406,1353.1172,1410,1349.1172" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="39.5" x2="1412" y1="1349.1172" y2="1349.1172"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="78" x="46.5" y="1344.0513">200 OK {...}</text><polygon fill="#181818" points="1014.5,1374.25,1004.5,1378.25,1014.5,1382.25,1010.5,1378.25" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="1008.5" x2="1417" y1="1378.25" y2="1378.25"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="313" x="1020.5" y="1373.1841">Serve Consent and Account Confirmation Screen</text><polygon fill="#181818" points="50.5,1403.3828,40.5,1407.3828,50.5,1411.3828,46.5,1407.3828" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="44.5" x2="1002.5" y1="1407.3828" y2="1407.3828"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="313" x="56.5" y="1402.3169">Serve Consent and Account Confirmation Screen</text><polygon fill="#181818" points="991.5,1432.5156,1001.5,1436.5156,991.5,1440.5156,995.5,1436.5156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="39.5" x2="997.5" y1="1436.5156" y2="1436.5156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="205" x="46.5" y="1431.4497">"Consent confirmation is correct</text><polygon fill="#181818" points="785.5,1461.6484,775.5,1465.6484,785.5,1469.6484,781.5,1465.6484" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="779.5" x2="1002.5" y1="1465.6484" y2="1465.6484"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="205" x="791.5" y="1460.5825">201 CREATED {"consentId":"..."}</text><polygon fill="#181818" points="251.5,1490.7813,241.5,1494.7813,251.5,1498.7813,247.5,1494.7813" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="245.5" x2="773.5" y1="1494.7813" y2="1494.7813"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="133" x="257.5" y="1489.7153">200 OK {"code":"..."}</text><path d="M245,1507.7813 L245,1532.7813 L700,1532.7813 L700,1517.7813 L690,1507.7813 L245,1507.7813 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M690,1507.7813 L690,1517.7813 L700,1517.7813 L690,1507.7813 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="434" x="251" y="1524.8481">The DR then obtains the Access Token using the Authorization Code</text><polygon fill="#181818" points="762.5,1555.0469,772.5,1559.0469,762.5,1563.0469,766.5,1559.0469" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="240.5" x2="768.5" y1="1559.0469" y2="1559.0469"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="78" x="247.5" y="1553.981">POST /token</text><line style="stroke:#181818;stroke-width:1.0;" x1="774.5" x2="816.5" y1="1588.1797" y2="1588.1797"/><line style="stroke:#181818;stroke-width:1.0;" x1="816.5" x2="816.5" y1="1588.1797" y2="1601.1797"/><line style="stroke:#181818;stroke-width:1.0;" x1="775.5" x2="816.5" y1="1601.1797" y2="1601.1797"/><polygon fill="#181818" points="785.5,1597.1797,775.5,1601.1797,785.5,1605.1797,781.5,1601.1797" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="76" x="781.5" y="1583.1138">Verify Client</text><polygon fill="#181818" points="251.5,1641.4453,241.5,1645.4453,251.5,1649.4453,247.5,1645.4453" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="245.5" x2="773.5" y1="1645.4453" y2="1645.4453"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="46" x="257.5" y="1625.2466">200 OK</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="143" x="257.5" y="1640.3794">{"access_token": "..."}</text><rect fill="#EEEEEE" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="1583.5" x="0" y="1674.0117"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="1583.5" y1="1674.0117" y2="1674.0117"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="1583.5" y1="1677.0117" y2="1677.0117"/><rect fill="#EEEEEE" height="23.1328" style="stroke:#000000;stroke-width:2.0;" width="175" x="704.25" y="1663.4453"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="156" x="710.25" y="1679.5122">Part 4: Request Data</text><path d="M245,1701.5781 L245,1764.5781 L689,1764.5781 L689,1711.5781 L679,1701.5781 L245,1701.5781 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M679,1701.5781 L679,1711.5781 L689,1711.5781 L679,1701.5781 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="149" x="251" y="1718.645">Account Information</text><line style="stroke:#181818;stroke-width:1.0;" x1="246" x2="688" y1="1721.7109" y2="1721.7109"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="423" x="251" y="1737.7778">DRs use a generic endpoint for Account Information that covers all</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="310" x="251" y="1752.9106">account types (checking, credit card, loans, etc).</text><polygon fill="#181818" points="467.5,1787.1094,477.5,1791.1094,467.5,1795.1094,471.5,1791.1094" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="240.5" x2="473.5" y1="1791.1094" y2="1791.1094"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="212" x="247.5" y="1786.0435">GET /fdx/{version}/core/accounts</text><path d="M484,1804.1094 L484,1829.1094 L660,1829.1094 L660,1814.1094 L650,1804.1094 L484,1804.1094 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M650,1804.1094 L650,1814.1094 L660,1814.1094 L650,1804.1094 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="155" x="490" y="1821.1763">Introspect Access Token</text><polygon fill="#181818" points="762.5,1851.375,772.5,1855.375,762.5,1859.375,766.5,1855.375" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="479.5" x2="768.5" y1="1855.375" y2="1855.375"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="166" x="486.5" y="1850.3091">POST /token-introspection</text><polygon fill="#181818" points="490.5,1895.6406,480.5,1899.6406,490.5,1903.6406,486.5,1899.6406" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="484.5" x2="773.5" y1="1899.6406" y2="1899.6406"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="46" x="496.5" y="1879.4419">200 OK</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="96" x="496.5" y="1894.5747">{"status": "..."}</text><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="479.5" x2="521.5" y1="1928.7734" y2="1928.7734"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="521.5" x2="521.5" y1="1928.7734" y2="1941.7734"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="480.5" x2="521.5" y1="1941.7734" y2="1941.7734"/><polygon fill="#181818" points="490.5,1937.7734,480.5,1941.7734,490.5,1945.7734,486.5,1941.7734" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="486.5" y="1923.7075">Verify Access Token scope</text><polygon fill="#181818" points="1166,1966.9063,1176,1970.9063,1166,1974.9063,1170,1970.9063" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="479.5" x2="1172" y1="1970.9063" y2="1970.9063"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="212" x="486.5" y="1965.8403">GET /fdx/{version}/core/accounts</text><polygon fill="#181818" points="1487.5,1996.0391,1497.5,2000.0391,1487.5,2004.0391,1491.5,2000.0391" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="1178" x2="1493.5" y1="2000.0391" y2="2000.0391"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="212" x="1185" y="1994.9731">GET /fdx/{version}/core/accounts</text><polygon fill="#181818" points="1189,2040.3047,1179,2044.3047,1189,2048.3047,1185,2044.3047" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="1183" x2="1498.5" y1="2044.3047" y2="2044.3047"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="46" x="1195" y="2024.106">200 OK</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="114" x="1195" y="2039.2388">{"accounts": "..."}</text><polygon fill="#181818" points="490.5,2084.5703,480.5,2088.5703,490.5,2092.5703,486.5,2088.5703" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="484.5" x2="1177" y1="2088.5703" y2="2088.5703"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="46" x="496.5" y="2068.3716">200 OK</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="114" x="496.5" y="2083.5044">{"accounts": "..."}</text><polygon fill="#181818" points="251.5,2128.8359,241.5,2132.8359,251.5,2136.8359,247.5,2132.8359" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="245.5" x2="478.5" y1="2132.8359" y2="2132.8359"/><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="46" x="257.5" y="2112.6372">200 OK</text><text fill="#000000" font-family="monospace" font-size="13" lengthAdjust="spacing" textLength="114" x="257.5" y="2127.77">{"accounts": "..."}</text><!--MD5=[00c3c860afd94c521e223b4bfc069c30]
+@startuml FDX_Web_Journey_Sequence
+
+title \n\n\n
+
+actor "End User" as PSU
+participant "Data\nRecipient" as DR
+
+box Infrastructure #6FA8DC
+participant "Ingress\nController" as INGRESS
+participant "API\nGateway" as API_GATEWAY
+end box
+
+box Identity and Access Control #94c47d
+participant "Identity Management\n- - -\nAuthorisation Server" as IAM
+participant "Consent\nManagement" as CONSENT
+end box
+
+box Open Banking APIs #fc877e
+participant "Backend\nIntegration\nApplication" as BIA
+end box
+
+box Core Banking Applications #d5a6bd
+participant "Banking\nIdentity\nProvider" as ASPSP_WEB
+participant "Banking\nSystems" as ASPSP_API
+end box
+
+/'
+box Open Banking Directory
+participant "Participants\nList" as OBD_PARTICIPANTS
+participant "JSON Web\nKey Set" as OBD_JWKS
+end box
+
+participant "Certificate\nAuthority\n- - -\nOCSP Endpoint" as OCSP
+'/
+
+hide footbox
+'skinparam defaultFontName Roboto
+skinparam BoxPadding 20
+
+note right of PSU
+Overview
+===
+This diagram shows the end-to-end web journey for obtaining Consent and starting to collect
+Account Information data. The goal is to place the components from the Architecture Overview
+in context.
+end note
+
+== Part 1: DR Obtains End User Consent ==
+
+note right of PSU
+Obtaining Consent from the End User is usually outside the scope of technical standards. The
+Customer Experience Guidelines in FDX informs how Consent should be displayed and obtained.
+|||
+The specifics of this process are therefore not shown here. The Data Recipient (DR) is
+assumed to have implemented this within the guidelines specified.
+end note
+
+PSU -> DR: Indicate wish to share data
+PSU <- - DR: Display "Intent"\ni.e. data to be accessed\nor payment to be made
+PSU -> DR: Confirm intent
+PSU <- - DR: Show bank selection screen
+PSU -> DR: Confirm bank selection
+
+== Part 2: DR Creates and Lodges "Intent" ==
+
+note right of DR
+With the consent of the End User obtained the DR can now call the 
+Authorization Server API at the correct bank. Note at this point 
+Consent is usual termed "Intent" as it hasyet to confirmed at the bank.
+end note
+
+DR -> DR: Create Intent payload
+
+note right of DR
+Send Push Authorization Request
+|||
+The par request MUST contain an authorization details parameter
+|||
+{
+  "authorization_details": [
+    {
+      "type": "fdx_v1.0",
+      "consentRequest": {
+        "durationType": "ONETIME",
+        "lookbackPeriod": 60,
+        "resources": [
+          {
+            "resourceType": "ACCOUNT",
+            "dataClusters": [
+              "ACCOUNT_DETAILED",
+              "TRANSACTIONS",
+              "STATEMENTS"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+end note
+
+DR -> IAM: ""POST /par "{"authorization_details":[{"type":"fdx_v1.0","consentRequest":"...."}]"""
+DR <- - IAM: return request_uri
+
+== Part 3: User authentication, consent and authorization ==
+
+note right of DR
+Send Authorization Request
+end note
+
+DR -> IAM: ""GET /authorize&request_uri=""
+IAM -> ASPSP_WEB: ""REDIRECT /login""
+ASPSP_WEB -> PSU: ""USER login""
+PSU - -> ASPSP_WEB: ""200 OK {...}""
+ASPSP_WEB - -> CONSENT: Serve Consent and Account Confirmation Screen
+CONSENT - -> PSU: Serve Consent and Account Confirmation Screen
+PSU - -> CONSENT: "Consent confirmation is correct
+CONSENT - -> IAM: ""201 CREATED {"consentId":"..."}""
+IAM - -> DR: ""200 OK {"code":"..."}""
+
+note right of DR
+The DR then obtains the Access Token using the Authorization Code
+end note
+
+DR -> IAM: ""POST /token""
+IAM -> IAM: Verify Client
+DR <- IAM: ""200 OK""\n""{"access_token": "..."}""
+
+== Part 4: Request Data ==
+note right of DR
+**Account Information**
+- - -
+DRs use a generic endpoint for Account Information that covers all
+account types (checking, credit card, loans, etc).
+end note
+
+DR -> API_GATEWAY: ""GET /fdx/{version}/core/accounts""
+note right of API_GATEWAY
+Introspect Access Token
+end note
+API_GATEWAY -> IAM: ""POST /token-introspection""
+IAM - -> API_GATEWAY: ""200 OK""\n""{"status": "..."}""
+API_GATEWAY - -> API_GATEWAY: Verify Access Token scope
+API_GATEWAY -> BIA: ""GET /fdx/{version}/core/accounts""
+BIA -> ASPSP_API: ""GET /fdx/{version}/core/accounts""
+ASPSP_API -> BIA: ""200 OK""\n""{"accounts": "..."}""
+BIA -> API_GATEWAY: ""200 OK""\n""{"accounts": "..."}""
+API_GATEWAY -> DR: ""200 OK""\n""{"accounts": "..."}""
+
+@enduml
+
+@startuml FDX_Web_Journey_Sequence
+
+title \n\n\n
+
+actor "End User" as PSU
+participant "Data\nRecipient" as DR
+
+box Infrastructure #6FA8DC
+participant "Ingress\nController" as INGRESS
+participant "API\nGateway" as API_GATEWAY
+end box
+
+box Identity and Access Control #94c47d
+participant "Identity Management\n- - -\nAuthorisation Server" as IAM
+participant "Consent\nManagement" as CONSENT
+end box
+
+box Open Banking APIs #fc877e
+participant "Backend\nIntegration\nApplication" as BIA
+end box
+
+box Core Banking Applications #d5a6bd
+participant "Banking\nIdentity\nProvider" as ASPSP_WEB
+participant "Banking\nSystems" as ASPSP_API
+end box
+
+
+hide footbox
+skinparam BoxPadding 20
+
+note right of PSU
+Overview
+===
+This diagram shows the end-to-end web journey for obtaining Consent and starting to collect
+Account Information data. The goal is to place the components from the Architecture Overview
+in context.
+end note
+
+== Part 1: DR Obtains End User Consent ==
+
+note right of PSU
+Obtaining Consent from the End User is usually outside the scope of technical standards. The
+Customer Experience Guidelines in FDX informs how Consent should be displayed and obtained.
+|||
+The specifics of this process are therefore not shown here. The Data Recipient (DR) is
+assumed to have implemented this within the guidelines specified.
+end note
+
+PSU -> DR: Indicate wish to share data
+PSU <- - DR: Display "Intent"\ni.e. data to be accessed\nor payment to be made
+PSU -> DR: Confirm intent
+PSU <- - DR: Show bank selection screen
+PSU -> DR: Confirm bank selection
+
+== Part 2: DR Creates and Lodges "Intent" ==
+
+note right of DR
+With the consent of the End User obtained the DR can now call the 
+Authorization Server API at the correct bank. Note at this point 
+Consent is usual termed "Intent" as it hasyet to confirmed at the bank.
+end note
+
+DR -> DR: Create Intent payload
+
+note right of DR
+Send Push Authorization Request
+|||
+The par request MUST contain an authorization details parameter
+|||
+{
+  "authorization_details": [
+    {
+      "type": "fdx_v1.0",
+      "consentRequest": {
+        "durationType": "ONETIME",
+        "lookbackPeriod": 60,
+        "resources": [
+          {
+            "resourceType": "ACCOUNT",
+            "dataClusters": [
+              "ACCOUNT_DETAILED",
+              "TRANSACTIONS",
+              "STATEMENTS"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+end note
+
+DR -> IAM: ""POST /par "{"authorization_details":[{"type":"fdx_v1.0","consentRequest":"...."}]"""
+DR <- - IAM: return request_uri
+
+== Part 3: User authentication, consent and authorization ==
+
+note right of DR
+Send Authorization Request
+end note
+
+DR -> IAM: ""GET /authorize&request_uri=""
+IAM -> ASPSP_WEB: ""REDIRECT /login""
+ASPSP_WEB -> PSU: ""USER login""
+PSU - -> ASPSP_WEB: ""200 OK {...}""
+ASPSP_WEB - -> CONSENT: Serve Consent and Account Confirmation Screen
+CONSENT - -> PSU: Serve Consent and Account Confirmation Screen
+PSU - -> CONSENT: "Consent confirmation is correct
+CONSENT - -> IAM: ""201 CREATED {"consentId":"..."}""
+IAM - -> DR: ""200 OK {"code":"..."}""
+
+note right of DR
+The DR then obtains the Access Token using the Authorization Code
+end note
+
+DR -> IAM: ""POST /token""
+IAM -> IAM: Verify Client
+DR <- IAM: ""200 OK""\n""{"access_token": "..."}""
+
+== Part 4: Request Data ==
+note right of DR
+**Account Information**
+- - -
+DRs use a generic endpoint for Account Information that covers all
+account types (checking, credit card, loans, etc).
+end note
+
+DR -> API_GATEWAY: ""GET /fdx/{version}/core/accounts""
+note right of API_GATEWAY
+Introspect Access Token
+end note
+API_GATEWAY -> IAM: ""POST /token-introspection""
+IAM - -> API_GATEWAY: ""200 OK""\n""{"status": "..."}""
+API_GATEWAY - -> API_GATEWAY: Verify Access Token scope
+API_GATEWAY -> BIA: ""GET /fdx/{version}/core/accounts""
+BIA -> ASPSP_API: ""GET /fdx/{version}/core/accounts""
+ASPSP_API -> BIA: ""200 OK""\n""{"accounts": "..."}""
+BIA -> API_GATEWAY: ""200 OK""\n""{"accounts": "..."}""
+API_GATEWAY -> DR: ""200 OK""\n""{"accounts": "..."}""
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

@@ -3,7 +3,7 @@
 title \n\n\n
 hide footbox
 
-participant "Third-Party\nApp" as TPP
+participant "Data\nRecipient\nApp" as DR
 
 box Infrastructure #6FA8DC
 participant "Ingress\nController" as INGRESS
@@ -12,11 +12,11 @@ end box
 
 box Identity and Access Control #94c47d
 participant "Identity Management\n---\nAuthorisation Server" as IAM
-participant "Consent\nManagement\n---\nACP API" as CONSENT
+participant "Consent\nManagement" as CONSENT
 end box
 
-box Open Banking APIs #e06666
-participant "API\nBuilder" as API_BUILDER
+box Open Banking APIs #fc877e
+participant "Bacend\nIntegration\nApplication" as BIA
 end box
 
 box Core Banking Applications #d5a6bd
@@ -35,7 +35,7 @@ skinparam BoxPadding 10
 
 == Part 0: Registration of Token Delivery Preferences ==
 
-note right of TPP
+note right of DR
 CIBA requires that Clients register a delivery mode prior to the
 transmission of any Authentication Requests:
 |||
@@ -57,7 +57,7 @@ modes. The supported modes must be made pushed in the AS OpenID
 Configuration.
 end note
 
-TPP -> INGRESS: ""POST /connect/register""
+DR -> INGRESS: ""POST /connect/register""
 
 note right of INGRESS
 The Kubernetes Ingress Controller is responsible for TLS
@@ -70,8 +70,9 @@ end note
 
 INGRESS -> OCSP: Check Client Certificate Validity
 INGRESS <-- OCSP: Response
-INGRESS -> API_GATEWAY: Registration Request
+'INGRESS -> API_GATEWAY: Registration Request
 
+/'
 note right of API_GATEWAY
 The API Gateway acts as a proxy for both Identity and Consent
 Management. This approach is designed to ensure all identity
@@ -83,35 +84,42 @@ IAM -> IAM: Verify Client
 IAM -> IAM: Store Client Parameters
 API_GATEWAY <-- IAM: Response
 INGRESS <-- API_GATEWAY: Response
-TPP <-- INGRESS: Response
+DR <-- INGRESS: Response
+'/
+
+INGRESS -> IAM: Registration Request
+IAM -> IAM: Verify Client
+IAM -> IAM: Store Client Parameters
+INGRESS <-- IAM: Response
+DR <-- INGRESS: Response
 
 == Part 1: Create Consent and Send Authentication Request ==
 
-note right of TPP
-The Third-Party App requests an Access Token using
+note right of DR
+The Data Recipient App requests an Access Token using
 the Client Credentials grant type. Nominally authentication
 is through Mutual Authentication over TLS but it could
 equally be using ""private_key_jwt"".
 end note
 
-TPP -> INGRESS: ""POST /oauth2/token""
+DR -> INGRESS: ""POST /oauth2/token""
 INGRESS -> OCSP: Check Client Certificate Validity
 INGRESS <-- OCSP: Response
-INGRESS -> API_GATEWAY: ""POST /oauth2/token""
-API_GATEWAY -> IAM: ""POST /oauth2/token""
+INGRESS -> IAM: ""POST /oauth2/token""
+'API_GATEWAY -> IAM: ""POST /oauth2/token""
 IAM -> IAM: Verify Client
-API_GATEWAY <- IAM: ""200 OK""\n""{"access_token": "..."}""
-INGRESS <-- API_GATEWAY: ""200 OK""\n""{"access_token": "..."}""
-TPP <-- INGRESS: ""200 OK""\n""{"access_token": "..."}""
+'API_GATEWAY <- IAM: ""200 OK""\n""{"access_token": "..."}""
+INGRESS <-- IAM: ""200 OK""\n""{"access_token": "..."}""
+DR <-- INGRESS: ""200 OK""\n""{"access_token": "..."}""
 
-note right of TPP
-With the Access Token in hand the Third-Party can then
+note right of DR
+With the Access Token in hand the Data Recipient can then
 create the consent resource. This needs to be completed
 before the Authentication Request as the value of the
 ""consentId"" is required to set the value of the scope.
 end note
 
-TPP -> INGRESS: ""POST /payments/v1/consents""
+DR -> INGRESS: ""POST /payments/v1/consents""
 INGRESS -> OCSP: Check Client Certificate Validity
 INGRESS <-- OCSP: Response
 INGRESS -> API_GATEWAY: ""POST /payments/v1/consents""
@@ -119,18 +127,19 @@ API_GATEWAY -> CONSENT: ""POST /payments/v1/consents""
 CONSENT -> CONSENT: Validate consent request properties
 API_GATEWAY <-- CONSENT: ""201 Created""\n""{consentId: "..."}""
 INGRESS <-- API_GATEWAY: ""201 Created""\n""{consentId: "..."}""
-TPP <-- INGRESS: ""201 Created""\n""{consentId: "..."}""
+DR <-- INGRESS: ""201 Created""\n""{consentId: "..."}""
 
-note right of TPP
-The Third-Party App can now create and send the Authentication
+note right of DR
+The Data Recipient App can now create and send the Authentication
 Request. This includes the dynamic scope that holds the value 
 of the ""consentId"" returned by Identity Management.
 end note
 
-TPP -> TPP: Create Authentication Request
-TPP -> INGRESS: ""POST /bc-authorize""
+DR -> DR: Create Authentication Request
+DR -> INGRESS: ""POST /bc-authorize""
 INGRESS -> OCSP: Check Client Certificate Validity
 INGRESS <-- OCSP: Response
+/'
 INGRESS -> API_GATEWAY: ""POST /bc-authorize""
 
 note right of API_GATEWAY
@@ -147,6 +156,23 @@ API_GATEWAY -> API_GATEWAY: Match Authentication\nRequest parameter ""kid""
 API_GATEWAY -> API_GATEWAY: Verify Authentication\nRequest parameter signature
 API_GATEWAY -> IAM: Forward Authentication Request
 IAM -> IAM: Validate Authentication Request
+'/
+
+INGRESS -> IAM: ""POST /bc-authorize""
+
+note right of IAM
+As with the redirection-based FAPI profiles the Authentication
+Request is a JSON Web Signature. It therefore needs to be
+checked for validity. Note that in the context of CIBA Pushed
+Authorization Request is not required as the Authentication Request
+is always sent via a secured backchannel and never through the browser.
+end note
+
+IAM -> OBD_JWKS: Get JSON Web Key Set
+IAM <-- OBD_JWKS: Response
+IAM -> IAM: Match Authentication\nRequest parameter ""kid""
+IAM -> IAM: Verify Authentication\nRequest parameter signature
+IAM -> IAM: Validate Authentication Request
 
 note right of IAM
 Note this approach is non-normative and the actual
@@ -155,9 +181,8 @@ case-by-case basis.
 end note
 
 IAM -> ASPSP_IDP: Send Authentication Request notification
-API_GATEWAY <-- IAM: ""201 Created""\n""{auth_req_id: "..."}""
-INGRESS <-- API_GATEWAY: ""201 Created""\n""{auth_req_id: "..."}""
-TPP <-- INGRESS: ""201 Created""\n""{auth_req_id: "..."}""
+INGRESS <-- IAM: ""201 Created""\n""{auth_req_id: "..."}""
+DR <-- INGRESS: ""201 Created""\n""{auth_req_id: "..."}""
 
 == Part 2: Customer Authenticates at Mobile Banking App ==
 
@@ -225,9 +250,9 @@ MOBILE <-- INGRESS: Response
 note right of ASPSP_API
 The Consent Confirmation screen requires the following properties to be displayed:
 * Transaction Value.
-* Recipient details (name, CPF/CNPJ).
+* Recipient details (name, in Brazil CPF/CNPJ).
 * Payment Date.
-* Payment method (currently fixed on PIX).
+* Payment method (for example, in Brazil it is fixed as PIX).
 * Fee amount charged by the bank (if any).
 end note
 
@@ -287,119 +312,120 @@ note left of MOBILE
 The final step is to call the Identity Management
 component to indicate that the Customer has been
 authenticated. Identity Management will then signal
-to the Third-Party App using the chosen mode that
+to the Data Recipient App using the chosen mode that
 authentication is complete. Again this flow is
 implementation-specific and would be created based
 on the implementors architecture and technology.
 end note
 
-MOBILE -> API_GATEWAY: Authentication complete notification
-API_GATEWAY -> IAM: Forward authentication complete notification
+'MOBILE -> API_GATEWAY: Authentication complete notification
+'API_GATEWAY -> IAM: Forward authentication complete notification
+MOBILE -> IAM: Authentication complete notification
 
 == Part 4: Client Granted Access Token ==
 
-note right of TPP
+note right of DR
 Notes on Token behaviors
 ===
-The Third-Party App is made aware of the success of the
+The Data Recipient App is made aware of the success of the
 based on their registered delivery mode. Each of these is
 shown below.
 |||
 Note that the Poll looping example is purely illustrative
-as the Third-Party App would poll as soon as they received
+as the Data Recipient App would poll as soon as they received
 the ""auth_req_id"" from the AS. Writing the diagram to
 incorporate this sequentially would, however be extremely confusing
 hence the sequence shown below.
 |||
-For Poll and Ping mode the Third-Party App must use the
+For Poll and Ping mode the Data Recipient App must use the
 [[https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1 CIBA grant type]] as described in the source specification.
 end note
 
 alt Client Registered Poll Mode
 
-note right of TPP
-In Poll mode the TPP will periodically call the Token endpoint
+note right of DR
+In Poll mode the DR will periodically call the Token endpoint
 until they get a positive response i.e. they do not receive
 the 400 HTTP response code but instead are returned one-or-more
 tokens (Access, Refresh, ID) from the Token endpoint.
 end note
 
 loop Exit when Authentication Request successful
-TPP -> INGRESS: ""POST /token auth_req_id=...""
+DR -> INGRESS: ""POST /token auth_req_id=...""
 INGRESS -> OCSP: Check Client Certificate Validity
 INGRESS <-- OCSP: Response
-INGRESS -> API_GATEWAY: ""POST /token auth_req_id=...""
-API_GATEWAY -> IAM: ""POST /token auth_req_id=...""
+INGRESS -> IAM: ""POST /token auth_req_id=...""
+'API_GATEWAY -> IAM: ""POST /token auth_req_id=...""
 IAM -> IAM: Retrieve Authentication request
 IAM -> IAM: Check status
-API_GATEWAY <-- IAM: ""400 Bad Request {...}""
-INGRESS <-- API_GATEWAY: ""400 Bad Request {...}""
-TPP <-- INGRESS: ""400 Bad Request {...}""
+'API_GATEWAY <-- IAM: ""400 Bad Request {...}""
+INGRESS <-- IAM: ""400 Bad Request {...}""
+DR <-- INGRESS: ""400 Bad Request {...}""
 end loop
 
-TPP -> INGRESS: ""POST /token auth_req_id=...""
+DR -> INGRESS: ""POST /token auth_req_id=...""
 INGRESS -> OCSP: Check Client Certificate Validity
 INGRESS <-- OCSP: Response
-INGRESS -> API_GATEWAY: ""POST /token auth_req_id=...""
-API_GATEWAY -> IAM: ""POST /token auth_req_id=...""
+'INGRESS -> API_GATEWAY: ""POST /token auth_req_id=...""
+INGRESS -> IAM: ""POST /token auth_req_id=...""
 IAM -> IAM: Retrieve Authentication request
 IAM -> IAM: Check status
 IAM -> IAM: Create tokens
-API_GATEWAY <-- IAM: ""200 OK {...}""
-INGRESS <-- API_GATEWAY: ""200 OK {...}""
-TPP <-- INGRESS: ""200 OK {...}""
+'API_GATEWAY <-- IAM: ""200 OK {...}""
+INGRESS <-- IAM: ""200 OK {...}""
+DR <-- INGRESS: ""200 OK {...}""
 
 else Client Registered Ping Mode
 
-note right of TPP
+note right of DR
 Ping mode is a simple notification by the AS to a callback
-URL pre-registered by the Third-Party App in Part 0. On
-receipt the Third-Party App can then call the Token endpoint
+URL pre-registered by the Data Recipient App in Part 0. On
+receipt the Data Recipient App can then call the Token endpoint
 in the same way as in Poll mode and collect one-or-more tokens.
 end note
 
-TPP <- IAM: Authentication Request complete notification
-TPP --> IAM: ""204 No Content""
+DR <- IAM: Authentication Request complete notification
+DR --> IAM: ""204 No Content""
 
-TPP -> INGRESS: ""POST /token auth_req_id=...""
+DR -> INGRESS: ""POST /token auth_req_id=...""
 INGRESS -> OCSP: Check Client Certificate Validity
 INGRESS <-- OCSP: Response
-INGRESS -> API_GATEWAY: ""POST /token auth_req_id=...""
-API_GATEWAY -> IAM: ""POST /token auth_req_id=...""
+'INGRESS -> API_GATEWAY: ""POST /token auth_req_id=...""
+INGRESS -> IAM: ""POST /token auth_req_id=...""
 IAM -> IAM: Retrieve Authentication request
 IAM -> IAM: Create tokens
-API_GATEWAY <-- IAM: ""200 OK {...}""
-INGRESS <-- API_GATEWAY: ""200 OK {...}""
-TPP <-- INGRESS: ""200 OK {...}""
+'API_GATEWAY <-- IAM: ""200 OK {...}""
+INGRESS <-- IAM: ""200 OK {...}""
+DR <-- INGRESS: ""200 OK {...}""
 
 else Client Registered Push Mode
 
-note right of TPP
+note right of DR
 In Push mode tokens are created by the AS and then transmitted
-to the Third-Party App, therefore negating the need for them to
+to the Data Recipient App, therefore negating the need for them to
 visit the Token endpoint. Their are various implications of using
 this method which are discussed in the [[https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.3 specification]].
 end note
 
 IAM -> IAM: Retrieve Authentication request
 IAM -> IAM: Create tokens
-IAM -> IAM: Retrieve callback URL and security\ntoken for Third-Party App
+IAM -> IAM: Retrieve callback URL and security\ntoken for Data Recipient App
 
-TPP <- IAM: ""POST /cb {...}""
-TPP --> IAM: ""204 No Content""
+DR <- IAM: ""POST /cb {...}""
+DR --> IAM: ""204 No Content""
 
 end alt
 
-== Part 5: TPP Makes Payment Instruction Request ==
+== Part 5: DR Makes Payment Instruction Request ==
 
-note right of TPP
-With the Access Token in hand the Third-Party App can now
+note right of DR
+With the Access Token in hand the Data Recipient App can now
 make the payment instruction request. The Access Token
 is bound to this single operation and will be revoked once
 the payment instruction is successfully transmitted.
 end note
 
-TPP -> INGRESS: ""POST /payments/v1/pix/payments""
+DR -> INGRESS: ""POST /payments/v1/pix/payments""
 INGRESS -> OCSP: Check Client Certificate Validity
 INGRESS <-- OCSP: Response
 INGRESS -> API_GATEWAY: ""POST /payments/v1/pix/payments""
@@ -410,33 +436,33 @@ i.e. the API Gateway will need an assertion that indicates the consent granted
 by the Customer matches the payment being instructed.
 end note
 
-API_GATEWAY -> CONSENT: Request Access Token properties
-CONSENT -> CONSENT: Retrieve Access Token properties
-API_GATEWAY <-- CONSENT: Response
+API_GATEWAY -> IAM: Request Access Token properties
+IAM -> IAM: Retrieve Access Token properties
+API_GATEWAY <-- IAM: Response
 API_GATEWAY -> API_GATEWAY: Introspect Access Token properties
 
 note right of API_GATEWAY
 On introspecting the Access Token the API Gateway will decorate the
 request with the debtor account which is stored with the Consent. This can
-then be forwarded to the API Builder application and used to make the correct
+then be forwarded to the Backend Integration Application and used to make the correct
 payment instruction in the Banking Systems.
 end note
 
 API_GATEWAY -> API_GATEWAY: Decorate request with debtor account
-API_GATEWAY -> API_BUILDER: ""POST /payments/v1/pix/payments""
+API_GATEWAY -> BIA: ""POST /payments/v1/pix/payments""
 
-note right of API_BUILDER
+note right of BIA
 This flow is non-normative and will vary on customer requirements.
 It //could// be to a PIX-compliant API or any other available mechanism
 to make a PIX payment.
 end note
 
-API_BUILDER -> API_BUILDER: Mediate request payload
-API_BUILDER -> ASPSP_API: Deliver payment instruction to Banking System API
-API_BUILDER <-- ASPSP_API: Response
-API_BUILDER -> API_BUILDER: Mediate response payload
-API_GATEWAY <-- API_BUILDER: ""201 Created""\n""{paymentId: "..."}""
+BIA -> BIA: Mediate request payload
+BIA -> ASPSP_API: Deliver payment instruction to Banking System API
+BIA <-- ASPSP_API: Response
+BIA -> BIA: Mediate response payload
+API_GATEWAY <-- BIA: ""201 Created""\n""{paymentId: "..."}""
 INGRESS <-- API_GATEWAY: ""201 Created""\n""{paymentId: "..."}""
-TPP <-- INGRESS: ""201 Created""\n""{paymentId: "..."}""
+DR <-- INGRESS: ""201 Created""\n""{paymentId: "..."}""
 
 @enduml

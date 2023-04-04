@@ -2,11 +2,16 @@
 
 title \n\n
 
-participant "Third-Party\nApp" as TPP
+participant "Data\nRecipient" as DR
 
-box Open Banking APIs #e06666 
+box Infrastructure #6FA8DC
+participant "Ingress\nController" as INGRESS
 participant "API\nGateway" as API_GATEWAY
-participant "API\nBuilder" as API_BUILDER
+end box
+
+box Open Banking APIs #fc877e 
+'participant "API\nGateway" as API_GATEWAY
+participant "Backend\nIntegration\nApplication" as BIA
 end box
 
 box Identity and Access Control #94c47d
@@ -14,8 +19,6 @@ participant "Identity\nManagement" as IAM
 end box
 
 participant "Market\nCertificate\nAuthority" as CA
-participant "Konsentus" as KON
-participant "European\nOpen Banking\nMarkets" as EURO
 ' participant "JSON Web\nKey Set" as OBD_JWKS
 
 box Core Banking Applications #d5a6bd
@@ -23,43 +26,19 @@ participant "Banking\nSystems" as ASPSP_API
 end box
 
 hide footbox
-skinparam defaultFontName Roboto
+'skinparam defaultFontName Roboto
 skinparam BoxPadding 10
 
-note right of TPP
+note right of DR
 This diagram shows the specifics of mutual authentication
 as implemented in the open banking accelerator.
 end note
 
-TPP -> API_GATEWAY: Request protected endpoint
-API_GATEWAY -> API_GATEWAY: Validate certificate chain
-
-alt European Market
-
-note right of API_GATEWAY
-In PSD2 markets the solution can be
-supported by Konsentus who provide
-a pan-EU solution for checking both
-certificate and TPP validity.
-end note
-
-API_GATEWAY -> KON: Request certification verification
-KON -> KON: Resolve certificate\nprovenance
-KON -> EURO: Verify certificate\nin market
-KON <-- EURO: Response
-API_GATEWAY <-- KON: Response
-
-else Non-European Market
-
-note right of API_GATEWAY
-Non-PSD2 markets tend to implement more
-traditional PKIs where validity is checked
-using either OCSP or a CRL.
-end note
-
+DR -> INGRESS: Request protected endpoint
+INGRESS -> INGRESS: Validate certificate chain
+INGRESS -> API_GATEWAY: Request protected endpoint
 API_GATEWAY -> CA: Check certificate status (OCSP/CRL)
 API_GATEWAY <-- CA: Response
-end opt
 
 alt Certificate binding is enforced
 
@@ -80,10 +59,11 @@ API_GATEWAY -> API_GATEWAY: Calculate certificate\nfingerprint
 API_GATEWAY -> API_GATEWAY: Compare stored and\ncalculated fingerprints
 end alt
 
-API_GATEWAY -> API_BUILDER: Request protected endpoint
-API_BUILDER -> ASPSP_API: Request backend data or service
-API_BUILDER <-- ASPSP_API: Response
-API_GATEWAY <-- API_BUILDER: Response
-TPP <-- API_GATEWAY: Response
+API_GATEWAY -> BIA: Request protected endpoint
+BIA -> ASPSP_API: Request backend data or service
+BIA <-- ASPSP_API: Response
+API_GATEWAY <-- BIA: Response
+INGRESS <-- API_GATEWAY: Response
+DR <-- INGRESS: Response
 
 @enduml

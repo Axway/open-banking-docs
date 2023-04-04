@@ -1,21 +1,10 @@
 ---
-title: "Customization"
-linkTitle: "Customization"
+title: "Consent Apps Customization"
+linkTitle: "Consent Apps Customization"
 weight: 10
 date: 2021-09-02
 ---
-This section includes details to customize the Amplify Open Banking solution.
-
-## Solution branding
-
-You can easily apply your branding on most of the solution's user interface, such as changing the logos and the style (color palette, font, and so on.)
-
-Consider the following for branding changes:
-
-* Email templates logo and style: [API manager - Email templates override](/docs/configuration/api-manager#email-templates-override).
-    ![Welcome email](/Images/welcome-email.png)
-* Developer Portal logo and style: [Developer portal - Template customization](/docs/configuration/portal/#template-customization).
-* Analytics homepage logo and style. Refer to the deployment option for this component: [Customize Analytics Helm chart](/docs/deployment/installation/analytics/#customize-analytics-helm-chart).
+This section includes details to customize the Amplify Open Banking Consent Apps.
 
 ## Consent page
 
@@ -133,12 +122,6 @@ All accounts owned by the user from the bank need to be shown at the Payment Acc
 
 ### Account balance
 
-If accessible, it is considered a best practice to inform the account balance under the payment amount in the `obbr-payment-consent-2.tmpl` file.
+If accessible, it is considered a best practice to present the account balance under the payment amount in the `obbr-payment-consent-2.tmpl` file.
 
 ![payment-amount](/Images/consent-page-payment-amount.png)
-
-## Demo apps
-
-There are four demo apps delivered with the solution. They are accessible from the Developer Portal homepage.
-![demo-app1](/Images/demo-app1.png)
-If you would like to customize them to your specific use-case, please contact Axway.

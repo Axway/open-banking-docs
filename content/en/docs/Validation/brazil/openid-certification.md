@@ -1,6 +1,6 @@
 ---
-title: "OpenID Security conformance"
-linkTitle: "Security conformance"
+title: "OpenID Security Conformance"
+linkTitle: "OpenID Security Conformance"
 weight: 2
 date: 2021-09-02
 ---
@@ -9,10 +9,11 @@ As part of the certification process, the customer´s platforms should be compli
 
 * <https://openid.net/certification/instructions/>
 
-We have two different set of tests:
+We have three different set of tests:
 
 * *DCR tests*: dynamic client registration
 * *FAPI Advanced test*: Financial-grade API
+* *FAPI-CIBA-ID1*: Authorization server test
 
 This section describes the setup tests that are necessary to configure the environment to run the security tests.
 
@@ -42,7 +43,7 @@ It is important to run the test to get the following information from the [Centr
 * *BRCAC*: Transport certificate used for MTLS communication.
 ![BRCAC](/Images/central_directory_brazil_brcac.png)
 
-{{% alert title="Note" color="primary" %}} You can find more details on [Central Directory Operation Guide](https://openbanking-brasil.github.io/areadesenvolvedor/documents/OpenBanking-Guia_Operacao_Diretorio_Central.pdf) (in Portuguese).{{% /alert %}}
+{{% alert title="Note" color="primary" %}} You can find more details on [Central Directory Operation Guide](https://openfinancebrasil.atlassian.net/wiki/spaces/OF/pages/17378602/Guia+de+Opera+o+do+Diret+rio+Central) (in Portuguese).{{% /alert %}}
 
 ### Get the application declared in APIM
 

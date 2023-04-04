@@ -1,0 +1,150 @@
+@startuml FDX_Web_Journey_Sequence
+
+title \n\n\n
+
+actor "End User" as PSU
+participant "Data\nRecipient" as DR
+
+box Infrastructure #6FA8DC
+participant "Ingress\nController" as INGRESS
+participant "API\nGateway" as API_GATEWAY
+end box
+
+box Identity and Access Control #94c47d
+participant "Identity Management\n---\nAuthorisation Server" as IAM
+participant "Consent\nManagement" as CONSENT
+end box
+
+box Open Banking APIs #fc877e
+participant "Backend\nIntegration\nApplication" as BIA
+end box
+
+box Core Banking Applications #d5a6bd
+participant "Banking\nIdentity\nProvider" as ASPSP_WEB
+participant "Banking\nSystems" as ASPSP_API
+end box
+
+/'
+box Open Banking Directory
+participant "Participants\nList" as OBD_PARTICIPANTS
+participant "JSON Web\nKey Set" as OBD_JWKS
+end box
+
+participant "Certificate\nAuthority\n---\nOCSP Endpoint" as OCSP
+'/
+
+hide footbox
+'skinparam defaultFontName Roboto
+skinparam BoxPadding 20
+
+note right of PSU
+Overview
+===
+This diagram shows the end-to-end web journey for obtaining Consent and starting to collect
+Account Information data. The goal is to place the components from the Architecture Overview
+in context.
+end note
+
+== Part 1: DR Obtains End User Consent ==
+
+note right of PSU
+Obtaining Consent from the End User is usually outside the scope of technical standards. The
+Customer Experience Guidelines in FDX informs how Consent should be displayed and obtained.
+|||
+The specifics of this process are therefore not shown here. The Data Recipient (DR) is
+assumed to have implemented this within the guidelines specified.
+end note
+
+PSU -> DR: Indicate wish to share data
+PSU <-- DR: Display "Intent"\ni.e. data to be accessed\nor payment to be made
+PSU -> DR: Confirm intent
+PSU <-- DR: Show bank selection screen
+PSU -> DR: Confirm bank selection
+
+== Part 2: DR Creates and Lodges "Intent" ==
+
+note right of DR
+With the consent of the End User obtained the DR can now call the 
+Authorization Server API at the correct bank. Note at this point 
+Consent is usual termed "Intent" as it hasyet to confirmed at the bank.
+end note
+
+DR -> DR: Create Intent payload
+
+note right of DR
+Send Push Authorization Request
+|||
+The par request MUST contain an authorization details parameter
+|||
+{
+  "authorization_details": [
+    {
+      "type": "fdx_v1.0",
+      "consentRequest": {
+        "durationType": "ONETIME",
+        "lookbackPeriod": 60,
+        "resources": [
+          {
+            "resourceType": "ACCOUNT",
+            "dataClusters": [
+              "ACCOUNT_DETAILED",
+              "TRANSACTIONS",
+              "STATEMENTS"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+end note
+
+DR -> IAM: ""POST /par "{"authorization_details":[{"type":"fdx_v1.0","consentRequest":"...."}]"""
+DR <-- IAM: return request_uri
+
+== Part 3: User authentication, consent and authorization ==
+
+note right of DR
+Send Authorization Request
+end note
+
+DR -> IAM: ""GET /authorize&request_uri=""
+IAM -> ASPSP_WEB: ""REDIRECT /login""
+ASPSP_WEB -> PSU: ""USER login""
+PSU --> ASPSP_WEB: ""200 OK {...}""
+ASPSP_WEB --> CONSENT: Serve Consent and Account Confirmation Screen
+CONSENT --> PSU: Serve Consent and Account Confirmation Screen
+PSU --> CONSENT: "Consent confirmation is correct
+CONSENT --> IAM: ""201 CREATED {"consentId":"..."}""
+IAM --> DR: ""200 OK {"code":"..."}""
+
+note right of DR
+The DR then obtains the Access Token using the Authorization Code
+end note
+
+DR -> IAM: ""POST /token""
+IAM -> IAM: Verify Client
+DR <- IAM: ""200 OK""\n""{"access_token": "..."}""
+
+== Part 4: Request Data ==
+note right of DR
+**Account Information**
+---
+DRs use a generic endpoint for Account Information that covers all
+account types (checking, credit card, loans, etc).
+end note
+
+DR -> API_GATEWAY: ""GET /fdx/{version}/core/accounts""
+note right of API_GATEWAY
+Introspect Access Token
+end note
+API_GATEWAY -> IAM: ""POST /token-introspection""
+IAM --> API_GATEWAY: ""200 OK""\n""{"status": "..."}""
+API_GATEWAY --> API_GATEWAY: Verify Access Token scope
+API_GATEWAY -> BIA: ""GET /fdx/{version}/core/accounts""
+BIA -> ASPSP_API: ""GET /fdx/{version}/core/accounts""
+ASPSP_API -> BIA: ""200 OK""\n""{"accounts": "..."}""
+BIA -> API_GATEWAY: ""200 OK""\n""{"accounts": "..."}""
+API_GATEWAY -> DR: ""200 OK""\n""{"accounts": "..."}""
+
+@enduml
