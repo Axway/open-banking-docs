@@ -47,6 +47,6 @@ This new release does not include the Developer Portal component.
 
 The following are known issues for this update.
 
-#### External clients are not created in API Mamanger applications
+#### External clients are not created in API Manager applications
 
 During installation of `open-banking-fdx-apim-config` helm chart, some applciaitons are created but in these applications external client is not configured. We are working on the fix of this functionality, to be released in a future update of Amplify Open Banking. As a workaround you need to log in to API Manager and add the external client configuration in existing applications.
