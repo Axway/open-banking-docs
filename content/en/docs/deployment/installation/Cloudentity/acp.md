@@ -1,10 +1,10 @@
 ---
-title: "Authorization Control Plane Installation"
-linkTitle: "Authorization Control Plane"
+title: "Cloudentity Installation"
+linkTitle: "Cloudentity"
 weight: 1
 ---
 
-Install Cloud Entity Authorization Control Plane (ACP) for the Amplify Open Banking solution.
+Install Cloudentity for the Amplify Open Banking solution.
 
 ## Customize the ACP Helm chart
 
@@ -45,7 +45,7 @@ cert-manager.io/acme-challenge-type: http01 (l23)
 
 ## Prepare deployment
 
-1. Add the Cloud Entity Helm repository:
+1. Add the Cloudentity Helm repository:
 
    ```bash
    helm repo add cloudentity https://charts.cloudentity.io 

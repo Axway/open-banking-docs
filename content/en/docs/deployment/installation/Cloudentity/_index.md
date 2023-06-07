@@ -1,18 +1,18 @@
 ---
-title: "Cloud Entity Installation"
-linkTitle: "Cloud Entity"
+title: "Cloudentity Installation"
+linkTitle: "Cloudentity"
 weight: 20
 ---
 
-Install Cloud Entity for the Amplify Open Banking solution. Cloud Entity includes 2 components:
-* Authorization Control Plane
+Install Cloudentity for the Amplify Open Banking solution. Cloudentity includes 2 components:
+* Cloudentity
 * Sample Consent Applications
 
 {{% alert title="Note" color="primary" %}} Sample Consent applications are not developed for production usage. For more information please see deatils in [Component View](/docs/overview/technical/component).{{% /alert %}}
 
-## Download the Cloud Entity Helm charts
+## Download the Cloudentity Helm charts
 
-Download the Amplify Open Banking Cloud Entity Helm charts to customize them locally.
+Download the Amplify Open Banking Cloudentity Helm charts to customize them locally.
 
 ### Financial Data Exchange (FDX)
 

@@ -308,7 +308,7 @@ Customize the `open-banking-fdx-apim-config/values.yaml` file as follows.
 
 ## Post deployment
 
-Once the APIM and [Cloud Entity](/docs/deployment/installation/cloudentity) Helm charts are deployed, update the KPS configuration as follows to integrate the components together.
+Once the APIM and [Cloudentity](/docs/deployment/installation/cloudentity) Helm charts are deployed, update the KPS configuration as follows to integrate the components together.
 
 ### Update KPS configuration
 

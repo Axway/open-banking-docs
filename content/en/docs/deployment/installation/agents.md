@@ -9,7 +9,7 @@ Also make sure that you configure discovery agent with IdP. For the detailed inf
 
 You can also use below sample discovery agent IdP configuration for Amplify Open Banking Deployment:
 ```console
-AGENTFEATURES_IDP_NAME_1: "Authorization Control Plane"
+AGENTFEATURES_IDP_NAME_1: "Cloudentity"
 AGENTFEATURES_IDP_TYPE_1: "generic"
 AGENTFEATURES_IDP_METADATAURL_1: ""
 AGENTFEATURES_IDP_AUTH_TYPE_1: "client"

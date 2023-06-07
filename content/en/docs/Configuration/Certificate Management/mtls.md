@@ -11,7 +11,7 @@ How to change and test the certificate configurations required for Mutual Authen
 
 Mutual authentication is required for most APIs developed for Open Banking.
 
-According to the Open Banking Specification, Mutual Transport Layer Security (MTLS) client connections are required for the Cloud Entity and API Gateway Listener components. See the diagram for details on MTLS setup.
+According to the Open Banking Specification, Mutual Transport Layer Security (MTLS) client connections are required for the Cloudentity and API Gateway Listener components. See the diagram for details on MTLS setup.
 ![MTLS diagram](/Images/MTLS.svg)
 
 See more about the Certificate Verification with MTLS in Open Banking context in [Mutual Authentication and Certificate Verification](/docs/overview/integration/mutual-auth).
@@ -30,9 +30,9 @@ Refer to the required features of the ingress controller in [Deployment - Prereq
 
 {{% alert title="Note" color="primary" %}} Usage of the MTLS Listener embedded on the API-gateway configuration would require each customer to build their own Docker images, as the container maturity level does not allow us to externalize certificates.{{% /alert %}}
 
-### Cloud Entity MTLS
+### Cloudentity MTLS
 
-Cloud Entity supports the MTLS and the root CA must be added in the component.
+Cloudentity supports the MTLS and the root CA must be added in the component.
 
 ## Setup the solution for MTLS with test certificates
 
@@ -144,7 +144,7 @@ openssl req -new -newkey rsa:2048 -nodes -out tpp1.csr -keyout tpp1.key
 
 #### ACP
 
-Connect to the Cloud Entity admin page on `https://acp.<domain-name>/app/default/admin/`.
+Connect to the Cloudentity admin page on `https://acp.<domain-name>/app/default/admin/`.
 
 1. Select workspace **openbanking_brasil**.
 2. Click **Settings** on the left panel.

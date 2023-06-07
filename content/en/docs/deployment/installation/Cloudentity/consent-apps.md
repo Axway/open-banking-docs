@@ -3,7 +3,7 @@ title: "Consent Applications Installation"
 linkTitle: "Consent Applications"
 weight: 2
 ---
-Install Cloud Entity sample consent applications for the Amplify Open Banking solution. These 
+Install Cloudentity sample consent applications for the Amplify Open Banking solution. These 
 
 ## Customize the Consent Helm chart
 
@@ -54,7 +54,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 
 ## Prepare deployment
 
-1. Add the Cloud Entity Helm repository:
+1. Add the Cloudentity Helm repository:
 
    ```bash
    helm repo add cloudentity https://charts.cloudentity.io 
