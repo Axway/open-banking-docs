@@ -23,7 +23,7 @@ Then, you should be able to create and run new test plans.
 Create a new test plan:
 
 * To create a new test plan for the open data API, registration/transactional data and services, among other necessary OBB validations;
-* To configure the new test plan, the information will be found in the ACP - (Cloudentity Admin Portal), in Workspace: Openbanking Brasil - Applications.
+* To configure the new test plan, the information will be found in the Cloudentity - (Cloudentity Admin Portal), in Workspace: Openbanking Brasil - Applications.
 
 View all available test logs:
 

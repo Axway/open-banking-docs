@@ -20,20 +20,20 @@ Modify the `open-banking-fdx-acp/values.yaml` file for FDX deployment and `open-
 |:------------- |:------------------------------------- |:-------------- |
 | global.dockerRegistry.username | Defining Cloudentity repository username. | None |
 | global.dockerRegistry.password | Defining Cloudentity repository password. | None |
-| redis-cluster.password | Defining ACP's Redis password. | None |
+| redis-cluster.password | Defining Cloudentity's Redis password. | None |
 | acp-prereq.cert.internal.certManager | Define if cert-manager is used internally. <br>False is currently not supported. | true |
 | acp-prereq.cert.internal.certManagerNamespace | Namespace where cert-manager is installed. Use the result of the previous command. | None |
 | acp-prereq.cert.ingress.certManager | Define if cert-manager is used externally. <br>If set to false, define cert and keys with values below. | true |
 | acp-prereq.cert.ingress.cert | Use specific cert. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 | acp-prereq.cert.ingress.key | Use specific key. It can be a wildcard. Must be defined only if certManager is set to false. | None |
-| acp.serverURL | ACP server URL | None |
-| acp.serverURLMtls | ACP server URL | None |
+| acp.serverURL | Cloudentity server URL | None |
+| acp.serverURLMtls | Cloudentity server URL | None |
 | acp.config.data.storage.audit_events.retention.enabled | Enable audit events retention | true |
 | acp.config.data.storage.audit_events.retention.batch_limit | Audit events retention batch delete limit | 1000 |
 | acp.config.data.storage.audit_events.retention.max_age | Remove audit events older than max age limit | 6h0m0s |
 | acp.config.data.server.obbr_base_paths | Open banking Brasil API base path whitelist. | None |
-| acp.ingress.hosts.host | ACP server URL | None |
-| acp.ingress.customAnnotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | Secret to keep the ssl cert. It should be [NAMESPACE]/acp-tls | open-banking-acp/acp-tls |
+| acp.ingress.hosts.host | Cloudentity server URL | None |
+| acp.ingress.customAnnotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | Secret to keep the ssl cert. It should be [NAMESPACE]/acp-tls | open-banking-cloudentity/acp-tls |
 | acp.features.swagger_ui | Enable swagger UI. | true |
 
 Remove the following lines if cert-manager is not used for ingress:
@@ -45,7 +45,7 @@ cert-manager.io/acme-challenge-type: http01 (l23)
 
 ## Prepare deployment
 
-1. Add the Cloudentity Helm repository:
+1. Add the Cloud Entity Helm repository:
 
    ```bash
    helm repo add cloudentity https://charts.cloudentity.io 
@@ -130,4 +130,4 @@ cert-manager.io/acme-challenge-type: http01 (l23)
 * Navigate to Openbanking workspace, Settings - Authorization - Trusted client certificates, and update the Trusted client certificates content with the `open-banking-consent/files/cert.pem` file attached.
 
 * Navigate to Openbanking workspace, Applications - Bank - OAuth - Subject Distinguished Name, update with the following entry
-`CN=cid2.authorization.cloudentity.com,OU=Authorization,O=Cloudentity,L=Seattle,ST=Washinghton,C=US`.
+`CN=cid2.authorization.acp.com,OU=Authorization,O=Cloudentity,L=Seattle,ST=Washinghton,C=US`.

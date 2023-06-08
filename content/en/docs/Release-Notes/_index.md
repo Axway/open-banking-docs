@@ -36,7 +36,7 @@ This release includes the following updates and features to keep support of Open
 
 * Upgrade of Axway API Gateway and Manager to February 2023 - including new security enhancements and features - [APIM Release Notes](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_relnotes/20230228_apimgr_relnotes/index.html).
 * Update of Amplify Open Banking Authorization and Consent Management components to ACP v2.11.0-2 - [Release Notes](https://cloudentity.com/developers/deployment-and-operations/release-notes/rsnotes-2.11.0/ )
-* Update for Open Finance Brazil phase 4a APIs specs considering the new endpoints (capitalization v1.0.0-rc2.0, acquiring-services v1.0.0,Insurance 1.0.0-rc1.0,Investiment v1.0.0, exchange v1.0.0,pension v1.0.0-rc1.0 ) - [Open Data](https://openfinancebrasil.atlassian.net/wiki/spaces/OF/pages/17367790/Dados+Abertos).
+* Update for Open Finance Brazil phase 4a APIs specs considering the new endpoints (capitalization v1.0.0-rc2.0, acquiring-services v1.0.0,Insurance 1.0.0-rc1.0,Investment v1.0.0, exchange v1.0.0,pension v1.0.0-rc1.0 ) - [Open Data](https://openfinancebrasil.atlassian.net/wiki/spaces/OF/pages/17367790/Dados+Abertos).
 * Mock backend APIs for Open Finance Brazil phase 2 v2 are updated to support the functional tests.
 * Consent flow is updated to fix a bug of consent request date due to timezone configuration.
 

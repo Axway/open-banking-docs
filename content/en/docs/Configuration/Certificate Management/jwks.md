@@ -18,19 +18,19 @@ The ASPSP (Account Servicing Payment Service Provider, the bank or similar insti
 
 Follow this procedure to change the signing certificate with the appropriate values:
 
-1. Connect to the ACP Server and check the current authorization server signing certificate.
+1. Connect to the Cloudentity server and check the current authorization server signing certificate.
 
-   * Replace `<ACP server interface`> by your ACP server interface, and then connect to the following URL in your navigator:
-      `https://<ACP server interface>/app/default/admin/openbanking_brasil/workspaces/signing-keys`.
+   * Replace `<Cloudentity server interface`> by your Cloudentity server interface, and then connect to the following URL in your navigator:
+      `https://<Cloudentity server interface>/app/default/admin/openbanking_brasil/workspaces/signing-keys`.
    * Connect with your user/admin password.
    * Verify that the **Current key in use** is the default ASPSP signing certificate (what you will change with this procedure).
   
-    ![ACPSigningKey](/Images/ACPSigningKey.PNG)
+    ![CloudentitySigningKey](/Images/ACPSigningKey.PNG)
 
-2. Export the actual authorization server configuration with ACP API.
-   * Navigate to the ACP swagger page. The previous step will keep you logged in with your credentials.
+2. Export the actual authorization server configuration with Cloudentity API.
+   * Navigate to the Cloudentity swagger page. The previous step will keep you logged in with your credentials.
    Browse to the servers section, and then *Get authorization server*.</br>
-   `https://<ACP server interface>/api/swagger/default/openbanking_brasil/#/servers/getAuthorizationServer`.
+   `https://<Cloudentity server interface>/api/swagger/default/openbanking_brasil/#/servers/getAuthorizationServer`.
    * Click *Try it out*.
    * Replace with your tid (tenant id) and aid (authorization server id). In Open Banking Brasil, the tid is *default* and the aid is *openbanking_brasil*
    * Execute the request.
@@ -45,7 +45,7 @@ Follow this procedure to change the signing certificate with the appropriate val
 
 5. Upload the configuration to the authorization server.
    * Go back to the swagger page, to the *Update authorization server* section.
-      `https://<ACP server interface>/api/swagger/default/openbanking_brasil/#/servers/updateAuthorizationServer`.
+      `https://<Cloudentity server interface>/api/swagger/default/openbanking_brasil/#/servers/updateAuthorizationServer`.
    * Click *Try it out*.
    * Replace with your tid (tenant id) and aid (authorization server id). In Open Banking Brasil, the tid is *default* and the aid is *openbanking_brasil*.
    * Paste the response of the previous step 3 with the new signing certificate in the body.
@@ -53,11 +53,11 @@ Follow this procedure to change the signing certificate with the appropriate val
    ![PutAuthServer](/Images/PutAuthServer.PNG)
   
 6. Validate the procedure.
-   * Refresh the ACP interface and you will see that your ASPSP signature key has been modified.
+   * Refresh the Cloudentity interface and you will see that your ASPSP signature key has been modified.
 
 ## TPP signing certificate
   
-The TPP (Third Party Provider) signing certificates are located in the ACP configuration. Connect to the ACP Interface, navigate to your workspace (openbanking Brasil for Brasil specifications), and then click on the application. Click the application name of the desired TPP.
+The TPP (Third Party Provider) signing certificates are located in the Cloudentity configuration. Connect to the Cloudentity Interface, navigate to your workspace (openbanking Brasil for Brasil specifications), and then click on the application. Click the application name of the desired TPP.
 The signing certificate is located in the OAuth tab, under client authentication, as a JSON Web Key Set. You can modify the signing certificate here, and then click *Save changes*.
   
 ![TPPSignatureKey](/Images/TPPSignatureKey.PNG)

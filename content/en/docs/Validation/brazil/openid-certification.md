@@ -117,9 +117,9 @@ Make sure that the two test TPPs are configured in APIM:
 * Under Client - application, you should see an application for each TPP.
 * In each application an OAuth clientId should be configured in the Authorization section.
 
-Make sure that the two test TPPs are configured in ACP:
+Make sure that the two test TPPs are configured in Cloudentity:
 
-* Connect to ACP, and then select the Open Banking workspace.
+* Connect to Cloudentity, and then select the Open Banking workspace.
 * Under Application, you should be able to find each TPP with the same application name as in APIM with the same clientID.
 * Each application should be configured with a correct Redirect URI: `https://www.certification.openid.net/test/a/<test-alias>/callback`. This test alias is the one used when creating the test plan later.
 ![app-details](/Images/acp-tpp-app-details.png)
@@ -135,7 +135,7 @@ Make sure that the two test TPPs are configured in ACP:
 Make sure the corresponding CAs are configured in the Amplify Open Banking solution:
 
 * Including the CA cert of each TPP on IngressMTLSCA entry of `values.yaml` of the APIM package. See detailed instructions in [Certificate Management - MTLS](/docs/configuration/certificate-management/mtls).
-* Including the CA cert of each TPP on the ACP - Settings - Authorization tab. See detailed instructions in [Certificate Management - MTLS](/docs/configuration/certificate-management/mtls).
+* Including the CA cert of each TPP on the Cloudentity - Settings - Authorization tab. See detailed instructions in [Certificate Management - MTLS](/docs/configuration/certificate-management/mtls).
 * Update the filters Jwt-Verify and Jwt-Sign, updating the JWKS certificate (BRCAC). See detailed instructions in [Certificate Management - JWKS](/docs/configuration/certificate-management/jwks).
 
 ### Create the FAPI advanced test plan

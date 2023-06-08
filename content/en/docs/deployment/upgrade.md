@@ -19,7 +19,7 @@ mkdir previous-version
 mv open-banking-apim             previous-version/ 
 mv open-banking-apim-config      previous-version/
 mv open-banking-backend          previous-version/
-mv open-banking-acp              previous-version/
+mv open-banking-cloudentity              previous-version/
 mv open-banking-consent          previous-version/
 ```
 

@@ -30,7 +30,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| acpURL | ACP server URL. | None |
+| acpURL |  Cloudentity server URL. | None |
 | consentPage.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-page-tls.  | open-banking-consent<br>/consent-openbanking-consent-page-tls |
 | consentPage.ingress.hosts | Update with the consent page URL. | consent.\<domain-name> |
 | consentPage.ingress.tls.hosts | Update with the consent page URL. | consent.\<domain-name> |
@@ -54,10 +54,10 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 
 ## Prepare deployment
 
-1. Add the Cloudentity Helm repository:
+1. Add the ACP Helm repository:
 
    ```bash
-   helm repo add cloudentity https://charts.cloudentity.io 
+   helm repo add acp https://charts.acp.io 
    helm repo update 
    ```
 
@@ -90,7 +90,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
    {{% alert title="Note" color="primary" %}} Find the Open Banking Consent chart-version to use in the `open-banking-consent/README.md`. Otherwise use the latest.{{% /alert %}}
 
    ```bash
-   helm install consent -n open-banking-consent cloudentity/openbanking –-version 0.1.9 -f open-banking-consent/files/consent.values.yaml
+   helm install consent -n open-banking-consent acp/openbanking –-version 0.1.9 -f open-banking-consent/files/consent.values.yaml
    ```
 
 4. Check that the status of the Helm command is deployed:
