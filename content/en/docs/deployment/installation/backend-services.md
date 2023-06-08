@@ -25,8 +25,8 @@ Customize the `values.yaml` file as follows.
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
 | global.apihost | MTLS apigateway endpoint. | None |
 | global.apidomain | MTLS apigateway endpoint. | None |
-| mysqldb.dbname | Mock backend database name. |  _medicimockbackend_ |
-| mysqldb.dbuser | Mock backend database username. |  _mockbank_ |
+| mysqldb.dbname | Mock backend database name. |  *medicimockbackend* |
+| mysqldb.dbuser | Mock backend database username. |  *mockbank*_ |
 | secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password. | None|
 | secrets.MYSQL_USER_PASSWORD | Mock backend database user password. | None |
 | *apiname*.enable | To disable the API deployment set it to false | true |
@@ -78,7 +78,6 @@ Customize the `values.yaml` file as follows.
        mysqldb-xxx-xx            1/1     Running   0          2m
    ```
 
-
 ## Open Finance Brazil
 
 Download the Amplify Open Banking Backend Services Helm chart to customize it locally.
@@ -89,7 +88,7 @@ helm pull axway/open-banking-backend-chart --untar
 
 You should get an `open-banking-backend-chart` local folder.
 
-### Customize the Backend Services Helm chart
+### Customize Backend Services Helm chart
 
 Customize the `values.yaml` file as follows.
 
@@ -99,13 +98,13 @@ Customize the `values.yaml` file as follows.
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
 | global.apihost | MTLS apigateway endpoint. | None |
 | global.apidomain | MTLS apigateway endpoint. | None |
-| mysqldb.dbname | Mock backend database name. |  _medicimockbackend_ |
-| mysqldb.dbuser | Mock backend database username. |  _mockbank_ |
+| mysqldb.dbname | Mock backend database name. |  *medicimockbackend* |
+| mysqldb.dbuser | Mock backend database username. |  *mockbank* |
 | secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password. | None|
 | secrets.MYSQL_USER_PASSWORD | Mock backend database user password. | None |
 | *apiname*.disable | To disable the API deployment set it to true | false |
 
-### Install the Backend Services Helm chart
+### Install Backend Services Helm chart
 
 1. Create the target namespace on the cluster:
 
@@ -130,7 +129,7 @@ Customize the `values.yaml` file as follows.
        TEST SUITE: None
    ```
 
-### Verify the Backend Services Helm chart deployment
+### Verify Backend Services Helm chart deployment
 
 1. Wait a few minutes and use the following commands to check the deployment status.
 

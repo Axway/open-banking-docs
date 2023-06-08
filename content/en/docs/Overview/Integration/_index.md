@@ -27,6 +27,6 @@ Refer to the table for an explanation of each labeled arrow in the diagram.
 |  10 | The API Gateway and integration applications retrieves data from the appropriate data source. This can either be from Core Banking Applications or Mock Data provided with the Amplify Open Banking solution. |
 |  11 | The events are logged to the Amplify Platform for Analytics. |
 
-The sections below expand on this through several more detailed sequence-based views. 
+The sections below expand on this through several more detailed sequence-based views.
 
 Note these sequence diagrams **focus largely on the happy path** and do not show specific error flows for the sake of brevity.

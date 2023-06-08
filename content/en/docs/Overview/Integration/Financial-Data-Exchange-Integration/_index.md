@@ -20,13 +20,16 @@ All APIs that provide access to data are implemented in the same manner. The con
 ![FDX Wrokflow](/Images/FDX_Workflow.png)
 
 ### Steps
+
 Step 1: Request Account Information
+
 * This flow begins with a End User consenting to allow a DR to access account information data.
 
 Step 2: DR initiates a POST request to Data Providers’s (DP) POST /par endpoint using the Pushed Authorization Request (PAR) method
+
 * the authorization_details request parameter MUST contain a JSON-formatted object with two members in compliance with the RAR format specified by [RAR memo, § 2](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-rar#section-2)
-  * the type parameter with value fdx_v1.0, and
-  * a consentRequest parameter containing a valid ConsentRequest entity; For example:
+    * the type parameter with value fdx_v1.0, and
+    * a consentRequest parameter containing a valid ConsentRequest entity; For example:
 
   ```bash
   {
@@ -54,9 +57,9 @@ Step 2: DR initiates a POST request to Data Providers’s (DP) POST /par endpoin
 
 * DR must be authenticated with methods allowed by the FDX security profile
 * If successful, DP responds with a 201 Created HTTP response code and JSON response
-  * endpoint behavior and responses defined in detail by [PAR memo, § 2](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-par#section-2)
+    * endpoint behavior and responses defined in detail by [PAR memo, § 2](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-par#section-2)
 * DR uses the returned request_uri to build its subsequent request to GET /authorize
-  * endpoint behavior and responses defined in detail by [PAR memo, § 4](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-par#section-4)
+    * endpoint behavior and responses defined in detail by [PAR memo, § 4](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-par#section-4)
 
 Step 3: User authentication, consent and authorization
 
@@ -72,4 +75,5 @@ Step 4: Request Data
 * The unique AccountId(s) that are valid for the account-access-consent will be returned with a call to GET /accounts. This will always be the first call once an DR has a valid access token.
 
 ### Sequence Diagram
+
 ![FDX End-to-end web journey sequence](/Images/FDX_Web_Journey_Sequence.svg)

@@ -48,7 +48,6 @@ A Kubernetes 1.16+ cluster is required to deploy the Amplify Open Banking Soluti
 
 ### Resources
 
-
 Axway also recommends using Node Groups. Node Groups allow operators to group resources by node type based on characteristics such as machine resources, capabilities, or the virtual machine type. Taking this approach can reduce costs, increase performance, and allow specific type of machines to be managed discretely.
 
 The Kubernetes configuration must include three Node Groups:

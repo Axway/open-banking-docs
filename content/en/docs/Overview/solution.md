@@ -96,7 +96,7 @@ Amplify Open Banking provides the APIs required to be compliant with local marke
 
 #### Access to account for payments
 
-Access to Account for Payments is one of the roles typically granted to Data Recipient Developers by local market regulations and open banking frameworks. 
+Access to Account for Payments is one of the roles typically granted to Data Recipient Developers by local market regulations and open banking frameworks.
 
 In this role Data Recipient Apps can initiate payment on behalf of the customer dependent on properties of the payment they have consented to. Depending on local standards the types of payment available can vary and can include:
 

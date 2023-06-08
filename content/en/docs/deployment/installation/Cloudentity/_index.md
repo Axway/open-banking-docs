@@ -5,6 +5,7 @@ weight: 20
 ---
 
 Install Cloudentity for the Amplify Open Banking solution. Cloudentity includes 2 components:
+
 * Cloudentity
 * Sample Consent Applications
 
@@ -20,6 +21,7 @@ Download the Amplify Open Banking Cloudentity Helm charts to customize them loca
 helm pull axway/open-banking-fdx-acp --untar
 helm pull axway/open-banking-fdx-consent-apps --untar
 ```
+
 You should get `open-banking-fdx-acp` and `open-banking-fdx-consent-apps` local folders.
 
 ### Open Finance Brazil

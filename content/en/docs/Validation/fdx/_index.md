@@ -18,7 +18,7 @@ Each collection includes a script that simulates a sequence of API calls to veri
 Retrieve the postman files.
 
 1. Go to the Marketplace and click **Products** to access the API Product.
-2. Browse to the API Product you would like to test and go to **Documentation** tab. Alternatively you can click on `How To Consume APIs` section from the **Overview** tab 
+2. Browse to the API Product you would like to test and go to **Documentation** tab. Alternatively you can click on `How To Consume APIs` section from the **Overview** tab.
 3. Click the **Postman Collection** and **Postman Environment** links to download the Collection and Environment files.
 
 {{% alert title="Note" color="primary" %}} Postman collections also have their own documentation and you can follow these instructions within postman after importing the collection.{{% /alert %}}
@@ -66,8 +66,8 @@ Use Postman to test the FDX Core API. Before sending any request make sure that 
 ##### Start the steps in Postman to test the Core API
 
 * Select Step 1, Data Recipient (DR) initiates a POST request to Data Provider's (DP’s) POST /par endpoint using the Pushed Authorization Request (PAR) method
-   * The *authorization_details* request parameter is defined in pre-request scripts and set as collection variable. Placeholders of all types of consents exist and can be used.
-   * Once you get the response, go to **Visualize** tab and copy the available link. You need to use this link in the browser of your choice and complete login.
+    * The *authorization_details* request parameter is defined in pre-request scripts and set as collection variable. Placeholders of all types of consents exist and can be used.
+    * Once you get the response, go to **Visualize** tab and copy the available link. You need to use this link in the browser of your choice and complete login.
 
 ##### Complete the steps in the Browser to test the Core API
 
@@ -85,6 +85,6 @@ The redirect URL of the DR client app should include `https://oauth.pstmn.io/v1/
 Finish testing the Core API in Postman.
 
 * Select Step 2 and paste the code in the `code` value of the request body form.
-   * Click _Send_ to get the access token. You should get a **200 OK** response code and the response body includes an *access_token* value.
+    * Click *Send* to get the access token. You should get a **200 OK** response code and the response body includes an *access_token* value.
 
 * Once you gets the *access_token* in response you are ready to call rest of the API endpoints in the collection.

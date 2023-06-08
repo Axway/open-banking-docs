@@ -29,7 +29,7 @@ This configuration can be read at the beginning of any policy using a common pol
 
 In FDX deployment, by default, there is at least one row for each API and a row with generic information which is applicable to all APIs.
 
-In Open Finance Brazil deployment, by default, only one line exists with no criteria (columns b to e) and values (column k) corresponding to solution deployment parameters. 
+In Open Finance Brazil deployment, by default, only one line exists with no criteria (columns b to e) and values (column k) corresponding to solution deployment parameters.
 
 Refer to [Solution Deployment](/docs/deployment/installation) to see how to change these values during deployment.
 

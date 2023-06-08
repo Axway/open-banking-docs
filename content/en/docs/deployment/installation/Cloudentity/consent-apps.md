@@ -3,7 +3,7 @@ title: "Consent Applications Installation"
 linkTitle: "Consent Applications"
 weight: 2
 ---
-Install Cloudentity sample consent applications for the Amplify Open Banking solution. These 
+Install Cloudentity sample consent applications for the Amplify Open Banking solution.
 
 ## Customize the Consent Helm chart
 
