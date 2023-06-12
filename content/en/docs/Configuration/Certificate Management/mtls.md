@@ -210,7 +210,7 @@ Here are several scenarios you can use to test the MTLS setup with NGINX and API
 You can do similar tests on Cloudentity using the following curl command:
 
 ```bash
-curl --request POST 'https://Cloudentity.<domain-name>/default/openbanking_brasil/oauth2/token' \
+curl --request POST 'https://acp.<domain-name>/default/openbanking_brasil/oauth2/token' \
 --data-urlencode 'grant_type=client_credentials' --data-urlencode 'scope=accounts' \
 --data-urlencode 'client_id=tpp1' --cert tpp1.crt --key tpp1.key
 ```

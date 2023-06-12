@@ -11,9 +11,9 @@ Install Cloudentity for the Amplify Open Banking solution. Cloudentity includes 
 
 {{% alert title="Note" color="primary" %}} Sample Consent applications are not developed for production usage. For more information please see deatils in [Component View](/docs/overview/technical/component).{{% /alert %}}
 
-## Download the ACP Helm charts
+## Download the Cloudentity Helm charts
 
-Download the Amplify Open Banking ACP Helm charts to customize them locally.
+Download the Amplify Open Banking Cloudentity Helm charts to customize them locally.
 
 ### Financial Data Exchange (FDX)
 

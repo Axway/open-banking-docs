@@ -33,7 +33,7 @@ Modify the `open-banking-fdx-acp/values.yaml` file for FDX deployment and `open-
 | acp.config.data.storage.audit_events.retention.max_age | Remove audit events older than max age limit | 6h0m0s |
 | acp.config.data.server.obbr_base_paths | Open banking Brasil API base path whitelist. | None |
 | acp.ingress.hosts.host | Cloudentity server URL | None |
-| acp.ingress.customAnnotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | Secret to keep the ssl cert. It should be [NAMESPACE]/acp-tls | open-banking-cloudentity/acp-tls |
+| acp.ingress.customAnnotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | Secret to keep the ssl cert. It should be [NAMESPACE]/acp-tls | open-banking-acp/acp-tls |
 | acp.features.swagger_ui | Enable swagger UI. | true |
 
 Remove the following lines if cert-manager is not used for ingress:
@@ -130,4 +130,4 @@ cert-manager.io/acme-challenge-type: http01 (l23)
 * Navigate to Openbanking workspace, Settings - Authorization - Trusted client certificates, and update the Trusted client certificates content with the `open-banking-consent/files/cert.pem` file attached.
 
 * Navigate to Openbanking workspace, Applications - Bank - OAuth - Subject Distinguished Name, update with the following entry
-`CN=cid2.authorization.acp.com,OU=Authorization,O=Cloudentity,L=Seattle,ST=Washinghton,C=US`.
+`CN=cid2.authorization.cloudentity.com,OU=Authorization,O=Cloudentity,L=Seattle,ST=Washinghton,C=US`.

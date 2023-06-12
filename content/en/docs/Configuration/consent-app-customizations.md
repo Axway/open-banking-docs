@@ -39,7 +39,7 @@ docker push  <your-docker-repo>/open-banking-consent-page:<image-tag>
 * Upgrade the Helm chart release
 
 ```console
-helm upgrade consent -n open-banking-consent acp/openbanking –-version <chart-version> -f open-banking-consent/files/consent.values.yaml
+helm upgrade consent -n open-banking-consent cloudentity/openbanking –-version <chart-version> -f open-banking-consent/files/consent.values.yaml
 ```
 
 The consent page should now reflect your changes on your Kubernetes environment.
