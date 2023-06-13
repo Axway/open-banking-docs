@@ -29,7 +29,7 @@ This configuration can be read at the beginning of any policy using a common pol
 
 In FDX deployment, by default, there is at least one row for each API and a row with generic information which is applicable to all APIs.
 
-In Open Finance Brazil deployment, by default, only one line exists with no criteria (columns b to e) and values (column k) corresponding to solution deployment parameters. 
+In Open Finance Brazil deployment, by default, only one line exists with no criteria (columns b to e) and values (column k) corresponding to solution deployment parameters.
 
 Refer to [Solution Deployment](/docs/deployment/installation) to see how to change these values during deployment.
 
@@ -41,16 +41,16 @@ Click on configuration and the line to be checked or updated.
 
 ![kps-values](/Images/api-gateway-manager-kps-values.png)
 
-Several values should correspond to the settings of Cloudentity ACP or its consent module. See the below mapping table to check that the KPS values are correct.
+Several values should correspond to the settings of Cloudentity or its consent module. See the below mapping table to check that the KPS values are correct.
 
 #### Mapping table for FDX
 
-| KPS Values | How to retrieve or check this values in ACP UI |
+| KPS Values | How to retrieve or check this values in Cloudentity UI |
 | --- | --- |
-| oauth_ce_host | hostname of acp server |
-| oauth_ce_port | port of acp server |
-| oauth_ce_tenantid | tenant id in ACP server |
-| oauth_ce_id | workspace id in ACP where client applications are created and consents are stored |
+| oauth_ce_host | hostname of Cloudentity server |
+| oauth_ce_port | port of Cloudentity server |
+| oauth_ce_tenantid | tenant id in Cloudentity server |
+| oauth_ce_id | workspace id in Cloudentity where client applications are created and consents are stored |
 | oauth_introspect_client_id | client id of app named "bank" in FDX workspace |
 | oauth_ce_idp_clientId | client id of the custom IdP configured in FDX workspace |
 | oauth_ce_idp_clientSecret | client secret of the custom IdP configured in FDX workspace |
@@ -58,17 +58,17 @@ Several values should correspond to the settings of Cloudentity ACP or its conse
 
 #### Mapping table for Open Finance Brazil
 
-| KPS Values | How to retrieve or check this values in ACP UI |
+| KPS Values | How to retrieve or check this values in Cloudentity UI |
 | --- | --- |
 | oauth_consent_clientId | Custom IDP Demo bank login ID: bank customer. |
 | oauth_consent_clientSecret | Custom IDP Demo bank login secret: bank customer. |
 | oauth_consent_confirmation_clientid | Settings: consent screen client id. |
 | oauth_consent_confirmation_clientSecret | Settings: consent screen client secret. |
 | oauth_consent_user_clientSecret | Custom IDP Demo bank login secret: open banking workspace. |
-| oauth_host | Host of acp server. |
-| oauth_id | Openbanking workspace id in ACP server. |
+| oauth_host | Host of Cloudentity server. |
+| oauth_id | Openbanking workspace id in Cloudentity server. |
 | oauth_introspect_clientid | App is bank in openbanking workspace. |
-| oauth_tenantid | Tenant id in ACP server. |
+| oauth_tenantid | Tenant id in Cloudentity server. |
 
 ### API policies
 

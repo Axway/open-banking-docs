@@ -11,7 +11,7 @@ How to change and test the certificate configurations required for Mutual Authen
 
 Mutual authentication is required for most APIs developed for Open Banking.
 
-According to the Open Banking Specification, Mutual Transport Layer Security (MTLS) client connections are required for the Cloud Entity and API Gateway Listener components. See the diagram for details on MTLS setup.
+According to the Open Banking Specification, Mutual Transport Layer Security (MTLS) client connections are required for the Cloudentity and API Gateway Listener components. See the diagram for details on MTLS setup.
 ![MTLS diagram](/Images/MTLS.svg)
 
 See more about the Certificate Verification with MTLS in Open Banking context in [Mutual Authentication and Certificate Verification](/docs/overview/integration/mutual-auth).
@@ -30,9 +30,9 @@ Refer to the required features of the ingress controller in [Deployment - Prereq
 
 {{% alert title="Note" color="primary" %}} Usage of the MTLS Listener embedded on the API-gateway configuration would require each customer to build their own Docker images, as the container maturity level does not allow us to externalize certificates.{{% /alert %}}
 
-### Cloud Entity MTLS
+### Cloudentity MTLS
 
-Cloud Entity supports the MTLS and the root CA must be added in the component.
+Cloudentity supports the MTLS and the root CA must be added in the component.
 
 ## Setup the solution for MTLS with test certificates
 
@@ -41,7 +41,7 @@ This section includes the prerequisites and tasks to setup the solution for MTLS
 ### Prerequisites
 
 * An openssl tool available.
-* An ACP deployed on Kubernetes.
+* A Cloudentity deployed on Kubernetes.
 * An APIM component deployed on Kubernetes.
 * Nginx Ingress Controller deployed on Kubernetes.
 
@@ -142,16 +142,16 @@ openssl req -new -newkey rsa:2048 -nodes -out tpp1.csr -keyout tpp1.key
 
 ### Deploy root CA certificates on the Open Banking platform
 
-#### ACP
+#### Cloudentity
 
-Connect to the Cloud Entity admin page on `https://acp.<domain-name>/app/default/admin/`.
+Connect to the Cloudentity admin page on `https://Cloudentity.<domain-name>/app/default/admin/`.
 
 1. Select workspace **openbanking_brasil**.
 2. Click **Settings** on the left panel.
-![ACP Authorization Settings](/Images/mtls-acp-auth.png)
+![Cloudentity Authorization Settings](/Images/mtls-acp-auth.png)
 3. Click **Authorization** on the main frame.
 4. Scroll down to **Trusted client certificates**.
-![ACP Trusted client certificates ](/Images/mtls-acp-ca.png)
+![Cloudentity Trusted client certificates ](/Images/mtls-acp-ca.png)
 5. Paste ca1.crt and ca2.crt contents in the text box.
 6. Click **Save**.
 
@@ -194,7 +194,7 @@ kubectl get pods -n <nginx namespace>
 
 Here are several scenarios you can use to test the MTLS setup with NGINX and APIM:
 
-* Configure both CA1 and CA2 in NGINX, APIM, and ACP as described in the previous section.
+* Configure both CA1 and CA2 in NGINX, APIM, and Cloudentity as described in the previous section.
     * Use a simple curl command to test a call without cert and keys.
         * `curl 'https://mtls-api-proxy.<domain-name>/healthcheck'`
         * The call should return 400 with a SSL certificate error
@@ -202,12 +202,12 @@ Here are several scenarios you can use to test the MTLS setup with NGINX and API
         * `curl 'https://mtls-api-proxy.<domain-name>/healthcheck' --cert tpp1.crt --key tpp1.key`
         * `curl 'https://mtls-api-proxy.<domain-name>/healthcheck' --cert tpp2.crt --key tpp2.key`
         * The call should return 200 with status ok
-* Configure only CA1 in NGINX, APIM, and ACP as described in the previous section.
+* Configure only CA1 in NGINX, APIM, and Cloudentity as described in the previous section.
     * Use a simple curl command to test sending the cert and key for TPP2.
         * `curl 'https://mtls-api-proxy.<domain-name>/healthcheck' --cert tpp2.crt --key tpp2.key`
         * The call should return 400 with a SSL certificate error
 
-You can do similar tests on ACP using the following curl command:
+You can do similar tests on Cloudentity using the following curl command:
 
 ```bash
 curl --request POST 'https://acp.<domain-name>/default/openbanking_brasil/oauth2/token' \

@@ -48,7 +48,6 @@ A Kubernetes 1.16+ cluster is required to deploy the Amplify Open Banking Soluti
 
 ### Resources
 
-
 Axway also recommends using Node Groups. Node Groups allow operators to group resources by node type based on characteristics such as machine resources, capabilities, or the virtual machine type. Taking this approach can reduce costs, increase performance, and allow specific type of machines to be managed discretely.
 
 The Kubernetes configuration must include three Node Groups:
@@ -65,7 +64,7 @@ The Kubernetes configuration must include three Node Groups:
 | API Management  | APIGateway Traffic | 3-6 |
 | Amplify Agents  | Discovery Agent  | 1 |
 | Amplify Agents  | Traceability Agent  | 1 |
-| Identity  | ACP | 1-3 |
+| Identity  | Cloudentity | 1-3 |
 | Identity  | CockroachDB | 1-3 |
 | Identity  | Redis | 1-3 |
 
@@ -119,7 +118,7 @@ You can use NGINX or another ingress controller with the following requirements:
 * Manage multiple root CAs according to different client certificates.
 * Limit cypher spec usage to “DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384".
 * Use request header size compatible with 8K.
-* Deny public access to ACP path `/app/default/admin`.
+* Deny public access to Cloudentity path `/app/default/admin`.
 
 #### Certificate Manager
 

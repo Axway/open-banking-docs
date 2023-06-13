@@ -1,10 +1,10 @@
 ---
-title: "Authorization Control Plane Installation"
-linkTitle: "Authorization Control Plane"
+title: "Cloudentity Installation"
+linkTitle: "Cloudentity"
 weight: 1
 ---
 
-Install Cloud Entity Authorization Control Plane (ACP) for the Amplify Open Banking solution.
+Install Cloudentity for the Amplify Open Banking solution.
 
 ## Customize the ACP Helm chart
 
@@ -20,19 +20,19 @@ Modify the `open-banking-fdx-acp/values.yaml` file for FDX deployment and `open-
 |:------------- |:------------------------------------- |:-------------- |
 | global.dockerRegistry.username | Defining Cloudentity repository username. | None |
 | global.dockerRegistry.password | Defining Cloudentity repository password. | None |
-| redis-cluster.password | Defining ACP's Redis password. | None |
+| redis-cluster.password | Defining Cloudentity's Redis password. | None |
 | acp-prereq.cert.internal.certManager | Define if cert-manager is used internally. <br>False is currently not supported. | true |
 | acp-prereq.cert.internal.certManagerNamespace | Namespace where cert-manager is installed. Use the result of the previous command. | None |
 | acp-prereq.cert.ingress.certManager | Define if cert-manager is used externally. <br>If set to false, define cert and keys with values below. | true |
 | acp-prereq.cert.ingress.cert | Use specific cert. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 | acp-prereq.cert.ingress.key | Use specific key. It can be a wildcard. Must be defined only if certManager is set to false. | None |
-| acp.serverURL | ACP server URL | None |
-| acp.serverURLMtls | ACP server URL | None |
+| acp.serverURL | Cloudentity server URL | None |
+| acp.serverURLMtls | Cloudentity server URL | None |
 | acp.config.data.storage.audit_events.retention.enabled | Enable audit events retention | true |
 | acp.config.data.storage.audit_events.retention.batch_limit | Audit events retention batch delete limit | 1000 |
 | acp.config.data.storage.audit_events.retention.max_age | Remove audit events older than max age limit | 6h0m0s |
 | acp.config.data.server.obbr_base_paths | Open banking Brasil API base path whitelist. | None |
-| acp.ingress.hosts.host | ACP server URL | None |
+| acp.ingress.hosts.host | Cloudentity server URL | None |
 | acp.ingress.customAnnotations.nginx.ingress.kubernetes.io/proxy-ssl-secret | Secret to keep the ssl cert. It should be [NAMESPACE]/acp-tls | open-banking-acp/acp-tls |
 | acp.features.swagger_ui | Enable swagger UI. | true |
 

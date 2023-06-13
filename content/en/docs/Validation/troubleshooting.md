@@ -45,7 +45,7 @@ Once analyzed, you might take one or several actions to fix the issue:
 
 * Fix a remote backend or cloud service that was not available.
 * Fix client configuration to call the API differently.
-* Fix the Authorization server configuration. Refer to [ACP workspace administration](https://cloudentity.com/developers/howtos/).
+* Fix the Authorization server configuration. Refer to [Cloudentity workspace administration](https://cloudentity.com/developers/howtos/).
 * Fix the API Manager configuration. Refer to [API Management](/docs/configuration/api-management#api-management).
 * Fix the API Gateway KPS configuration. Refer to [KPS configuration](/docs/configuration/api-management/#key-properties-store-kps-configuration).
 * Update a certification configuration. Refer to [API Policies](/docs/configuration/api-management#api-policies).
@@ -83,9 +83,9 @@ Any change needs to be published with the *Deploy (F6)* command and select all i
 
 If you need to change the API Policy configuration more permanently, refer to [Configuration - API Policies](/docs/configuration/api-management#api-policies).
 
-## ACP logs
+## Cloudentity logs
 
-ACP logs can be accessed at the container standard output. In the Kubernetes cluster:
+Cloudentity logs can be accessed at the container standard output. In the Kubernetes cluster:
 
 * Identify the acp-xxxxx-xxx pod name
 
