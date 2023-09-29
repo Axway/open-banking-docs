@@ -1,0 +1,412 @@
+#This values file is designed to override default apigateway charts/apigateway/values.yaml file 
+#and add settings specific for Open Banking deployments.
+
+openbanking:
+  enabled: true
+  #For Open Banking Brazil deployment use value "OBB", for NA/FDX deployment use value "FDX".
+  standard: "FDX"
+
+nameOverride: "gateway"
+
+global:
+  domainName: "dev.open-banking.axway.com"
+  defaultRegistry: "docker.repository.axway.com/apigateway-docker-prod/7.7"
+  imagePullSecrets:
+  - name: regcred
+  imagePullPolicy: Always
+  initContainers:
+    securityContext:
+      runAsNonRoot: false
+
+  cassandra:
+    enabled: true
+    hosts:
+      - variable: CASS_HOST
+        hostname: cassandra.cassandra.svc.cluster.local
+    username: "cassandra"
+    password: "cassandra"
+    keyspace: apim_dev
+    tkeyspace: t_apim_dev
+
+  storage:
+    provisioningType: "dynamic"
+    storageClassName: "efs-sc"
+    classes:
+    - name: "efs-sc"
+      provisioner: "efs.csi.aws.com"
+      allowVolumeExpansion: true
+      parameters:
+        provisioningMode: "efs-ap"
+        fileSystemId: "fs-054e86ed38c52f5d2"
+        directoryPerms: "755"
+    volumes:
+      - name: events
+        enabled: true
+        accessModes:
+          - ReadWriteMany
+        capacity: 1Gi
+        persistentVolume:
+          csiDriver: "efs.csi.aws.com"
+          volumeHandle: "fs-054e86ed38c52f5d2::fsap-03d17b5be1d52d114"
+          reclaimPolicy: Delete
+      - name: gw-external-config
+        enabled: true
+        accessModes:
+          - ReadWriteMany
+        capacity: 1Mi
+        persistentVolume:
+          csiDriver: "efs.csi.aws.com"
+          volumeHandle: "fs-054e86ed38c52f5d2::fsap-03d17b5be1d52d114"
+          reclaimPolicy: Delete
+      - name: anm-external-config
+        enabled: true
+        accessModes:
+          - ReadWriteMany
+        persistentVolume:
+          csiDriver: "efs.csi.aws.com"
+          volumeHandle: "fs-054e86ed38c52f5d2::fsap-03d17b5be1d52d114"
+          reclaimPolicy: Delete
+        capacity: 1Mi
+
+apigateway:
+  anm:
+    license:
+      license.lic: |
+        FIPS=1
+        SalesForce Connector=1
+        ServiceNow Connector=1
+        analytics=1
+        api_visual_mapper=1
+        apiportal=1
+        company=Axway
+        deployment_type=docker
+        expires=Thu, 17 Aug 2023 15:48:01 GMT
+        mcafee=1
+        name=Axway
+        sdkgenerator=1
+        unrestricted=1
+        version=7.7
+        # SIGNATURE: 2865cb92427fe2141ee103bc5a8c2e2f2c4f204a6be7724cea3b3037c0da8259
+        # SIGNATURE: a6597e7c8d4b4b9479171551493c4c4587c5cc179b1e866d953f5d625b88a55c
+        # SIGNATURE: 2955c6f1087f7e6ad0ac3229439bb729dfadabc7f4a98d7b01c23ce9490fc03a
+        # SIGNATURE: a21caa64aba6f2b9724f7115d13f2ae5a4ce3118d1dd2dd6415f06467a53ae02
+        # SIGNATURE: 650331bdaeee7eb91e69c4849e6231bdab341beb22e70dc8f5d8c56a30660475
+        # SIGNATURE: c8f4c50cd6c9795b845e1ba6578d33e973e1f5e5dcc0c0eba46d415b3d2f6a93
+        # SIGNATURE: bb2180a5c17bdf9b59c725cbdd42b327506cb0b1921a3c07cb075580e66912ea
+
+    replicaCount: 1
+    image:
+      repository: "admin-nodemanager"
+      tag: "7.7.0.20230530-2-BN0034-ubi7"
+      generalConditions:
+        accept: "yes"
+    securityContext:
+      runAsNonRoot: false
+    resources:
+      limits:
+        memory: "2048Mi"
+        cpu: "1000m"
+      requests:
+        memory: "1Gi"
+        cpu: "250m"
+    ingress:
+      enabled: true
+      className: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      hosts:
+        - host: api-gateway-manager.dev.open-banking.axway.com
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+      tls:
+        - secretName: api-gateway-manager-tls
+          hosts:
+            - api-gateway-manager.dev.open-banking.axway.com
+    # OpenShift configuration
+    route:
+      enabled: false
+
+  apimgr:
+    license:
+      license.lic: |
+        FIPS=1
+        SalesForce Connector=1
+        ServiceNow Connector=1
+        analytics=1
+        api_visual_mapper=1
+        apiportal=1
+        company=Axway
+        deployment_type=docker
+        expires=Thu, 17 Aug 2023 15:48:01 GMT
+        mcafee=1
+        name=Axway
+        sdkgenerator=1
+        unrestricted=1
+        version=7.7
+        # SIGNATURE: 2865cb92427fe2141ee103bc5a8c2e2f2c4f204a6be7724cea3b3037c0da8259
+        # SIGNATURE: a6597e7c8d4b4b9479171551493c4c4587c5cc179b1e866d953f5d625b88a55c
+        # SIGNATURE: 2955c6f1087f7e6ad0ac3229439bb729dfadabc7f4a98d7b01c23ce9490fc03a
+        # SIGNATURE: a21caa64aba6f2b9724f7115d13f2ae5a4ce3118d1dd2dd6415f06467a53ae02
+        # SIGNATURE: 650331bdaeee7eb91e69c4849e6231bdab341beb22e70dc8f5d8c56a30660475
+        # SIGNATURE: c8f4c50cd6c9795b845e1ba6578d33e973e1f5e5dcc0c0eba46d415b3d2f6a93
+        # SIGNATURE: bb2180a5c17bdf9b59c725cbdd42b327506cb0b1921a3c07cb075580e66912ea
+
+    replicaCount: 1
+    image:
+      repository: "gateway"
+      tag: "7.7.0.20230530-2-BN0034-ubi7"
+      generalConditions:
+        accept: "yes"
+    groupId: "ob-fdx-dev"
+    securityContext:
+      runAsNonRoot: false
+    resources:
+      limits:
+        memory: "2Gi"
+        cpu: 2
+      requests:
+        memory: "0.5Gi"
+        cpu: 0.5
+    extraVolumeMounts:
+      - name: gw-external-config
+        mountPath: /merge
+      - name: events
+        mountPath: /opt/Axway/apigateway/events
+    extraVolumes:
+      - persistentVolumeClaim:
+          claimName: gw-external-config
+        name: gw-external-config
+      - persistentVolumeClaim:
+          claimName: events
+        name: events
+    extraEnvVars:
+    - name: CASS_KEYSPACE_REPLICATION
+      value: "1"
+    - name: CASS_TKEYSPACE_REPLICATION
+      value: "1"
+    ingress:
+      enabled: true
+      className: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      hosts:
+        - host: api-manager.dev.open-banking.axway.com
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+      tls:
+        - secretName: api-manager-tls
+          hosts:
+            - api-manager.dev.open-banking.axway.com
+
+    # OpenShift configuration
+    route:
+      enabled: false
+
+  apitraffic:
+    license: 
+      license.lic: |
+        FIPS=1
+        SalesForce Connector=1
+        ServiceNow Connector=1
+        analytics=1
+        api_visual_mapper=1
+        apiportal=1
+        company=Axway
+        deployment_type=docker
+        expires=Thu, 17 Aug 2023 15:48:01 GMT
+        mcafee=1
+        name=Axway
+        sdkgenerator=1
+        unrestricted=1
+        version=7.7
+        # SIGNATURE: 2865cb92427fe2141ee103bc5a8c2e2f2c4f204a6be7724cea3b3037c0da8259
+        # SIGNATURE: a6597e7c8d4b4b9479171551493c4c4587c5cc179b1e866d953f5d625b88a55c
+        # SIGNATURE: 2955c6f1087f7e6ad0ac3229439bb729dfadabc7f4a98d7b01c23ce9490fc03a
+        # SIGNATURE: a21caa64aba6f2b9724f7115d13f2ae5a4ce3118d1dd2dd6415f06467a53ae02
+        # SIGNATURE: 650331bdaeee7eb91e69c4849e6231bdab341beb22e70dc8f5d8c56a30660475
+        # SIGNATURE: c8f4c50cd6c9795b845e1ba6578d33e973e1f5e5dcc0c0eba46d415b3d2f6a93
+        # SIGNATURE: bb2180a5c17bdf9b59c725cbdd42b327506cb0b1921a3c07cb075580e66912ea
+
+    serviceName: apim-apigateway-apitraffic
+    name: apitraffic
+    image:
+      repository: "gateway"
+      tag: "7.7.0.20230530-2-BN0034-ubi7"
+      generalConditions:
+        accept: "yes"
+    groupId: "ob-fdx-dev"
+    securityContext:
+      runAsNonRoot: false
+    resources:
+      limits:
+        memory: "2Gi"
+        cpu: 2
+      requests:
+        memory: "0.5Gi"
+        cpu: 0.5
+    extraVolumeMounts:
+      - name: gw-external-config
+        mountPath: /merge
+      - name: events
+        mountPath: /opt/Axway/apigateway/events
+    extraVolumes:
+      - persistentVolumeClaim:
+          claimName: gw-external-config
+        name: gw-external-config
+      - persistentVolumeClaim:
+          claimName: events
+        name: events
+    extraEnvVars:
+    - name: CASS_KEYSPACE_REPLICATION
+      value: "1"
+    - name: CASS_TKEYSPACE_REPLICATION
+      value: "1"
+    ingressMtls: mtls-api-proxy
+    ingressHttps: services-api
+    portHttps: 8443
+    portMtls: 8065
+    ingress:
+      enabled: true
+      className: nginx
+      name: "apim-apigateway-apitraffic"
+      certManager: true
+      issuedByLetsEncrypt: true
+      clusterIssuer: "letsencrypt-prod"
+      acmeChallengeType: http01
+      #if certManager is true, cert and key will be ignored. Keep always an empty line after certificate.
+      wildcard: false
+      #Complete this line for a wildcard usage.
+      cert: |
+        -----BEGIN CERTIFICATE-----
+        <<insert here base64-encoded cert>>
+        -----END CERTIFICATE-----
+      key: |
+        -----BEGIN RSA PRIVATE KEY-----
+        <<insert here base64-encoded key>>
+        -----END RSA PRIVATE KEY-----
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      hosts:
+        - host: api.dev.open-banking.axway.com
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+      tls:
+        - secretName: api-gateway-apitraffic-tls
+          hosts:
+            - api.dev.open-banking.axway.com
+    oauth:
+      enabled: false
+      route: 
+        enabled: false
+    
+    # OpenShift configuration
+    route:
+      enabled: false
+
+  aga:
+    enabled: false
+    route:
+      enabled: false
+
+  apiportal:
+    enabled: false
+    route:
+      enabled: false
+
+## Configuration for v7-discovery subchart
+  discovery-agent:
+    # Deploy the discovery agent
+    enabled: true
+    image:
+      tag: "1.1.51"
+    env:
+      #LOG_LEVEL: debug, info, warn, error
+      LOG_LEVEL: info
+      CENTRAL_URL: "https://apicentral.axway.com"
+      CENTRAL_AUTH_URL: "https://login.axway.com/auth"
+      #DOSA-ID: https://docs.axway.com/bundle/axway-open-docs/page/docs/central/cli_central/cli_install/index.html#authorize-your-cli-to-use-the-amplify-central-apis
+      CENTRAL_AUTH_CLIENTID: "sample"
+      CENTRAL_ORGANIZATIONID: "sample"
+      CENTRAL_ENVIRONMENT: "sample"
+      CENTRAL_TEAM: "Default Team"
+      APIMANAGER_HOST: "apim-apigateway-apimgr"
+      APIMANAGER_PORT: "8075"
+      APIGATEWAY_HOST: "apim-apigateway-anm"
+      APIGATEWAY_PORT: "8090"
+    
+      APIMANAGER_SSL_INSECURESKIPVERIFY: "true"
+      CENTRAL_AGENTNAME: ""
+      CENTRAL_GRPC_ENABLED: "true"
+      AGENTFEATURES_MARKETPLACEPROVISIONING: "true"
+      AGENTFEATURES_PERSISTCACHE: "false"
+      AGENTFEATURES_IDP_NAME_1: "Cloudentity"
+      AGENTFEATURES_IDP_TYPE_1: "generic"
+      AGENTFEATURES_IDP_METADATAURL_1: "https://acp.dev.open-banking.axway.com/default/fdx-demo/.well-known/openid-configuration"
+      AGENTFEATURES_IDP_AUTH_TYPE_1: "client"
+      AGENTFEATURES_IDP_AUTH_CLIENTID_1: "sample"
+      AGENTFEATURES_IDP_AUTH_CLIENTSECRET_1: "sample"
+
+  ## Configuration for v7-traceability subchart
+  traceability-agent:
+    ## Deploy the traceability agent
+    enabled: true
+    image:
+      tag: "1.1.52"
+    env:
+      LOG_LEVEL: info
+      CENTRAL_AGENTNAME: "sample"
+      CENTRAL_URL: "https://apicentral.axway.com"
+      CENTRAL_AUTH_URL: "https://login.axway.com/auth"
+      CENTRAL_DEPLOYMENT: "prod"
+      CENTRAL_AUTH_CLIENTID: "sample"
+      CENTRAL_ORGANIZATIONID: "sample"
+      CENTRAL_ENVIRONMENT: "sample"
+      CENTRAL_TEAM: "Default Team"
+      # EVENT_LOG_PATHS: "/opt/Axway/apigateway/events/axwaydemo_traffic-*.log"
+      EVENT_LOG_PATHS: "/opt/Axway/apigateway/events/*_traffic-*.log"
+      EVENT_LOG_INPUT: "true"
+      OPENTRAFFIC_LOG_INPUT: "false"
+      OPENTRAFFIC_LOG_PATHS: "/opt/Axway/apigateway/logs/opentraffic/*.log"
+      #DOSA-ID: https://docs.axway.com/bundle/axway-open-docs/page/docs/central/cli_central/cli_install/index.html#authorize-your-cli-to-use-the-amplify-central-apis
+      TRACEABILITY_HOST: "ingestion.datasearch.axway.com:5044"
+      TRACEABILITY_PROTOCOL: "tcp"
+      TRACEABILITY_SAMPLING_PERCENTAGE: 100
+      TRACEABILITY_SAMPLING_REPORTALLERRORS: "true"
+    
+      APIMANAGER_HOST: "apim-apigateway-apimgr"
+      APIMANAGER_PORT: "8075"
+      # flip to true if API manager is using a self signed certificate
+      APIMANAGER_SSL_INSECURESKIPVERIFY: "true"
+      APIGATEWAY_ONLY: "false"
+      APIGATEWAY_HOST: "apim-apigateway-anm"
+      APIGATEWAY_PORT: "8090"
+      # flip to true if API gateway is using a self signed certificate
+      APIGATEWAY_SSL_INSECURESKIPVERIFY: "true"
+      APIGATEWAY_HEALTHCHECKPORT: 8090
+      APIGATEWAY_HEALTHCHECKPROTOCOL: "https"
+      APIGATEWAY_HEALTHCHECKURI: login
+    
+      CENTRAL_GRPC_ENABLED: "true"
+      AGENTFEATURES_MARKETPLACEPROVISIONING: "true"
+      AGENTFEATURES_PERSISTCACHE: "true"
+      TRACEABILITY_PER_SUBSCRIPTION: "true"
+    persistentVolumeClaimConfig:
+      data:
+        # storage class to persist contents of data directory in the agent - should be available in the cluster i.e gp2, gp2-csi, default
+        storageClass: efs-sc
+        name: data-claim
+      events:
+        name: events
+        mountPath: "/opt/Axway/apigateway/events"

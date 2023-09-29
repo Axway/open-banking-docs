@@ -17,7 +17,7 @@ The flow is summarized as follows:
 
 All APIs that provide access to data are implemented in the same manner. The consent/data access pattern relating to Account Information is therefore representative regardless of the specific resource (checking accounts, credit cards, loans, and so on).
 
-![FDX Wrokflow](/Images/FDX_Workflow.png)
+![FDX Wrokflow](/Images/FDX_Workflow_0.png)
 
 ### Steps
 

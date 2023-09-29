@@ -8,7 +8,7 @@ This guide describes how to install the Amplify Open Banking solution.
 
 ## Connect to the Axway Repository
 
-You must have a Service Account with Axway in order to access the Helm chart and public images.
+You must have a [service account](https://docs.axway.com/bundle/platform-management/page/docs/management_guide/organizations/managing_organizations/managing_service_accounts/index.html) with Axway in order to access the Helm chart and public images.
 
 ### Access the Helm chart
 

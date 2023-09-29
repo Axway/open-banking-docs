@@ -1,5 +1,5 @@
 ---
-title: "Open Finance Brazil API Management Installation"
+title: "Open Finance Brazil API Management Configuration"
 linkTitle: "Open Finance Brazil API Management"
 weight: 2
 ---
