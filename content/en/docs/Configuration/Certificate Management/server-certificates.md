@@ -14,7 +14,7 @@ Server certificate are required for all of the following ingresses:
 
 | Ingress Name                              | External address                       | NAMESPACE                      |
 |-------------------------------------------|----------------------------------------|--------------------------------|
-| acp                                       | acp.`<domain-name>`                    | open-banking-acp               |
+| acp                                       | acp.`<domain-name>`                    | open-banking-cloudentity       |
 | apimanager                                | api-manager.`<domain-name>`            | open-banking-apim              |
 | gatewaymanager                            | api-gateway-manager.`<domain-name>`    | open-banking-apim              |
 | traffic                                   | api.`<domain-name>`                    | open-banking-apim              |
