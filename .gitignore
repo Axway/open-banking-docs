@@ -4,3 +4,5 @@ resources/
 node_modules/
 tech-doc-hugo
 .DS_Store
+package-lock.json
+build.sh

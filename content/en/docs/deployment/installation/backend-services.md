@@ -78,10 +78,10 @@ Customize the `values.yaml` file as follows.
 
 ## Open Finance Brazil deployments
 
-Download the Amplify Open Banking Backend Services Helm chart to customize it locally.
+Fetch the Amplify Open Banking Backend Services Helm chart to view the `values.yaml` file.
 
 ```bash
-helm pull axway/open-banking-backend-chart --untar
+helm fetch axway/open-banking-backend-chart --untar
 ```
 
 You should get an `open-banking-backend-chart` local folder.

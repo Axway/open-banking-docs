@@ -113,7 +113,7 @@ Customize the `open-banking-fdx-apim-config/values.yaml` file as follows.
    ```
    NAME: apim-config 
    LAST DEPLOYED: <current date and time>
-   NAMESPACE: open-banking-config 
+   NAMESPACE: open-banking-apim
    STATUS: deployed
    REVISION: 1 
    TEST SUITE: None
