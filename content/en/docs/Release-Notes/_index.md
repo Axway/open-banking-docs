@@ -23,42 +23,42 @@ This update also includes migration to YAML Entity Store from existing XML based
 The following new features and enhancements are available in this update.
 
 #### Upgrade of FDX APIs to v5.2.1
-- Core and Tax APIs are upgraded to v5.2.1
-- Consent, Customer and Recipient Registration APIs are added in this release. For updated FDX API list, see [FDX API List](/docs/reference/fdx/#list-of-fdx-apis-included-in-amplify-open-banking).
+* Core and Tax APIs are upgraded to v5.2.1
+* Consent, Customer and Recipient Registration APIs are added in this release. For updated FDX API list, see [FDX API List](/docs/reference/fdx/#list-of-fdx-apis-included-in-amplify-open-banking).
 
 #### Open Finance Brazil updates
-- Consent v2.2 beta1 support
-- Phase 4B APIs support
-- Payment Initiation V3 support 
-- Phase2 v2.0.1 and 2.1.0 APIs update
+* Consent v2.2 beta1 support
+* Phase 4B APIs support
+* Payment Initiation V3 support 
+* Phase2 v2.0.1 and 2.1.0 APIs update
 
 #### API Management changes
-- API Gateway is upgraded to "May 2023 release(7.7-20230530)". For API Gateway release notes, see [API Gateway and API Manager 7.7 May 2023 Release Notes](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_relnotes/20230530_apimgr_relnotes/index.html).
-- Migrated the API Gateway configuration from XML based FED to YAML Entity Store. For more information on YAML Entity store, see [YAML configuration](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_yamles/index.html).
-- Added merge dir capabilities and Entity Store externalization. For more details on this topic, see [FDX API Management Configuration](/docs/deployment/installation/api-management/fdx-apim) for FDX and [Open Finance Brazil API Management Configuration](/docs/deployment/installation/api-management/obb-apim/) for Open Finance Brazil deployments.
-- Some improvements to the Helm chart for the deployment of API Gateway, discovery and traceability agents.
+* API Gateway is upgraded to "May 2023 release(7.7-20230530)". For API Gateway release notes, see [API Gateway and API Manager 7.7 May 2023 Release Notes](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_relnotes/20230530_apimgr_relnotes/index.html).
+* Migrated the API Gateway configuration from XML based FED to YAML Entity Store. For more information on YAML Entity store, see [YAML configuration](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_yamles/index.html).
+* Added merge dir capabilities and Entity Store externalization. For more details on this topic, see [FDX API Management Configuration](/docs/deployment/installation/api-management/fdx-apim) for FDX and [Open Finance Brazil API Management Configuration](/docs/deployment/installation/api-management/obb-apim/) for Open Finance Brazil deployments.
+* Some improvements to the Helm chart for the deployment of API Gateway, discovery and traceability agents.
 
 API Gateway changes specific to Open Finance Brazil deployments:
-- Removed dependancy from envSettings.props file moving to environment variables.
-- Filebeat for backwards compatibility
-    - Upgraded from version 7.9 to 8.10.4
+* Removed dependancy from envSettings.props file moving to environment variables.
+* Filebeat for backwards compatibility
+    * Upgraded from version 7.9 to 8.10.4
 
 API Manager changes specific to Open Finance Brazil deployments:
-- Upgrade to the latest apimcli image 1.14.2
-- Removed built in configuration files and adding them as customizable configmaps
-- Removed deprecated APIs
-- Removed KPS import as post-install step
-- Introduced APIM Settings configurable via values.yaml
+* Upgrade to the latest apimcli image 1.14.2
+* Removed built in configuration files and adding them as customizable configmaps
+* Removed deprecated APIs
+* Removed KPS import as post-install step
+* Introduced APIM Settings configurable via values.yaml
 
 Added a new module KPS-Config for Open Finance Brazil deployments:
-- Must be executed after APIM full instalation
+* Must be executed after APIM full instalation
 
 #### Cloudentity Updates
 This release includes the Cloudentity v2.19.0-1. This new version includes:
-- initial support for Open Finance Consent Renewal specification new endpoints:
-    - GET /open-banking/consents/v2/consents/{consentID}/extends
-    - POST /open-banking/consents/v2/consents/{consentID}/extends
-- Please note that for FDX deployments, Cloudentity v2.15.1-1 must be used.
+* initial support for Open Finance Consent Renewal specification new endpoints:
+    * GET /open-banking/consents/v2/consents/{consentID}/extends
+    * POST /open-banking/consents/v2/consents/{consentID}/extends
+* Please note that for FDX deployments, Cloudentity v2.15.1-1 must be used.
 
 For more information on Cloudentity changes, see [Cloudentity Release Notes](https://cloudentity.com/developers/deployment-and-operations/release-notes/).
 
