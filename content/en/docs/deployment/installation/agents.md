@@ -5,9 +5,9 @@ weight: 15
 ---
 Install Amplify Agents, discovery and traceability agents, for the Amplify Open Banking solution. For detailed installation instructions, see [Connect API Manager](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connect_api_manager/index.html).
 
-Also make sure that you configure discovery agent with IdP. For the detailed information see [Provisioning OAuth credential to an identity provider](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/marketplace_provisioning/index.html#provisioning-oauth-credential-to-an-identity-provider).
+Also make sure that you configure discovery agent with IdP. For the detailed information, see [Provisioning OAuth credential to an identity provider](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/marketplace_provisioning/index.html#provisioning-oauth-credential-to-an-identity-provider).
 
-You can also use below sample discovery agent IdP configuration for Amplify Open Banking Deployment:
+You can also use the following sample discovery agent IdP configuration for Amplify Open Banking Deployment:
 
 ```console
 AGENTFEATURES_IDP_NAME_1: "Cloudentity"
