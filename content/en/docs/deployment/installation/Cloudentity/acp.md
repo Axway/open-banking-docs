@@ -52,6 +52,7 @@ cert-manager.io/acme-challenge-type: http01 (l23)
 ## Prepare deployment
 
 Create the target namespace on the cluster:
+
 ```bash
 kubectl create namespace open-banking-cloudentity
 ```
@@ -111,4 +112,3 @@ kubectl create namespace open-banking-cloudentity
    ```
 
 5. Connect to `https://acp-admin.<domain-name>`  with admin / admin  and change the password immediately.
-
