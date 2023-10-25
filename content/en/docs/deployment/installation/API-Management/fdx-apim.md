@@ -6,6 +6,7 @@ weight: 1
 ## Configure API Gateway
 
 Once installation is complete following the instructions from [Install API Gateway using your customized YAML file](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/deployment_flows/axway_image_deployment/helm_deployment/index.html#install-api-gateway-using-your-customized-yaml-file), mount the FDX policies and configuration files using the below steps.
+
 ### Download the API Gateway configuration files
 
 To download the Amplify Open Banking API Management configuration package for FDX deployment, go to [Axway Repository](https://repository.axway.com/), and search for “Amplify Open Banking”, then check the `Utility` box. Then download the `apigateway-config-fdx-7.7.0.20xxxxxx-BNxx.tar.gz` file.
@@ -15,6 +16,7 @@ After the download is finished, extract the archive's contents.
 ```bash
 tar -xzf apigateway-config-fdx-7.7.0.20xxxxxx-BNxx.tar.gz
 ```
+
 This command creates a directory `apigateway-config-fdx-7.7.0.20xxxxxx-BNxx` containing following sub-directories and files.
 
 ```
@@ -34,7 +36,7 @@ apigateway-config-fdx-7.7.0.20xxxxxx-BNxx
 
 ### Prepare values.yaml for the deployment
 
-As some of the variables are defined in `PS-Projects/FDX-YAML/values.yaml` file you need to update it before deployment. Recommendation is to copy the `PS-Projects/FDX-YAML/values.yaml` to `local_values/FDX-YAML/values.yaml` and then make changes in it. 
+As some of the variables are defined in `PS-Projects/FDX-YAML/values.yaml` file you need to update it before deployment. Recommendation is to copy the `PS-Projects/FDX-YAML/values.yaml` to `local_values/FDX-YAML/values.yaml` and then make changes in it.
 
 ```bash
 cp apigateway-config-fdx-7.7.0.20xxxxxx-BNxx/PS-Projects/FDX-YAML/values.yaml local_values/FDX-YAML/values.yaml
@@ -49,8 +51,7 @@ The following parameters are required for FDX deployment, so update the `local_v
 | Environment_Configuration.Service.apimgr.name | Endpoint where API Manager is running. | api-manager-host | api-manager.open-banking.axway.com |
 | Environment_Configuration.Service.apimgr.port | Post at which API Manager is running. | 443 | |
 | Policies._AMPLIFY_OB_FDX.Mock.Login_Page.PAGE_login.Set_var_demo_apps_enabled.attributeValue | Set to `true` if demo-apps are deployed. | false | |
-| Policies._AMPLIFY_OB_FDX.Mock.Login_Page.PAGE_login.Set_demo_apps_url.attributeValue | Endpoint where demo apps are running, if not deploying demo apps component then leave it default. | https://demo-apps.\<domain-name\> | https://demo-apps.open-banking.axway.com |
-
+| Policies._AMPLIFY_OB_FDX.Mock.Login_Page.PAGE_login.Set_demo_apps_url.attributeValue | Endpoint where demo apps are running, if not deploying demo apps component then leave it default. | `https://demo-apps.\<domain-name\>` | `https://demo-apps.open-banking.axway.com` |
 
 ### Mount the FDX Configuration
 
@@ -66,7 +67,7 @@ Above script deploys YAML archive and other configuration files from `merge` dir
 
 ## Configure API Manager
 
-To configure API Manager i.e. to create Organizations, APIs, applications and import KPS data use the `open-banking-fdx-apim-config` helm chart. During installation it creates Organizations, sample applications and FDX APIs. It also imports data in the KPS tables. 
+To configure API Manager i.e. to create Organizations, APIs, applications and import KPS data use the `open-banking-fdx-apim-config` helm chart. During installation it creates Organizations, sample applications and FDX APIs. It also imports data in the KPS tables.
 
 ### Change apiadmin user password
 
@@ -156,7 +157,7 @@ This post deployment step is only applicable if you have changed the default por
 In case you need to update some configurations in the `cfg` KPS table, use the bbelow steps:
 
 1. Get the KPS configuration table data file from the helmchart:
-   * Configuration table KPS data file is `open-banking-fdx-apim-config/files/kps/amplify_configuration.json`. 
+   * Configuration table KPS data file is `open-banking-fdx-apim-config/files/kps/amplify_configuration.json`.
    * Update it with the values specific to your deployment.
 
 2. You can use the sample script `kps_import.sh` provided in `apigateway-config-fdx-7.7.0.20xxxxxx-BNxx.tar.gz` package to import data in KPS. Example usage is:
