@@ -27,18 +27,18 @@ Create a customized `values` file, for example, `myvalues.yaml`, and make your c
 | acp-prereq.cert.ingress.key | Use specific key. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 | acp-prereq.cert.ingress.certMtls | Use specific cert for Cloudentity mtls endpoint. It can be a wildcard. Must be defined only if certManager is set to false. | None |
 | acp-prereq.cert.ingress.keyMtls | Use specific key for Cloudentity mtls endpoint. It can be a wildcard. Must be defined only if certManager is set to false. | None |
-| acp.serverURL | Cloudentity admin server URL | None |
-| acp.serverURLMtls | Cloudentity mtls server URL | None |
-| acp.secretConfig.data.redis.password | redis password | None |
-| acp.ingress.tls.hosts | Cloudentity admin server URL | None |
-| acp.ingress.hosts.host | Cloudentity admin server URL | None |
-| acp.ingressMtls.tls.hosts | Cloudentity mtls server URL | None |
-| acp.ingressMtls.hosts.host | Cloudentity mtls server URL | None |
-| acp.features.swagger_ui | Enable swagger UI | true |
-| acp.features.fdx_dcr | Enable FDX DCR endpoint | true |
-| acp.config.data.storage.audit_events.retention.enabled | Enable audit events retention | true |
-| acp.config.data.storage.audit_events.retention.batch_limit | Audit events retention batch delete limit | 1000 |
-| acp.config.data.storage.audit_events.retention.max_age | Remove audit events older than max age limit | 6h0m0s |
+| acp.serverURL | Cloudentity admin server URL. | None |
+| acp.serverURLMtls | Cloudentity mtls server URL. | None |
+| acp.secretConfig.data.redis.password | redis password. | None |
+| acp.ingress.tls.hosts | Cloudentity admin server URL. | None |
+| acp.ingress.hosts.host | Cloudentity admin server URL. | None |
+| acp.ingressMtls.tls.hosts | Cloudentity mtls server URL. | None |
+| acp.ingressMtls.hosts.host | Cloudentity mtls server URL. | None |
+| acp.features.swagger_ui | Enable swagger UI. | true |
+| acp.features.fdx_dcr | Enable FDX DCR endpoint. | true |
+| acp.config.data.storage.audit_events.retention.enabled | Enable audit events retention. | true |
+| acp.config.data.storage.audit_events.retention.batch_limit | Audit events retention batch delete limit. | 1000 |
+| acp.config.data.storage.audit_events.retention.max_age | Remove audit events older than max age limit. | 6h0m0s |
 | acp.config.data.server.obbr_base_paths | Open banking Brasil API base path whitelist. | None |
 | redis-cluster.password | Defining Cloudentity's Redis password. | None |
 
