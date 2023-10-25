@@ -60,7 +60,7 @@ For each new Helm chart, update `open-banking-xxxxx/values.yaml` using the:
 
 * Install documentation of the components.
 * Previous values used in `previous-version/open-banking-xxxxx/value.yaml`.
-* Release notes.
+* Release Notes.
 
 Execute the upgrade commands as required:
 
