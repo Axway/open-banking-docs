@@ -6,7 +6,9 @@ weight: 3
 Install API Management for the Amplify Open Banking solution. This guide should be used in conjunction with [Helm Deployment](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/deployment_flows/axway_image_deployment/helm_deployment/index.html) instructions for API Gateway installation.
 
 ## Deploy a Cassandra cluster
+
 Follow the cassandra deployment steps outlined [Deploy a Cassandra cluster](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/deployment_flows/axway_image_deployment/helm_deployment/index.html#deploy-a-cassandra-cluster).
+
 ## Fetch the Helm chart to examine the values file
 
 To be able to view the Helm `values.yaml` file you can run a `helm fetch` command on the added repository:
