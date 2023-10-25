@@ -7,6 +7,7 @@ weight: 2
 ## Configure API Gateway
 
 Once installation is complete following the instructions from [Install API Gateway using your customized YAML file](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/deployment_flows/axway_image_deployment/helm_deployment/index.html#install-api-gateway-using-your-customized-yaml-file), mount the FDX policies and configuration files using the below steps.
+
 ### Download the API Gateway configuration files
 
 To download the Amplify Open Banking API Management configuration package for OBB deployment, go to [Axway Repository](https://repository.axway.com/), and search for “Amplify Open Banking”, then check the `Utility` box. Then download the `apigateway-config-obb-7.7.0.20xxxxxx-BNxx.tar.gz` file.
@@ -16,6 +17,7 @@ After the download is finished, extract the archive's contents.
 ```bash
 tar -xzf apigateway-config-obb-7.7.0.20xxxxxx-BNxx.tar.gz
 ```
+
 This command creates a directory `apigateway-config-obb-7.7.0.20xxxxxx-BNxx` containing following sub-directories and files.
 
 ```
@@ -35,7 +37,7 @@ apigateway-config-obb-7.7.0.20xxxxxx-BNxx
 
 ### Prepare values.yaml for the deployment
 
-As some of the variables are defined in `PS-Projects/OBB-YAML/values.yaml` file you need to update it before deployment. Recommendation is to copy the `PS-Projects/OBB-YAML/values.yaml` to `local_values/OBB-YAML/values.yaml` and then make changes in it. 
+As some of the variables are defined in `PS-Projects/OBB-YAML/values.yaml` file you need to update it before deployment. Recommendation is to copy the `PS-Projects/OBB-YAML/values.yaml` to `local_values/OBB-YAML/values.yaml` and then make changes in it.
 
 ```bash
 cp apigateway-config-obb-7.7.0.20xxxxxx-BNxx/PS-Projects/OBB-YAML/values.yaml local_values/OBB-YAML/values.yaml
@@ -68,7 +70,7 @@ Above script deploys YAML archive and other configuration files from `merge` dir
 
 ## Configure API Manager
 
-To configure API Manager i.e. to create Organizations, APIs, applications and import KPS data use the `open-banking-apim-config` helm chart. During installation it creates Organizations, sample applications and OBB APIs. It also imports data in the KPS tables. 
+To configure API Manager i.e. to create Organizations, APIs, applications and import KPS data use the `open-banking-apim-config` helm chart. During installation it creates Organizations, sample applications and OBB APIs. It also imports data in the KPS tables.
 
 ### Change apiadmin user password
 
@@ -158,7 +160,7 @@ This post deployment step is only applicable if you have changed the default por
 In case you need to update some configurations in the `cfg` KPS table, use the bbelow steps:
 
 1. Get the KPS configuration table data file from the helmchart:
-   * Configuration table KPS data file is `open-banking-apim-config/files/kps/amplify_configuration.json`. 
+   * Configuration table KPS data file is `open-banking-apim-config/files/kps/amplify_configuration.json`.
    * Update it with the values specific to your deployment.
 
 2. You can use the sample script `kps_import.sh` provided in `apigateway-config-obb-7.7.0.20xxxxxx-BNxx.tar.gz` package to import data in KPS. Example usage is:
@@ -171,13 +173,6 @@ In case you need to update some configurations in the `cfg` KPS table, use the b
    * Log into the API Gateway Manager UI and go on Settings - Key Property Stores.
    * Click on AMPLIFY/Configuration and make sure that data is updated.
 
-
-
-
-
-
-
-<!--
 ## Customize the APIM Helm chart
 
 Customize the `open-banking-apim/values.yaml` file as follows.
@@ -210,7 +205,6 @@ Add anm user and password change option. once https://jira.axway.com/browse/MED-
 Add apimgr  user and password change option. once https://jira.axway.com/browse/MED-835 is solved
 | apimgr.admin.username | API Manager admin username | apiadmin |
 | apimgr.admin.password | API Manager admin password | apiAdminPwd! |
-
 
 With these base parameters set, you can install the Helm chart. See [Install the APIM Helm chart](#install-the-apim-helm-chart).
 
