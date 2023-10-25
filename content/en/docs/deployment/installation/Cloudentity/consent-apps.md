@@ -37,7 +37,7 @@ Create a customized `values` file, for example, `myvalues.yaml`, and make your c
 | openbanking.consentSelfservice.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-self-service-tls. | open-banking-consent-apps<br>/consent-openbanking-consent-self-service-tls |
 | openbanking.consentSelfservice.ingress.hosts | Update with the consent Self service URL. | consent-selfservice.\<domain-name> |
 | openbanking.consentSelfservice.ingress.tls.hosts | Update with the consent Self service URL. | consent-selfservice.\<domain-name> |
-| openbanking.import.enabled | To import default configuration for Open Finance Brazil or FDX deployment. Set to true for installation and then keep it false for upgrades | false |
+| openbanking.import.enabled | To import the default configuration for Open Finance Brazil or FDX deployment. Set to true for installation and then keep it false for upgrades. | false |
 | openbanking.import.variables.consent_self_service_portal_url | Update with the consent self service portal url. | `https://consent-selfservice.<domain-name>` |
 | openbanking.import.variables.consent_admin_portal_url | Update with the consent admin portal url. | `https://consent-admin.<domain-name>` |
 | openbanking.import.variables.consent_page_url | Update with the consent page url. | `https://consent.<domain-name>` |
