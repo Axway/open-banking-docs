@@ -12,7 +12,7 @@ Follow the [upgrade instructions](/docs/deployment/upgrade) to apply this update
 
 ## Release v3.2.0
 
-In this update we have upgraded FDX APIs to v5.2.1 and also added support for Consent, Customer and Recipient Registration v5.2.1 APIs.
+In this update we have upgraded FDX APIs to v5.2.1 and added support for Consent, Customer and Recipient Registration v5.2.1 APIs.
 
 In addition, we have added Phase4b APIs for Open Banking Brazil.
 
@@ -43,7 +43,7 @@ The following new features and enhancements are available in this update.
 
 API Gateway changes specific to Open Finance Brazil deployments:
 
-* Removed dependancy from envSettings.props file moving to environment variables.
+* Removed dependency from envSettings.props file moving to environment variables.
 * Filebeat for backwards compatibility
     * Upgraded from version 7.9 to 8.10.4
 
@@ -57,7 +57,7 @@ API Manager changes specific to Open Finance Brazil deployments:
 
 Added a new module KPS-Config for Open Finance Brazil deployments:
 
-* Must be executed after APIM full instalation
+* Must be executed after APIM full installation
 
 #### Cloudentity Updates
 
