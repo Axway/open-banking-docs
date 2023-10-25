@@ -7,11 +7,11 @@ Install API Management for the Amplify Open Banking solution. This guide should 
 
 ## Deploy a Cassandra cluster
 
-Follow the cassandra deployment steps outlined [Deploy a Cassandra cluster](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/deployment_flows/axway_image_deployment/helm_deployment/index.html#deploy-a-cassandra-cluster).
+Follow the Cassandra deployment steps outlined in [Deploy a Cassandra cluster](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/deployment_flows/axway_image_deployment/helm_deployment/index.html#deploy-a-cassandra-cluster).
 
 ## Fetch the Helm chart to examine the values file
 
-To be able to view the Helm `values.yaml` file you can run a `helm fetch` command on the added repository:
+Run a `helm fetch` command on the added repository to view the Helm `values.yaml` file:
 
 ```bash
 helm fetch axway/open-banking-apim --untar
@@ -23,7 +23,7 @@ This command creates a directory `open-banking-apim` containing the complete cha
 
 Create a customized `values` file, for example, `myvalues.yaml`, and make your customizations. This file should contain only the sections of the `values.yaml` file that you wish to override. Any values not present in the customized file will be picked up from the original `values.yaml` file.
 
-Additional details about customizing values.yaml are available [Create a customized values.yaml file](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/deployment_flows/axway_image_deployment/helm_deployment/index.html#create-a-customized-valuesyaml-file).
+Additional details about customizing values.yaml are available at [Create a customized values.yaml file](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/deployment_flows/axway_image_deployment/helm_deployment/index.html#create-a-customized-valuesyaml-file).
 
 ### Open Banking parameters
 
