@@ -4,7 +4,7 @@ linkTitle: "Cloudentity"
 weight: 20
 ---
 
-Install Cloudentity for the Amplify Open Banking solution. Cloudentity component provides Identity and Access Management along with consent management. 
+Install Cloudentity for the Amplify Open Banking solution. Cloudentity component provides Identity and Access Management along with consent management.
 
 Cloudentity includes 2 components:
 
