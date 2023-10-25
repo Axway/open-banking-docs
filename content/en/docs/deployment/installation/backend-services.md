@@ -23,7 +23,7 @@ Customize the `values.yaml` file as follows.
 |:------------- |:------------------------------------- |:-------------- |
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
-| global.apihost | MTLS apigateway endpoint. | https://mtls-api-proxy.<domain-name>/open-banking |
+| global.apihost | MTLS apigateway endpoint. | `https://mtls-api-proxy.<domain-name>/open-banking` |
 | mysqldb.dbname | Mock backend database name. |  *fdxmockbackend* |
 | mysqldb.dbuser | Mock backend database username. |  *mockbank* |
 | secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password. | None|
