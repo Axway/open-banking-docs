@@ -151,15 +151,15 @@ Customize the `open-banking-obb-kps-config/values.yaml` file as follows.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| gateway.user | The Gateway Manager user. | admin |
-| gateway.password | The Gateway manager password. | changeme |
-| gateway.name | The deployment name. | open-banking-gateway |
-| gateway.ingress | The Gateway Manager URL. | api-gateway-manager.<domain> |
-| gateway.apimPodName | APIM Pod name. | apim-apimanager-<ID> |
-| kps.env.config | KPS Configuration | Usually this won't change often |
+| gateway.user | The Gateway Manager user. | `admin` |
+| gateway.password | The Gateway manager password. | `changeme` |
+| gateway.name | The deployment name. | `open-banking-gateway` |
+| gateway.ingress | The Gateway Manager URL. | `api-gateway-manager.<domain>` |
+| gateway.apimPodName | APIM Pod name. | `apim-apimanager-<ID>` |
+| kps.env.config | KPS Configuration | Typically won't change |
 
 Verify the insertion in the KPS table:
-   * Log into the API Gateway Manager UI and go on Settings - Key Property Stores.
-   * Click on AMPLIFY/Configuration.
-   * Check that the table is not empty. Click on table rows to chech details.
 
+* Log into the API Gateway Manager UI and go to *Settings - Key Property Stores*.
+* Click on AMPLIFY/Configuration.
+* Check that the table is not empty. Click on table rows to chech details.
