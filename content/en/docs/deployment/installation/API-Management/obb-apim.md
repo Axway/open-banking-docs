@@ -42,7 +42,6 @@ As some of the variables are defined in the `PS-Projects/OBB-YAML/values.yaml` f
 cp apigateway-config-obb-7.7.0.20xxxxxx-BNxx/PS-Projects/OBB-YAML/values.yaml local_values/OBB-YAML/values.yaml
 ```
 
-
 ### Mount the OBB Configuration
 
 Make sure that API Gateway pods (i.e. anm, apimgr, apitraffic) are in running state and then execute the following commands:
@@ -134,23 +133,21 @@ Customize the `open-banking-apim-config/values.yaml` file as follows:
     * Make sure that Open Banking APIs are in the API Catalog.
     * Make sure that Default apps are in Client applications.
 
-
 ## Post deployment
-
 
 ### Update KPS configuration
 
 Fetch the new kps-config module
 
 ```bash
-helm fetch axway/open-banking-kps-config --untar
+helm fetch axway/open-banking-obb-kps-config --untar
 ```
 
-This command creates a directory `open-banking-kps-config` containing the complete chart, including the `values.yaml` file.
+This command creates a directory `open-banking-obb-kps-config` containing the complete chart, including the `values.yaml` file.
 
 ### Customize the KPS Config Helm chart
 
-Customize the `open-banking-apim-config/values.yaml` file as follows.
+Customize the `open-banking-obb-kps-config/values.yaml` file as follows.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
