@@ -14,7 +14,7 @@ Follow the [upgrade instructions](/docs/deployment/upgrade) to apply this update
 
 In this update we have upgraded FDX APIs to v5.2.1 and added support for Consent, Customer and Recipient Registration v5.2.1 APIs.
 
-In addition, we have added Phase4b APIs for Open Banking Brazil.
+In addition, we have added Phase4b APIs for Open Finance Brazil.
 
 This update also includes migration to YAML Entity Store from existing XML based API Gateway configuration.
 
@@ -25,12 +25,12 @@ The following new features and enhancements are available in this update.
 #### Upgrade of FDX APIs to v5.2.1
 
 * Core and Tax APIs are upgraded to v5.2.1
-* Consent, Customer and Recipient Registration APIs are added in this release. For updated FDX API list, see [FDX API List](/docs/reference/fdx/#list-of-fdx-apis-included-in-amplify-open-banking).
+* Consent, Customer, Fraud and Recipient Registration v5.2.1 APIs are added in this release. For updated FDX API list, see [FDX API List](/docs/reference/fdx/#list-of-fdx-apis-included-in-amplify-open-banking).
 
 #### Open Finance Brazil updates
 
 * Consent v2.2 beta1 support
-* Phase 4B APIs support
+* Phase4B APIs support
 * Payment Initiation V3 support
 * Phase2 v2.0.1 and 2.1.0 APIs update
 
@@ -43,16 +43,15 @@ The following new features and enhancements are available in this update.
 
 API Gateway changes specific to Open Finance Brazil deployments:
 
-* Removed dependency from envSettings.props file moving to environment variables.
-* Filebeat for backwards compatibility
+* Removed dependency from envSettings.props file moving some variables to environment variables.
+* Updated filebeat for backwards compatibility
     * Upgraded from version 7.9 to 8.10.4
 
 API Manager changes specific to Open Finance Brazil deployments:
 
-* Upgrade to the latest apimcli image 1.14.2
-* Removed built in configuration files and adding them as customizable configmaps
+* Upgraded to the latest apimcli image 1.14.2
+* Removed built in configuration files and added them as customizable configmaps
 * Removed deprecated APIs
-* Removed KPS import as post-install step
 * Introduced APIM Settings configurable via values.yaml
 
 Added a new module KPS-Config for Open Finance Brazil deployments:
@@ -63,7 +62,7 @@ Added a new module KPS-Config for Open Finance Brazil deployments:
 
 This release includes the Cloudentity v2.19.0-1. This new version includes:
 
-* initial support for Open Finance Consent Renewal specification new endpoints:
+* Initial support for Open Finance Consent Renewal specification new endpoints:
     * GET /open-banking/consents/v2/consents/{consentID}/extends
     * POST /open-banking/consents/v2/consents/{consentID}/extends
 * Please note that for FDX deployments, Cloudentity v2.15.1-1 must be used.
