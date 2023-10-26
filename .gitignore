@@ -6,3 +6,4 @@ tech-doc-hugo
 .DS_Store
 package-lock.json
 build.sh
+.hugo_build.lock
