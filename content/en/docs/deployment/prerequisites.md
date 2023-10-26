@@ -31,7 +31,7 @@ These tasks must be completed for a successful installation.
 
 The solutions use the following external database components:
 
-* Cassandra for API Manager catalog. For Cassandra cluster requirements and installation, refer to [Cassandra installation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigtw_install/cassandra_install/index.html).
+* Cassandra for API Manager catalog. For Cassandra cluster requirements and installation, refer to [Cassandra installation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigtw_install/install_cassandra/index.html).
 
 ## Kubernetes setup requirements
 
