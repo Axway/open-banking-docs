@@ -84,9 +84,10 @@ For Open Finance Brazil deployment policy container name is - #AMPLIFY-OB.
 ![apim-policy-studio-apis](/Images/apim-policy-studio-api-containers.png)
 
 If you decide to change one of them, you can use Policy Studio directly for the development environment only.
-For other environments, you need to export the Policy Studio projects and build new APIM Docker images to use instead of the standard ones.
+<!-- For other environments, you export the Policy Studio projects and build new APIM Docker images to use instead of the standard ones. -->
+For other environments, you must update the FDX-YAML policy project, which is part of apigateway-config-fdx-7.7.0.20xxxxxx-BNxx.tar.gz, and deploy the configuration as detailed in [Mount the FDX Configuration](/docs/deployment/installation/api-management/fdx-apim/#mount-the-fdx-configuration).
 
-{{% alert title="Note" color="primary" %}} If you make changes to any of the policies in this container then those changes will be overridden by future upgrades {{% /alert %}}
+{{% alert title="Note" color="primary" %}} If you make changes to any of the policies in this container then those changes will be overridden by future upgrades. {{% /alert %}}
 
 ### Certificates
 

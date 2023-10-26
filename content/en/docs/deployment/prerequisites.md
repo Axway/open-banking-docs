@@ -4,7 +4,7 @@ linkTitle: "Prerequisites"
 weight: 1
 ---
 
-Amplify Open Banking is developed on Kubernetes with a "button-click" style deployment that allows customers to use the Kubernetes solution of their choice.
+Amplify Open Banking deployment design is built on Kubernetes, which can be deployed either on premises or in the cloud.
 
 Preparing a Kubernetes cluster with the appropriate services and settings is required prior to the solution installation.
 
@@ -22,29 +22,20 @@ Prior to installation you need to perform the following tasks:
     * Helm
     * Kubectl
 * Create a [service account](https://docs.axway.com/bundle/platform-management/page/docs/management_guide/organizations/managing_organizations/managing_service_accounts/index.html) in your organization in Amplify Platform to pull Helm charts and Docker images from the [Axway Repository](https://repository.axway.com/).
-* Deploy the external MySQL and Cassandra databases infrastructure.
+* Deploy the external Cassandra database infrastructure.
 * Create a Kubernetes cluster that conforms to the architecture described in the Architecture Overview guide and reflects the architecture choices described above.
 
 These tasks must be completed for a successful installation.
 
 ## Database requirements
 
-The solutions use the following database components:
+The solutions use the following external database components:
 
-* Cassandra for API Manager catalog.
-
-The minimum recommended hardware infrastructure for these components are:
-
-* Cassandra Database: 1 cluster with 3 nodes, each with the following configuration:
-    * 2 CPUs.
-    * 8 GB of memory.
-    * 60 GB of disk.
-
-    For more information, refer to [cassandra installation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigtw_install/cassandra_install/index.html).
+* Cassandra for API Manager catalog. For Cassandra cluster requirements and installation, refer to [Cassandra installation](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigtw_install/install_cassandra/index.html).
 
 ## Kubernetes setup requirements
 
-A Kubernetes 1.16+ cluster is required to deploy the Amplify Open Banking Solution.
+A Kubernetes 1.23+ cluster is required to deploy the Amplify Open Banking Solution.
 
 ### Resources
 
@@ -67,6 +58,7 @@ The Kubernetes configuration must include three Node Groups:
 | Identity  | Cloudentity | 1-3 |
 | Identity  | CockroachDB | 1-3 |
 | Identity  | Redis | 1-3 |
+| Identity  | TimescaleDB | 1-3 |
 
 {{% alert title="Note" color="primary" %}} The consent and backend components are not considered here, because they usually are replaced by customer's custom components.{{% /alert %}}
 
@@ -99,7 +91,7 @@ A complete architecture requires a minimum of 3 subnets:
     * A subnet mask /24 is therefore recommended to support scaling, upgrade, and others tools for production.
 * *Database*: For databases provided inside the Kubernetes cluster a subnet mask of /29 is recommended.
 
-Each subnet must be protected by a firewall implemented at Layer 4 of the OSI model with open routes kept to a bare minium.
+Each subnet must be protected by a firewall implemented at Layer 4 of the OSI model with open routes kept to a bare minimum.
 
 ### Kubernetes components
 

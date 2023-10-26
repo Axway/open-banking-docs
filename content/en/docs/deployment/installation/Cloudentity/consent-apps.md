@@ -5,14 +5,16 @@ weight: 2
 ---
 Install Cloudentity sample consent applications for the Amplify Open Banking solution.
 
-## Customize the Consent Helm chart
+## Create a customized values.yaml file
 
-Modify the `open-banking-fdx-consent-apps/values.yaml` file for FDX deployment and `open-banking-consent/values.yaml` file for Open Finance Brazil deployment:
+Create a customized `values` file, for example, `myvalues.yaml`, and make your customizations. This file should contain only the sections of the `values.yaml` file that you wish to override. Any values not present in the customized file will be picked up from the original `values.yaml` file.
 
 | Value         | Description                           | Default value  |
 |:------------- |:------------------------------------- |:-------------- |
-| dockerRegistry.username | Cloudentity repo username. | None |
-| dockerRegistry.token | Cloudentity repo token. | None |
+| dockerRegistry.username | Axway repo username. | None |
+| dockerRegistry.token | Axway repo token. | None |
+| dockerRegistryCloudentity.username | Cloudentity repo username. | None |
+| dockerRegistryCloudentity.token | Cloudentity repo token. | None |
 | cert.internal.certManager | Define if cert-manager is used internally.<br>False is currently not supported. | true |
 | cert.internal.certManagerNamespace | Namespace where cert-manager is installed. Use the result of the previous command. | None |
 | cert.ingress.certManager | Define if cert-manager is used externally.<br>If set to false, define cert and keys with values below. | true |
@@ -25,80 +27,51 @@ Modify the `open-banking-fdx-consent-apps/values.yaml` file for FDX deployment a
 | cert.ingress.consentPage.key | Use a dedicated key. Must be defined only if certManager and wildcard are set to false. | None |
 | cert.ingress.consentSS.cert | Use a dedicated certificate. Must be defined only if certManager and wildcard are set to false. | None |
 | cert.ingress.consentSS.key | Use a dedicated key. Must be defined only if certManager and wildcard are set to false. | None |
-
-Update the `open-banking-consent/files/consent.values.yaml` file:
-
-| Value         | Description                           | Default value  |
-|:------------- |:------------------------------------- |:-------------- |
-| acpURL |  Cloudentity server URL. | None |
-| consentPage.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-page-tls.  | open-banking-consent<br>/consent-openbanking-consent-page-tls |
-| consentPage.ingress.hosts | Update with the consent page URL. | consent.\<domain-name> |
-| consentPage.ingress.tls.hosts | Update with the consent page URL. | consent.\<domain-name> |
-| consentAdmin.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-admin-tls. | open-banking-consent<br>/consent-openbanking-consent-admin-tls |
-| consentAdmin.ingress.hosts | Update with the consent admin URL. | consent-admin.\<domain-name> |
-| consentAdmin.ingress.tls.hosts | Update with the consent admin URL. | consent-admin.\<domain-name> |
-| consentSelfservice.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-self-service-tls. | open-banking-consent<br>/consent-openbanking-consent-self-service-tls |
-| consentSelfservice.ingress.hosts | Update with the consent Self service URL. | consent-selfservice.\<domain-name> |
-| consentSelfservice.ingress.tls.hosts | Update with the consent Self service URL. | consent-selfservice.\<domain-name> |
-| import.variables.consent_self_service_portal_url | Update with the consent self service portal url. | `https://consent-selfservice.<domain-name>` |
-| import.variables.consent_admin_portal_url | Update with the consent admin portal url. | `https://consent-admin.<domain-name>` |
-| import.variables.consent_page_url | Update with the consent page url. | `https://consent.<domain-name>` |
-| import.variables.developer_tpp_url | Update with the developer tpp url.| `https://financroo.<domain-name>` |
-| import.variables.postman_client_id | Update with the Postman client id. | postman-eks |
-| import.variables.bank_io_client_id | Update with the Bank.io client id. | bankio-eks |
-| import.variables.bank_io_redirect_uri | Update with the bank.io redirect url. | `https://services-api.<domain-name>/login` |
-| Import.Variables. dcr_jwks_uri | Openbanking central directory jwks info. | OBB Sandbox |
-| Import.Variables.organization_id | Bank Organization ID registered at Central Directory. | None |
-| Import.Variables.first_tpp_redirect_uri | Sample TPP1 used. | None |
-| Import.Variables.second_tpp_redirect_uri | Sample TPP1 used. | None |
+| openbanking.acpURL |  Cloudentity server URL. | None |
+| openbanking.consentPage.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-page-tls.  | open-banking-consent-apps<br>/consent-openbanking-consent-page-tls |
+| openbanking.consentPage.ingress.hosts | Update with the consent page URL. | consent.\<domain-name> |
+| openbanking.consentPage.ingress.tls.hosts | Update with the consent page URL. | consent.\<domain-name> |
+| openbanking.consentAdmin.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-admin-tls. | open-banking-consent-apps<br>/consent-openbanking-consent-admin-tls |
+| openbanking.consentAdmin.ingress.hosts | Update with the consent admin URL. | consent-admin.\<domain-name> |
+| openbanking.consentAdmin.ingress.tls.hosts | Update with the consent admin URL. | consent-admin.\<domain-name> |
+| openbanking.consentSelfservice.ingress.annotations.nginx.ingress.kubernetes.io<br>/proxy-ssl-secret | \<namespace>/consent-openbanking-consent-self-service-tls. | open-banking-consent-apps<br>/consent-openbanking-consent-self-service-tls |
+| openbanking.consentSelfservice.ingress.hosts | Update with the consent Self service URL. | consent-selfservice.\<domain-name> |
+| openbanking.consentSelfservice.ingress.tls.hosts | Update with the consent Self service URL. | consent-selfservice.\<domain-name> |
+| openbanking.import.enabled | To import the default configuration for Open Finance Brazil or FDX deployment. Set to true for installation and then keep it false for upgrades. | false |
+| openbanking.import.variables.consent_self_service_portal_url | Update with the consent self service portal url. | `https://consent-selfservice.<domain-name>` |
+| openbanking.import.variables.consent_admin_portal_url | Update with the consent admin portal url. | `https://consent-admin.<domain-name>` |
+| openbanking.import.variables.consent_page_url | Update with the consent page url. | `https://consent.<domain-name>` |
+| openbanking.import.variables.developer_tpp_url | Update with the developer tpp url.| `https://financroo.<domain-name>` |
+| openbanking.import.variables.postman_client_id | Update with the Postman client id. | postman-eks |
+| openbanking.import.variables.bank_io_client_id | Update with the Bank.io client id. | bankio-eks |
+| openbanking.import.variables.bank_io_redirect_uri | Update with the bank.io redirect url. | `https://services-api.<domain-name>/login` |
+| openbanking.import.variables. dcr_jwks_uri | Openbanking central directory jwks info. | OBB Sandbox |
+| openbanking.import.variables.organization_id | Bank Organization ID registered at Central Directory. | None |
+| openbanking.import.variables.first_tpp_redirect_uri | Sample TPP1 used. | None |
+| openbanking.import.variables.second_tpp_redirect_uri | Sample TPP1 used. | None |
 
 ## Prepare deployment
 
-1. Add the ACP Helm repository:
+Create the target namespace on the cluster:
+
+```bash
+kubectl create namespace open-banking-consent-apps 
+```
+
+## Install the Consent Apps Helm chart
+
+1. Deploy the Consent Apps Helm chart from the Axway repository.
 
    ```bash
-   helm repo add acp https://charts.acp.io 
-   helm repo update 
-   ```
-
-2. Create the target namespace on the cluster:
-
-   ```bash
-   kubectl create namespace open-banking-consent 
-   ```
-
-## Install the Consent Helm chart
-
-1. Deploy the Consent pre-requisites Helm chart from the Axway repository.
-
-   ```bash
-   helm install consent-prereq -n open-banking-consent open-banking-consent  
+   helm install consent-apps -n open-banking-consent-apps open-banking-consent-apps -f myvalues.yaml
    ```
 
 2. Check that the status of the Helm command is deployed:
 
    ```
-      NAME: consent-prereq 
+      NAME: consent-apps 
       LAST DEPLOYED: <current date and time>
-      NAMESPACE: open-banking-consent 
-      STATUS: deployed
-      REVISION: 1 
-      TEST SUITE: None
-   ```
-
-3. Deploy the Open Banking Consent Helm chart from the CloudEntity repository.
-   {{% alert title="Note" color="primary" %}} Find the Open Banking Consent chart-version to use in the `open-banking-consent/README.md`. Otherwise use the latest.{{% /alert %}}
-
-   ```bash
-   helm install consent -n open-banking-consent acp/openbanking –-version 0.1.9 -f open-banking-consent/files/consent.values.yaml
-   ```
-
-4. Check that the status of the Helm command is deployed:
-
-   ```
-      NAME: consent
-      LAST DEPLOYED: <current date and time>
-      NAMESPACE: open-banking-consent 
+      NAMESPACE: open-banking-consent-apps 
       STATUS: deployed
       REVISION: 1 
       TEST SUITE: None
@@ -109,7 +82,7 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 1. Wait a few minutes and use the following commands to check the deployment status.
 
    ```
-   kubectl get pods -n open-banking-consent 
+   kubectl get pods -n open-banking-consent-apps 
    ```
 
 2. Verify that:
@@ -128,13 +101,13 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 3. Check ingress with this command:
 
    ```bash
-   kubectl get ingress -n open-banking-consent 
+   kubectl get ingress -n open-banking-consent-apps 
    ```
 
 4. Verify that these ingresses are provisioned. They must have a public ip or a dns value in the ADDRESS column.
 
    ```
-       NAME                                     HOSTS                            ADDRESS                       PORTS     AGE
+       NAME                                     HOSTS                             ADDRESS                       PORTS     AGE
        consent-openbanking-consent-admin        consent-admin.<domain-name>       xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
        consent-openbanking-consent-page         consent.<domain-name>             xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
        consent-openbanking-consent-self-service consent-selfservice.<domain-name> xxxxxxxxxxxxx.amazonaws.com   80, 443   2m
@@ -142,4 +115,4 @@ Update the `open-banking-consent/files/consent.values.yaml` file:
 
 ## Post Deployment
 
-* Navigate to Openbanking workspace, Settings - Authorization - Trusted client certificates, and update the Trusted client certificates content with the `open-banking-consent/files/cert.pem` file attached.
+* Navigate to Openbanking workspace, Settings - Authorization - Trusted client certificates, and update the Trusted client certificates content with the `open-banking-consent-apps/files/cert.pem` file attached.

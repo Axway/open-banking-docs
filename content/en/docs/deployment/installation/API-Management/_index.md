@@ -3,28 +3,53 @@ title: "API Management Installation"
 linkTitle: "API Management"
 weight: 3
 ---
-Install API Management for the Amplify Open Banking solution.
+Install API Management for the Amplify Open Banking solution. This guide should be used in conjunction with [Helm Deployment](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/deployment_flows/axway_image_deployment/helm_deployment/index.html) instructions for API Gateway installation.
 
-## Download the API Management (APIM) Helm charts
+## Deploy a Cassandra cluster
 
-Download the Amplify Open Banking API Management (APIM) Helm charts to customize them locally.
+Follow the Cassandra deployment steps outlined in [Deploy a Cassandra cluster](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/deployment_flows/axway_image_deployment/helm_deployment/index.html#deploy-a-cassandra-cluster).
 
-### Financial Data Exchange (FDX)
+## Fetch the Helm chart to examine the values file
 
-```bash
-helm pull axway/open-banking-fdx-apim --untar
-helm pull axway/open-banking-fdx-apim-config --untar
-```
+Run a `helm fetch` command on the added repository to view the Helm `values.yaml` file:
 
-You should get the `open-banking-fdx-apim` and `open-banking-fdx-apim-config` local folders.
+* For FDX deployment, to fetch helm chart:
 
-### Open Finance Brazil
+    ```bash
+    helm fetch axway/open-banking-fdx-apim --untar
+    ```
 
-```bash
-helm pull axway/open-banking-apim --untar
-helm pull axway/open-banking-apim-config --untar
-```
+    This command creates a directory `open-banking-fdx-apim` containing the complete chart, including the `values.yaml` file.
 
-You should get the `open-banking-apim` and `open-banking-apim-config` local folders.
+* For Open Finance Brazil deployment, to fetch helm chart:
 
-Follow the instructions in below subsections for more information on specific deployments.
+    ```bash
+    helm fetch axway/open-banking-obb-apigateway --untar
+    ```
+
+    This command creates a directory `open-banking-obb-apigateway` containing the complete chart, including the `values.yaml` file.
+
+## Create a customized values.yaml file
+
+Create a customized `values` file, for example, `myvalues.yaml`, and make your customizations. This file should contain only the sections of the `values.yaml` file that you wish to override. Any values not present in the customized file will be picked up from the original `values.yaml` file.
+
+Additional details about customizing values.yaml are available at [Create a customized values.yaml file](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/deployment_flows/axway_image_deployment/helm_deployment/index.html#create-a-customized-valuesyaml-file).
+
+### Open Banking parameters
+
+The following parameters are required for any openbanking deployment.
+
+| Value         | Description                           | Default value  |
+|:------------- |:------------------------------------- |:-------------- |
+| openbanking.enabled | Enable or disable openbanking deployment | true |
+| openbanking.standard | Set the Open Banking specification or standard | FDX |
+
+### Sample customized values file
+
+Click [openbanking_sample_values.yaml](/samples/apimanagement/openbanking_sample_values.yaml) to download an example of a customized `myvalues.yaml` file.
+
+### Install API Gateway using your customized YAML file
+
+To install API Gateway using your customized YAML file, follow the installation instructions from [Install API Gateway using your customized YAML file](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_installation/apigw_containers/deployment_flows/axway_image_deployment/helm_deployment/index.html#install-api-gateway-using-your-customized-yaml-file).
+
+When installation is finished, go to the instructions in the subsections below for more details on particular deployments.

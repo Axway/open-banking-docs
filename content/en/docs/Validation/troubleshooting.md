@@ -90,13 +90,13 @@ Cloudentity logs can be accessed at the container standard output. In the Kubern
 * Identify the acp-xxxxx-xxx pod name
 
 ```bash
-kubectl get pods -n open-banking-consent 
+kubectl get pods -n open-banking-cloudentity 
 ```
 
 * Display the logs:
 
 ```bash
-kubectl logs acp-xxxxx-xxx -n open-banking-acp 
+kubectl logs acp-xxxxx-xxx -n open-banking-cloudentity 
 ```
 
 Use `-f` command option to get help to follow the logs stream.

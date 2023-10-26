@@ -5,12 +5,12 @@ weight: 25
 ---
 Install Backend Services for the Amplify Open Banking solution.
 
-## Financial Data Exchange (FDX)
+## Financial Data Exchange (FDX) deployments
 
-Download the Amplify Open Banking Backend Services Helm chart to customize it locally.
+Fetch the Amplify Open Banking Backend Services Helm chart to view the `values.yaml` file.
 
 ```bash
-helm pull axway/open-banking-fdx-backend --untar
+helm fetch axway/open-banking-fdx-backend --untar
 ```
 
 You should get an `open-banking-fdx-backend` local folder.
@@ -23,13 +23,12 @@ Customize the `values.yaml` file as follows.
 |:------------- |:------------------------------------- |:-------------- |
 | global.dockerRegistry.username | Login name to pull Docker images from the Axway Repository. | None |
 | global.dockerRegistry.token | Password token to pull Docker images from the Axway Repository. | None |
-| global.apihost | MTLS apigateway endpoint. | None |
-| global.apidomain | MTLS apigateway endpoint. | None |
-| mysqldb.dbname | Mock backend database name. |  *medicimockbackend* |
-| mysqldb.dbuser | Mock backend database username. |  *mockbank*_ |
+| global.apihost | MTLS apigateway endpoint. | `https://mtls-api-proxy.<domain-name>/open-banking` |
+| mysqldb.dbname | Mock backend database name. |  *fdxmockbackend* |
+| mysqldb.dbuser | Mock backend database username. |  *mockbank* |
 | secrets.MYSQL_ROOT_PASSWORD | Mock backend database root password. | None|
 | secrets.MYSQL_USER_PASSWORD | Mock backend database user password. | None |
-| *apiname*.enable | To disable the API deployment set it to false | true |
+| *apiname*.enable | To enable or disable the API deployment. | true |
 
 ### Install the Backend Services Helm chart
 
@@ -42,13 +41,13 @@ Customize the `values.yaml` file as follows.
 2. Install the Backend Services Helm chart:
 
    ```bash
-   helm install backend-services open-banking-fdx-backend -n open-banking-backend
+   helm install backend open-banking-fdx-backend -n open-banking-backend
    ```
 
 3. Check that the status of the Helm command is deployed:
 
-   ```
-       NAME: backend-services
+   ```bash
+       NAME: backend
        LAST DEPLOYED: <current date and time>
        NAMESPACE: open-banking-backend
        STATUS: deployed
@@ -74,16 +73,15 @@ Customize the `values.yaml` file as follows.
        fdxmoneymovement-xxx-xx   1/1     Running   0          2m
        fdxtax-xxx-xx             1/1     Running   0          2m
        obieproducts-xxx-xx       1/1     Running   0          2m
-       test-xxx-xx               1/1     Running   0          2m
        mysqldb-xxx-xx            1/1     Running   0          2m
    ```
 
-## Open Finance Brazil
+## Open Finance Brazil deployments
 
-Download the Amplify Open Banking Backend Services Helm chart to customize it locally.
+Fetch the Amplify Open Banking Backend Services Helm chart to view the `values.yaml` file.
 
 ```bash
-helm pull axway/open-banking-backend-chart --untar
+helm fetch axway/open-banking-backend-chart --untar
 ```
 
 You should get an `open-banking-backend-chart` local folder.

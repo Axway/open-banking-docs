@@ -10,17 +10,25 @@ The use of Helm charts and Docker images greatly improves and simplifies the Amp
 While the actual process of upgrade is straightforward, there are some prerequisite steps that you must perform to prepare for the upgrade.
 Primarily, it is critical that you backup your previous versions.
 -->
-## Steps
+## Upgrade Steps
 
 Backup your previous deployments if reusing the same directory:
 
 ```bash
 mkdir previous-version
-mv open-banking-apim             previous-version/ 
-mv open-banking-apim-config      previous-version/
-mv open-banking-backend          previous-version/
-mv open-banking-acp              previous-version/
-mv open-banking-consent          previous-version/
+
+mv open-banking-apim                previous-version/ 
+mv open-banking-cloudentity         previous-version/
+mv open-banking-consent-apps        previous-version/
+
+# for FDX
+mv open-banking-fdx-apim-config     previous-version/
+mv open-banking-fdx-backend         previous-version/
+
+# for Open Finance Brazil
+mv open-banking-apim-config     previous-version/
+mv open-banking-backend-chart   previous-version/
+mv open-banking-jwe-generator       previous-version/
 ```
 
 Update your repo:
@@ -33,25 +41,39 @@ Pull only the Helm charts you want to upgrade:
 
 ```bash
 helm search repo axway 
-helm pull axway/open-banking-apim --untar       
+
+helm pull axway/open-banking-apim --untar  
+helm pull axway/open-banking-cloudentity --untar   
+helm pull axway/open-banking-consent-apps --untar 
+
+# FDX components only
+helm pull axway/open-banking-fdx-apim-config --untar
+helm pull axway/open-banking-fdx-backend --untar 
+
+# Open Finance Brazil components only
 helm pull axway/open-banking-apim-config --untar
-helm pull axway/open-banking-backend --untar   
-helm pull axway/open-banking-acp --untar   
-helm pull axway/open-banking-consent --untar         
+helm pull axway/open-banking-backend-chart --untar   
+helm pull axway/open-banking-jwe-generator --untar
 ```
 
 For each new Helm chart, update `open-banking-xxxxx/values.yaml` using the:
 
 * Install documentation of the components.
 * Previous values used in `previous-version/open-banking-xxxxx/value.yaml`.
-* Release notes in `open-banking-xxxxx/README.md`.
+* Release Notes.
 
 Execute the upgrade commands as required:
 
 ```bash
 helm upgrade apim -n open-banking-apim open-banking-apim
+helm upgrade acp -n open-banking-cloudentity open-banking-cloudentity
+helm upgrade consent-apps -n open-banking-consent-apps open-banking-consent-apps
+
+# FDX components only
+helm upgrade apim-config -n open-banking-apim open-banking-apim-config
+helm upgrade backend-services -n open-banking-backend open-banking-fdx-backend
+
+# Open Finance components only
 helm upgrade apim-config -n open-banking-apim open-banking-apim-config
 helm upgrade backend-services -n open-banking-backend open-banking-backend-chart
-helm upgrade acp -n open-banking-acp open-banking-acp
-helm upgrade consent -n open-banking-consent open-banking-consent
 ```
