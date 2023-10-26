@@ -13,11 +13,18 @@ Follow the Cassandra deployment steps outlined in [Deploy a Cassandra cluster](h
 
 Run a `helm fetch` command on the added repository to view the Helm `values.yaml` file:
 
+For FDX deployment, use below command to fetch helm chart:
 ```bash
-helm fetch axway/open-banking-apim --untar
+helm fetch axway/open-banking-fdx-apim --untar
 ```
 
-This command creates a directory `open-banking-apim` containing the complete chart, including the `values.yaml` file.
+This command creates a directory `open-banking-fdx-apim` containing the complete chart, including the `values.yaml` file.
+
+For Open Finance Brazil deployment, use below command to fetch helm chart:
+```bash
+helm fetch axway/open-banking-obb-apigateway --untar
+```
+This command creates a directory `open-banking-obb-apigateway` containing the complete chart, including the `values.yaml` file.
 
 ## Create a customized values.yaml file
 
