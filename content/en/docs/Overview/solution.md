@@ -5,7 +5,7 @@ weight: 1
 date: 2021-06-22
 ---
 
-Amplify Open Banking is built on five solution building blocks as shown below.
+Amplify Open Banking is built on top of five solution building blocks as shown below.
 
 ![Solution Building Blocks](/Images/Solution_Building_Blocks.svg)
 
