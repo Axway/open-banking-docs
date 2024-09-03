@@ -23,6 +23,9 @@ Each building block is critical to the success of your open banking platform and
 
 ![Solution Overview](/Images/Solution_Overview_0.svg)
 
+## Components Overview
+![Components Overview](/Images/component-overview-nextgen.png)
+
 ## Features
 
 The features of the solution are further clarified in the following
