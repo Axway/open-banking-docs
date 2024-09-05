@@ -7,7 +7,7 @@ date: 2021-06-22
 
 Amplify Open Banking is built on top of five solution building blocks as shown below.
 
-![Solution Building Blocks](/Images/Solution_Building_Blocks.svg)
+![Solution Building Blocks](/Images/Solution-Building-Blocks.svg)
 
 To clarify the purpose of each building block:
 
@@ -21,10 +21,10 @@ To clarify the purpose of each building block:
 
 Each building block is critical to the success of your open banking platform and each building block provides a number of features. The features are based on the capabilities that the solution delivers and are summarized as shown below.
 
-![Solution Overview](/Images/Solution_Overview_0.svg)
+![Solution Overview](/Images/Solution-Overview.svg)
 
-## Components Overview
-![Components Overview](/Images/component-overview-nextgen.png)
+<!-- ## Components Overview
+![Components Overview](/Images/component-overview-nextgen.png) -->
 
 ## Features
 
@@ -66,8 +66,6 @@ Consumer insights provides API Consumers with secure, self-service access to act
 
 The goal of the product support contact is to give the subscriber a way to contact the product provider for any kind of assistance.
 The support contact is composed of a name, email, phone number associated with office hours and alternative support methods, including: Website URL, Slack channel, or MS Teams channel.
-
-### Amplify Infrastructure - what should be included ?
 
 ### Open banking APIs
 
@@ -160,19 +158,19 @@ be disabled dependent on your organization's position on market regulations.
 
 The Infrastructure building block brings together Axway's product set to power the solution.
 
-{{% alert title="Note" color="primary" %}} For more information on any of these products refer to the [Axway Documentation Portal](https://docs.axway.com/).{{% /alert %}}
+#### Amplify Integration
 
-#### API Gateway
+The Amplify Integration provides access to and protection for your APIs using Axway's industry leading technology. Amplify Integration is a low-code or no-code integration platform that solves simple to complex enterprise integration use cases and patterns. ​Primary use cases​ are application integration, data integration and API-fication (getting apps to talk to each other via application programming interfaces).
 
-The API Gateway provides access to and protection for your APIs using Axway's industry leading technology.
+{{% alert title="Note" color="primary" %}} For more information on Amplify Integration refer to the [Axway Documentation Portal](https://docs.axway.com/bundle/amplify_integration/page/amplify_integration_guide.html).{{% /alert %}}
 
 #### Consent management
 
-Our Consent Management solution is delivered using the [Cloudentity Open Banking Kit](https://cloudentity.com/open-banking/). This provides:
+Our Consent Management solution is built on top of Amplify Integration. This provides:
 
 * The means to couple consent with the authentication, authorization, and access control to ensure that Data Recipient Applications can access only the information to which they are entitled, and nothing more.
-* An overview for your customers that allows them to browse and revoke consents for Data Recipient Applications.
 * An administration view for your organization that allows you to search and manage your customers' consents.
+* An overview for your customers that allows them to browse and revoke consents for Data Recipient Applications.
 
 Note that in some markets Consent Management must happen at the Data Recipient App and consent dashboards are prohibited.
 
@@ -181,21 +179,3 @@ In such cases the customer-facing aspects of Consent Management can be disabled 
 #### Identity management
 
 Identity Management adds the authentication, authorization, and access control required to ensure your APIs are secure, including compliance with FAPI and local security profiles.
-
-The Cloudentity Open Banking Kit provides the default capability, but this can be swapped out for your existing Identity and Access Management solution.
-
-#### Amplify Agents
-
-Amplify agents are lightweight software applications that run on your data plane host. These agents are responsible for gathering information on what is happening in your data plane and sending it to the Amplify platform:
-
-* **Discovery Agents** automate the process of finding assets deployed in a Gateway (for example, OAS 3.0, WSDL, etc.), and sending them to the Amplify platform where they are made available in the Catalog. Consumers can subscribe to use the discovered assets, at which point the agent helps to natively provision this subscription in the Gateway.
-* **Traceability Agents** collect usage, metrics, and data plane transaction metadata and send them to the Amplify platform for additional insights. In the platform, API consumers and API providers gain visibility into the performance and behavior of the assets discovered in the data plane.
-
-#### Utilities
-
-Utilities describes the features of the solution that are developed specifically to help with the open banking solution. Utilities include:
-
-* *Mock Backends*: The solution provides mock backends for all the regulatory APIs. The Mock Backend applications are implemented using API Builder and MySQL.
-* *JWE Generator*: The solution provides JWE generator to help organizations test the APIs which require JWE payload.
-
-Customers can use these components as they see fit and can swap them out for existing functionality or use source data they may have.
