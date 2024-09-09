@@ -4,9 +4,9 @@ title \n\n
 
 participant "Data\nRecipient" as DR
 
-box Open Banking APIs #fc877e
+box Amplify Integration #fc877e
 participant "API\nGateway" as API_GATEWAY
-participant "Backend\nIntegration\nApplication" as BIA
+participant "Core Banking\nConnector" as CBC
 end box
 
 box Identity and Access Control #94c47d
@@ -38,9 +38,9 @@ end note
 
 DR -> API_GATEWAY: Request Account Information Resource\nwith valid Access Token
 
-API_GATEWAY -> IAM: Call Access Token Introspect Endpoint
-API_GATEWAY <-- IAM: Return introspection information
-API_GATEWAY -> API_GATEWAY: Inspect request
+API_GATEWAY -> IAM: Call JWKS Endpoint to validate JWT access token
+API_GATEWAY <-- IAM: Return JWKS
+API_GATEWAY -> API_GATEWAY: Validate token and get claims
 
 alt DR does not have Consent for the requested account or resource
 
@@ -60,45 +60,23 @@ API_GATEWAY -> API_GATEWAY: Augment request\nwith consented accounts/permissions
 
 alt Filtering is performed at Core Banking Application
 
-API_GATEWAY -> BIA: Forward request with\nconsented accounts/permissions
-BIA -> BIA: Create request for consented accounts
-BIA -> ASPSP_API: Request data for consented accounts
+API_GATEWAY -> CBC: Forward request with\nconsented accounts/permissions
+CBC -> CBC: Create request for consented accounts
+CBC -> ASPSP_API: Request data for consented accounts
 ASPSP_API -> ASPSP_API: Retrieve data for consented accounts
 ASPSP_API -> ASPSP_API: Apply permissions to requested data
-BIA <-- ASPSP_API: Return data for consented accounts
-API_GATEWAY <-- BIA: Return response
+CBC <-- ASPSP_API: Return data for consented accounts
+API_GATEWAY <-- CBC: Return response
 
-else Filtering is performed at Backend Integration Application
+else Filtering is performed at Core Banking Connector
 
-API_GATEWAY -> BIA: Forward request with\nconsented accounts/permissions
-BIA -> BIA: Create request for consented accounts
-BIA -> ASPSP_API: Request data for consented accounts
+API_GATEWAY -> CBC: Forward request with\nconsented accounts/permissions
+CBC -> CBC: Create request for consented accounts
+CBC -> ASPSP_API: Request data for consented accounts
 ASPSP_API -> ASPSP_API: Retrieve data for consented accounts
-BIA <-- ASPSP_API: Return data for consented accounts
-BIA -> BIA: Apply correct permissions to response data
-API_GATEWAY <-- BIA: Return response
-
-end alt
-
-else Filtering is performed on API Gateway
-
-note right of API_GATEWAY
-The assumption here is that the API Gateway will
-connect to the Core Banking Applications 
-directly.
-|||
-Note this approach works fine where low volumes of transactions
-are expected. However in scenarios where a high volume
-is expected it may not be hugely efficient i.e. lots
-more data is returned to the gateway, then filtered.
-Unless the API Gateway has some means for managing state
-this may also make pagination difficult.
-end note
-
-API_GATEWAY -> ASPSP_API: Request target accounts
-ASPSP_API -> ASPSP_API: Retrieve data for consented accounts
-API_GATEWAY <-- ASPSP_API: Return response
-API_GATEWAY -> API_GATEWAY: Apply permissions
+CBC <-- ASPSP_API: Return data for consented accounts
+CBC -> CBC: Apply correct permissions to response data
+API_GATEWAY <-- CBC: Return response
 
 end alt
 end alt

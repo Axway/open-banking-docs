@@ -1,4 +1,4 @@
----
+<!-- ---
 title: "Payment Initiation using Client-Initiated Backchannel Authentication (CIBA)"
 linkTitle: "Payment Initiation using CIBA"
 weight: 10
@@ -22,4 +22,4 @@ The flow following the receipt of the Authentication Request shows a hypothetica
 
 {{% alert title="Note" color="primary" %}} The diagram is provided for guidance and education. The authentication and consent confirmation flows will vary depending on the architecture, components and available communication channels of the target platform and must be considered on a case-by-case basis.{{% /alert %}}
 
-![CIBA example sequence](/Images/CIBA_Example_Sequence.svg)
+![CIBA example sequence](/Images/CIBA_Example_Sequence.svg) -->
