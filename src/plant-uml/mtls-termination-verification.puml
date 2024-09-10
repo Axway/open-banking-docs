@@ -4,18 +4,13 @@ title \n\n
 
 participant "Data\nRecipient" as DR
 
-box Infrastructure #6FA8DC
-participant "Ingress\nController" as INGRESS
+box Amplify Integration #6FA8DC
 participant "API\nGateway" as API_GATEWAY
-end box
-
-box Open Banking APIs #fc877e 
-'participant "API\nGateway" as API_GATEWAY
-participant "Backend\nIntegration\nApplication" as BIA
+participant "Core Banking\nConnector" as CBC
 end box
 
 box Identity and Access Control #94c47d
-participant "Identity\nManagement" as IAM
+participant "Authorization\nServer" as IAM
 end box
 
 participant "Market\nCertificate\nAuthority" as CA
@@ -34,9 +29,8 @@ This diagram shows the specifics of mutual authentication
 as implemented in the open banking accelerator.
 end note
 
-DR -> INGRESS: Request protected endpoint
-INGRESS -> INGRESS: Validate certificate chain
-INGRESS -> API_GATEWAY: Request protected endpoint
+DR -> API_GATEWAY: Request protected endpoint
+API_GATEWAY -> API_GATEWAY: Validate certificate chain
 API_GATEWAY -> CA: Check certificate status (OCSP/CRL)
 API_GATEWAY <-- CA: Response
 
@@ -48,22 +42,20 @@ certificate is enforced through FAPI which
 references [[https://datatracker.ietf.org/doc/html/rfc8705 RFC 8705]].
 |||
 To support this the API Gateway uses the
-Access Token introspection endpoint to
-retrieve the stored certificate fingerprint.
+JWT claims to retrieve the stored 
+certificate fingerprint.
 end note
 
-API_GATEWAY -> IAM: Access Token\nintrospection
-IAM -> IAM: Retrieve Access\nToken properties
-API_GATEWAY <-- IAM: Response
+API_GATEWAY -> IAM: Call JWKS Endpoint to validate JWT access token
+API_GATEWAY <-- IAM: Return JWKS
+API_GATEWAY -> API_GATEWAY: Get claims from JWT
 API_GATEWAY -> API_GATEWAY: Calculate certificate\nfingerprint
 API_GATEWAY -> API_GATEWAY: Compare stored and\ncalculated fingerprints
 end alt
 
-API_GATEWAY -> BIA: Request protected endpoint
-BIA -> ASPSP_API: Request backend data or service
-BIA <-- ASPSP_API: Response
-API_GATEWAY <-- BIA: Response
-INGRESS <-- API_GATEWAY: Response
-DR <-- INGRESS: Response
+API_GATEWAY -> CBC: Request protected endpoint
+CBC -> ASPSP_API: Request backend data or service
+CBC <-- ASPSP_API: Response
+API_GATEWAY <-- CBC: Response
 
 @enduml

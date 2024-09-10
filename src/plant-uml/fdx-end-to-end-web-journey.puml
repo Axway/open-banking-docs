@@ -5,33 +5,21 @@ title \n\n\n
 actor "End User" as PSU
 participant "Data\nRecipient" as DR
 
-box Infrastructure #6FA8DC
-participant "Ingress\nController" as INGRESS
+box Amplify Integration #6FA8DC
 participant "API\nGateway" as API_GATEWAY
+participant "Consent\nManagement" as CONSENT
+participant "Core Banking \nConnector" as CBC
 end box
 
 box Identity and Access Control #94c47d
-participant "Identity Management\n---\nAuthorisation Server" as IAM
-participant "Consent\nManagement" as CONSENT
-end box
-
-box Open Banking APIs #fc877e
-participant "Backend\nIntegration\nApplication" as BIA
+participant "Identity Management\n---\nAuthorization Server" as IAM
+participant "Consent Grant\nApp" as CONSENT_WEB
 end box
 
 box Core Banking Applications #d5a6bd
 participant "Banking\nIdentity\nProvider" as ASPSP_WEB
 participant "Banking\nSystems" as ASPSP_API
 end box
-
-/'
-box Open Banking Directory
-participant "Participants\nList" as OBD_PARTICIPANTS
-participant "JSON Web\nKey Set" as OBD_JWKS
-end box
-
-participant "Certificate\nAuthority\n---\nOCSP Endpoint" as OCSP
-'/
 
 hide footbox
 'skinparam defaultFontName Roboto
@@ -40,7 +28,7 @@ skinparam BoxPadding 20
 note right of PSU
 Overview
 ===
-This diagram shows the end-to-end web journey for obtaining Consent and starting to collect
+This diagram sh ows the end-to-end web journey for obtaining Consent and starting to collect
 Account Information data. The goal is to place the components from the Architecture Overview
 in context.
 end note
@@ -66,7 +54,7 @@ PSU -> DR: Confirm bank selection
 note right of DR
 With the consent of the End User obtained the DR can now call the 
 Authorization Server API at the correct bank. Note at this point 
-Consent is usual termed "Intent" as it hasyet to confirmed at the bank.
+Consent is usual termed "Intent" as it has yet to be confirmed at the bank.
 end note
 
 DR -> DR: Create Intent payload
@@ -81,15 +69,14 @@ The par request MUST contain an authorization details parameter
     {
       "type": "fdx_v1.0",
       "consentRequest": {
-        "durationType": "ONETIME",
+        "durationType": "ONE_TIME",
         "lookbackPeriod": 60,
         "resources": [
           {
             "resourceType": "ACCOUNT",
             "dataClusters": [
               "ACCOUNT_DETAILED",
-              "TRANSACTIONS",
-              "STATEMENTS"
+              "TRANSACTIONS"
             ]
           }
         ]
@@ -99,8 +86,13 @@ The par request MUST contain an authorization details parameter
 }
 end note
 
-DR -> IAM: ""POST /par "{"authorization_details":[{"type":"fdx_v1.0","consentRequest":"...."}]"""
-DR <-- IAM: return request_uri
+DR -> API_GATEWAY: ""POST /par "{"authorization_details":[{"type":"fdx_v1.0","consentRequest":"...."}]"""
+API_GATEWAY -> API_GATEWAY: Validate certificate
+API_GATEWAY -> IAM: ""POST /par "{"authorization_details":[{"type":"fdx_v1.0","consentRequest":"...."}]"""
+API_GATEWAY <-- IAM: return request_uri
+API_GATEWAY --> CONSENT: Create consent
+API_GATEWAY <-- CONSENT: Consent created
+DR <-- API_GATEWAY: return request_uri
 
 == Part 3: User authentication, consent and authorization ==
 
@@ -112,10 +104,12 @@ DR -> IAM: ""GET /authorize&request_uri=""
 IAM -> ASPSP_WEB: ""REDIRECT /login""
 ASPSP_WEB -> PSU: ""USER login""
 PSU --> ASPSP_WEB: ""200 OK {...}""
-ASPSP_WEB --> CONSENT: Serve Consent and Account Confirmation Screen
-CONSENT --> PSU: Serve Consent and Account Confirmation Screen
-PSU --> CONSENT: "Consent confirmation is correct
-CONSENT --> IAM: ""201 CREATED {"consentId":"..."}""
+ASPSP_WEB --> CONSENT_WEB: Serve Consent and\nAccount Confirmation Screen
+CONSENT_WEB --> PSU: Serve Consent and Account Confirmation Screen
+PSU --> CONSENT_WEB: "Consent confirmation is correct
+CONSENT_WEB --> CONSENT: Update consent resources and status
+CONSENT --> CONSENT_WEB: Consent updated
+CONSENT --> IAM: Redirect with success
 IAM --> DR: ""200 OK {"code":"..."}""
 
 note right of DR
@@ -136,15 +130,13 @@ end note
 
 DR -> API_GATEWAY: ""GET /fdx/{version}/core/accounts""
 note right of API_GATEWAY
-Introspect Access Token
+Validate Access Token
 end note
-API_GATEWAY -> IAM: ""POST /token-introspection""
-IAM --> API_GATEWAY: ""200 OK""\n""{"status": "..."}""
-API_GATEWAY --> API_GATEWAY: Verify Access Token scope
-API_GATEWAY -> BIA: ""GET /fdx/{version}/core/accounts""
-BIA -> ASPSP_API: ""GET /fdx/{version}/core/accounts""
-ASPSP_API -> BIA: ""200 OK""\n""{"accounts": "..."}""
-BIA -> API_GATEWAY: ""200 OK""\n""{"accounts": "..."}""
+API_GATEWAY --> API_GATEWAY: Verify Access Token claims
+API_GATEWAY -> CBC: ""GET /fdx/{version}/core/accounts""
+CBC -> ASPSP_API: ""GET /fdx/{version}/core/accounts""
+ASPSP_API -> CBC: ""200 OK""\n""{"accounts": "..."}""
+CBC -> API_GATEWAY: ""200 OK""\n""{"accounts": "..."}""
 API_GATEWAY -> DR: ""200 OK""\n""{"accounts": "..."}""
 
 @enduml

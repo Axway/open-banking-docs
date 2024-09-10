@@ -17,7 +17,7 @@ The flow is summarized as follows:
 
 All APIs that provide access to data are implemented in the same manner. The consent/data access pattern relating to Account Information is therefore representative regardless of the specific resource (checking accounts, credit cards, loans, and so on).
 
-![FDX Wrokflow](/Images/FDX_Workflow_0.png)
+![FDX Wrokflow](/Images/FDX-Workflow.svg)
 
 ### Steps
 
@@ -37,15 +37,14 @@ Step 2: DR initiates a POST request to Data Providers’s (DP) POST /par endpoin
      {
        "type": "fdx_v1.0",
        "consentRequest": {
-         "durationType": "ONETIME",
+         "durationType": "ONE_TIME",
          "lookbackPeriod": 60,
          "resources": [
            {
              "resourceType": "ACCOUNT",
              "dataClusters": [
                "ACCOUNT_DETAILED",
-               "TRANSACTIONS",
-               "STATEMENTS"
+               "TRANSACTIONS"
              ]
            }
          ]
