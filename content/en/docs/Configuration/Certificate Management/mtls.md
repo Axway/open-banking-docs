@@ -12,7 +12,7 @@ How to change and test the certificate configurations required for Mutual Authen
 Mutual authentication is required for most APIs developed for Open Banking.
 
 According to the Open Banking Specification, Mutual Transport Layer Security (MTLS) client connections are required for the Cloudentity and API Gateway Listener components. See the diagram for details on MTLS setup.
-![MTLS diagram](/Images/MTLS.svg)
+![MTLS diagram](/Images/MTLS.svg)[Regions MvP Kanban - Agile Board - Axway JIRA.url](..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2FUsers%2Fmdeb%2FAppData%2FLocal%2FTemp%2FRegions%20MvP%20Kanban%20-%20Agile%20Board%20-%20Axway%20JIRA.url)
 
 See more about the Certificate Verification with MTLS in Open Banking context in [Mutual Authentication and Certificate Verification](/docs/overview/integration/mutual-auth).
 

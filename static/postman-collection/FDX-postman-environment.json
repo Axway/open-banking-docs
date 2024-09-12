@@ -1,0 +1,21 @@
+{
+	"id": "007f105e-5f27-4e12-9857-a66de46b5e91",
+	"name": "FDX Demo",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "https://griffin-live.openbanking.axwaysbsdev.net:4443",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "clientId",
+			"value": "emoney",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-09-11T10:14:12.033Z",
+	"_postman_exported_using": "Postman/11.10.1"
+}
