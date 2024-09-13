@@ -140,7 +140,7 @@ The outline process is as follows:
 
 * The relevant subject matter expert creates a new branch and starts work on their changes.
 * When they are happy they commit and push to the branch.
-* They then create a Pull Request, which creates a Preview site that can reviewed on Netlify (link to the site is shown in the Pull Request page). The technical writer then reviews and suggest changes, etc.
+* They then create a Pull Request. The technical writer then reviews and suggest changes, etc.
 * When approved the changes are merged to `master`.
 * The final step is a merge to production, which does not necessarily need to be performed at each merge to `master` on GitHub. This happens through a manual push to Zoomin, the production provider for https://docs.axway.com.
 
