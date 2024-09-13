@@ -15,7 +15,7 @@ enableRobotsTXT = true
 enableGitInfo = true
 
 # if removed the site will not build!!
-disableKinds = ["taxonomy"]
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
 # Highlighting config
 pygmentsCodeFences = true
@@ -39,7 +39,7 @@ anchor = "smart"
 [services]
 [services.googleAnalytics]
 # Comment out the next line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
-#id = "UA-56643615-3"
+id = "UA-56643615-3"
 
 # Language configuration
 
@@ -80,7 +80,7 @@ version_menu = "Releases"
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
 github_repo = "https://github.com/Axway/open-banking-docs"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
-github_project_repo = "https://github.com/google/docsy"
+# github_project_repo = "https://github.com/google/docsy"
 
 # Github branch value for the edit on github link.
 github_branch = ""
@@ -166,7 +166,7 @@ enable = true
   icon = "fas fa-cart-arrow-down"
   desc = "Download assets from Axway Marketplace"
 
-# Declaration of docsy theme as hugo module
+# Declaration of docsy them as hugo module
 [module]
   proxy = "direct"
   # uncomment line below for temporary local development of module
