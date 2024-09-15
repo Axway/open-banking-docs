@@ -16,10 +16,10 @@ Each collection includes a script that simulates a sequence of API calls to veri
 
 Retrieve the postman files.
 
-1. Download the postman collections' file from here ![Postman Collection](https://axway-open-banking-docs.netlify.app/postman-collection/FDX-postman-collection.json) 
+1. Download the postman collections' file from here ![Postman Collection](/postman-collection/FDX-postman-collection.json) 
 2. Download the environment file from here ![Postman Environment File](https://axway-open-banking-docs.netlify.app/postman-collection/FDX-postman-environment.json)
 
-{{% alert title="Note" color="primary" %}} Postman collections also have their own documentation and you can follow these instructions within postman after importing the collection.{{% /alert %}}
+3. {{% alert title="Note" color="primary" %}} Postman collections also have their own documentation and you can follow these instructions within postman after importing the collection.{{% /alert %}}
 
 ### Import the collection files into Postman
 
