@@ -4,6 +4,25 @@ linkTitle: "Customer Specific Configuration"
 weight: 4
 date: 2024-09-10
 ---
+## Overview 
+
+A few environment properties need to be configured in the customer tenant’s Amplify Integration data plane. The following steps provide details on how to set up these properties.
+
+1. Login to the customer's Amplify Integration.
+ 
+![Login to customer Data Plane](/Images/login-customer-data-plane.png)
+
+2. Go to *Manager* and click on *Environments* on the sidebar and go to details.
+
+   ![Go to Manager](/Images/select_manager.png)
+
+   ![Select Environments](/Images/select_environment.png)
+
+3. In the *Details* section you can start adding the environment properties that need to be configured.
+  
+   ![Add Properties](/Images/add_environment_properties.png)
+
+4. The details of the properties to be configured are provided in the next section.
 
 ## Environment Properties 
 
