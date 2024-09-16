@@ -4,7 +4,7 @@ linkTitle: "Customer Specific Configuration"
 weight: 4
 date: 2024-09-10
 ---
-## Overview 
+## Steps To Configure Properties 
 
 A few environment properties need to be configured in the customer tenant’s Amplify Integration data plane. The following steps provide details on how to set up these properties.
 
