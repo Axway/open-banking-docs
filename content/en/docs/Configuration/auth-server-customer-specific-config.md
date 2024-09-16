@@ -117,4 +117,6 @@ Refer to the image below -
 
 ### Update Identity providers Configuration 
 
-The identity providers configuration created revisously also needs to be updated with the post-login
+The identity providers configuration created previously also needs to be updated with the Post login flow as mentioned in the image below.
+
+![IDP WITH POST LOGIN](/Images/post-login-identity-provider.png)
