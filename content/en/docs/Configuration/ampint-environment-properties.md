@@ -1,28 +1,29 @@
 ---
-title: "Customer Specific Configuration"
-linkTitle: "Customer Specific Configuration"
+title: "Amplify Integration"
+linkTitle: "Amplify Integration"
 weight: 4
 date: 2024-09-10
 ---
-## Steps To Configure Properties 
 
-A few environment properties need to be configured in the customer tenant’s Amplify Integration data plane. The following steps provide details on how to set up these properties.
+Open Banking APIs and workflows are developed and exposed via Amplify Integration. These APIs and workflows rely on specific environment properties that must be configured for them to function correctly. This section provides instructions on how to update these environment properties, along with detailed explanations for each property.
 
-1. Login to the customer's Amplify Integration.
- 
-![Login to customer Data Plane](/Images/login-customer-data-plane.png)
+{{% alert title="Note" color="primary" %}} For more information on Amplify Integration refer to the [Axway Documentation Portal](https://docs.axway.com/bundle/amplify_integration/page/amplify_integration_guide.html).{{% /alert %}}
 
-2. Go to *Manager* and click on *Environments* on the sidebar and go to details.
+## Steps To Configure Environment Properties 
 
-   ![Go to Manager](/Images/select_manager.png)
+The following steps provide details on how to set up these properties.
 
-   ![Select Environments](/Images/select_environment.png)
+1. Login to the Amplify Integration.
 
-3. In the *Details* section you can start adding the environment properties that need to be configured.
-  
-   ![Add Properties](/Images/add_environment_properties.png)
+2. Go to *Manager* and click on *Environments* on the sidebar.
+![Go to Environments](/Images/AI-Manager-Environments.png)
 
-4. The details of the properties to be configured are provided in the next section.
+3. Click on *Details*. 
+![View Details](/Images/AI-Env-Property-Details.png)
+
+4. Here you can update the environment properties. The details of the properties to be updated are provided in the next section.
+![Update Properties](/Images/AI-Update-Environment-Properties.png)
+
 
 ## Environment Properties 
 

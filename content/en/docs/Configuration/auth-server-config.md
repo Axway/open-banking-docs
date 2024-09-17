@@ -1,46 +1,32 @@
 ---
-title: "Keycloak Customer Specific Configuration"
-linkTitle: "Keycloak Customer Specific Configuration"
+title: "Authorization Server"
+linkTitle: "Authorization Server"
 weight: 6
 date: 2024-09-10
 ---
 
-## Overview
+In this section, you’ll find the necessary configuration settings for the Authorization Server, which is a critical component of the Open Banking solution. Proper configuration of the Authorization Server ensures secure and compliant access to APIs, enabling robust authentication and authorization processes. This guide will walk you through the key configuration steps and parameters required to align the Authorization Server with the overall solution architecture.
 
-This page describes the properties that need to be configured in the keycloak specific to the customer/ tenant.
+## IdP Configuration
 
-## Configurations
+Integrating an Identity Provider (IdP) is essential for managing user authentication within the Open Banking solution. This section outlines the steps required to configure and integrate the IdP with the Authorization Server, enabling seamless and secure authentication processes. By connecting the Authorization Server to your chosen IdP, you can leverage existing user directories, enforce authentication policies, and streamline the overall login experience for users.
 
-### IDP Configuration
+Following steps outlines the details of how to configure your identity provider.
 
-You can import the SAML and OpenID Connect metadata, provided by the external IDP your bank is authenticating with, into the realm. After importing, you can extract user profile metadata and other information, so you can make it available to your applications.
-Following steps give the details of how to configure your identity providers. 
+1. Login to Authorization Server.
+2. Click on “Identity providers” section in the left side bar and select “OpenId Connect v1.0”.
+   ![Identity providers](/Images/AS-IdPs.png) 
 
-**Note:** Here we assume that bank is using the keycloak OpenID connect as the external IDP.  
+3. Create a new Alias and provide a valid discovery endpoint, this is the “well-known” url of the external IdP provider. Also provide the client_id and client_secret of the external IdP.
+   ![Select OpenID Connect](/Images/AS-Configure-IdP.png)
 
-1. Click on "Identity providers" section in the left menu section after selecting the desired customer specific realm.
+4. Save the configuration by clicking on *Add*.
+5. Open the newly created IdP again.
+6. Move to mappers tab and here we need to create a userId mapper in the IdP. Select “User Session Note Mapper”. Make sure you are using the correct claim in userId mapper.
+   ![Create user mapper](/Images/AS-IdP-User-Mapper.png)
+7. External IdP Integration is complete now.
 
-![identity providers](/Images/identity-providers.png) 
-
-2. Select "Keycloak OpenID Connect"
-
-![Select Keycloak OpenID](/Images/identity-providers-step2.png)
-
-3. Create a new Alias and provide a valid discovery endpoint, This discovery endpoint is the "well-known" url of the external IDP provider.
-
-![Select Keycloak OpenID](/Images/identity-providers-step3.png)
-
-4. In the same page also fill the client_id and client_secret of the external IDP
-
-![Add client](/Images/identity-providers-step4.png)
-5. Save this section, and again reopen the newly created Idp in the Identity Provider sections 
-
-7. Move to mappers section and here we need to create a userId mapper in the IDP. Select "User Session Note Mapper". Make sure you are using the correct claim in userId mapper.
-
-![User Mapper](/Images/identity-providers-step5.png)
-8. External IDP Integration is complete now
-
-### Client Policies Update 
+## Client Policies Update 
 Following steps need to be followed to update the client policies - 
 
 1. Click on Realm settings  on the left menu, after selecting the desired realm.
