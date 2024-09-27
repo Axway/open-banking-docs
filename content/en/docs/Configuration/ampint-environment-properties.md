@@ -9,7 +9,7 @@ Open Banking APIs and workflows are developed and exposed via Amplify Integratio
 
 {{% alert title="Note" color="primary" %}} For more information on Amplify Integration refer to the [Axway Documentation Portal](https://docs.axway.com/bundle/amplify_integration/page/amplify_integration_guide.html).{{% /alert %}}
 
-## Steps To Configure Environment Properties 
+## Steps To Configure Environment Properties
 
 The following steps provide details on how to set up these properties.
 
@@ -18,17 +18,15 @@ The following steps provide details on how to set up these properties.
 2. Go to *Manager* and click on *Environments* on the sidebar.
 ![Go to Environments](/Images/AI-Manager-Environments.png)
 
-3. Click on *Details*. 
+3. Click on *Details*.
 ![View Details](/Images/AI-Env-Property-Details.png)
 
 4. Here you can update the environment properties. The details of the properties to be updated are provided in the next section.
 ![Update Properties](/Images/AI-Update-Environment-Properties.png)
 
-
-## Environment Properties 
+## Environment Properties
 
 Following environment properties need to be set up in each customer's data plane
-
 
 | Environment Property Name                                                | Purpose                                                                                                                           | Default Value (if any)                                                                                                                                                                  | Example (if any)                                                                               |
 |--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
@@ -49,7 +47,7 @@ Following environment properties need to be set up in each customer's data plane
 | FDX_Kafka_Publish_Notification_severity                                  | Severity level of the logged events                                                                                               | INFO                                                                                                                                                                                    |                                                                                              |
 | FDX_Kafka_Publish_Notification_tenantType                                | Type of the tenant                                                                                                                | DATA_PROVIDER                                                                                                                                                                           |                                                                                              |
 | FDX_Notification_Subscription_eventTypes                                 | Supported event types for subscription                                                                                            | CONSENT_PARTIALLY_AUTHORIZED,CONSENT_AUTHORIZED,CONSENT_REJECTED,CONSENT_ON_HOLD,CONSENT_CONSUMED,CONSENT_EXPIRED,CONSENT_MODIFIED                                                      |                                                                                              |
-| Generic_Authorization_loginUrl                                           | Login url of the authorization server                                                                                             |                                                                                                                                                                                         | https://auth.openbanking.axwaysbsdev.net/realms/griffin-design/protocol/openid-connect/auth    |
+| Generic_Authorization_loginUrl                                           | Login url of the authorization server                                                                                             |                                                                                                                                                                                         | [https://auth.openbanking.axwaysbsdev.net/realms/griffin-design/protocol/openid-connect/auth](https://auth.openbanking.axwaysbsdev.net/realms/griffin-design/protocol/openid-connect/auth)    |
 | Generic_Authorization_maxConsentAllowedPerUserPerPartner                 | Maximum number of allowed consents per user per partner                                                                           | 10                                                                                                                                                                                      |                                                                                              |
 | Generic_Authorization_scaMethodEnabled                                   | If strong customer authentication is enabled                                                                                      | TRUE                                                                                                                                                                                    |                                                                                              |
 | Generic_Authorization_scaMethodExplanation                               | description of SCA method used                                                                                                    |                                                                                                                                                                                         |                                                                                              |
