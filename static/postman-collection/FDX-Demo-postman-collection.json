@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "f6b68b15-25db-433a-870a-2b71f16dba5c",
 		"name": "FDX Demo",
+		"description": "This collection implements the FDX Consent Grant Flow as defined in FDX RFC 0156 & allows you to access the Core API endpoints.\n\nHere are the prerequisites to run the requests in this collection:\n\n- API server endpoint is protected with MTLS, so get the certificate & private key from Financial Institution.\n    \n- Choose the Environment \"FDX Demo\" from the Environment selector in the top right.\n    \n- Use the cog button to open Settings\n    \n    - Choose the Certificates tab. Ensure a certificate is installed for the target environment. If not click \"Add Certificate\".\n        \n    - Enter the target host and port and upload the public and private keys (CRT file and KEY file respectively) and click ADD.\n        \n- Update the current values in the Environment \"FDX Demo\".\n    \n- Follow the instructions for each section/request below.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "236738"
 	},
@@ -25,48 +26,10 @@
 								"v1",
 								"well-known"
 							]
-						}
+						},
+						"description": "The endpoint retrieves the well-known configuration for the Authorization Server. The response is a JSON object with various properties such as issuer, authorization endpoint, token endpoint, and other supported features and methods related to authentication and authorization."
 					},
-					"response": [
-						{
-							"name": "Auth Sever Metadata",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/fdx/auth/v1/well-known",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"fdx",
-										"auth",
-										"v1",
-										"well-known"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Wed, 07 Aug 2024 15:56:48 GMT"
-								},
-								{
-									"key": "Content-type",
-									"value": "application/json"
-								},
-								{
-									"key": "Content-length",
-									"value": "5043"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"issuer\": \"https://griffin-live.openbanking.axwaysbsdev.net:9443/fdx/auth/v1\",\n    \"authorization_endpoint\": \"https://griffin-live.openbanking.axwaysbsdev.net:9443/fdx/auth/v1/authorize\",\n    \"token_endpoint\": \"https://griffin-live.openbanking.axwaysbsdev.net:9443/fdx/auth/v1/token\",\n    \"frontchannel_logout_session_supported\": true,\n    \"frontchannel_logout_supported\": true,\n    \"jwks_uri\": \"https://griffin-live.openbanking.axwaysbsdev.net:9443/fdx/auth/v1/certs\",\n    \"grant_types_supported\": [\n        \"authorization_code\",\n        \"implicit\",\n        \"refresh_token\",\n        \"password\",\n        \"client_credentials\",\n        \"urn:openid:params:grant-type:ciba\",\n        \"urn:ietf:params:oauth:grant-type:device_code\"\n    ],\n    \"acr_values_supported\": [\n        \"0\",\n        \"1\"\n    ],\n    \"response_types_supported\": [\n        \"code\",\n        \"none\",\n        \"id_token\",\n        \"token\",\n        \"id_token token\",\n        \"code id_token\",\n        \"code token\",\n        \"code id_token token\"\n    ],\n    \"subject_types_supported\": [\n        \"public\",\n        \"pairwise\"\n    ],\n    \"id_token_signing_alg_values_supported\": [\n        \"PS384\",\n        \"RS384\",\n        \"EdDSA\",\n        \"ES384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\"\n    ],\n    \"id_token_encryption_alg_values_supported\": [\n        \"RSA-OAEP\",\n        \"RSA-OAEP-256\",\n        \"RSA1_5\"\n    ],\n    \"id_token_encryption_enc_values_supported\": [\n        \"A256GCM\",\n        \"A192GCM\",\n        \"A128GCM\",\n        \"A128CBC-HS256\",\n        \"A192CBC-HS384\",\n        \"A256CBC-HS512\"\n    ],\n    \"userinfo_signing_alg_values_supported\": [\n        \"PS384\",\n        \"RS384\",\n        \"EdDSA\",\n        \"ES384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\",\n        \"none\"\n    ],\n    \"userinfo_encryption_alg_values_supported\": [\n        \"RSA-OAEP\",\n        \"RSA-OAEP-256\",\n        \"RSA1_5\"\n    ],\n    \"userinfo_encryption_enc_values_supported\": [\n        \"A256GCM\",\n        \"A192GCM\",\n        \"A128GCM\",\n        \"A128CBC-HS256\",\n        \"A192CBC-HS384\",\n        \"A256CBC-HS512\"\n    ],\n    \"request_object_signing_alg_values_supported\": [\n        \"PS384\",\n        \"RS384\",\n        \"EdDSA\",\n        \"ES384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\",\n        \"none\"\n    ],\n    \"request_object_encryption_alg_values_supported\": [\n        \"RSA-OAEP\",\n        \"RSA-OAEP-256\",\n        \"RSA1_5\"\n    ],\n    \"request_object_encryption_enc_values_supported\": [\n        \"A256GCM\",\n        \"A192GCM\",\n        \"A128GCM\",\n        \"A128CBC-HS256\",\n        \"A192CBC-HS384\",\n        \"A256CBC-HS512\"\n    ],\n    \"response_modes_supported\": [\n        \"query\",\n        \"fragment\",\n        \"form_post\",\n        \"query.jwt\",\n        \"fragment.jwt\",\n        \"form_post.jwt\",\n        \"jwt\"\n    ],\n    \"token_endpoint_auth_methods_supported\": [\n        \"private_key_jwt\",\n        \"client_secret_basic\",\n        \"client_secret_post\",\n        \"tls_client_auth\",\n        \"client_secret_jwt\"\n    ],\n    \"token_endpoint_auth_signing_alg_values_supported\": [\n        \"PS384\",\n        \"RS384\",\n        \"EdDSA\",\n        \"ES384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\"\n    ],\n    \"introspection_endpoint_auth_methods_supported\": [\n        \"private_key_jwt\",\n        \"client_secret_basic\",\n        \"client_secret_post\",\n        \"tls_client_auth\",\n        \"client_secret_jwt\"\n    ],\n    \"introspection_endpoint_auth_signing_alg_values_supported\": [\n        \"PS384\",\n        \"RS384\",\n        \"EdDSA\",\n        \"ES384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\"\n    ],\n    \"authorization_signing_alg_values_supported\": [\n        \"PS384\",\n        \"RS384\",\n        \"EdDSA\",\n        \"ES384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\"\n    ],\n    \"authorization_encryption_alg_values_supported\": [\n        \"RSA-OAEP\",\n        \"RSA-OAEP-256\",\n        \"RSA1_5\"\n    ],\n    \"authorization_encryption_enc_values_supported\": [\n        \"A256GCM\",\n        \"A192GCM\",\n        \"A128GCM\",\n        \"A128CBC-HS256\",\n        \"A192CBC-HS384\",\n        \"A256CBC-HS512\"\n    ],\n    \"claims_supported\": [\n        \"aud\",\n        \"sub\",\n        \"iss\",\n        \"auth_time\",\n        \"name\",\n        \"given_name\",\n        \"family_name\",\n        \"preferred_username\",\n        \"email\",\n        \"acr\"\n    ],\n    \"claim_types_supported\": [\n        \"normal\"\n    ],\n    \"claims_parameter_supported\": true,\n    \"scopes_supported\": [\n        \"openid\",\n        \"address\",\n        \"email\",\n        \"offline_access\",\n        \"profile\",\n        \"fdx:investments:read\",\n        \"fdx:statements:read\",\n        \"fdx:accountdetailed:read\",\n        \"fdx:customerpersonal:read\",\n        \"web-origins\",\n        \"roles\",\n        \"acr\",\n        \"microprofile-jwt\",\n        \"internal:resource:write\",\n        \"fdx:paymentsupport:read\",\n        \"tenant_information\",\n        \"internal:resource:read\",\n        \"fdx:transactions:read\",\n        \"phone\",\n        \"fdx:accountbasic:read\",\n        \"fdx:customercontact:read\"\n    ],\n    \"request_parameter_supported\": true,\n    \"request_uri_parameter_supported\": true,\n    \"require_request_uri_registration\": true,\n    \"code_challenge_methods_supported\": [\n        \"plain\",\n        \"S256\"\n    ],\n    \"tls_client_certificate_bound_access_tokens\": true,\n    \"revocation_endpoint\": \"https://griffin-live.openbanking.axwaysbsdev.net:9443/fdx/auth/v1/revoke\",\n    \"revocation_endpoint_auth_methods_supported\": [\n        \"private_key_jwt\",\n        \"client_secret_basic\",\n        \"client_secret_post\",\n        \"tls_client_auth\",\n        \"client_secret_jwt\"\n    ],\n    \"revocation_endpoint_auth_signing_alg_values_supported\": [\n        \"PS384\",\n        \"RS384\",\n        \"EdDSA\",\n        \"ES384\",\n        \"HS256\",\n        \"HS512\",\n        \"ES256\",\n        \"RS256\",\n        \"HS384\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\"\n    ],\n    \"backchannel_logout_supported\": true,\n    \"backchannel_logout_session_supported\": true,\n    \"backchannel_token_delivery_modes_supported\": [\n        \"poll\",\n        \"ping\"\n    ],\n    \"backchannel_authentication_request_signing_alg_values_supported\": [\n        \"PS384\",\n        \"RS384\",\n        \"EdDSA\",\n        \"ES384\",\n        \"ES256\",\n        \"RS256\",\n        \"ES512\",\n        \"PS256\",\n        \"PS512\",\n        \"RS512\"\n    ],\n    \"require_pushed_authorization_requests\": false,\n    \"pushed_authorization_request_endpoint\": \"https://griffin-live.openbanking.axwaysbsdev.net:9443/fdx/auth/v1/par\",\n    \"authorization_response_iss_parameter_supported\": true,\n    \"mtls_endpoint_aliases\": {\n        \"token_endpoint\": \"https://griffin-live.openbanking.axwaysbsdev.net:9443/fdx/auth/v1/token\",\n        \"revocation_endpoint\": \"https://griffin-live.openbanking.axwaysbsdev.net:9443/fdx/auth/v1/revoke\",\n        \"pushed_authorization_request_endpoint\": \"https://griffin-live.openbanking.axwaysbsdev.net:9443/fdx/auth/v1/par\"\n    }\n}"
-						}
-					]
+					"response": []
 				},
 				{
 					"name": "Step 0.1 - Get jsrsasign-js (One time setup)",
@@ -97,7 +60,8 @@
 								"jsrsasign",
 								"jsrsasign-latest-all-min.js"
 							]
-						}
+						},
+						"description": "This endpoint makes an HTTP GET request to retrieve the JavaScript resource file from the specified URL. This is a one time execution step to create a global variable and this variable is needed in next step."
 					},
 					"response": []
 				},
@@ -163,13 +127,13 @@
 							"type": "jwt",
 							"jwt": [
 								{
-									"key": "payload",
-									"value": "{\r\n\"iat\": {{$timestamp}},\r\n\"exp\": {{exp}},\r\n\"iss\": \"{{realmName}}\",\r\n\"nbf\": {{$timestamp}},\r\n\"state\": \"{{$guid}}\",\r\n\"aud\": [\"{{baseUrl}}/fdx/auth/v1\"],\r\n\"jti\": \"jwt_nonce\",\r\n\"response_mode\": \"jwt\",\r\n\"redirect_uris\": [\"https://oauth.pstmn.io/v1/callback\"],\r\n\"code_challenge\": \"{{code_challenge}}\",\r\n\"code_challenge_method\": \"S256\",\r\n\"client_id\": \"{{clientId}}\",\r\n\"scope\": \"fdx:accountbasic:read fdx:accountdetailed:read fdx:transactions:read fdx:paymentsupport:read fdx:customercontact:read\",\r\n\"authorization_details\": [\t{\r\n  \"type\": \"fdx_v1.0\",\r\n  \"consentRequest\": {\r\n    \"durationType\": \"TIME_BOUND\",\r\n    \"durationPeriod\": 90,\r\n    \"lookbackPeriod\": 60,\r\n    \"resources\": [ {\r\n       \"resourceType\": \"ACCOUNT\",\r\n       \"dataClusters\": [ \"ACCOUNT_BASIC\",\"ACCOUNT_DETAILED\",\"TRANSACTIONS\",\r\n        \"PAYMENT_SUPPORT\",\r\n        \"CUSTOMER_CONTACT\"]\r\n    }]\r\n  }\r\n}],\r\n\"response_type\": \"code\"\r\n}",
+									"key": "privateKey",
+									"value": "{{privateKey}}",
 									"type": "string"
 								},
 								{
-									"key": "privateKey",
-									"value": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCVAN0fGr9OlLuv\nCfCA3lD0C7qIa/0Y1TvlzT37JRafdeODFkP8U3W10n6YgF2cCH0Abn0Sje+4d5PR\n5iR6QEWCzawld0YAFUwKfezgvKuSUbtORhLN0abJ2+CmeFpcNn21sHKZvtAmvUUq\nl31z1bUfBd8Vd6SSu8tprpPOPx8dqL7AQSnB/57TbN1V1BqvY0pOHQOzcB8eCQ9u\n5osxC/ZR2ssupPkqxSGyZiC4jRSlpLJnADUA0HDZOO7f0nOjsdo0Bg3Y/NgyOv4C\nCpUcRAdssml8T4Unz2vlQjzSDDgi9MZrMIvhWtZNsUR0kSprEiheBMEdJC5zptyz\n7cTxr9PbAgMBAAECggEAAIcIQVvu4XBVWcFHQK2Iy9RezKzVMIlQtPeNCJ6Q/e+E\n5qnlg7cn64TbPd72dd7x0laRyscF2jlSJKQT7PrdRCFGQruxW763jjHz7Le+Q75W\nU2icGG5tkLleijhS2ZC30TTWswSh6AEzhXsTzp0rDvkOWR0bUAmqJq2fiFNg4NH+\nuJsPd4IRk28Qje/R34fWFOegJeMFHmeYeAY2z4QjkNH56e8m72S6v95rlrp5NlVD\nqNJsaQ0RPsgIUo1cLHmHfBZWLxrmFux2l1eUpUXkdQynrBDNbvArXdGaaLzA7dBh\ngNtIVB2KppuJHdGq9SRnJbI5GOVDJoHpWFePHK7CAQKBgQDLIiMhYR7k/egb6woA\nnWz/c1Vgo+1D4372xL3ZOgPO1Pauue/SSAZCWCDtc4I6itfZY8F8f6dw4Xv4dQZK\nLHp9gYC45jBHQdErHrS+dYbUiBLJFse46OX0iOJttCeXzYGWhoVmyA5+o0KzKmR8\nnvghqJNaHoKwYJ/0vctsL1vXewKBgQC7yEoXMwuq70tjn1eNi6l6lrBoAzAXcyFo\niE1KididmhYPUDibP84puhU/PlpdoOUhvr1cZQv7uIj8ZIbyecA8BF+D6MbVjH44\nnrteiXSrO6wSXC3eL+bsVuP4rA7s8uay8QrwzDM4mscl3SvSa7Qwh8sCczMYz6X3\nIUZCbGcXIQKBgQCLmwWL3kSuWnZYIZv5Ojh8A9bsmRzqqIJMtIBJt96AGssC4JUa\n7xcmJ41RxC3/cAbSyAVlPBJmuQFLi5nsBk+UzBkcek852dkYinzr3LfyfyZx/275\n/U51VlJP1R3U7Y8fVYp/TgTwMeIYYo03PMYJ0+KZcBifgXjNaldRHec/2wKBgBc8\nEBbQxRfQZgacl6u25TB65rbn9hJgt3iErPOVHM1bXHFmnqpu+aZmFOzvXSUKnG9R\nd4KwKgxqZ+C624uzDtseO2dJ7RhNOuzsjwiCf4IUbxUSfMZqLOt/UNPbDjm5UFxB\nwPXMfmX5mLyRojN2CiSbGL5j3KWsQ7/RSS081oChAoGARZWlx3YulVUyaseLpVAY\nJoVhtVbDZrkxgMS4c0RLLqnMv7cqKi9Q0fgsDCZG97Y0hZN7uNQOnJVC14ui/SeH\nJPhzaGztSwJoR8TdG9uJzCAjizJcn9ZaU+TAF4Kh+EXmfvNZgwBg1R7YvrtFIDm7\n3bi7pJ796Ai8+eeq/ON/esc=\n-----END PRIVATE KEY-----\n",
+									"key": "payload",
+									"value": "{\r\n\"iat\": {{$timestamp}},\r\n\"exp\": {{exp}},\r\n\"iss\": \"{{realmName}}\",\r\n\"nbf\": {{$timestamp}},\r\n\"state\": \"{{$guid}}\",\r\n\"aud\": [\"{{baseUrl}}/fdx/auth/v1\"],\r\n\"jti\": \"jwt_nonce\",\r\n\"response_mode\": \"jwt\",\r\n\"redirect_uris\": [\"https://oauth.pstmn.io/v1/callback\"],\r\n\"code_challenge\": \"{{code_challenge}}\",\r\n\"code_challenge_method\": \"S256\",\r\n\"client_id\": \"{{clientId}}\",\r\n\"scope\": \"fdx:accountbasic:read fdx:accountdetailed:read fdx:transactions:read fdx:paymentsupport:read fdx:customercontact:read\",\r\n\"authorization_details\": [\t{\r\n  \"type\": \"fdx_v1.0\",\r\n  \"consentRequest\": {\r\n    \"durationType\": \"TIME_BOUND\",\r\n    \"durationPeriod\": 90,\r\n    \"lookbackPeriod\": 60,\r\n    \"resources\": [ {\r\n       \"resourceType\": \"ACCOUNT\",\r\n       \"dataClusters\": [ \"ACCOUNT_BASIC\",\"ACCOUNT_DETAILED\",\"TRANSACTIONS\",\r\n        \"PAYMENT_SUPPORT\",\r\n        \"CUSTOMER_CONTACT\"]\r\n    }]\r\n  }\r\n}],\r\n\"response_type\": \"code\"\r\n}",
 									"type": "string"
 								},
 								{
@@ -221,7 +185,7 @@
 								"get"
 							]
 						},
-						"description": "Some usefull example about how to use the library."
+						"description": "In this step, we create a signed request object which is then sent in the PAR request in next step."
 					},
 					"response": [
 						{
@@ -338,18 +302,7 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "ssl-client-cert",
-								"value": "{{ssl-client-cert}}",
-								"type": "text"
-							},
-							{
-								"key": "ssl-client-verify",
-								"value": "{{ssl-client-verify}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "urlencoded",
 							"urlencoded": [
@@ -376,25 +329,15 @@
 								"v1",
 								"par"
 							]
-						}
+						},
+						"description": "#### **Data Recipient (DR) initiates a POST request to Data Provider's (DP’s) POST /par endpoint using the Pushed Authorization Request (PAR) method**"
 					},
 					"response": [
 						{
-							"name": "Step 1 - PAR Request (Follow instructions from Visualize tab)",
+							"name": "Step 1 - PAR Request",
 							"originalRequest": {
 								"method": "POST",
-								"header": [
-									{
-										"key": "ssl-client-cert",
-										"value": "{{ssl-client-cert}}",
-										"type": "text"
-									},
-									{
-										"key": "ssl-client-verify",
-										"value": "{{ssl-client-verify}}",
-										"type": "text"
-									}
-								],
+								"header": [],
 								"body": {
 									"mode": "urlencoded",
 									"urlencoded": [
@@ -411,9 +354,9 @@
 									]
 								},
 								"url": {
-									"raw": "{{apiBaseUrl}}/fdx/auth/v1/par",
+									"raw": "{{baseUrl}}/fdx/auth/v1/par",
 									"host": [
-										"{{apiBaseUrl}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"fdx",
@@ -428,20 +371,28 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "Date",
-									"value": "Wed, 10 Jul 2024 11:42:46 GMT"
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:19:28 GMT"
 								},
 								{
-									"key": "Content-type",
+									"key": "content-type",
 									"value": "application/json"
 								},
 								{
-									"key": "Content-length",
+									"key": "content-length",
 									"value": "104"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "11407"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"request_uri\": \"urn:ietf:params:oauth:request_uri:5b34de99-91a4-4e60-9dda-d781d16ad3ba\",\n    \"expires_in\": 60\n}"
+							"body": "{\n    \"request_uri\": \"urn:ietf:params:oauth:request_uri:1392f0f8-3068-4afe-a48a-d368cdab18e0\",\n    \"expires_in\": 60\n}"
 						}
 					]
 				},
@@ -499,11 +450,12 @@
 									"value": "{{request_uri}}"
 								}
 							]
-						}
+						},
+						"description": "- Once you get the response, go to Visualize tab and copy the available link. You need to use this link in the browser of your choice and complete login.\n    \n- For login credentials, contact the financial instititution.\n    \n- Complete the authorization by granting access to accounts.\n    \n- Once redirects are done, copy the URL from the browser's address bar."
 					},
 					"response": [
 						{
-							"name": "{{baseUrl}}/fdx/auth/v1/authorize?client_id={{clientId}}&request_uri={{request_uri}}",
+							"name": "Step 2 - Get Authorize (Follow instructions from Visualize tab)",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -536,7 +488,7 @@
 							"header": [
 								{
 									"key": "date",
-									"value": "Fri, 06 Sep 2024 11:03:27 GMT"
+									"value": "Fri, 27 Sep 2024 09:19:39 GMT"
 								},
 								{
 									"key": "content-type",
@@ -548,11 +500,11 @@
 								},
 								{
 									"key": "location",
-									"value": "https://auth.openbanking.axwaysbsdev.net/realms/griffin-live/protocol/openid-connect/auth?client_id=emoney&request_uri=urn:ietf:params:oauth:request_uri:f5c0d22f-aa4c-471c-8186-9341193e70b4&resourceId=66daddb29878e8287746e228&resourceType=AIS&authorizationId=66daddb39878e8287746e22b"
+									"value": "https://auth.openbanking.axwaysbsdev.net/realms/griffin-live/protocol/openid-connect/auth?client_id=af20ad73-9ee5-42d4-a1fb-70bfd5de3fdf&request_uri=urn:ietf:params:oauth:request_uri:1392f0f8-3068-4afe-a48a-d368cdab18e0&resourceId=66f6789e31f11123c37dfbfe&resourceType=AIS&authorizationId=66f6789f31f11123c37dfc00"
 								},
 								{
 									"key": "x-envoy-upstream-service-time",
-									"value": "628"
+									"value": "981"
 								},
 								{
 									"key": "server",
@@ -651,7 +603,8 @@
 							"path": [
 								"get"
 							]
-						}
+						},
+						"description": "Paste the URL copied in previous step in the body of the request. In the response you will get authorization code."
 					},
 					"response": [
 						{
@@ -839,11 +792,12 @@
 								"v1",
 								"token"
 							]
-						}
+						},
+						"description": "### Endpoint Description\n\nThis endpoint is used to make an HTTP POST request to obtain a token for authentication. Once you gets the token in response you are ready to call rest of the API endpoints in this collection. No more copy paste required.\n\n### Request Body\n\n- The request body should be of type x-www-form-urlencoded.\n    \n\n### Response\n\nThe response for this request is a JSON object with the following properties:\n\n- `access_token` (string): The access token obtained.\n    \n- `expires_in` (number): The duration until the token expires.\n    \n- `refresh_expires_in` (number): The duration until the refresh token expires.\n    \n- `refresh_token` (string): The refresh token obtained.\n    \n- `token_type` (string): The type of token obtained.\n    \n- `not-before-policy` (number): Not-before policy value.\n    \n- `session_state` (string): The session state.\n    \n- `scope` (string): The scope of the token.\n    \n- `grant_id` (string): The grant ID.\n    \n\n### JSON Schema\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"access_token\": { \"type\": \"string\" },\n    \"expires_in\": { \"type\": \"number\" },\n    \"refresh_expires_in\": { \"type\": \"number\" },\n    \"refresh_token\": { \"type\": \"string\" },\n    \"token_type\": { \"type\": \"string\" },\n    \"not-before-policy\": { \"type\": \"number\" },\n    \"session_state\": { \"type\": \"string\" },\n    \"scope\": { \"type\": \"string\" },\n    \"grant_id\": { \"type\": \"string\" }\n  }\n}\n\n ```"
 					},
 					"response": [
 						{
-							"name": "Step 2 - Get Access Token (Paste url in pre-req script)",
+							"name": "Step 3 - Get Access Token",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -878,7 +832,7 @@
 										},
 										{
 											"key": "code_verifier",
-											"value": "raiE89y5dLd-7rVL2WoHE3Cwp3KDxRHLI012RhJLjCI",
+											"value": "{{code_verifier}}",
 											"type": "text"
 										},
 										{
@@ -889,9 +843,9 @@
 									]
 								},
 								"url": {
-									"raw": "{{apiBaseUrl}}/fdx/auth/v1/token",
+									"raw": "{{baseUrl}}/fdx/auth/v1/token",
 									"host": [
-										"{{apiBaseUrl}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"fdx",
@@ -906,24 +860,33 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "Date",
-									"value": "Wed, 10 Jul 2024 11:44:13 GMT"
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:21:24 GMT"
 								},
 								{
-									"key": "Content-type",
+									"key": "content-type",
 									"value": "application/json"
 								},
 								{
-									"key": "Content-length",
-									"value": "2468"
+									"key": "content-length",
+									"value": "2716"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "2455"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"access_token\": \"eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJtbkplLW1wbTRoX0puMTJRMzhOV0JaUU1xZHQzekhkS2N6ZWNkM0lKTl80In0.eyJleHAiOjE3MjA2MTIxNTMsImlhdCI6MTcyMDYxMTg1MywiYXV0aF90aW1lIjoxNzIwNjExNzk2LCJqdGkiOiJmYmE0NjcwMy1hNjQxLTQxZjYtODNhMC04NzM5NDJkNTgzMjIiLCJpc3MiOiJodHRwczovL2F1dGgub3BlbmJhbmtpbmcuYXh3YXlzYnNkZXYubmV0L3JlYWxtcy9ncmlmZmluLWxpdmUiLCJzdWIiOiJiMjY4MWM1My04MjM4LTQzYWEtYTdkYi04NDhjNTQ3ZTkwODQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJlbW9uZXkiLCJzZXNzaW9uX3N0YXRlIjoiMTA0YjFlNTgtZTYyZS00YjRhLTk2MmQtNzk0ZGU1MWFkMWE5IiwiY25mIjp7Ing1dCNTMjU2IjoiX3JRclNzVUNuTlplc0tzZUFNX3A0Y21MMllFeG9sTXV3WkF6Nk53VjFidyJ9LCJzY29wZSI6ImZkeDphY2NvdW50ZGV0YWlsZWQ6cmVhZCBmZHg6dHJhbnNhY3Rpb25zOnJlYWQgZmR4OmFjY291bnRiYXNpYzpyZWFkIiwic2lkIjoiMTA0YjFlNTgtZTYyZS00YjRhLTk2MmQtNzk0ZGU1MWFkMWE5IiwidGVuYW50SW5mb3JtYXRpb24iOnsidGVuYW50TmFtZSI6IkdyaWZmaW4gQmFuayIsInRlbmFudElkIjoiVDAwMDEwMjUxIn0sImZkeENvbnNlbnRJZCI6IjY2OGU3M2I1YzlhZGJjMmRiNjdmMDA0ZiJ9.c5OcwmC6HS4K-ooCA9U3RY1Fk5Fyg27pEUVK3K6OG_bcjhl9OA3Utn3e63ccaB9Et_Fe6LBOt2neT0vg3nggqQZFRbZmxok36ZQqwhTpY0zaSmrtupjEmUJ8MacUdkTrHxKb-_6uKPZW93EXcrMTc1ROSBFTMispLJHTtgZ0pkz6krYOQam6WLWQJTnDqobwIcQJpbS-T-IjLsj5lciwxjYvgWa8Mj14tCQjY061K6xrccLbltIqwVLFk728UTlr-hqIj4a6bRZ71743RQjVhjV2bcegcs3qLKvjyrcyC9xBGUSVcL5kDO4wWuz1r7ttv5v0t7VRiXFstJw_RQl3oA\",\n    \"expires_in\": 300,\n    \"refresh_expires_in\": 1800,\n    \"refresh_token\": \"eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJjZDllMzI2OS0wNTM5LTQ5MTgtOWY4Yi1kM2ZkZWUwNWY2M2QifQ.eyJleHAiOjE3MjA2MTM2NTMsImlhdCI6MTcyMDYxMTg1MywianRpIjoiMTViZTZlMTItMDYzZC00NmNjLTljNzctYmNiZmE4MjZmNmJjIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLm9wZW5iYW5raW5nLmF4d2F5c2JzZGV2Lm5ldC9yZWFsbXMvZ3JpZmZpbi1saXZlIiwiYXVkIjoiaHR0cHM6Ly9hdXRoLm9wZW5iYW5raW5nLmF4d2F5c2JzZGV2Lm5ldC9yZWFsbXMvZ3JpZmZpbi1saXZlIiwic3ViIjoiYjI2ODFjNTMtODIzOC00M2FhLWE3ZGItODQ4YzU0N2U5MDg0IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6ImVtb25leSIsInNlc3Npb25fc3RhdGUiOiIxMDRiMWU1OC1lNjJlLTRiNGEtOTYyZC03OTRkZTUxYWQxYTkiLCJjbmYiOnsieDV0I1MyNTYiOiJfclFyU3NVQ25OWmVzS3NlQU1fcDRjbUwyWUV4b2xNdXdaQXo2TndWMWJ3In0sInNjb3BlIjoiZmR4OmFjY291bnRkZXRhaWxlZDpyZWFkIGZkeDp0cmFuc2FjdGlvbnM6cmVhZCBmZHg6YWNjb3VudGJhc2ljOnJlYWQiLCJzaWQiOiIxMDRiMWU1OC1lNjJlLTRiNGEtOTYyZC03OTRkZTUxYWQxYTkifQ.nq6MXpd3RKVDUkubatNcswe5DyHhAu_9JNyfo0r0qYrt8SIFZXn5R7QKjw6cKF_99BUnhOpLOx7AqOypkyxisA\",\n    \"token_type\": \"Bearer\",\n    \"not-before-policy\": 0,\n    \"session_state\": \"104b1e58-e62e-4b4a-962d-794de51ad1a9\",\n    \"scope\": \"fdx:accountdetailed:read fdx:transactions:read fdx:accountbasic:read\",\n    \"grant_id\": \"668e73b5c9adbc2db67f004f\"\n}"
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJCeWQ0UklSMXpMeUluZi10M1RMV1p1Ql91NUJYVUFVOXc4NEJCQ3duQXNJIn0.eyJleHAiOjE3Mjc0MjkxODIsImlhdCI6MTcyNzQyODg4MiwiYXV0aF90aW1lIjoxNzI3NDI4ODM1LCJqdGkiOiIzODMwNTE4NC0wZTIzLTQ3M2ItYWYxMi00ZTZiZmZkNjhmZWYiLCJpc3MiOiJodHRwczovL2dyaWZmaW4tbGl2ZS5vcGVuYmFua2luZy5heHdheXNic2Rldi5uZXQ6NDQ0My9mZHgvYXV0aC92MSIsInN1YiI6ImMzZjVmZTBmLWExNTMtNDZjOC1iZWFjLTZlNjE4NjgxNTllYSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFmMjBhZDczLTllZTUtNDJkNC1hMWZiLTcwYmZkNWRlM2ZkZiIsInNpZCI6IjI1NTFmM2YwLTY5ODUtNDMxZS05NjU4LWM2NTFlMzEzNGI5OCIsImNuZiI6eyJ4NXQjUzI1NiI6IldmaVplZFJSc2dWOWxHTmV3MjBkMk1sblYyT2NENFd6TmsxcGJBYkt1VlkifSwic2NvcGUiOiJmZHg6YWNjb3VudGJhc2ljOnJlYWQgZmR4OnBheW1lbnRzdXBwb3J0OnJlYWQgZmR4OmN1c3RvbWVyY29udGFjdDpyZWFkIGZkeDp0cmFuc2FjdGlvbnM6cmVhZCBmZHg6YWNjb3VudGRldGFpbGVkOnJlYWQiLCJ0ZW5hbnRJbmZvcm1hdGlvbiI6eyJ0ZW5hbnROYW1lIjoiZ3JpZmZpbiIsInRlbmFudElkIjoiUFMxMTA2MjAwMCJ9LCJmZHhDb25zZW50SWQiOiI2NmY2Nzg5ZTMxZjExMTIzYzM3ZGZiZmUifQ.SEgOqBQ7QJIWcfOODMp4dXak5Uw53vQQRsEM8AFGHA1r1T2xhAfBfsFtWMrbbX1EeE0pm9-MPXqMnOOeAC5eqDdDPo63iAaXuA-vP-2QVGB0Jfe1hnQmPXEIeU8iprPhikjFZ_7FxVuwtS4H-S0m8HPl9r-Z2gLMogJM5_zHr_lY5d7edAFjeIzrDsuaPfFDRYH9cm2sU-IRx34JXIBNjCegeRsVNO8tK9wzbodCOnq2KBf6yQXRkr02Sf8Rz0DV4B5yPm1bb8bL7Hj2axGpu9JQOwVfTwxXKz2X_UcZzI_jclhWztGbmmm5OgqrMVECxhtz2js_L8UTDQjTi0HMlg\",\n    \"expires_in\": 300,\n    \"refresh_expires_in\": 2592000,\n    \"refresh_token\": \"eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIwNjMwMTBkYi03ZmQ0LTQ0YmUtYjJmYi0wZTFhMDYwMTI5NzYifQ.eyJleHAiOjE3MzAwMjA4ODIsImlhdCI6MTcyNzQyODg4MiwianRpIjoiOTJkOTZlODktNzdlOC00YTcxLTlmYzctNzE4OTlmMDFiNzcyIiwiaXNzIjoiaHR0cHM6Ly9ncmlmZmluLWxpdmUub3BlbmJhbmtpbmcuYXh3YXlzYnNkZXYubmV0OjQ0NDMvZmR4L2F1dGgvdjEiLCJhdWQiOiJodHRwczovL2dyaWZmaW4tbGl2ZS5vcGVuYmFua2luZy5heHdheXNic2Rldi5uZXQ6NDQ0My9mZHgvYXV0aC92MSIsInN1YiI6ImMzZjVmZTBmLWExNTMtNDZjOC1iZWFjLTZlNjE4NjgxNTllYSIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJhZjIwYWQ3My05ZWU1LTQyZDQtYTFmYi03MGJmZDVkZTNmZGYiLCJzaWQiOiIyNTUxZjNmMC02OTg1LTQzMWUtOTY1OC1jNjUxZTMxMzRiOTgiLCJjbmYiOnsieDV0I1MyNTYiOiJXZmlaZWRSUnNnVjlsR05ldzIwZDJNbG5WMk9jRDRXek5rMXBiQWJLdVZZIn0sInNjb3BlIjoiZmR4LXJlc291cmNlIGZkeDphY2NvdW50YmFzaWM6cmVhZCB0ZW5hbnQtaW5mb3JtYXRpb24gZmR4OnBheW1lbnRzdXBwb3J0OnJlYWQgZmR4OmN1c3RvbWVyY29udGFjdDpyZWFkIGZkeDp0cmFuc2FjdGlvbnM6cmVhZCBmZHg6YWNjb3VudGRldGFpbGVkOnJlYWQgYmFzaWMiLCJyZXVzZV9pZCI6IjFhNmY3N2RmLTU3MzktNGRmNy04Mjg4LTk3OTllNzk3NDQ4ZCJ9.BeH2FKC_9nsRjTOyPyhDeVTU2_Pl2L1EPSIZrne43Xm8hhmm2CczXxIzIsAkabDMrHnDS-Tl85XKUeCqW2nb6w\",\n    \"token_type\": \"Bearer\",\n    \"not-before-policy\": 0,\n    \"session_state\": \"2551f3f0-6985-431e-9658-c651e3134b98\",\n    \"scope\": \"fdx:accountbasic:read fdx:paymentsupport:read fdx:customercontact:read fdx:transactions:read fdx:accountdetailed:read\",\n    \"grant_id\": \"66f6789e31f11123c37dfbfe\"\n}"
 						}
 					]
 				}
-			]
+			],
+			"description": "Requests in this folder needs to be run first in overall collection and in the sequence as defined in the request names."
 		},
 		{
 			"name": "Accounts",
@@ -986,7 +949,7 @@
 					},
 					"response": [
 						{
-							"name": "Get Account by Id",
+							"name": "Get Accounts",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
@@ -1001,7 +964,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}",
+									"raw": "{{baseUrl}}/fdx/v6/core/accounts",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1009,8 +972,7 @@
 										"fdx",
 										"v6",
 										"core",
-										"accounts",
-										"{{accountId}}"
+										"accounts"
 									]
 								}
 							},
@@ -1019,20 +981,32 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "Date",
-									"value": "Fri, 26 Jul 2024 15:33:08 GMT"
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:21:45 GMT"
 								},
 								{
-									"key": "Content-type",
+									"key": "x-fapi-interaction-id",
+									"value": "2398f777-9259-4e50-867e-27247a143b1f"
+								},
+								{
+									"key": "content-type",
 									"value": "application/json"
 								},
 								{
-									"key": "Content-length",
-									"value": "1965"
+									"key": "content-length",
+									"value": "980"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "7458"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n    \"accountId\": \"948759it3kbm5b3fdkj454\",\n    \"accountNumber\": \"1028462538\",\n    \"accountNumberDisplay\": \"******2538\",\n    \"accountOpenDate\": \"2021-07-15\",\n    \"accountType\": \"CHECKING\",\n    \"annualPercentageYield\": 0,\n    \"availableBalance\": 2454.6,\n    \"balanceAsOf\": \"2024-07-15T14:46:41.375Z\",\n    \"balanceType\": \"ASSET\",\n    \"billPayStatus\": \"ACTIVE\",\n    \"currency\": {\n        \"currencyCode\": \"USD\"\n    },\n    \"currentBalance\": 2454.6,\n    \"description\": \"John Doe's checking account\",\n    \"domicile\": {\n        \"region\": \"NY\",\n        \"country\": \"US\"\n    },\n    \"earlyPenaltyFlag\": true,\n    \"fiAttributes\": [\n        {\n            \"name\": \"attribute1\",\n            \"value\": \"12435456\"\n        },\n        {\n            \"name\": \"attribute2\",\n            \"value\": \"ABCDEF\"\n        }\n    ],\n    \"interestRate\": 0,\n    \"interestRateAsOf\": \"2021-07-15T14:46:41.375Z\",\n    \"interestRateIndex\": null,\n    \"interestRateType\": \"FIXED\",\n    \"interestYtd\": 0,\n    \"lastActivityDate\": \"2024-07-15\",\n    \"lineOfBusiness\": \"consumer\",\n    \"maturityDate\": \"2021-07-15\",\n    \"micrNumber\": \"12443240\",\n    \"nickname\": \"My Checkings\",\n    \"openingDayBalance\": 2454.6,\n    \"parentAccountId\": \"91da8f01-40b2-5d38-1bfc-581fbf8eb169\",\n    \"priorInterestRate\": 0,\n    \"productName\": \"Checking account\",\n    \"rewardProgramId\": \"10001\",\n    \"routingTransitNumber\": \"00123000220\",\n    \"status\": \"OPEN\",\n    \"term\": 0,\n    \"transactionsIncluded\": false,\n    \"transferIn\": true,\n    \"transferOut\": true,\n    \"contact\": {\n        \"addresses\": [\n            {\n                \"city\": \"New York\",\n                \"country\": \"US\",\n                \"line1\": \"829 Spring St.\",\n                \"postalCode\": \"10040\",\n                \"region\": \"NY\"\n            }\n        ],\n        \"emails\": [\n            \"johndoe@demo.com\"\n        ],\n        \"holders\": [\n            {\n                \"customerId\": \"49\",\n                \"dateOfBirth\": \"2002-08-21\",\n                \"governmentId\": \"BBshg054Thv\",\n                \"relationship\": \"PRIMARY\",\n                \"type\": \"CONSUMER\",\n                \"emails\": [\n                    \"john.doe@gmailcom\",\n                    \"jd@gmail.com\"\n                ],\n                \"telephones\": [\n                    {\n                        \"type\": \"HOME\",\n                        \"country\": \"US\",\n                        \"number\": \"8756565565\"\n                    }\n                ],\n                \"name\": {\n                    \"first\": \"John\",\n                    \"middle\": \"middle\",\n                    \"last\": \"Doe\",\n                    \"suffix\": \"suffix\",\n                    \"prefix\": \"Mr\",\n                    \"company\": \"Abc Tech company\"\n                },\n                \"addresses\": [\n                    {\n                        \"line1\": \"#85\",\n                        \"line2\": \"lastangel\",\n                        \"line3\": \"Carron\",\n                        \"city\": \"swiz\",\n                        \"state\": \"Cargo\",\n                        \"region\": \"region\",\n                        \"postalCode\": \"88556\",\n                        \"country\": \"US\",\n                        \"type\": \"MAILING\"\n                    }\n                ]\n            }\n        ],\n        \"telephones\": [\n            {\n                \"type\": \"CELL\",\n                \"country\": \"1\",\n                \"number\": \"212-916-5097\"\n            },\n            {\n                \"type\": \"HOME\",\n                \"country\": \"1\",\n                \"number\": \"845-670-0862\"\n            }\n        ]\n    }\n}"
+							"body": "{\n    \"accounts\": [\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"accountType\": \"CHECKING\",\n            \"accountNumber\": \"1028462538\",\n            \"accountNumberDisplay\": \"******2538\",\n            \"productName\": \"Checking account\",\n            \"nickname\": \"My Checkings\",\n            \"status\": \"OPEN\",\n            \"description\": \"John Doe's checking account\",\n            \"currency\": {\n                \"currencyCode\": \"USD\"\n            },\n            \"fiAttributes\": [\n                {\n                    \"name\": \"attribute1\",\n                    \"value\": \"12435456\"\n                },\n                {\n                    \"name\": \"attribute2\",\n                    \"value\": \"ABCDEF\"\n                }\n            ],\n            \"parentAccountId\": \"91da8f01-40b2-5d38-1bfc-581fbf8eb169\"\n        },\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3f1234454\",\n            \"accountType\": \"SAVINGS\",\n            \"accountNumber\": \"7234234543\",\n            \"accountNumberDisplay\": \"******4543\",\n            \"productName\": \"Savings account\",\n            \"nickname\": \"My Savings\",\n            \"status\": \"OPEN\",\n            \"description\": \"John Doe's saving account\",\n            \"currency\": {\n                \"currencyCode\": \"USD\"\n            },\n            \"fiAttributes\": [\n                {\n                    \"name\": \"attribute1\",\n                    \"value\": \"12435456\"\n                },\n                {\n                    \"name\": \"attribute2\",\n                    \"value\": \"ABCDEF\"\n                }\n            ],\n            \"parentAccountId\": \"91da8f01-40b2-5d38-1bfc-581fbf8eb169\"\n        }\n    ],\n    \"page\": {\n        \"totalElements\": 2\n    }\n}"
 						}
 					]
 				},
@@ -1120,20 +1094,32 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "Date",
-									"value": "Fri, 26 Jul 2024 15:33:08 GMT"
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:22:03 GMT"
 								},
 								{
-									"key": "Content-type",
+									"key": "x-fapi-interaction-id",
+									"value": "2398f777-9259-4e50-867e-27247a143b1f"
+								},
+								{
+									"key": "content-type",
 									"value": "application/json"
 								},
 								{
-									"key": "Content-length",
-									"value": "1965"
+									"key": "content-length",
+									"value": "1940"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "7458"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n    \"accountId\": \"948759it3kbm5b3fdkj454\",\n    \"accountNumber\": \"1028462538\",\n    \"accountNumberDisplay\": \"******2538\",\n    \"accountOpenDate\": \"2021-07-15\",\n    \"accountType\": \"CHECKING\",\n    \"annualPercentageYield\": 0,\n    \"availableBalance\": 2454.6,\n    \"balanceAsOf\": \"2024-07-15T14:46:41.375Z\",\n    \"balanceType\": \"ASSET\",\n    \"billPayStatus\": \"ACTIVE\",\n    \"currency\": {\n        \"currencyCode\": \"USD\"\n    },\n    \"currentBalance\": 2454.6,\n    \"description\": \"John Doe's checking account\",\n    \"domicile\": {\n        \"region\": \"NY\",\n        \"country\": \"US\"\n    },\n    \"earlyPenaltyFlag\": true,\n    \"fiAttributes\": [\n        {\n            \"name\": \"attribute1\",\n            \"value\": \"12435456\"\n        },\n        {\n            \"name\": \"attribute2\",\n            \"value\": \"ABCDEF\"\n        }\n    ],\n    \"interestRate\": 0,\n    \"interestRateAsOf\": \"2021-07-15T14:46:41.375Z\",\n    \"interestRateIndex\": null,\n    \"interestRateType\": \"FIXED\",\n    \"interestYtd\": 0,\n    \"lastActivityDate\": \"2024-07-15\",\n    \"lineOfBusiness\": \"consumer\",\n    \"maturityDate\": \"2021-07-15\",\n    \"micrNumber\": \"12443240\",\n    \"nickname\": \"My Checkings\",\n    \"openingDayBalance\": 2454.6,\n    \"parentAccountId\": \"91da8f01-40b2-5d38-1bfc-581fbf8eb169\",\n    \"priorInterestRate\": 0,\n    \"productName\": \"Checking account\",\n    \"rewardProgramId\": \"10001\",\n    \"routingTransitNumber\": \"00123000220\",\n    \"status\": \"OPEN\",\n    \"term\": 0,\n    \"transactionsIncluded\": false,\n    \"transferIn\": true,\n    \"transferOut\": true,\n    \"contact\": {\n        \"addresses\": [\n            {\n                \"city\": \"New York\",\n                \"country\": \"US\",\n                \"line1\": \"829 Spring St.\",\n                \"postalCode\": \"10040\",\n                \"region\": \"NY\"\n            }\n        ],\n        \"emails\": [\n            \"johndoe@demo.com\"\n        ],\n        \"holders\": [\n            {\n                \"customerId\": \"49\",\n                \"dateOfBirth\": \"2002-08-21\",\n                \"governmentId\": \"BBshg054Thv\",\n                \"relationship\": \"PRIMARY\",\n                \"type\": \"CONSUMER\",\n                \"emails\": [\n                    \"john.doe@gmailcom\",\n                    \"jd@gmail.com\"\n                ],\n                \"telephones\": [\n                    {\n                        \"type\": \"HOME\",\n                        \"country\": \"US\",\n                        \"number\": \"8756565565\"\n                    }\n                ],\n                \"name\": {\n                    \"first\": \"John\",\n                    \"middle\": \"middle\",\n                    \"last\": \"Doe\",\n                    \"suffix\": \"suffix\",\n                    \"prefix\": \"Mr\",\n                    \"company\": \"Abc Tech company\"\n                },\n                \"addresses\": [\n                    {\n                        \"line1\": \"#85\",\n                        \"line2\": \"lastangel\",\n                        \"line3\": \"Carron\",\n                        \"city\": \"swiz\",\n                        \"state\": \"Cargo\",\n                        \"region\": \"region\",\n                        \"postalCode\": \"88556\",\n                        \"country\": \"US\",\n                        \"type\": \"MAILING\"\n                    }\n                ]\n            }\n        ],\n        \"telephones\": [\n            {\n                \"type\": \"CELL\",\n                \"country\": \"1\",\n                \"number\": \"212-916-5097\"\n            },\n            {\n                \"type\": \"HOME\",\n                \"country\": \"1\",\n                \"number\": \"845-670-0862\"\n            }\n        ]\n    }\n}"
+							"body": "{\n    \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n    \"accountId\": \"948759it3kbm5b3fdkj454\",\n    \"accountNumber\": \"1028462538\",\n    \"accountNumberDisplay\": \"******2538\",\n    \"accountOpenDate\": \"2021-07-15\",\n    \"accountType\": \"CHECKING\",\n    \"annualPercentageYield\": 0,\n    \"availableBalance\": 2454.6,\n    \"balanceAsOf\": \"2024-07-15T14:46:41.375Z\",\n    \"balanceType\": \"ASSET\",\n    \"billPayStatus\": \"ACTIVE\",\n    \"currency\": {\n        \"currencyCode\": \"USD\"\n    },\n    \"currentBalance\": 2454.6,\n    \"description\": \"John Doe's checking account\",\n    \"domicile\": {\n        \"region\": \"NY\",\n        \"country\": \"US\"\n    },\n    \"earlyPenaltyFlag\": true,\n    \"fiAttributes\": [\n        {\n            \"name\": \"attribute1\",\n            \"value\": \"12435456\"\n        },\n        {\n            \"name\": \"attribute2\",\n            \"value\": \"ABCDEF\"\n        }\n    ],\n    \"interestRate\": 0,\n    \"interestRateAsOf\": \"2021-07-15T14:46:41.375Z\",\n    \"interestRateType\": \"FIXED\",\n    \"interestYtd\": 0,\n    \"lastActivityDate\": \"2024-07-15\",\n    \"lineOfBusiness\": \"consumer\",\n    \"maturityDate\": \"2021-07-15\",\n    \"micrNumber\": \"12443240\",\n    \"nickname\": \"My Checkings\",\n    \"openingDayBalance\": 2454.6,\n    \"parentAccountId\": \"91da8f01-40b2-5d38-1bfc-581fbf8eb169\",\n    \"priorInterestRate\": 0,\n    \"productName\": \"Checking account\",\n    \"rewardProgramId\": \"10001\",\n    \"routingTransitNumber\": \"00123000220\",\n    \"status\": \"OPEN\",\n    \"term\": 0,\n    \"transactionsIncluded\": false,\n    \"transferIn\": true,\n    \"transferOut\": true,\n    \"contact\": {\n        \"addresses\": [\n            {\n                \"city\": \"New York\",\n                \"country\": \"US\",\n                \"line1\": \"829 Spring St.\",\n                \"postalCode\": \"10040\",\n                \"region\": \"NY\"\n            }\n        ],\n        \"emails\": [\n            \"johndoe@demo.com\"\n        ],\n        \"holders\": [\n            {\n                \"customerId\": \"49\",\n                \"dateOfBirth\": \"2002-08-21\",\n                \"governmentId\": \"BBshg054Thv\",\n                \"relationship\": \"PRIMARY\",\n                \"type\": \"CONSUMER\",\n                \"emails\": [\n                    \"john.doe@gmailcom\",\n                    \"jd@gmail.com\"\n                ],\n                \"telephones\": [\n                    {\n                        \"type\": \"HOME\",\n                        \"country\": \"US\",\n                        \"number\": \"8756565565\"\n                    }\n                ],\n                \"name\": {\n                    \"first\": \"John\",\n                    \"middle\": \"middle\",\n                    \"last\": \"Doe\",\n                    \"suffix\": \"suffix\",\n                    \"prefix\": \"Mr\",\n                    \"company\": \"Abc Tech company\"\n                },\n                \"addresses\": [\n                    {\n                        \"line1\": \"#85\",\n                        \"line2\": \"lastangel\",\n                        \"line3\": \"Carron\",\n                        \"city\": \"swiz\",\n                        \"state\": \"Cargo\",\n                        \"region\": \"region\",\n                        \"postalCode\": \"88556\",\n                        \"country\": \"US\",\n                        \"type\": \"MAILING\"\n                    }\n                ]\n            }\n        ],\n        \"telephones\": [\n            {\n                \"type\": \"CELL\",\n                \"country\": \"1\",\n                \"number\": \"212-916-5097\"\n            },\n            {\n                \"type\": \"HOME\",\n                \"country\": \"1\",\n                \"number\": \"845-670-0862\"\n            }\n        ]\n    }\n}"
 						}
 					]
 				},
@@ -1172,7 +1158,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}/transactions?startTime=2024-06-15&endTime=2024-07-26&limit=10&offset=Page1",
+							"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}/transactions?startTime=2024-06-15&endTime=2024-07-26&limit=5&offset=Page1",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -1195,7 +1181,7 @@
 								},
 								{
 									"key": "limit",
-									"value": "10"
+									"value": "5"
 								},
 								{
 									"key": "offset",
@@ -1221,7 +1207,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}/transactions?startTime=2024-06-15&endTime=2024-07-26&limit=10&offset=Page1",
+									"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}/transactions?startTime=2024-06-15&endTime=2024-07-26&limit=5&offset=Page1",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1244,7 +1230,7 @@
 										},
 										{
 											"key": "limit",
-											"value": "10"
+											"value": "5"
 										},
 										{
 											"key": "offset",
@@ -1258,20 +1244,32 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "Date",
-									"value": "Mon, 29 Jul 2024 10:21:18 GMT"
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:23:09 GMT"
 								},
 								{
-									"key": "Content-type",
+									"key": "x-fapi-interaction-id",
+									"value": "2398f777-9259-4e50-867e-27247a143b1f"
+								},
+								{
+									"key": "content-type",
 									"value": "application/json"
 								},
 								{
-									"key": "Content-length",
-									"value": "5202"
+									"key": "content-length",
+									"value": "2855"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "26960"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"page\": {\n        \"nextOffset\": \"Page2\",\n        \"totalElements\": 11\n    },\n    \"links\": {\n        \"next\": {\n            \"href\": \"/fdx/v6/core/accounts/948759it3kbm5b3fdkj454/transactions?offset=Page2&limit=10&startTime=2024-06-15&endTime=2024-07-26\",\n            \"action\": \"GET\",\n            \"rel\": \"next\",\n            \"types\": [\n                \"application/json\"\n            ]\n        }\n    },\n    \"transactions\": [\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"transactionId\": \"T87875865596\",\n            \"referenceTransactionId\": \"RT82398103163\",\n            \"postedTimestamp\": \"2024-07-17T08:14:06Z\",\n            \"transactionTimestamp\": \"2024-07-16T09:48:54Z\",\n            \"description\": \"debit test\",\n            \"memo\": \"note187\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"SIC\",\n            \"subCategory\": \"Online shopping\",\n            \"reference\": \"R49722563060\",\n            \"status\": \"POSTED\",\n            \"amount\": 4861,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee187\",\n            \"checkNumber\": 64492643499\n        },\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"transactionId\": \"T80778310340\",\n            \"referenceTransactionId\": \"RT90285302636\",\n            \"postedTimestamp\": \"2024-07-17T21:30:58Z\",\n            \"transactionTimestamp\": \"2024-07-17T06:47:34Z\",\n            \"description\": \"debit test\",\n            \"memo\": \"note188\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"SIC\",\n            \"subCategory\": \"Online shopping\",\n            \"reference\": \"R94516679965\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 3440,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee188\",\n            \"checkNumber\": 43197960940\n        },\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"transactionId\": \"T86607433996\",\n            \"referenceTransactionId\": \"RT83666140374\",\n            \"postedTimestamp\": \"2024-07-18T11:27:35Z\",\n            \"transactionTimestamp\": \"2024-07-17T15:21:42Z\",\n            \"description\": \"debit test\",\n            \"memo\": \"note189\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"SIC\",\n            \"subCategory\": \"Online shopping\",\n            \"reference\": \"R84706270980\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 4282,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee189\",\n            \"checkNumber\": 81251344219\n        },\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"transactionId\": \"T56839662351\",\n            \"referenceTransactionId\": \"RT73355362816\",\n            \"postedTimestamp\": \"2024-07-20T08:55:14Z\",\n            \"transactionTimestamp\": \"2024-07-20T03:25:26Z\",\n            \"description\": \"debit test\",\n            \"memo\": \"note193\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"SIC\",\n            \"subCategory\": \"Online shopping\",\n            \"reference\": \"R60876334126\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 4869,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee193\",\n            \"checkNumber\": 41597513265\n        },\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"transactionId\": \"T12912332707\",\n            \"referenceTransactionId\": \"RT57198421534\",\n            \"postedTimestamp\": \"2024-07-20T10:08:04Z\",\n            \"transactionTimestamp\": \"2024-07-20T07:21:23Z\",\n            \"description\": \"debit test\",\n            \"memo\": \"note194\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"SIC\",\n            \"subCategory\": \"Online shopping\",\n            \"reference\": \"R39421524057\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 454,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee194\",\n            \"checkNumber\": 77788572076\n        },\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"transactionId\": \"T32931912071\",\n            \"referenceTransactionId\": \"RT52235629845\",\n            \"postedTimestamp\": \"2024-07-21T12:02:54Z\",\n            \"transactionTimestamp\": \"2024-07-20T14:13:31Z\",\n            \"description\": \"credit test\",\n            \"memo\": \"note195\",\n            \"debitCreditMemo\": \"CREDIT\",\n            \"category\": \"MCC \",\n            \"subCategory\": \"Internal Transfer\",\n            \"reference\": \"R79015881840\",\n            \"status\": \"POSTED\",\n            \"amount\": 5432,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee195\",\n            \"checkNumber\": 97501130303\n        },\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"transactionId\": \"T52214069850\",\n            \"referenceTransactionId\": \"RT49974403051\",\n            \"postedTimestamp\": \"2024-07-23T15:15:37Z\",\n            \"transactionTimestamp\": \"2024-07-22T15:33:18Z\",\n            \"description\": \"debit test\",\n            \"memo\": \"note199\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"SIC\",\n            \"subCategory\": \"Online shopping\",\n            \"reference\": \"R95350522751\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 4524,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee199\",\n            \"checkNumber\": 55257438597\n        },\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"transactionId\": \"T68986197433\",\n            \"referenceTransactionId\": \"RT91948638443\",\n            \"postedTimestamp\": \"2024-07-23T14:12:34Z\",\n            \"transactionTimestamp\": \"2024-07-23T11:19:40Z\",\n            \"description\": \"credit test\",\n            \"memo\": \"note200\",\n            \"debitCreditMemo\": \"CREDIT\",\n            \"category\": \"MCC \",\n            \"subCategory\": \"Internal Transfer\",\n            \"reference\": \"R94482826082\",\n            \"status\": \"POSTED\",\n            \"amount\": 4496,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee200\",\n            \"checkNumber\": 55665695858\n        },\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"transactionId\": \"T26216530435\",\n            \"referenceTransactionId\": \"RT85691841354\",\n            \"postedTimestamp\": \"2024-07-24T06:42:34Z\",\n            \"transactionTimestamp\": \"2024-07-24T03:05:57Z\",\n            \"description\": \"credit test\",\n            \"memo\": \"note201\",\n            \"debitCreditMemo\": \"CREDIT\",\n            \"category\": \"MCC \",\n            \"subCategory\": \"Wire Transfer\",\n            \"reference\": \"R77977045329\",\n            \"status\": \"POSTED\",\n            \"amount\": 3841,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee201\",\n            \"checkNumber\": 85168407150\n        },\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"transactionId\": \"T38522744215\",\n            \"referenceTransactionId\": \"RT67590698005\",\n            \"postedTimestamp\": \"2024-07-26T15:41:52Z\",\n            \"transactionTimestamp\": \"2024-07-26T04:32:42Z\",\n            \"description\": \"credit test\",\n            \"memo\": \"note205\",\n            \"debitCreditMemo\": \"CREDIT\",\n            \"category\": \"MCC \",\n            \"subCategory\": \"Internal Transfer\",\n            \"reference\": \"R31547541744\",\n            \"status\": \"POSTED\",\n            \"amount\": 2360,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee205\",\n            \"checkNumber\": 71972134697\n        }\n    ]\n}"
+							"body": "{\n    \"page\": {\n        \"totalElements\": 18,\n        \"nextOffset\": \"Page2\"\n    },\n    \"transactions\": [\n        {\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"transactionId\": \"T98224315404\",\n            \"referenceTransactionId\": \"RT73659438576\",\n            \"postedTimestamp\": \"2024-04-15T12:29:06Z\",\n            \"transactionTimestamp\": \"2024-06-23T23:34:51Z\",\n            \"description\": \"Online groceries\",\n            \"memo\": \"note66\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"SIC\",\n            \"subCategory\": \"Online shopping\",\n            \"reference\": \"R68078870179\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 1491.973856687403,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee66\",\n            \"checkNumber\": 77788572142\n        },\n        {\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"transactionId\": \"T40278332806\",\n            \"referenceTransactionId\": \"RT30767023464\",\n            \"postedTimestamp\": \"2024-03-26T04:21:09Z\",\n            \"transactionTimestamp\": \"2024-06-27T13:44:33Z\",\n            \"description\": \"Clothing order\",\n            \"memo\": \"note26\",\n            \"debitCreditMemo\": \"CREDIT\",\n            \"category\": \"SIC\",\n            \"subCategory\": \"Online shopping\",\n            \"reference\": \"R12399236734\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 427.936701109344,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee26\",\n            \"checkNumber\": 77788572102\n        },\n        {\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"transactionId\": \"T43072721806\",\n            \"referenceTransactionId\": \"RT28961399291\",\n            \"postedTimestamp\": \"2024-06-18T13:38:01Z\",\n            \"transactionTimestamp\": \"2024-06-29T04:35:56Z\",\n            \"description\": \"Purchased electronics\",\n            \"memo\": \"note73\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"SIC\",\n            \"subCategory\": \"Online shopping\",\n            \"reference\": \"R70438758597\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 4162.789132059199,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee73\",\n            \"checkNumber\": 77788572149\n        },\n        {\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"transactionId\": \"T99825723577\",\n            \"referenceTransactionId\": \"RT85037387918\",\n            \"postedTimestamp\": \"2024-09-03T16:48:44Z\",\n            \"transactionTimestamp\": \"2024-06-30T21:54:10Z\",\n            \"description\": \"Exchanged USD to EUR\",\n            \"memo\": \"note72\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"FX\",\n            \"subCategory\": \"Currency Exchange\",\n            \"reference\": \"R36526486814\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 1496.9398666283626,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee72\",\n            \"checkNumber\": 77788572148\n        },\n        {\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"transactionId\": \"T59726955289\",\n            \"referenceTransactionId\": \"RT17730688466\",\n            \"postedTimestamp\": \"2024-01-13T10:33:03Z\",\n            \"transactionTimestamp\": \"2024-07-06T22:51:28Z\",\n            \"description\": \"Account to account\",\n            \"memo\": \"note16\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"Wire Transfer\",\n            \"subCategory\": \"Domestic Transfer\",\n            \"reference\": \"R91726241282\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 1874.3499017522554,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee16\",\n            \"checkNumber\": 77788572092\n        }\n    ],\n    \"links\": {\n        \"next\": {\n            \"action\": \"GET\",\n            \"rel\": \"next\",\n            \"types\": [\n                \"application/json\"\n            ],\n            \"href\": \"/fdx/v6/core/accounts/948759it3kbm5b3fdkj454/transactions?offset=Page2&startTime=2024-06-15&endTime=2024-07-26&limit=5\"\n        }\n    }\n}"
 						}
 					]
 				},
@@ -1361,20 +1359,32 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "Date",
-									"value": "Fri, 26 Jul 2024 15:33:29 GMT"
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:53:57 GMT"
 								},
 								{
-									"key": "Content-type",
+									"key": "x-fapi-interaction-id",
+									"value": "2398f777-9259-4e50-867e-27247a143b1f"
+								},
+								{
+									"key": "content-type",
 									"value": "application/json"
 								},
 								{
-									"key": "Content-length",
-									"value": "736"
+									"key": "content-length",
+									"value": "808"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "7410"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"emails\": [\n        \"johndoe@demo.com\"\n    ],\n    \"addresses\": [\n        {\n            \"line1\": \"829 Spring St.\",\n            \"city\": \"New York\",\n            \"region\": \"NY\",\n            \"postalCode\": \"10040\",\n            \"country\": \"US\"\n        }\n    ],\n    \"telephones\": [\n        {\n            \"type\": \"CELL\",\n            \"country\": \"1\",\n            \"number\": \"212-916-5097\"\n        },\n        {\n            \"type\": \"HOME\",\n            \"country\": \"1\",\n            \"number\": \"845-670-0862\"\n        }\n    ],\n    \"holders\": [\n        {\n            \"emails\": [\n                \"john.doe@gmailcom\",\n                \"jd@gmail.com\"\n            ],\n            \"addresses\": [\n                {\n                    \"line1\": \"#85\",\n                    \"line2\": \"lastangel\",\n                    \"line3\": \"Carron\",\n                    \"city\": \"swiz\",\n                    \"region\": \"region\",\n                    \"postalCode\": \"88556\",\n                    \"country\": \"US\",\n                    \"type\": \"MAILING\",\n                    \"state\": \"Cargo\"\n                }\n            ],\n            \"telephones\": [\n                {\n                    \"type\": \"HOME\",\n                    \"country\": \"US\",\n                    \"number\": \"8756565565\"\n                }\n            ],\n            \"customerId\": \"49\",\n            \"type\": \"CONSUMER\",\n            \"name\": {\n                \"first\": \"John\",\n                \"middle\": \"middle\",\n                \"last\": \"Doe\",\n                \"suffix\": \"suffix\",\n                \"prefix\": \"Mr\",\n                \"company\": \"Abc Tech company\"\n            },\n            \"relationship\": \"PRIMARY\"\n        }\n    ]\n}"
+							"body": "{\n    \"holders\": [\n        {\n            \"relationship\": \"PRIMARY\",\n            \"type\": \"CONSUMER\",\n            \"customerId\": \"49\",\n            \"dateOfBirth\": \"2002-08-21\",\n            \"taxId\": \"taxId\",\n            \"governmentId\": \"BBshg054Thv\",\n            \"name\": {\n                \"first\": \"John\",\n                \"middle\": \"middle\",\n                \"last\": \"Doe\",\n                \"suffix\": \"suffix\",\n                \"prefix\": \"Mr\",\n                \"company\": \"Abc Tech company\"\n            },\n            \"emails\": [\n                \"john.doe@gmailcom\",\n                \"jd@gmail.com\"\n            ],\n            \"addresses\": [\n                {\n                    \"line1\": \"#85\",\n                    \"line2\": \"lastangel\",\n                    \"line3\": \"Carron\",\n                    \"city\": \"swiz\",\n                    \"state\": \"Cargo\",\n                    \"region\": \"region\",\n                    \"postalCode\": \"88556\",\n                    \"country\": \"US\",\n                    \"type\": \"MAILING\"\n                }\n            ],\n            \"telephones\": [\n                {\n                    \"type\": \"HOME\",\n                    \"country\": \"US\",\n                    \"number\": \"8756565565\"\n                }\n            ]\n        }\n    ],\n    \"emails\": [\n        \"johndoe@demo.com\"\n    ],\n    \"addresses\": [\n        {\n            \"line1\": \"829 Spring St.\",\n            \"city\": \"New York\",\n            \"region\": \"NY\",\n            \"postalCode\": \"10040\",\n            \"country\": \"US\"\n        }\n    ],\n    \"telephones\": [\n        {\n            \"type\": \"CELL\",\n            \"country\": \"1\",\n            \"number\": \"212-916-5097\"\n        },\n        {\n            \"type\": \"HOME\",\n            \"country\": \"1\",\n            \"number\": \"845-670-0862\"\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -1463,20 +1473,32 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "Date",
-									"value": "Fri, 26 Jul 2024 15:33:37 GMT"
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:54:08 GMT"
 								},
 								{
-									"key": "Content-type",
+									"key": "x-fapi-interaction-id",
+									"value": "2398f777-9259-4e50-867e-27247a143b1f"
+								},
+								{
+									"key": "content-type",
 									"value": "application/json"
 								},
 								{
-									"key": "Content-length",
+									"key": "content-length",
 									"value": "518"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "7078"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"assetTransferNetworks\": [\n        {\n            \"identifier\": \"121000358\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"institutionName\": \"US Investments\",\n            \"institutionId\": \"1234567890\",\n            \"type\": \"US_ACATS\",\n            \"jointAccount\": true\n        },\n        {\n            \"identifier\": \"TKN-221000360\",\n            \"identifierType\": \"TOKENIZED_ACCOUNT_NUMBER\",\n            \"institutionName\": \"CANADA BANK\",\n            \"institutionId\": \"1234567890\",\n            \"type\": \"CA_ATON\",\n            \"jointAccount\": true\n        },\n        {\n            \"identifier\": \"621000357\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"institutionName\": \"US Bank\",\n            \"institutionId\": \"1234567890\",\n            \"type\": \"US_DTC\",\n            \"jointAccount\": false\n        }\n    ]\n}"
+							"body": "{\n    \"assetTransferNetworks\": [\n        {\n            \"type\": \"US_ACATS\",\n            \"identifier\": \"121000358\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"jointAccount\": true,\n            \"institutionId\": \"1234567890\",\n            \"institutionName\": \"US Investments\"\n        },\n        {\n            \"type\": \"CA_ATON\",\n            \"identifier\": \"TKN-221000360\",\n            \"jointAccount\": true,\n            \"institutionId\": \"1234567890\",\n            \"identifierType\": \"TOKENIZED_ACCOUNT_NUMBER\",\n            \"institutionName\": \"CANADA BANK\"\n        },\n        {\n            \"type\": \"US_DTC\",\n            \"identifier\": \"621000357\",\n            \"jointAccount\": false,\n            \"institutionId\": \"1234567890\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"institutionName\": \"US Bank\"\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -1494,47 +1516,6 @@
 									"",
 									"pm.test(\"Content-Type header is application/json\", function () {",
 									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
-									"});",
-									"",
-									"",
-									"pm.test(\"Response has the required fields\", function () {",
-									"    const responseData = pm.response.json();",
-									"    ",
-									"    pm.expect(responseData).to.be.an('object');",
-									"    pm.expect(responseData).to.have.property('durationPeriod');",
-									"    pm.expect(responseData).to.have.property('id');",
-									"    pm.expect(responseData).to.have.property('expirationTime');",
-									"    pm.expect(responseData).to.have.property('createdTime');",
-									"    pm.expect(responseData).to.have.property('status');",
-									"    pm.expect(responseData).to.have.property('resources');",
-									"    pm.expect(responseData).to.have.property('durationType');",
-									"});",
-									"",
-									"",
-									"pm.test(\"Validate the resources array and its structure\", function () {",
-									"    const responseData = pm.response.json();",
-									"    ",
-									"    pm.expect(responseData.resources).to.be.an('array');",
-									"    pm.expect(responseData.resources).to.have.lengthOf.at.least(1, \"Resources array should not be empty\");",
-									"",
-									"    responseData.resources.forEach(function(resource) {",
-									"        pm.expect(resource).to.be.an('object');",
-									"        pm.expect(resource.permissions).to.exist.and.to.be.an('array');",
-									"        // Add more specific checks for the structure of each resource if needed",
-									"    });",
-									"});",
-									"",
-									"",
-									"pm.test(\"Expiration and created time are in valid date format\", function () {",
-									"    const responseData = pm.response.json();",
-									"    ",
-									"    pm.expect(responseData.expirationTime).to.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$/, \"Expiration time should be in valid date format\");",
-									"    pm.expect(responseData.createdTime).to.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$/, \"Created time should be in valid date format\");",
-									"});",
-									"pm.test(\"Id field is a valid UUID\", function () {",
-									"    const responseData = pm.response.json();",
-									"    const uuidRegex = /^[0-9a-f]{24}$/;",
-									"    pm.expect(responseData.id).to.match(uuidRegex, \"Id should be a valid UUID\");",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1606,24 +1587,32 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "Date",
-									"value": "Mon, 12 Aug 2024 16:22:50 GMT"
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:54:44 GMT"
 								},
 								{
-									"key": "X-fapi-interaction-id",
+									"key": "x-fapi-interaction-id",
 									"value": "2398f777-9259-4e50-867e-27247a143b1f"
 								},
 								{
-									"key": "Content-type",
+									"key": "content-type",
 									"value": "application/json"
 								},
 								{
-									"key": "Content-length",
-									"value": "1590"
+									"key": "content-length",
+									"value": "1569"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "8098"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"page\": {\n        \"totalElements\": 13,\n        \"nextOffset\": \"Page2\"\n    },\n    \"paymentNetworks\": [\n        {\n            \"bankId\": \"501010\",\n            \"identifier\": \"idd00test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501011\",\n            \"identifier\": \"idd01test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501012\",\n            \"identifier\": \"idd02test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501013\",\n            \"identifier\": \"idd03test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501014\",\n            \"identifier\": \"idd04test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501015\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501016\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501017\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501018\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501019\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        }\n    ],\n    \"links\": {\n        \"next\": {\n            \"href\": \"/fdx/v6/core/accounts/948759it3kbm5b3fdkj454/payment-networks?offset=Page2\",\n            \"action\": \"GET\",\n            \"types\": [\n                \"application/json\"\n            ],\n            \"rel\": \"next\"\n        }\n    }\n}"
+							"body": "{\n    \"page\": {\n        \"totalElements\": 13,\n        \"nextOffset\": \"Page2\"\n    },\n    \"paymentNetworks\": [\n        {\n            \"bankId\": \"501010\",\n            \"identifier\": \"idd00test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501011\",\n            \"identifier\": \"idd01test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501012\",\n            \"identifier\": \"idd02test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501013\",\n            \"identifier\": \"idd03test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501014\",\n            \"identifier\": \"idd04test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501015\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501016\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501017\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501018\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501019\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        }\n    ],\n    \"links\": {\n        \"next\": {\n            \"href\": \"/948759it3kbm5b3fdkj454/payment-networks?offset=Page2\",\n            \"action\": \"GET\",\n            \"rel\": \"next\",\n            \"types\": [\n                \"application/json\"\n            ]\n        }\n    }\n}"
 						}
 					]
 				}

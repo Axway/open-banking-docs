@@ -4,18 +4,24 @@
 	"values": [
 		{
 			"key": "baseUrl",
-			"value": "https://griffin-live.openbanking.axwaysbsdev.net:4443",
+			"value": "https://<host>:<port>",
 			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "clientId",
-			"value": "emoney",
+			"value": "<clientId>",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "privateKey",
+			"value": "<privateKey>",
 			"type": "default",
 			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2024-09-11T10:14:12.033Z",
-	"_postman_exported_using": "Postman/11.10.1"
+	"_postman_exported_at": "2024-09-27T09:55:20.746Z",
+	"_postman_exported_using": "Postman/11.13.1"
 }
