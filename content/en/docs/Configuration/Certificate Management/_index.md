@@ -124,7 +124,7 @@ openssl x509 -req -days 3650 -in tpp1.csr -CA ca1.crt -CAkey ca1.key 
 
 The Root CA Certificate (e.g. ca1.crt), needs to be added in Amplify Integration. Follow the step-by-step procedure:
 
-1. Import the certificate in Manager → Security → Certificates 
+1. Import the certificate in Manager → Security → Certificates
 ![Certificate Import](/Images/AI-Manager-Certificates.png)
 2. Now go to Design → Select Project
 3. Update the Governance rule of type Transport Policy to add/update the Root CA.
