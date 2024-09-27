@@ -16,7 +16,7 @@ Each collection includes a script that simulates a sequence of API calls to veri
 
 Retrieve the postman files.
 
-1. Download the postman collections' file from here ![Postman Collection](/postman-collection/FDX-Demo-postman-collection.json) 
+1. Download the postman collections' file from here ![Postman Collection](/postman-collection/FDX-Demo-postman-collection.json)
 2. Download the environment file from here ![Postman Environment File](/postman-collection/FDX-Demo-postman-environment.json)
 
 {{% alert title="Note" color="primary" %}} Postman collections also have their own documentation and you can follow these instructions within postman after importing the collection.{{% /alert %}}
@@ -40,6 +40,7 @@ Import the Postman collection files.
 3. Once imported, select the collection in the left pane, and then select the environment in the top right corner of postman.
 
   ![select collection and environment](/Images/import_collection_set_env.png)
+
 ### Configure Postman settings
 
 Configure Postman for testing Open Banking APIs.
@@ -74,11 +75,11 @@ Use Postman to test the FDX Core API. Before sending any request make sure that 
 
 ##### Start the steps in Postman to test the Core API
 
-1. Get Access token 
-   * Select Step 0.2 to generate a JWT token corresponding to the request body for consent.
+1. Get Access token
+    * Select Step 0.2 to generate a JWT token corresponding to the request body for consent.
    
-   **Note:** This step is not part of our provided APIs. It simulates generating a JWT token containing the request body information needed for the POST /par request in the next step. The Data Recipient (DR) will implement this in their application to encrypt the consent grant request body into a JWT token. 
-   
+   **Note:** This step is not part of our provided APIs. It simulates generating a JWT token containing the request body information needed for the POST /par request in the next step. The Data Recipient (DR) will implement this in their application to encrypt the consent grant request body into a JWT token.
+
 2. Select Step 1, Data Recipient (DR) initiates a POST request to Data Provider's (DP’s) POST /par endpoint using the Pushed Authorization Request (PAR) method
     * The *authorization_details* request parameter is defined in pre-request scripts and set as collection variable. Placeholders of all types of consents exist and can be used.
     * Once you get the response, go to **Visualize** tab and copy the available link. You need to use this link in the browser of your choice and complete login.
