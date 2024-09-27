@@ -26,7 +26,7 @@ Following steps detail how to configure your identity provider.
 
 ## Client Policies Update
 
-Following steps detail how to update the client policies. 
+Following steps detail how to update the client policies.
 
 1. Click on Realm settings  on the left menu, after selecting the desired realm.
 2. Open "Client Policies" section.
@@ -58,21 +58,22 @@ Authentication is the area where you can configure and manage different credenti
 2. Click on the Authenticators section on the left menu, after selecting the desired realm.
 3. Add **"post-login-flow"** - This specifies the actions to be needed after the authentication of the user is done successfully.
    ![Post login flow](/Images/post-login-flow.png)
-4. Configure the **END USER UPDATE** authenticator - When the user is successfully authenticated, Keycloak stores the id_token claims in the user session attribute. This is configured in the END USER UPDATE authenticator. Following configurations need to be set for END USER UPDATE.
+4. Configure
+    * **END USER UPDATE** authenticator - When the user is successfully authenticated, Keycloak stores the id_token claims in the user session attribute. This is configured in the END USER UPDATE authenticator. Following configurations need to be set for END USER UPDATE.
 
 | Configuration                 | Required | Default Value | Description                                                                                                                                    |
 | ------------------------------|----------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | Internal Resource Update Host | true     | null          | This is the host url for resource update API, End-User Update SPI will use this host URI to update end-user information in the cosnet resource |
 | Internal Client Id            | true     | internal      | The internal Client Id to be used for fetching auth token using client-credentials flow.                                                       |
 | Auth Server Host              | true     | null          | This is Auth-Token host, Using this host, End-User Update SPI will fetch the internal token with required scope.                               |
-| User Id claim                 | true     | sub           | This is claim value in which userId is present from the IDP.                                                                                   |          
+| User Id claim                 | true     | sub           | This is claim value in which userId is present from the IDP.                                                                                   |
 | Openbanking Realm Name        | true     | null          | Openbanking realm name to fetch internal tokens                                                                                                |
 
-    Refer to the below image:
+Refer to the below image:
 
-    ![END USER UPDATE ](/Images/end-user-update.png)
+![END USER UPDATE ](/Images/end-user-update.png)
 
-5. Configure the **CONSENT GRANT REDIRECT** authenticator - This is configured to redirect the user to the consent grant application of the bank.
+    * **CONSENT GRANT REDIRECT** authenticator - This is configured to redirect the user to the consent grant application of the bank.
 
 | Configuration                  | Required | Default Value | Description                                                                                                                            |
 |--------------------------------|----------|---------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -81,12 +82,12 @@ Authentication is the area where you can configure and manage different credenti
 | Auth Server Host               | true     | null          | This is Auth-Token host, Using this host, End-User Update SPI will fetch the internal token with required scope.                       |
 | User Id claim                  | true     | sub           | This is claim value in which userId is present from the IDP.                                                                           |
 | Consent Grant Uri              | true     | null          | Provide externally hosted consent grant url                                                                                            |
-| Action Token Expiration Period | true     | 300           | This period will determine the maximum allowed time (in seconds) for external consent application                                      |      
+| Action Token Expiration Period | true     | 300           | This period will determine the maximum allowed time (in seconds) for external consent application                                      |
 | Issuer url                     | true     | null          | This issuer url will be set in the authorization code jwt response                                                                     |
 
-    Refer to the image below:
+Refer to the image below:
 
-    ![CONSENT GRANT REDIRECT](/Images/consent-grant-redirect.png)
+![CONSENT GRANT REDIRECT](/Images/consent-grant-redirect.png)
 
 {{< alert title="Note" color="primary" >}}Above authenticators should be in the same sequence and the sequence cannot be changed.{{< /alert >}}
 
