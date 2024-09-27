@@ -77,7 +77,7 @@ Use Postman to test the FDX Core API. Before sending any request make sure that 
 
 1. Get Access token
     * Select Step 0.2 to generate a JWT token corresponding to the request body for consent.
-   
+
    **Note:** This step is not part of our provided APIs. It simulates generating a JWT token containing the request body information needed for the POST /par request in the next step. The Data Recipient (DR) will implement this in their application to encrypt the consent grant request body into a JWT token.
 
 2. Select Step 1, Data Recipient (DR) initiates a POST request to Data Provider's (DP’s) POST /par endpoint using the Pushed Authorization Request (PAR) method
