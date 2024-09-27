@@ -58,7 +58,7 @@ Authentication is the area where you can configure and manage different credenti
 2. Click on the Authenticators section on the left menu, after selecting the desired realm.
 3. Add **"post-login-flow"** - This specifies the actions to be needed after the authentication of the user is done successfully.
    ![Post login flow](/Images/post-login-flow.png)
-4. Configure
+4. Configure:
     * **END USER UPDATE** authenticator - When the user is successfully authenticated, Keycloak stores the id_token claims in the user session attribute. This is configured in the END USER UPDATE authenticator. Following configurations need to be set for END USER UPDATE.
 
 | Configuration                 | Required | Default Value | Description                                                                                                                                    |
@@ -70,10 +70,9 @@ Authentication is the area where you can configure and manage different credenti
 | Openbanking Realm Name        | true     | null          | Openbanking realm name to fetch internal tokens                                                                                                |
 
 Refer to the below image:
+![END USER UPDATE](/Images/end-user-update.png)
 
-![END USER UPDATE ](/Images/end-user-update.png)
-
-    * **CONSENT GRANT REDIRECT** authenticator - This is configured to redirect the user to the consent grant application of the bank.
+   * **CONSENT GRANT REDIRECT** authenticator - This is configured to redirect the user to the consent grant application of the bank.
 
 | Configuration                  | Required | Default Value | Description                                                                                                                            |
 |--------------------------------|----------|---------------|----------------------------------------------------------------------------------------------------------------------------------------|
