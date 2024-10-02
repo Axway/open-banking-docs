@@ -7,7 +7,7 @@ date: 2021-09-02
 
 Amplify Open Banking uses digital certificates for many security functions. The solution comes with sample certificates that can be used in non-production environments for testing purposes only. It is highly recommended to change all certificates and use official certificates signed by one of your approved Certificate Authorities.
 
-The following topics provide how-to instructions for managing certificates.
+This section provides instructions for managing certificates.
 
 ## Context
 
@@ -15,31 +15,31 @@ Mutual authentication is required for most APIs developed for Open Banking.
 
 According to the Open Banking Specification, Mutual Transport Layer Security (MTLS) client connections are required for the API Gateway Listener and Authorization Server components.
 
-See more about the Certificate Verification with MTLS in Open Banking context in [Mutual Authentication and Certificate Verification](/docs/overview/integration/mutual-auth).
+See more about the Certificate Verification with MTLS in the Open Banking context in [Mutual Authentication and Certificate Verification](/docs/overview/integration/mutual-auth).
 
-## Setup the solution for MTLS with test certificates
+## Set up the solution for MTLS with test certificates
 
 This section includes the prerequisites and tasks to setup the solution for MTLS.
 
 ### Prerequisites
 
-* An openssl tool available.
-* Amplify Integration running with open banking projects.
+* An OpenSSL tool is available.
+* Amplify Integration is running with Open Banking projects.
 
 ### Create the root CA certificates
 
-First, some certificates must exist to generates multiples
+First, some certificates must exist to generate multiples:
 
 ```bash
 openssl genrsa -out ca1.key 2048
 openssl req -new -x509 -days 3650 -key ca1.key -subj "/C=US/ST=Arizona/L=Phoenix/O=Axway/CN=Axway Root CA" -out ca1.crt
 ```
 
-### Create Client Certificates
+### Create client certificates
 
-The Data Recipient or Third-Party Provider (TPP) Applications need the client certificate for MTLS. In this section there are sample instructions to generate certificates for testing purposes.
+The data recipient or Third-Party Provider (TPP) applications need the client certificate for MTLS. In this section there are sample instructions to generate certificates for testing purposes.
 
-Each certificate must have one key that is signed with a previously created root certificate authority. These configuration files below are provided as examples.
+Each certificate must have one key that is signed with a previously created root certificate authority. The following configuration files are provided as examples.
 
 | tpp1.cnf |
 | ----------- |
@@ -122,12 +122,12 @@ openssl x509 -req -days 3650 -in tpp1.csr -CA ca1.crt -CAkey ca1.key 
 
 ### Configure root CA certificates in Amplify Integration
 
-The Root CA Certificate (e.g. ca1.crt), needs to be added in Amplify Integration. Follow the step-by-step procedure:
+The root CA certificate (e.g., ca1.crt), must to be added in Amplify Integration:
 
-1. Import the certificate in Manager → Security → Certificates
+1. Import the certificate in *Manager > Security > Certificates*.
 ![Certificate Import](/Images/AI-Manager-Certificates.png)
-2. Now go to Design → Select Project
-3. Update the Governance rule of type Transport Policy to add/update the Root CA.
+2. Navigate to *Design > Select Project*.
+3. Update the **Governance rule** of type *Transport Policy* to add/update the Root CA.
 4. Do this for each project in which APIs are exposed via MTLS to add the Root CA.
     * FDX_Accounts project and FDX_MTLS governance rule
     * FDX_Authorization project and FDX_Authorization_MTLS governance rule
