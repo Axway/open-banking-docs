@@ -160,7 +160,7 @@ The Infrastructure building block brings together Axway's product set to power t
 
 #### Amplify Integration
 
-The Amplify Integration provides access to and protection for your APIs using Axway's industry leading technology. Amplify Integration is a low-code or no-code integration platform that solves simple to complex enterprise integration use cases and patterns. ​Primary use cases​ are application integration, data integration and API-fication (getting apps to talk to each other via application programming interfaces).
+The Amplify Integration provides access to and protection for your APIs using Axway's industry-leading technology. Amplify Integration is a low-code or no-code integration platform that solves simple to complex enterprise integration use cases and patterns. ​Primary use cases​ are application integration, data integration, and API-fication (getting apps to talk to each other via application programming interfaces).
 
 {{% alert title="Note" color="primary" %}} For more information on Amplify Integration refer to the [Axway Documentation Portal](https://docs.axway.com/bundle/amplify_integration/page/amplify_integration_guide.html).{{% /alert %}}
 
