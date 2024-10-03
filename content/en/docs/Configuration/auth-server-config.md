@@ -56,7 +56,7 @@ The token mapper issuer update is completed.
 
 ## Authentication configuration
 
-Authentication is the area where you can configure and manage different credential types, authentication flows, screens, and actions during log in, registration, and other Keycloak workflows. 
+Authentication is the area where you can configure and manage different credential types, authentication flows, screens, and actions during log in, registration, and other Keycloak workflows.
 
 The following steps detail how to create the post-login flow in addition to the built-in flows that are already there.
 
