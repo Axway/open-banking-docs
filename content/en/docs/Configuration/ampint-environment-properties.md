@@ -53,7 +53,7 @@ The following environment properties must be set up in each customer's data plan
 | Generic_Authorization_scaMethodExplanation                               | Description of the SCA method used                                                                |
 | Generic_Authorization_scaMethodName                                      | SCA method name <br />Default: Keycloak Redirection                                               |
 | Generic_Authorization_scaMethodProtocol                                  | SCA method protocol <br />Default: REDIRECT                                                       |
-| Generic_Authorization_scaMethodRedirectUrl                               | SCA method redirect URL <br />Example: `https://auth.openbanking.axwaysbsdev.net/realms/griffin-design/protocol/openid-connect/auth` |
+| Generic_Authorization_scaMethodRedirectUrl                               | SCA method redirect URL <br />Example: `https://auth.openbanking.example.net/realms/griffin-design/protocol/openid-connect/auth` |
 | PartnerCoreService_CacheExpirationInMinutes                              | Cache expiration time in minutes <br />Default: 10                                                |
 | PartnerCoreService_OnboardingFieldLabel_consentDataClusters              | Field from the onboarding portal that maps to data clusters <br />Default: Scope                  |
 | PartnerCoreService_OnboardingFieldLabel_consentDurationPeriod            | Field from the partner onboarding portal that maps to consent duration period <br />Default: Duration Period  |
