@@ -1,0 +1,2257 @@
+{
+	"info": {
+		"_postman_id": "f6b68b15-25db-433a-870a-2b71f16dba5c",
+		"name": "FDX Demo",
+		"description": "This collection implements the FDX Consent Grant Flow as defined in FDX RFC 0156 & allows you to access the Core API endpoints.\n\nHere are the prerequisites to run the requests in this collection:\n\n- API server endpoint is protected with MTLS, so get the certificate & private key from Financial Institution.\n    \n- Choose the Environment \"FDX Demo\" from the Environment selector in the top right.\n    \n- Use the cog button to open Settings\n    \n    - Choose the Certificates tab. Ensure a certificate is installed for the target environment. If not click \"Add Certificate\".\n        \n    - Enter the target host and port and upload the public and private keys (CRT file and KEY file respectively) and click ADD.\n        \n- Update the current values in the Environment \"FDX Demo\".\n    \n- Follow the instructions for each section/request below.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "236738"
+	},
+	"item": [
+		{
+			"name": "Get Access Token",
+			"item": [
+				{
+					"name": "Auth Sever Metadata",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fdx/auth/v1/well-known",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"auth",
+								"v1",
+								"well-known"
+							]
+						},
+						"description": "The endpoint retrieves the well-known configuration for the Authorization Server. The response is a JSON object with various properties such as issuer, authorization endpoint, token endpoint, and other supported features and methods related to authentication and authorization."
+					},
+					"response": []
+				},
+				{
+					"name": "Step 0.1 - Get jsrsasign-js (One time setup)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.globals.set(\"jsrsasign-js\", pm.response.text());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://kjur.github.io/jsrsasign/jsrsasign-latest-all-min.js",
+							"protocol": "http",
+							"host": [
+								"kjur",
+								"github",
+								"io"
+							],
+							"path": [
+								"jsrsasign",
+								"jsrsasign-latest-all-min.js"
+							]
+						},
+						"description": "This endpoint makes an HTTP GET request to retrieve the JavaScript resource file from the specified URL. This is a one time execution step to create a global variable and this variable is needed in next step."
+					},
+					"response": []
+				},
+				{
+					"name": "Step 0.2 - Generate Request Object",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const exp = Math.floor(Date.now() / 1000) + 3600;",
+									"pm.collectionVariables.set(\"exp\", exp);",
+									"",
+									"function generateCodeVerifier() {",
+									"    return generateRandomString(96);",
+									"}",
+									"",
+									"function generateRandomString(length) {",
+									"    var text = \"\";",
+									"    var possible = \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\";",
+									"    for (var i = 0; i < length; i++) {",
+									"        text += possible.charAt(Math.floor(Math.random() * possible.length));",
+									"    }",
+									"    return text;",
+									"}",
+									"",
+									"function generateCodeChallenge(code_verifier) {",
+									"    return CryptoJS.SHA256(code_verifier);",
+									"}",
+									"",
+									"function base64URL(string) {",
+									"    return string.toString(CryptoJS.enc.Base64).replace(/=/g, '').replace(/\\+/g, '-').replace(/\\//g, '_')",
+									"}",
+									"",
+									"var verifier = base64URL(generateCodeVerifier());",
+									"var challenge = base64URL(generateCodeChallenge(verifier));",
+									"",
+									"pm.collectionVariables.set(\"code_verifier\", verifier);",
+									"pm.collectionVariables.set(\"code_challenge\", challenge);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"token = pm.request.headers.get(\"Authorization\")",
+									"console.log(token);",
+									"pm.collectionVariables.set(\"request_token\", token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "privateKey",
+									"value": "{{privateKey}}",
+									"type": "string"
+								},
+								{
+									"key": "payload",
+									"value": "{\r\n\"iat\": {{$timestamp}},\r\n\"exp\": {{exp}},\r\n\"iss\": \"{{realmName}}\",\r\n\"nbf\": {{$timestamp}},\r\n\"state\": \"{{$guid}}\",\r\n\"aud\": [\"{{baseUrl}}/fdx/auth/v1\"],\r\n\"jti\": \"jwt_nonce\",\r\n\"response_mode\": \"jwt\",\r\n\"redirect_uris\": [\"https://oauth.pstmn.io/v1/callback\"],\r\n\"code_challenge\": \"{{code_challenge}}\",\r\n\"code_challenge_method\": \"S256\",\r\n\"client_id\": \"{{clientId}}\",\r\n\"scope\": \"fdx:accountbasic:read fdx:accountdetailed:read fdx:transactions:read fdx:paymentsupport:read fdx:customercontact:read\",\r\n\"authorization_details\": [\t{\r\n  \"type\": \"fdx_v1.0\",\r\n  \"consentRequest\": {\r\n    \"durationType\": \"TIME_BOUND\",\r\n    \"durationPeriod\": 90,\r\n    \"lookbackPeriod\": 60,\r\n    \"resources\": [ {\r\n       \"resourceType\": \"ACCOUNT\",\r\n       \"dataClusters\": [ \"ACCOUNT_BASIC\",\"ACCOUNT_DETAILED\",\"TRANSACTIONS\",\r\n        \"PAYMENT_SUPPORT\",\r\n        \"CUSTOMER_CONTACT\"]\r\n    }]\r\n  }\r\n}],\r\n\"response_type\": \"code\"\r\n}",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{\r\n\t\"typ\": \"JWT\",\r\n\t\"alg\": \"PS256\"\r\n}",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "PS256",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://postman-echo.com/get",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							]
+						},
+						"description": "In this step, we create a signed request object which is then sent in the PAR request in next step."
+					},
+					"response": [
+						{
+							"name": "Step 0 - Generate Request Object",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://postman-echo.com/get",
+									"protocol": "https",
+									"host": [
+										"postman-echo",
+										"com"
+									],
+									"path": [
+										"get"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jul 2024 11:42:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1919"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.25.3"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"77f-o8R1MklQA1NDTp5hcOu/dQBurAw\""
+								},
+								{
+									"key": "set-cookie",
+									"value": "sails.sid=s%3AfgeVs-xsiZ-D2zdyihmAxmrs9LfsGZO0.3Qh%2BqjzuHx%2BrRMUyetLj%2FUvZSOFl%2FnAGjM762TPGEdk; Path=/; HttpOnly"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"args\": {},\n    \"headers\": {\n        \"host\": \"postman-echo.com\",\n        \"x-request-start\": \"t=1720611745.756\",\n        \"x-forwarded-proto\": \"https\",\n        \"x-forwarded-port\": \"443\",\n        \"x-amzn-trace-id\": \"Root=1-668e73a1-235dfdc26704ac7b2535e560\",\n        \"authorization\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiJ9.eyJpYXQiOjE3MjA2MTE3NDUsImV4cCI6MTcyMDYxNTM0NSwiaXNzIjoiZ3JpZmZpbi1saXZlIiwibmJmIjoxNzIwNjExNzQ1LCJzdGF0ZSI6IjMxYWI2ZjE0LWU5ZWQtNDFmYS1hOGYxLTQxMDg1NzI2MzRhNiIsImF1ZCI6WyJodHRwczovL2F1dGgub3BlbmJhbmtpbmcuYXh3YXlzYnNkZXYubmV0L3JlYWxtcy9ncmlmZmluLWxpdmUiXSwianRpIjoiand0X25vbmNlIiwicmVzcG9uc2VfbW9kZSI6Imp3dCIsImNvZGVfY2hhbGxlbmdlIjoibElTcXdBMU1Fb2xJQkV0UkF1TU1XY1lJVkNyYnV2MV9Fd0Fab2JfVHlENCIsImNvZGVfY2hhbGxlbmdlX21ldGhvZCI6IlMyNTYiLCJjbGllbnRfaWQiOiJlbW9uZXkiLCJzY29wZSI6ImZkeDphY2NvdW50YmFzaWM6cmVhZCBmZHg6YWNjb3VudGRldGFpbGVkOnJlYWQgZmR4OnRyYW5zYWN0aW9uczpyZWFkIiwiYXV0aG9yaXphdGlvbl9kZXRhaWxzIjpbeyJ0eXBlIjoiZmR4X3YxLjAiLCJjb25zZW50UmVxdWVzdCI6eyJkdXJhdGlvblR5cGUiOiJUSU1FX0JPVU5EIiwiZHVyYXRpb25QZXJpb2QiOjkwLCJsb29rYmFja1BlcmlvZCI6NjAsInJlc291cmNlcyI6W3sicmVzb3VyY2VUeXBlIjoiQUNDT1VOVCIsImRhdGFDbHVzdGVycyI6WyJBQ0NPVU5UX0JBU0lDIiwiQUNDT1VOVF9ERVRBSUxFRCIsIlRSQU5TQUNUSU9OUyJdfV19fV0sInJlc3BvbnNlX3R5cGUiOiJjb2RlIn0.fapsy8--QJEEVJ9tj4ahXpmN3tYJhYqdc5Al_8yQZWJWMHRDloFalTNtgshiTBbAtHrTmafuA5J5k1PVBRH0NMNXVdx2PfL3wDEAzse5GOZ3vl4f550fpDlMzOcKfFdgDQXWMzbhfHb5_ICAv9qwGJt6HAFdB-GfYkV000Bj0yQgTNg0Gul9oRvBjSFzvoDftTflpgXXLZl3apaeaEgvY_fVuVUkEfT7f9mRIEq9e5MKoM2Lx5JjMUHiSFFAO7n6QPlamsW-Bc1xlRi2k9yrrdT3hN-iMdpn2TJYTkd6RquvHfr4cfV3A5dZZJqmunTgceW-iSN3LZ_LSdJWOqK2rg\",\n        \"user-agent\": \"PostmanRuntime/7.39.0\",\n        \"accept\": \"*/*\",\n        \"cache-control\": \"no-cache\",\n        \"postman-token\": \"708bea87-9dfe-48b5-99ad-2dca880bded8\",\n        \"accept-encoding\": \"gzip, deflate, br\",\n        \"cookie\": \"sails.sid=s%3Abf-ZQ4ksobhItz06hUMikagNrY0aUsz-.zEtEY%2F4O2PREYLXKGl07mpiJex42VyJ7Z521q7VlXBk\"\n    },\n    \"url\": \"https://postman-echo.com/get\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Step 1 - PAR Request",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has the required fields - request_uri and expires_in\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData.request_uri).to.exist;\r",
+									"    pm.expect(responseData.expires_in).to.exist;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Expires_in is a non-negative integer\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData).to.be.an('object');\r",
+									"  pm.expect(responseData.expires_in).to.be.a('number').and.to.be.at.least(0);\r",
+									"});\r",
+									"\r",
+									"// Stores the request_uri in a collection variable\r",
+									"var request_uri = pm.response.json().request_uri;\r",
+									"pm.collectionVariables.set(\"request_uri\", request_uri);\r",
+									"\r",
+									"// const link = '{{baseUrl}}/fdx/auth/v1/authorize?client_id={{client_id}}&request_uri={{request_uri}}';\r",
+									"// pm.visualizer.set(`\r",
+									"// <h3>Open this link in browser to login and authorize consent:</h3>\r",
+									"// <textarea rows=\"4\" cols=\"100\" readonly>${link}</textarea>`,\r",
+									"// {\r",
+									"//     link: link, \r",
+									"//     baseUrl: pm.environment.get('baseUrl'),\r",
+									"//     client_id: pm.environment.get('clientId'),\r",
+									"//     request_uri: pm.collectionVariables.get('request_uri'),\r",
+									"// })\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "request",
+									"value": "{{request_token}}",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{clientId}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/fdx/auth/v1/par",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"auth",
+								"v1",
+								"par"
+							]
+						},
+						"description": "#### **Data Recipient (DR) initiates a POST request to Data Provider's (DP’s) POST /par endpoint using the Pushed Authorization Request (PAR) method**"
+					},
+					"response": [
+						{
+							"name": "Step 1 - PAR Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "request",
+											"value": "{{request_token}}",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "{{clientId}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/fdx/auth/v1/par",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fdx",
+										"auth",
+										"v1",
+										"par"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:19:28 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "104"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "11407"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"request_uri\": \"urn:ietf:params:oauth:request_uri:1392f0f8-3068-4afe-a48a-d368cdab18e0\",\n    \"expires_in\": 60\n}"
+						}
+					]
+				},
+				{
+					"name": "Step 2 - Get Authorize (Follow instructions from Visualize tab)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 302\", function () {",
+									"    pm.response.to.have.status(302);",
+									"});",
+									"",
+									"pm.test(\"location is present\", function () {",
+									"    pm.response.to.have.header(\"location\");",
+									"});",
+									"",
+									"const link = pm.response.headers.get('location')",
+									"",
+									"pm.visualizer.set(`",
+									"<h3>Open this link in browser to login and authorize consent:</h3>",
+									"<textarea rows=\"4\" cols=\"100\" readonly>${link}</textarea>`,",
+									"{",
+									"    link: link, ",
+									"})",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fdx/auth/v1/authorize?client_id={{clientId}}&request_uri={{request_uri}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"auth",
+								"v1",
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "{{clientId}}"
+								},
+								{
+									"key": "request_uri",
+									"value": "{{request_uri}}"
+								}
+							]
+						},
+						"description": "- Once you get the response, go to Visualize tab and copy the available link. You need to use this link in the browser of your choice and complete login.\n    \n- For login credentials, contact the financial instititution.\n    \n- Complete the authorization by granting access to accounts.\n    \n- Once redirects are done, copy the URL from the browser's address bar."
+					},
+					"response": [
+						{
+							"name": "Step 2 - Get Authorize (Follow instructions from Visualize tab)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/fdx/auth/v1/authorize?client_id={{clientId}}&request_uri={{request_uri}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fdx",
+										"auth",
+										"v1",
+										"authorize"
+									],
+									"query": [
+										{
+											"key": "client_id",
+											"value": "{{clientId}}"
+										},
+										{
+											"key": "request_uri",
+											"value": "{{request_uri}}"
+										}
+									]
+								}
+							},
+							"status": "Found",
+							"code": 302,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:19:39 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "text/plain"
+								},
+								{
+									"key": "content-length",
+									"value": "2"
+								},
+								{
+									"key": "location",
+									"value": "https://auth.openbanking.axwaysbsdev.net/realms/griffin-live/protocol/openid-connect/auth?client_id=af20ad73-9ee5-42d4-a1fb-70bfd5de3fdf&request_uri=urn:ietf:params:oauth:request_uri:1392f0f8-3068-4afe-a48a-d368cdab18e0&resourceId=66f6789e31f11123c37dfbfe&resourceType=AIS&authorizationId=66f6789f31f11123c37dfc00"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "981"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
+				},
+				{
+					"name": "Step 2.1 Get Code from Redirect URL (paste url in body)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const url = pm.request.body.raw",
+									"",
+									"const queryString = url.split('?')[1];",
+									"",
+									"if (!queryString) {",
+									"  console.warn(\"URL doesn't contain a query string\");",
+									"  return;",
+									"}",
+									"",
+									"// Split the query string by separators (assumes '&' and '=')",
+									"const params = queryString.split('&').reduce((obj, param) => {",
+									"  const [key, value] = param.split('=');",
+									"  obj[key] = value;",
+									"  return obj;",
+									"}, {});",
+									"",
+									"// Check for \"response\" parameter",
+									"const token = params.response;",
+									"",
+									"if (!token) {",
+									"  console.warn(\"URL doesn't contain a 'response' query parameter with the JWT token\");",
+									"} else {",
+									"  // Split the token into parts (header, payload, signature)",
+									"  const parts = token.split('.');",
+									"  if (parts.length !== 3) {",
+									"    console.warn(\"Invalid JWT token format\");",
+									"  } else {",
+									"    // Decode the payload (base64 encoded)",
+									"    const decodedPayload = atob(parts[1]);  // atob is for base64 decoding",
+									"",
+									"    try {",
+									"      // Parse the decoded payload as JSON",
+									"      const payload = JSON.parse(decodedPayload);",
+									"",
+									"      // Extract the \"code\" claim",
+									"      const code = payload.code;",
+									"",
+									"      if (code) {",
+									"        // Store the code in a variable for use in the request",
+									"        pm.collectionVariables.set(\"code\", code);",
+									"        console.log(\"Extracted code claim:\", code);",
+									"      } else {",
+									"        console.warn(\"JWT token doesn't contain a 'code' claim\");",
+									"      }",
+									"    } catch (error) {",
+									"      console.warn(\"Error decoding JWT payload:\", error);",
+									"    }",
+									"  }",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "https://oauth.pstmn.io/v1/callback?response=eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJtbkplLW1wbTRoX0puMTJRMzhOV0JaUU1xZHQzekhkS2N6ZWNkM0lKTl80In0.eyJleHAiOjE3MjIzNDgxNTUsImlzcyI6Imh0dHBzOi8vYXV0aC5vcGVuYmFua2luZy5heHdheXNic2Rldi5uZXQvcmVhbG1zL2dyaWZmaW4tbGl2ZSIsImF1ZCI6ImVtb25leSIsImNvZGUiOiI2M2Q4NWVlMy1hMTNkLTRjMWYtOTJhZi00NmViMDMwMTc1ZmEuYzA2MDc3NzAtMzE5Ni00NTg0LTljM2YtNWIxMDU2NDI1YjY1LjM1Njg2OTlhLTM1OTMtNGQ2Yy05YmI5LWVmMjg0N2I5MTVlNiIsImlzcyI6Imh0dHBzOi8vYXV0aC5vcGVuYmFua2luZy5heHdheXNic2Rldi5uZXQvcmVhbG1zL2dyaWZmaW4tbGl2ZSIsInN0YXRlIjoiNGE4NzQwNTAtZjgyNi00N2YyLTg1MjUtMWE0NThkMjE5ZmY4Iiwic2Vzc2lvbl9zdGF0ZSI6ImMwNjA3NzcwLTMxOTYtNDU4NC05YzNmLTViMTA1NjQyNWI2NSJ9.nX_cEVwxBCAekLvjCwnzYsNGRBEEX89IjFMs8Ur89sgMRff9vrJWIZ_H2fm8U2YaIjfdSGJGCTJwvZWE5Q9O6Oq0dkHQXsEf-M7FF7JTWhVaOpgUtJgj_7coBdOBb3mu-gygYoD02CtdCt1Rt1PalmAimjryGYqH543Xdgxp9MJ8i7EZPPiKVChE_4lyqmL-tNCWkvvtujQPRr15IoZamzSZ2799Vv-hJ3PydmZ6Hjw8pagPJ2k2sbZVur7gt2uCDJsHeD21AL9YML3YJ1_uvGWqrUGvYRscL31TVs3U69i1DNp5EJu9PXhn_N6YPyCN-zDFlY9GDdGXLV5hqN9Vzw",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://postman-echo.com/get",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							]
+						},
+						"description": "Paste the URL copied in previous step in the body of the request. In the response you will get authorization code."
+					},
+					"response": [
+						{
+							"name": "Step 1a. Get Code from Redirect URL (paste url in body)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "https://oauth.pstmn.io/v1/callback?response=eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJtbkplLW1wbTRoX0puMTJRMzhOV0JaUU1xZHQzekhkS2N6ZWNkM0lKTl80In0.eyJleHAiOjE3MjIwMDgyMzQsImlzcyI6Imh0dHBzOi8vYXV0aC5vcGVuYmFua2luZy5heHdheXNic2Rldi5uZXQvcmVhbG1zL2dyaWZmaW4tbGl2ZSIsImF1ZCI6ImVtb25leSIsImNvZGUiOiJjNDhhM2M3YS00OTZmLTRhZDktYmJkYS0zOTBmYTUxNThhNjYuNTQ1ZjdmMTgtMzBlNi00MzE4LWI1YTYtYTBhZGYyZTk4OTZlLjM1Njg2OTlhLTM1OTMtNGQ2Yy05YmI5LWVmMjg0N2I5MTVlNiIsImlzcyI6Imh0dHBzOi8vYXV0aC5vcGVuYmFua2luZy5heHdheXNic2Rldi5uZXQvcmVhbG1zL2dyaWZmaW4tbGl2ZSIsInN0YXRlIjoiMTNjZDg0MGItN2JiNS00ZDEzLWI4NmItNmE2NGI3MmJjOGQ2Iiwic2Vzc2lvbl9zdGF0ZSI6IjU0NWY3ZjE4LTMwZTYtNDMxOC1iNWE2LWEwYWRmMmU5ODk2ZSJ9.obtnQibqbKTnrkOHrK1jbiqI6Hxb2gBn8_h2iGZWq9jnyvAzKQsGaSC0jvr1usQHhd1U-j8VLAagIzEAQxWLrrAG7AaZkgx4suKv-WqLp3DuiICTpk6-UuKwBrb3Pyu8Gq_o2R7sUxWMhI4M-NiezAvFLbkKOI7Y7X8Xjroq70Im8CcEuCt2EDou8zfa9u066c1h3-OP9CfUBAxFtiS9eqX4-u2opqLd3MfcrYZ7dAmVwmBM-qlys045yrEe3iunCEXkW_SfScsdZXRZ1tWAfn6VE2FMC5q5ftegsTqvUl3IUi6slZcaEkjLKd_Yux25-p9JShNgGIBO2eNEa5i2Pw",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://postman-echo.com/get",
+									"protocol": "https",
+									"host": [
+										"postman-echo",
+										"com"
+									],
+									"path": [
+										"get"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jul 2024 15:32:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "627"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.25.3"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"273-vVHifNsaeEGO8GI3W8qFyH0EPJE\""
+								},
+								{
+									"key": "set-cookie",
+									"value": "sails.sid=s%3A8lzMEOIe9_tTVDdha4UrgIl33Gl_LCdX.Kol%2FL9pIDL1%2BrmVgCn7%2FEKLSXnL4sfwotuLiQ9Q6edU; Path=/; HttpOnly"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"args\": {},\n    \"headers\": {\n        \"host\": \"postman-echo.com\",\n        \"x-request-start\": \"t=1722007952.456\",\n        \"content-length\": \"6\",\n        \"x-forwarded-proto\": \"https\",\n        \"x-forwarded-port\": \"443\",\n        \"x-amzn-trace-id\": \"Root=1-66a3c190-7b5081de7174600d46ca4846\",\n        \"content-type\": \"application/json\",\n        \"user-agent\": \"PostmanRuntime/7.40.0\",\n        \"accept\": \"*/*\",\n        \"postman-token\": \"0d3c895f-ac19-48c7-a297-1c15baf32aeb\",\n        \"accept-encoding\": \"gzip, deflate, br\",\n        \"cookie\": \"sails.sid=s%3AQbR8DmLDTlf6HhfpeIfrJL5a8t_lHW94.KSl2ZRDXNsKY57YwOnT3QoKoVWgtk1aoSzAAy52hZrE\"\n    },\n    \"url\": \"https://postman-echo.com/get\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Step 3 - Get Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Extract and store the access token, refresh token and consentId in collection variable\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.refresh_token).to.exist;\r",
+									"    pm.collectionVariables.set(\"access_token\", responseData.access_token);\r",
+									"\r",
+									"    pm.expect(responseData.refresh_token).to.exist;\r",
+									"    pm.collectionVariables.set(\"refresh_token\", responseData.refresh_token);\r",
+									"\r",
+									"    pm.expect(responseData.refresh_token).to.exist;\r",
+									"    pm.collectionVariables.set(\"consentId\", responseData.grant_id);\r",
+									"\r",
+									"});\r",
+									"\r",
+									"// Validate that the access_token, token_type, expires_in, refresh_token, scope, state, and grant_id fields are not null\r",
+									"pm.test(\"Access token is not null\", function () {\r",
+									"    pm.expect(pm.response.json().access_token).to.not.be.null;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Token type is not null\", function () {\r",
+									"    pm.expect(pm.response.json().token_type).to.not.be.null;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Expires in is not null\", function () {\r",
+									"    pm.expect(pm.response.json().expires_in).to.not.be.null;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Refresh token is not null\", function () {\r",
+									"    pm.expect(pm.response.json().refresh_token).to.not.be.null;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Scope is not null\", function () {\r",
+									"    pm.expect(pm.response.json().scope).to.not.be.null;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"State is not null\", function () {\r",
+									"    pm.expect(pm.response.json().state).to.not.be.null;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Grant ID is not null\", function () {\r",
+									"    pm.expect(pm.response.json().grant_id).to.not.be.null;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "ssl-client-verify",
+								"value": "{{ssl-client-verify}}",
+								"type": "text"
+							},
+							{
+								"key": "ssl-client-cert",
+								"value": "{{ssl-client-cert}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "redirect_uri",
+									"value": "https://oauth.pstmn.io/v1/callback",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "{{code}}",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{clientId}}",
+									"type": "text"
+								},
+								{
+									"key": "code_verifier",
+									"value": "{{code_verifier}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/fdx/auth/v1/token",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"auth",
+								"v1",
+								"token"
+							]
+						},
+						"description": "### Endpoint Description\n\nThis endpoint is used to make an HTTP POST request to obtain a token for authentication. Once you gets the token in response you are ready to call rest of the API endpoints in this collection. No more copy paste required.\n\n### Request Body\n\n- The request body should be of type x-www-form-urlencoded.\n    \n\n### Response\n\nThe response for this request is a JSON object with the following properties:\n\n- `access_token` (string): The access token obtained.\n    \n- `expires_in` (number): The duration until the token expires.\n    \n- `refresh_expires_in` (number): The duration until the refresh token expires.\n    \n- `refresh_token` (string): The refresh token obtained.\n    \n- `token_type` (string): The type of token obtained.\n    \n- `not-before-policy` (number): Not-before policy value.\n    \n- `session_state` (string): The session state.\n    \n- `scope` (string): The scope of the token.\n    \n- `grant_id` (string): The grant ID.\n    \n\n### JSON Schema\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"access_token\": { \"type\": \"string\" },\n    \"expires_in\": { \"type\": \"number\" },\n    \"refresh_expires_in\": { \"type\": \"number\" },\n    \"refresh_token\": { \"type\": \"string\" },\n    \"token_type\": { \"type\": \"string\" },\n    \"not-before-policy\": { \"type\": \"number\" },\n    \"session_state\": { \"type\": \"string\" },\n    \"scope\": { \"type\": \"string\" },\n    \"grant_id\": { \"type\": \"string\" }\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Step 3 - Get Access Token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "ssl-client-verify",
+										"value": "{{ssl-client-verify}}",
+										"type": "text"
+									},
+									{
+										"key": "ssl-client-cert",
+										"value": "{{ssl-client-cert}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "redirect_uri",
+											"value": "https://oauth.pstmn.io/v1/callback",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "{{code}}",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "{{clientId}}",
+											"type": "text"
+										},
+										{
+											"key": "code_verifier",
+											"value": "{{code_verifier}}",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "authorization_code",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/fdx/auth/v1/token",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fdx",
+										"auth",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:21:24 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "2716"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "2455"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJCeWQ0UklSMXpMeUluZi10M1RMV1p1Ql91NUJYVUFVOXc4NEJCQ3duQXNJIn0.eyJleHAiOjE3Mjc0MjkxODIsImlhdCI6MTcyNzQyODg4MiwiYXV0aF90aW1lIjoxNzI3NDI4ODM1LCJqdGkiOiIzODMwNTE4NC0wZTIzLTQ3M2ItYWYxMi00ZTZiZmZkNjhmZWYiLCJpc3MiOiJodHRwczovL2dyaWZmaW4tbGl2ZS5vcGVuYmFua2luZy5heHdheXNic2Rldi5uZXQ6NDQ0My9mZHgvYXV0aC92MSIsInN1YiI6ImMzZjVmZTBmLWExNTMtNDZjOC1iZWFjLTZlNjE4NjgxNTllYSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFmMjBhZDczLTllZTUtNDJkNC1hMWZiLTcwYmZkNWRlM2ZkZiIsInNpZCI6IjI1NTFmM2YwLTY5ODUtNDMxZS05NjU4LWM2NTFlMzEzNGI5OCIsImNuZiI6eyJ4NXQjUzI1NiI6IldmaVplZFJSc2dWOWxHTmV3MjBkMk1sblYyT2NENFd6TmsxcGJBYkt1VlkifSwic2NvcGUiOiJmZHg6YWNjb3VudGJhc2ljOnJlYWQgZmR4OnBheW1lbnRzdXBwb3J0OnJlYWQgZmR4OmN1c3RvbWVyY29udGFjdDpyZWFkIGZkeDp0cmFuc2FjdGlvbnM6cmVhZCBmZHg6YWNjb3VudGRldGFpbGVkOnJlYWQiLCJ0ZW5hbnRJbmZvcm1hdGlvbiI6eyJ0ZW5hbnROYW1lIjoiZ3JpZmZpbiIsInRlbmFudElkIjoiUFMxMTA2MjAwMCJ9LCJmZHhDb25zZW50SWQiOiI2NmY2Nzg5ZTMxZjExMTIzYzM3ZGZiZmUifQ.SEgOqBQ7QJIWcfOODMp4dXak5Uw53vQQRsEM8AFGHA1r1T2xhAfBfsFtWMrbbX1EeE0pm9-MPXqMnOOeAC5eqDdDPo63iAaXuA-vP-2QVGB0Jfe1hnQmPXEIeU8iprPhikjFZ_7FxVuwtS4H-S0m8HPl9r-Z2gLMogJM5_zHr_lY5d7edAFjeIzrDsuaPfFDRYH9cm2sU-IRx34JXIBNjCegeRsVNO8tK9wzbodCOnq2KBf6yQXRkr02Sf8Rz0DV4B5yPm1bb8bL7Hj2axGpu9JQOwVfTwxXKz2X_UcZzI_jclhWztGbmmm5OgqrMVECxhtz2js_L8UTDQjTi0HMlg\",\n    \"expires_in\": 300,\n    \"refresh_expires_in\": 2592000,\n    \"refresh_token\": \"eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIwNjMwMTBkYi03ZmQ0LTQ0YmUtYjJmYi0wZTFhMDYwMTI5NzYifQ.eyJleHAiOjE3MzAwMjA4ODIsImlhdCI6MTcyNzQyODg4MiwianRpIjoiOTJkOTZlODktNzdlOC00YTcxLTlmYzctNzE4OTlmMDFiNzcyIiwiaXNzIjoiaHR0cHM6Ly9ncmlmZmluLWxpdmUub3BlbmJhbmtpbmcuYXh3YXlzYnNkZXYubmV0OjQ0NDMvZmR4L2F1dGgvdjEiLCJhdWQiOiJodHRwczovL2dyaWZmaW4tbGl2ZS5vcGVuYmFua2luZy5heHdheXNic2Rldi5uZXQ6NDQ0My9mZHgvYXV0aC92MSIsInN1YiI6ImMzZjVmZTBmLWExNTMtNDZjOC1iZWFjLTZlNjE4NjgxNTllYSIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJhZjIwYWQ3My05ZWU1LTQyZDQtYTFmYi03MGJmZDVkZTNmZGYiLCJzaWQiOiIyNTUxZjNmMC02OTg1LTQzMWUtOTY1OC1jNjUxZTMxMzRiOTgiLCJjbmYiOnsieDV0I1MyNTYiOiJXZmlaZWRSUnNnVjlsR05ldzIwZDJNbG5WMk9jRDRXek5rMXBiQWJLdVZZIn0sInNjb3BlIjoiZmR4LXJlc291cmNlIGZkeDphY2NvdW50YmFzaWM6cmVhZCB0ZW5hbnQtaW5mb3JtYXRpb24gZmR4OnBheW1lbnRzdXBwb3J0OnJlYWQgZmR4OmN1c3RvbWVyY29udGFjdDpyZWFkIGZkeDp0cmFuc2FjdGlvbnM6cmVhZCBmZHg6YWNjb3VudGRldGFpbGVkOnJlYWQgYmFzaWMiLCJyZXVzZV9pZCI6IjFhNmY3N2RmLTU3MzktNGRmNy04Mjg4LTk3OTllNzk3NDQ4ZCJ9.BeH2FKC_9nsRjTOyPyhDeVTU2_Pl2L1EPSIZrne43Xm8hhmm2CczXxIzIsAkabDMrHnDS-Tl85XKUeCqW2nb6w\",\n    \"token_type\": \"Bearer\",\n    \"not-before-policy\": 0,\n    \"session_state\": \"2551f3f0-6985-431e-9658-c651e3134b98\",\n    \"scope\": \"fdx:accountbasic:read fdx:paymentsupport:read fdx:customercontact:read fdx:transactions:read fdx:accountdetailed:read\",\n    \"grant_id\": \"66f6789e31f11123c37dfbfe\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Requests in this folder needs to be run first in overall collection and in the sequence as defined in the request names."
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Get Accounts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate the accounts array and its structure\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.accounts).to.be.an('array');",
+									"    pm.expect(responseData.accounts).to.have.lengthOf.at.least(1, \"Accounts array should not be empty\");",
+									"",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "2398f777-9259-4e50-867e-27247a143b1f"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/fdx/v6/core/accounts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"v6",
+								"core",
+								"accounts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Accounts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "2398f777-9259-4e50-867e-27247a143b1f"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/fdx/v6/core/accounts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fdx",
+										"v6",
+										"core",
+										"accounts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:21:45 GMT"
+								},
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "2398f777-9259-4e50-867e-27247a143b1f"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "980"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "7458"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accounts\": [\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"accountType\": \"CHECKING\",\n            \"accountNumber\": \"1028462538\",\n            \"accountNumberDisplay\": \"******2538\",\n            \"productName\": \"Checking account\",\n            \"nickname\": \"My Checkings\",\n            \"status\": \"OPEN\",\n            \"description\": \"John Doe's checking account\",\n            \"currency\": {\n                \"currencyCode\": \"USD\"\n            },\n            \"fiAttributes\": [\n                {\n                    \"name\": \"attribute1\",\n                    \"value\": \"12435456\"\n                },\n                {\n                    \"name\": \"attribute2\",\n                    \"value\": \"ABCDEF\"\n                }\n            ],\n            \"parentAccountId\": \"91da8f01-40b2-5d38-1bfc-581fbf8eb169\"\n        },\n        {\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"accountId\": \"948759it3kbm5b3f1234454\",\n            \"accountType\": \"SAVINGS\",\n            \"accountNumber\": \"7234234543\",\n            \"accountNumberDisplay\": \"******4543\",\n            \"productName\": \"Savings account\",\n            \"nickname\": \"My Savings\",\n            \"status\": \"OPEN\",\n            \"description\": \"John Doe's saving account\",\n            \"currency\": {\n                \"currencyCode\": \"USD\"\n            },\n            \"fiAttributes\": [\n                {\n                    \"name\": \"attribute1\",\n                    \"value\": \"12435456\"\n                },\n                {\n                    \"name\": \"attribute2\",\n                    \"value\": \"ABCDEF\"\n                }\n            ],\n            \"parentAccountId\": \"91da8f01-40b2-5d38-1bfc-581fbf8eb169\"\n        }\n    ],\n    \"page\": {\n        \"totalElements\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Account by Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "2398f777-9259-4e50-867e-27247a143b1f"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"v6",
+								"core",
+								"accounts",
+								"{{accountId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Account by Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "2398f777-9259-4e50-867e-27247a143b1f"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fdx",
+										"v6",
+										"core",
+										"accounts",
+										"{{accountId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:22:03 GMT"
+								},
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "2398f777-9259-4e50-867e-27247a143b1f"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "1940"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "7458"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n    \"accountId\": \"948759it3kbm5b3fdkj454\",\n    \"accountNumber\": \"1028462538\",\n    \"accountNumberDisplay\": \"******2538\",\n    \"accountOpenDate\": \"2021-07-15\",\n    \"accountType\": \"CHECKING\",\n    \"annualPercentageYield\": 0,\n    \"availableBalance\": 2454.6,\n    \"balanceAsOf\": \"2024-07-15T14:46:41.375Z\",\n    \"balanceType\": \"ASSET\",\n    \"billPayStatus\": \"ACTIVE\",\n    \"currency\": {\n        \"currencyCode\": \"USD\"\n    },\n    \"currentBalance\": 2454.6,\n    \"description\": \"John Doe's checking account\",\n    \"domicile\": {\n        \"region\": \"NY\",\n        \"country\": \"US\"\n    },\n    \"earlyPenaltyFlag\": true,\n    \"fiAttributes\": [\n        {\n            \"name\": \"attribute1\",\n            \"value\": \"12435456\"\n        },\n        {\n            \"name\": \"attribute2\",\n            \"value\": \"ABCDEF\"\n        }\n    ],\n    \"interestRate\": 0,\n    \"interestRateAsOf\": \"2021-07-15T14:46:41.375Z\",\n    \"interestRateType\": \"FIXED\",\n    \"interestYtd\": 0,\n    \"lastActivityDate\": \"2024-07-15\",\n    \"lineOfBusiness\": \"consumer\",\n    \"maturityDate\": \"2021-07-15\",\n    \"micrNumber\": \"12443240\",\n    \"nickname\": \"My Checkings\",\n    \"openingDayBalance\": 2454.6,\n    \"parentAccountId\": \"91da8f01-40b2-5d38-1bfc-581fbf8eb169\",\n    \"priorInterestRate\": 0,\n    \"productName\": \"Checking account\",\n    \"rewardProgramId\": \"10001\",\n    \"routingTransitNumber\": \"00123000220\",\n    \"status\": \"OPEN\",\n    \"term\": 0,\n    \"transactionsIncluded\": false,\n    \"transferIn\": true,\n    \"transferOut\": true,\n    \"contact\": {\n        \"addresses\": [\n            {\n                \"city\": \"New York\",\n                \"country\": \"US\",\n                \"line1\": \"829 Spring St.\",\n                \"postalCode\": \"10040\",\n                \"region\": \"NY\"\n            }\n        ],\n        \"emails\": [\n            \"johndoe@demo.com\"\n        ],\n        \"holders\": [\n            {\n                \"customerId\": \"49\",\n                \"dateOfBirth\": \"2002-08-21\",\n                \"governmentId\": \"BBshg054Thv\",\n                \"relationship\": \"PRIMARY\",\n                \"type\": \"CONSUMER\",\n                \"emails\": [\n                    \"john.doe@gmailcom\",\n                    \"jd@gmail.com\"\n                ],\n                \"telephones\": [\n                    {\n                        \"type\": \"HOME\",\n                        \"country\": \"US\",\n                        \"number\": \"8756565565\"\n                    }\n                ],\n                \"name\": {\n                    \"first\": \"John\",\n                    \"middle\": \"middle\",\n                    \"last\": \"Doe\",\n                    \"suffix\": \"suffix\",\n                    \"prefix\": \"Mr\",\n                    \"company\": \"Abc Tech company\"\n                },\n                \"addresses\": [\n                    {\n                        \"line1\": \"#85\",\n                        \"line2\": \"lastangel\",\n                        \"line3\": \"Carron\",\n                        \"city\": \"swiz\",\n                        \"state\": \"Cargo\",\n                        \"region\": \"region\",\n                        \"postalCode\": \"88556\",\n                        \"country\": \"US\",\n                        \"type\": \"MAILING\"\n                    }\n                ]\n            }\n        ],\n        \"telephones\": [\n            {\n                \"type\": \"CELL\",\n                \"country\": \"1\",\n                \"number\": \"212-916-5097\"\n            },\n            {\n                \"type\": \"HOME\",\n                \"country\": \"1\",\n                \"number\": \"845-670-0862\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Account Transactions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "2398f777-9259-4e50-867e-27247a143b1f"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}/transactions?startTime=2024-06-15&endTime=2024-07-26&limit=5&offset=Page1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"v6",
+								"core",
+								"accounts",
+								"{{accountId}}",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "startTime",
+									"value": "2024-06-15"
+								},
+								{
+									"key": "endTime",
+									"value": "2024-07-26"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "offset",
+									"value": "Page1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Account Transactions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "2398f777-9259-4e50-867e-27247a143b1f"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}/transactions?startTime=2024-06-15&endTime=2024-07-26&limit=5&offset=Page1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fdx",
+										"v6",
+										"core",
+										"accounts",
+										"{{accountId}}",
+										"transactions"
+									],
+									"query": [
+										{
+											"key": "startTime",
+											"value": "2024-06-15"
+										},
+										{
+											"key": "endTime",
+											"value": "2024-07-26"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										},
+										{
+											"key": "offset",
+											"value": "Page1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:23:09 GMT"
+								},
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "2398f777-9259-4e50-867e-27247a143b1f"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "2855"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "26960"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": {\n        \"totalElements\": 18,\n        \"nextOffset\": \"Page2\"\n    },\n    \"transactions\": [\n        {\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"transactionId\": \"T98224315404\",\n            \"referenceTransactionId\": \"RT73659438576\",\n            \"postedTimestamp\": \"2024-04-15T12:29:06Z\",\n            \"transactionTimestamp\": \"2024-06-23T23:34:51Z\",\n            \"description\": \"Online groceries\",\n            \"memo\": \"note66\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"SIC\",\n            \"subCategory\": \"Online shopping\",\n            \"reference\": \"R68078870179\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 1491.973856687403,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee66\",\n            \"checkNumber\": 77788572142\n        },\n        {\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"transactionId\": \"T40278332806\",\n            \"referenceTransactionId\": \"RT30767023464\",\n            \"postedTimestamp\": \"2024-03-26T04:21:09Z\",\n            \"transactionTimestamp\": \"2024-06-27T13:44:33Z\",\n            \"description\": \"Clothing order\",\n            \"memo\": \"note26\",\n            \"debitCreditMemo\": \"CREDIT\",\n            \"category\": \"SIC\",\n            \"subCategory\": \"Online shopping\",\n            \"reference\": \"R12399236734\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 427.936701109344,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee26\",\n            \"checkNumber\": 77788572102\n        },\n        {\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"transactionId\": \"T43072721806\",\n            \"referenceTransactionId\": \"RT28961399291\",\n            \"postedTimestamp\": \"2024-06-18T13:38:01Z\",\n            \"transactionTimestamp\": \"2024-06-29T04:35:56Z\",\n            \"description\": \"Purchased electronics\",\n            \"memo\": \"note73\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"SIC\",\n            \"subCategory\": \"Online shopping\",\n            \"reference\": \"R70438758597\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 4162.789132059199,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee73\",\n            \"checkNumber\": 77788572149\n        },\n        {\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"transactionId\": \"T99825723577\",\n            \"referenceTransactionId\": \"RT85037387918\",\n            \"postedTimestamp\": \"2024-09-03T16:48:44Z\",\n            \"transactionTimestamp\": \"2024-06-30T21:54:10Z\",\n            \"description\": \"Exchanged USD to EUR\",\n            \"memo\": \"note72\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"FX\",\n            \"subCategory\": \"Currency Exchange\",\n            \"reference\": \"R36526486814\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 1496.9398666283626,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee72\",\n            \"checkNumber\": 77788572148\n        },\n        {\n            \"accountId\": \"948759it3kbm5b3fdkj454\",\n            \"accountCategory\": \"DEPOSIT_ACCOUNT\",\n            \"transactionId\": \"T59726955289\",\n            \"referenceTransactionId\": \"RT17730688466\",\n            \"postedTimestamp\": \"2024-01-13T10:33:03Z\",\n            \"transactionTimestamp\": \"2024-07-06T22:51:28Z\",\n            \"description\": \"Account to account\",\n            \"memo\": \"note16\",\n            \"debitCreditMemo\": \"DEBIT\",\n            \"category\": \"Wire Transfer\",\n            \"subCategory\": \"Domestic Transfer\",\n            \"reference\": \"R91726241282\",\n            \"status\": \"AUTHORIZATION\",\n            \"amount\": 1874.3499017522554,\n            \"transactionType\": \"ADJUSTMENT\",\n            \"payee\": \"payee16\",\n            \"checkNumber\": 77788572092\n        }\n    ],\n    \"links\": {\n        \"next\": {\n            \"action\": \"GET\",\n            \"rel\": \"next\",\n            \"types\": [\n                \"application/json\"\n            ],\n            \"href\": \"/fdx/v6/core/accounts/948759it3kbm5b3fdkj454/transactions?offset=Page2&startTime=2024-06-15&endTime=2024-07-26&limit=5\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Account's Contact Information",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "2398f777-9259-4e50-867e-27247a143b1f"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}/contact",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"v6",
+								"core",
+								"accounts",
+								"{{accountId}}",
+								"contact"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Account's Contact Information",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "2398f777-9259-4e50-867e-27247a143b1f"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}/contact",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fdx",
+										"v6",
+										"core",
+										"accounts",
+										"{{accountId}}",
+										"contact"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:53:57 GMT"
+								},
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "2398f777-9259-4e50-867e-27247a143b1f"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "808"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "7410"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"holders\": [\n        {\n            \"relationship\": \"PRIMARY\",\n            \"type\": \"CONSUMER\",\n            \"customerId\": \"49\",\n            \"dateOfBirth\": \"2002-08-21\",\n            \"taxId\": \"taxId\",\n            \"governmentId\": \"BBshg054Thv\",\n            \"name\": {\n                \"first\": \"John\",\n                \"middle\": \"middle\",\n                \"last\": \"Doe\",\n                \"suffix\": \"suffix\",\n                \"prefix\": \"Mr\",\n                \"company\": \"Abc Tech company\"\n            },\n            \"emails\": [\n                \"john.doe@gmailcom\",\n                \"jd@gmail.com\"\n            ],\n            \"addresses\": [\n                {\n                    \"line1\": \"#85\",\n                    \"line2\": \"lastangel\",\n                    \"line3\": \"Carron\",\n                    \"city\": \"swiz\",\n                    \"state\": \"Cargo\",\n                    \"region\": \"region\",\n                    \"postalCode\": \"88556\",\n                    \"country\": \"US\",\n                    \"type\": \"MAILING\"\n                }\n            ],\n            \"telephones\": [\n                {\n                    \"type\": \"HOME\",\n                    \"country\": \"US\",\n                    \"number\": \"8756565565\"\n                }\n            ]\n        }\n    ],\n    \"emails\": [\n        \"johndoe@demo.com\"\n    ],\n    \"addresses\": [\n        {\n            \"line1\": \"829 Spring St.\",\n            \"city\": \"New York\",\n            \"region\": \"NY\",\n            \"postalCode\": \"10040\",\n            \"country\": \"US\"\n        }\n    ],\n    \"telephones\": [\n        {\n            \"type\": \"CELL\",\n            \"country\": \"1\",\n            \"number\": \"212-916-5097\"\n        },\n        {\n            \"type\": \"HOME\",\n            \"country\": \"1\",\n            \"number\": \"845-670-0862\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Asset Transfer Details of Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "2398f777-9259-4e50-867e-27247a143b1f"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}/asset-transfer-networks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"v6",
+								"core",
+								"accounts",
+								"{{accountId}}",
+								"asset-transfer-networks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Asset Transfer Details of Account",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "2398f777-9259-4e50-867e-27247a143b1f"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}/asset-transfer-networks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fdx",
+										"v6",
+										"core",
+										"accounts",
+										"{{accountId}}",
+										"asset-transfer-networks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:54:08 GMT"
+								},
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "2398f777-9259-4e50-867e-27247a143b1f"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "518"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "7078"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"assetTransferNetworks\": [\n        {\n            \"type\": \"US_ACATS\",\n            \"identifier\": \"121000358\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"jointAccount\": true,\n            \"institutionId\": \"1234567890\",\n            \"institutionName\": \"US Investments\"\n        },\n        {\n            \"type\": \"CA_ATON\",\n            \"identifier\": \"TKN-221000360\",\n            \"jointAccount\": true,\n            \"institutionId\": \"1234567890\",\n            \"identifierType\": \"TOKENIZED_ACCOUNT_NUMBER\",\n            \"institutionName\": \"CANADA BANK\"\n        },\n        {\n            \"type\": \"US_DTC\",\n            \"identifier\": \"621000357\",\n            \"jointAccount\": false,\n            \"institutionId\": \"1234567890\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"institutionName\": \"US Bank\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Payment Networks of Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "2398f777-9259-4e50-867e-27247a143b1f"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}/payment-networks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"v6",
+								"core",
+								"accounts",
+								"{{accountId}}",
+								"payment-networks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Payment Networks of Account",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "2398f777-9259-4e50-867e-27247a143b1f"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/fdx/v6/core/accounts/{{accountId}}/payment-networks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"fdx",
+										"v6",
+										"core",
+										"accounts",
+										"{{accountId}}",
+										"payment-networks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Fri, 27 Sep 2024 09:54:44 GMT"
+								},
+								{
+									"key": "x-fapi-interaction-id",
+									"value": "2398f777-9259-4e50-867e-27247a143b1f"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "1569"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "8098"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": {\n        \"totalElements\": 13,\n        \"nextOffset\": \"Page2\"\n    },\n    \"paymentNetworks\": [\n        {\n            \"bankId\": \"501010\",\n            \"identifier\": \"idd00test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501011\",\n            \"identifier\": \"idd01test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501012\",\n            \"identifier\": \"idd02test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501013\",\n            \"identifier\": \"idd03test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501014\",\n            \"identifier\": \"idd04test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501015\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501016\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501017\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501018\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        },\n        {\n            \"bankId\": \"501019\",\n            \"identifier\": \"idd05test\",\n            \"identifierType\": \"ACCOUNT_NUMBER\",\n            \"type\": \"US_FEDWIRE\",\n            \"transferIn\": true,\n            \"transferOut\": true\n        }\n    ],\n    \"links\": {\n        \"next\": {\n            \"href\": \"/948759it3kbm5b3fdkj454/payment-networks?offset=Page2\",\n            \"action\": \"GET\",\n            \"rel\": \"next\",\n            \"types\": [\n                \"application/json\"\n            ]\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Consent",
+			"item": [
+				{
+					"name": "Get Consent by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.property('durationPeriod');",
+									"    pm.expect(responseData).to.have.property('id');",
+									"    pm.expect(responseData).to.have.property('expirationTime');",
+									"    pm.expect(responseData).to.have.property('createdTime');",
+									"    pm.expect(responseData).to.have.property('status');",
+									"    pm.expect(responseData).to.have.property('resources');",
+									"    pm.expect(responseData).to.have.property('durationType');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate the resources array and its structure\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.resources).to.be.an('array');",
+									"    pm.expect(responseData.resources).to.have.lengthOf.at.least(1, \"Resources array should not be empty\");",
+									"",
+									"    responseData.resources.forEach(function(resource) {",
+									"        pm.expect(resource).to.be.an('object');",
+									"        // Add more specific checks for the structure of each resource if needed",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Expiration and created time are in valid date format\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.expirationTime).to.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$/, \"Expiration time should be in valid date format\");",
+									"    pm.expect(responseData.createdTime).to.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$/, \"Created time should be in valid date format\");",
+									"});",
+									"pm.test(\"Id field is a valid UUID\", function () {",
+									"    const responseData = pm.response.json();",
+									"    const uuidRegex = /^[0-9a-f]{24}$/;",
+									"    pm.expect(responseData.id).to.match(uuidRegex, \"Id should be a valid UUID\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "2398f777-9259-4e50-867e-27247a143b1f"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/fdx/v6/consents/{{consentId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"v6",
+								"consents",
+								"{{consentId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Consent by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "2398f777-9259-4e50-867e-27247a143b1f"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{apiBaseUrl}}/fdx/v6/consents/{{consentId}}",
+									"host": [
+										"{{apiBaseUrl}}"
+									],
+									"path": [
+										"fdx",
+										"v6",
+										"consents",
+										"{{consentId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jul 2024 11:59:51 GMT"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-length",
+									"value": "777"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"durationType\": \"TIME_BOUND\",\n    \"id\": \"668e73b5c9adbc2db67f004f\",\n    \"createdTime\": \"2024-07-10T11:42:45Z\",\n    \"expirationTime\": \"2024-10-08T11:42:28Z\",\n    \"updatedTime\": \"2024-07-10T11:46:08Z\",\n    \"lookbackPeriod\": 60,\n    \"durationPeriod\": 90,\n    \"status\": \"REVOKED\",\n    \"resources\": [\n        {\n            \"resourceId\": \"948759it3kbm5b3fdkj454\",\n            \"dataClusters\": [\n                \"ACCOUNT_BASIC\",\n                \"ACCOUNT_DETAILED\",\n                \"TRANSACTIONS\"\n            ],\n            \"resourceType\": \"ACCOUNT\"\n        },\n        {\n            \"resourceId\": \"948759it3kbm5b3f1234454\",\n            \"dataClusters\": [\n                \"ACCOUNT_BASIC\",\n                \"ACCOUNT_DETAILED\",\n                \"TRANSACTIONS\"\n            ],\n            \"resourceType\": \"ACCOUNT\"\n        },\n        {\n            \"resourceId\": \"7493c12151c4bb04e27caa\",\n            \"dataClusters\": [\n                \"ACCOUNT_BASIC\",\n                \"ACCOUNT_DETAILED\",\n                \"TRANSACTIONS\"\n            ],\n            \"resourceType\": \"ACCOUNT\"\n        },\n        {\n            \"resourceId\": \"abc669672cb0869d382920\",\n            \"dataClusters\": [\n                \"ACCOUNT_BASIC\",\n                \"ACCOUNT_DETAILED\",\n                \"TRANSACTIONS\"\n            ],\n            \"resourceType\": \"ACCOUNT\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Revoke Consent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 204\", function () {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "47fc8e84-79f0-4003-8f25-73e9be74281c"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"initiator\": \"INDIVIDUAL\",\r\n\t\"reason\": \"USER_ACTION\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/fdx/v6/consents/{{consentId}}/revocation",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"v6",
+								"consents",
+								"{{consentId}}",
+								"revocation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Revoke Consent",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "47fc8e84-79f0-4003-8f25-73e9be74281c"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"initiator\": \"INDIVIDUAL\",\r\n\t\"reason\": \"USER_ACTION\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apiBaseUrl}}/fdx/v6/consents/{{consentId}}/revocation",
+									"host": [
+										"{{apiBaseUrl}}"
+									],
+									"path": [
+										"fdx",
+										"v6",
+										"consents",
+										"{{consentId}}",
+										"revocation"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jul 2024 12:02:17 GMT"
+								},
+								{
+									"key": "X-fapi-interaction-id",
+									"value": "47fc8e84-79f0-4003-8f25-73e9be74281c"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get Revoked Consent history",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response has the required fields\", function () {\r",
+									"    const responseData = pm.response.json().revocations;\r",
+									"\r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    responseData.forEach(function(revocation) {\r",
+									"        pm.expect(revocation.reason).to.exist;\r",
+									"        pm.expect(revocation.initiator).to.exist;\r",
+									"        pm.expect(revocation.updatedTime).to.exist;\r",
+									"        pm.expect(revocation.status).to.exist;\r",
+									"        pm.expect(revocation.status).to.equal(\"REVOKED\");\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Reason, initiator, updatedTime, and status are non-empty strings\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    responseData.revocations.forEach(function(revocation) {\r",
+									"        pm.expect(revocation.reason).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Reason should not be empty\");\r",
+									"        pm.expect(revocation.initiator).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Initiator should not be empty\");\r",
+									"        pm.expect(revocation.updatedTime).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Updated time should not be empty\");\r",
+									"        pm.expect(revocation.status).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Status should not be empty\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "47fc8e84-79f0-4003-8f25-73e9be74281c"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/fdx/v6/consents/{{consentId}}/revocation",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"v6",
+								"consents",
+								"{{consentId}}",
+								"revocation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Revoked Consent history",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "47fc8e84-79f0-4003-8f25-73e9be74281c"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{apiBaseUrl}}/fdx/v6/consents/{{consentId}}/revocation",
+									"host": [
+										"{{apiBaseUrl}}"
+									],
+									"path": [
+										"fdx",
+										"v6",
+										"consents",
+										"{{consentId}}",
+										"revocation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jul 2024 11:57:03 GMT"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-length",
+									"value": "123"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"revocations\": [\n        {\n            \"reason\": \"USER_ACTION\",\n            \"initiator\": \"INDIVIDUAL\",\n            \"updatedTime\": \"2024-07-10T11:46:07Z\",\n            \"status\": \"REVOKED\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Refresh token",
+			"item": [
+				{
+					"name": "Get Access Token from Refresh Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validate that the access_token, token_type, expires_in, scope, state, and grant_id fields are not null\", function () {\r",
+									"    var response = pm.response.json();\r",
+									"\r",
+									"    pm.expect(response.access_token).to.not.be.null;\r",
+									"    pm.expect(response.token_type).to.not.be.null;\r",
+									"    pm.expect(response.expires_in).to.not.be.null;\r",
+									"    pm.expect(response.scope).to.not.be.null;\r",
+									"    pm.expect(response.grant_id).to.not.be.null;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Extract and store the access token and refresh token in collection variable\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.refresh_token).to.exist;\r",
+									"    pm.collectionVariables.set(\"access_token\", responseData.access_token);\r",
+									"\r",
+									"    pm.expect(responseData.refresh_token).to.exist;\r",
+									"    pm.collectionVariables.set(\"refresh_token\", responseData.refresh_token);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "ssl-client-verify",
+								"value": "{{ssl-client-verify}}",
+								"type": "text"
+							},
+							{
+								"key": "ssl-client-cert",
+								"value": "{{ssl-client-cert}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{clientId}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "{{refresh_token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/fdx/auth/v1/token",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fdx",
+								"auth",
+								"v1",
+								"token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Access Token from Refresh Token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "ssl-client-verify",
+										"value": "{{ssl-client-verify}}",
+										"type": "text"
+									},
+									{
+										"key": "ssl-client-cert",
+										"value": "{{ssl-client-cert}}",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "client_id",
+											"value": "{{clientId}}",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "refresh_token",
+											"type": "text"
+										},
+										{
+											"key": "refresh_token",
+											"value": "{{refresh_token}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apiBaseUrl}}/fdx/auth/v1/token",
+									"host": [
+										"{{apiBaseUrl}}"
+									],
+									"path": [
+										"fdx",
+										"auth",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jul 2024 11:52:11 GMT"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-length",
+									"value": "2468"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJtbkplLW1wbTRoX0puMTJRMzhOV0JaUU1xZHQzekhkS2N6ZWNkM0lKTl80In0.eyJleHAiOjE3MjA2MTI2MzEsImlhdCI6MTcyMDYxMjMzMSwiYXV0aF90aW1lIjoxNzIwNjExNzk2LCJqdGkiOiI4ZGYyYTdjNy1lODI0LTQxZmUtOGUxYi1mMjhhN2ExYzIxZTIiLCJpc3MiOiJodHRwczovL2F1dGgub3BlbmJhbmtpbmcuYXh3YXlzYnNkZXYubmV0L3JlYWxtcy9ncmlmZmluLWxpdmUiLCJzdWIiOiJiMjY4MWM1My04MjM4LTQzYWEtYTdkYi04NDhjNTQ3ZTkwODQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJlbW9uZXkiLCJzZXNzaW9uX3N0YXRlIjoiMTA0YjFlNTgtZTYyZS00YjRhLTk2MmQtNzk0ZGU1MWFkMWE5IiwiY25mIjp7Ing1dCNTMjU2IjoiX3JRclNzVUNuTlplc0tzZUFNX3A0Y21MMllFeG9sTXV3WkF6Nk53VjFidyJ9LCJzY29wZSI6ImZkeDphY2NvdW50ZGV0YWlsZWQ6cmVhZCBmZHg6dHJhbnNhY3Rpb25zOnJlYWQgZmR4OmFjY291bnRiYXNpYzpyZWFkIiwic2lkIjoiMTA0YjFlNTgtZTYyZS00YjRhLTk2MmQtNzk0ZGU1MWFkMWE5IiwidGVuYW50SW5mb3JtYXRpb24iOnsidGVuYW50TmFtZSI6IkdyaWZmaW4gQmFuayIsInRlbmFudElkIjoiVDAwMDEwMjUxIn0sImZkeENvbnNlbnRJZCI6IjY2OGU3M2I1YzlhZGJjMmRiNjdmMDA0ZiJ9.OqU8yKKLXFeGPXFgQhFKg3hLDkZMrFOG5dt7Qg6Jllw_0hptFCMc5q11P37j3sW5stkfCFkJdcXSVOIjyEWWBXR35F0DCggZcV6s9RZ2QTPDB6fXGGJZmhlUIMeig5YeLomKNMy6NCC1Lm2HGYtGUGQ6k470AFrhZGX0L9wpG5R5MbdYzN5jDThysOEGTDJp9l6jDC7A5Z1cNBtUD20In130iv01JRSCeaq0AGETOTrCA3FpSZZydxjAqX9rRA4zvQf8azVC79x7zljytViHO8M8thDsrUdz4joKSyUkxim0q_jgzxPEvgq687pcOD5_aXog8zYcUbC3zlDOV7N3lQ\",\n    \"expires_in\": 300,\n    \"refresh_expires_in\": 1800,\n    \"refresh_token\": \"eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJjZDllMzI2OS0wNTM5LTQ5MTgtOWY4Yi1kM2ZkZWUwNWY2M2QifQ.eyJleHAiOjE3MjA2MTQxMzEsImlhdCI6MTcyMDYxMjMzMSwianRpIjoiYjEzZjRmZWYtN2ZjMi00ZGEyLTgxNWUtMzEyYTk4YjQwNzMyIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLm9wZW5iYW5raW5nLmF4d2F5c2JzZGV2Lm5ldC9yZWFsbXMvZ3JpZmZpbi1saXZlIiwiYXVkIjoiaHR0cHM6Ly9hdXRoLm9wZW5iYW5raW5nLmF4d2F5c2JzZGV2Lm5ldC9yZWFsbXMvZ3JpZmZpbi1saXZlIiwic3ViIjoiYjI2ODFjNTMtODIzOC00M2FhLWE3ZGItODQ4YzU0N2U5MDg0IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6ImVtb25leSIsInNlc3Npb25fc3RhdGUiOiIxMDRiMWU1OC1lNjJlLTRiNGEtOTYyZC03OTRkZTUxYWQxYTkiLCJjbmYiOnsieDV0I1MyNTYiOiJfclFyU3NVQ25OWmVzS3NlQU1fcDRjbUwyWUV4b2xNdXdaQXo2TndWMWJ3In0sInNjb3BlIjoiZmR4OmFjY291bnRkZXRhaWxlZDpyZWFkIGZkeDp0cmFuc2FjdGlvbnM6cmVhZCBmZHg6YWNjb3VudGJhc2ljOnJlYWQiLCJzaWQiOiIxMDRiMWU1OC1lNjJlLTRiNGEtOTYyZC03OTRkZTUxYWQxYTkifQ.jHHfE4jVgVFr1Iy-Ce37c64XYsg1YQOd14PvWNyP3tBXyLl7RiRzgnCzsR81Rui8rjcsFISty-lncrekRwLXwQ\",\n    \"token_type\": \"Bearer\",\n    \"not-before-policy\": 0,\n    \"session_state\": \"104b1e58-e62e-4b4a-962d-794de51ad1a9\",\n    \"scope\": \"fdx:accountdetailed:read fdx:transactions:read fdx:accountbasic:read\",\n    \"grant_id\": \"668e73b5c9adbc2db67f004f\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "realmName",
+			"value": "griffin-live",
+			"type": "string"
+		},
+		{
+			"key": "authServerUrl",
+			"value": "https://auth.openbanking.axwaysbsdev.net",
+			"type": "string"
+		},
+		{
+			"key": "ssl-client-verify",
+			"value": "SUCCESS",
+			"type": "string"
+		},
+		{
+			"key": "ssl-client-cert",
+			"value": "-----BEGIN%20CERTIFICATE-----%0AMIIFbzCCA1cCFF4%2Bf1Ljv7Vo6z5ScO04IEGT1NtdMA0GCSqGSIb3DQEBCwUAMHMx%0ACzAJBgNVBAYTAklOMQwwCgYDVQQIDANERUwxDDAKBgNVBAcMA0RFTDEOMAwGA1UE%0ACgwFQVhXQVkxCzAJBgNVBAsMAk9CMQ0wCwYDVQQDDARST09UMRwwGgYJKoZIhvcN%0AAQkBFg1yb290QHRlc3QuY29tMB4XDTI0MDUxMzEyNDUyM1oXDTI1MDUxMzEyNDUy%0AM1owdTELMAkGA1UEBhMCSU4xDDAKBgNVBAgMA0RFTDEQMA4GA1UEBwwHS09MS0FU%0AQTEMMAoGA1UECgwDU0JTMQswCQYDVQQLDAJPQjENMAsGA1UEAwwESm9objEcMBoG%0ACSqGSIb3DQEJARYNam9obkB0ZXN0LmNvbTCCAiIwDQYJKoZIhvcNAQEBBQADggIP%0AADCCAgoCggIBAMNMUuz3d3osn1VYonFOeziMGQj6G6ToCot%2F6ZBL64qs2AnTRDxf%0AafBpjfuQUQAm2JDf41hONIPVJbI0IySbAQQQQvW8uzeB3LhqFT6EmgDMu6e%2Flc3g%0AM2r2DvefLHLgtbvh5jXJP33bdm34BTkT2WXp8trjYl%2F5S6J%2F5hVGn8UnvT%2FdgkdN%0AZaPu9Bpe%2B3OSg1PMz0cwdzfjq86i68Ga%2B5HkTCi979M3%2Fx95zKOdREEBhG%2FmWPz4%0AAlb5BFbCRYxaEbZcXes52LWlFUG9YjNBI%2FE2LoSSpjiHa6vL3CO3QSpjkhVGDits%0AxORn2rBqY%2Bi8duowHyBb%2B%2FIurXrEu1EHf0O9jLxF4svKPNgOk98JG464e%2BUVyJwe%0A83XxAbVnVjYPiTLv6bIlJJQU6T7wPSjHB99dyLz6bUmrcgogPfUIGZjZzJqmtllP%0A77gV%2B%2FIOIC%2FSy7Z%2F40qZvuIa1Hb3lbt%2BHgYlSE9PRHSzF%2BcJsL6X82Om%2B7xtclVb%0Ax5BJKvvQ25wN3VNsZNMDuZjN%2F81cMfKqndy95R6okAO6NIi6t7zK%2BS8dBGO0%2Bs7p%0AsERJkzATkBMvULzP08qNdfvBj0ok69CEuHvgB39H064OZNkvKLeFEqKiuIOrMkdC%0ArY4KiJvj%2FTDGqLR2L3feHJht114mq8FiRwmY4IQK7h6elMQuAM0qInEvAgMBAAEw%0ADQYJKoZIhvcNAQELBQADggIBADa0UxAQZILo%2BF%2FIZrs54AlYIFfDhU%2BnlsrKK%2FBs%0AHbJfUVrG3pVZa%2FIyVMg20vpwNJ9aU2YXlkpxW9NNp7rNhGWWW3wiS4tQgjX1wOw4%0AeZdFGsH7wpdc%2BwUlk9ZBY9Fhm7y5l2c83vZ%2B0rWxxjOm%2BEjLwPeq6s5fJXCsWKHc%0A%2FViSzBaKuZHbIGJpQmy%2BYDXKMn6H8kWJcifa4cNVK4N3y1DKYLQeAHIUBxXIgiSu%0AUzsdiguXjxcrPd3eGglUXtVl7HsSBi7HF%2FdYkPYBdOPq3%2FFH5TDV2c1ZDa9L781y%0AhZh1OQ4KkH%2FJpn%2BGGTm%2Fa%2FdrLtPPaiBWdczikBIcZX9Mj5eGMLBUT6XVTi13UISo%0ARRBtcFbHD5GnLAbeUHwUzHX%2Fyntm3BPtNe7iS%2Bq%2BOVTcxque6CnZGQRNlMEPJkWi%0AjkkCVVDBMlGimFrXowEw48XJ7vnIXg20rUVI68IeVsy7CP0Q4loyzxehDgvKktKf%0AKDwFPYbvUG%2FrSdoqxSKMIR7HZ7P4ruVRYGZ%2BN3IpjZ1u4cYtjBmWwiJ6NaljC4LG%0AX2mb7g%2Ff3sX2S48FryCv5eeMUXDHoAylb2RH%2FhbA%2BPvfbYpX5aPjw1OJqdc7LOC4%0AL6J341zcL2HlYJoMo%2FCKrvWRPzm4ExSSN%2FJlHgnFgzFs8ZsYzDBCPjlq%2BfIgl984%0Azddd%0A-----END%20CERTIFICATE-----%0A",
+			"type": "string"
+		},
+		{
+			"key": "exp",
+			"value": ""
+		},
+		{
+			"key": "request_token",
+			"value": ""
+		},
+		{
+			"key": "request_uri",
+			"value": ""
+		},
+		{
+			"key": "code",
+			"value": ""
+		},
+		{
+			"key": "access_token",
+			"value": ""
+		},
+		{
+			"key": "refresh_token",
+			"value": ""
+		},
+		{
+			"key": "consentId",
+			"value": ""
+		},
+		{
+			"key": "accountId",
+			"value": ""
+		},
+		{
+			"key": "code_verifier",
+			"value": ""
+		},
+		{
+			"key": "code_challenge",
+			"value": ""
+		},
+		{
+			"key": "login_url",
+			"value": ""
+		}
+	]
+}

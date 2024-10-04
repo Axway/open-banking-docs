@@ -1,0 +1,27 @@
+{
+	"id": "007f105e-5f27-4e12-9857-a66de46b5e91",
+	"name": "FDX Demo",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "https://<host>:<port>",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "clientId",
+			"value": "<clientId>",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "privateKey",
+			"value": "<privateKey>",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-09-27T09:55:20.746Z",
+	"_postman_exported_using": "Postman/11.13.1"
+}
