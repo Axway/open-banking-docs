@@ -14,13 +14,10 @@ Open Banking APIs and workflows are developed and exposed via Amplify Integratio
 The following steps provide details on how to set up these properties.
 
 1. Log in to Amplify Integration.
-
-2. Navigate to *Manager > Environments*.
+2. Navigate to *Manager > Environments*. <br />
    ![Go to Environments](/Images/AI-Manager-Environments.png)
-
-3. Click **Details**.
+3. Click **Details**. <br />
    ![View Details](/Images/AI-Env-Property-Details.png)
-
 4. Here you can update the environment properties. The details of the properties to be updated are provided in the next section.
    ![Update Properties](/Images/AI-Update-Environment-Properties.png)
 
