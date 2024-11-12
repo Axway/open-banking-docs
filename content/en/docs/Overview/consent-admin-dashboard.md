@@ -5,8 +5,6 @@ weight: 11
 date: 2024-11-06
 ---
 
-# Consent Admin Dashboard
-
 The Consent Admin Dashboard allows bank's back-office users to view and/or manage consents of the customers initiated through the open banking channel. Features and options available within this application depend on the back-office user access level, which can be one of two types:
 
 - **View Access**: Allows the user to view data only.
