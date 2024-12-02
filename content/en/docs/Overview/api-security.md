@@ -5,18 +5,16 @@ weight: 12
 date: 2024-11-29
 ---
 
-# Introduction
-
 This document provides an overview of the security mechanisms implemented to protect the APIs offered by our solution. These mechanisms ensure that sensitive data is exchanged securely and accessed only by authorized parties.
 
 ## Security Overview
 
 Our API security framework incorporates industry-standard mechanisms to ensure robust protection:
 
-- **OAuth 2.0**: Ensures secure access control via token-based authentication.
-- **Mutual TLS (mTLS)**: Guarantees secure communication between clients and servers through certificate-based authentication.
-- **JWT Tokens**: Provides secure, tamper-proof access tokens, ensuring only authorized entities can access the APIs.
-- **FDX Security Guidelines**: Aligns with FDX standards for secure financial data exchange, ensuring compliance with industry best practices.
+* **OAuth 2.0**: Ensures secure access control via token-based authentication.
+* **Mutual TLS (mTLS)**: Guarantees secure communication between clients and servers through certificate-based authentication.
+* **JWT Tokens**: Provides secure, tamper-proof access tokens, ensuring only authorized entities can access the APIs.
+* **FDX Security Guidelines**: Aligns with FDX standards for secure financial data exchange, ensuring compliance with industry best practices.
 
 ## Certificate-Based Authentication
 
@@ -28,8 +26,8 @@ All API communications are encrypted using **TLS (Transport Layer Security)**, s
 
 To enhance security further, our APIs utilize **mutual TLS (mTLS)** for client and server authentication:
 
-- **Server Authentication**: The server presents its SSL certificate to verify its identity to the client.
-- **Client Authentication**: Clients must present valid certificates to authenticate themselves with the server, ensuring only authorized clients gain access.
+* **Server Authentication**: The server presents its SSL certificate to verify its identity to the client.
+* **Client Authentication**: Clients must present valid certificates to authenticate themselves with the server, ensuring only authorized clients gain access.
 
 Additionally, **certificate-bound access tokens** are employed to strengthen security by binding tokens to client certificates.
 
@@ -52,6 +50,7 @@ Access to API resources is controlled through **scopes**, which define the permi
 The table below provides a summary of security measures, required scopes, and OAuth protocols for accessing API endpoints.
 
 ### FDX APIs
+
 Following APIs are for Data Recipients and Data Aggregators to consume and build applications.
 
 #### FDX Core API
@@ -73,7 +72,6 @@ Following APIs are for Data Recipients and Data Aggregators to consume and build
 | PATCH  |`/fdx/v6/consents/{consentId}/revocation`               | mTLS, OAuth 2.0         | NA              | Authorization Code    |
 | GET    |`/fdx/v6/consents/{consentId}/revocation`               | mTLS, OAuth 2.0         | NA              | Authorization Code    |
 
-
 #### FDX Notification Subscription API
 
 | Method | Endpoint                                                    | Security Protocol       | Scopes Required   | OAuth Flow            |
@@ -83,9 +81,11 @@ Following APIs are for Data Recipients and Data Aggregators to consume and build
 |  DELETE   |`/fdx/v6/events/{consentId}/revocation/{subscriptionId}`  | mTLS, OAuth 2.0         | `fdx:notifications:subscribe`              | Client Credentials    |
 
 ### Solution APIs
+
 Following APIs are for Data Providers to integrate with our consent managenent module.
 
 #### External Resource Authentication API
+
 This API is for consent grant application to get and update the consent.
 
 | Method | Endpoint                                            | Security Protocol | Scopes Required            | OAuth Flow            |
@@ -93,8 +93,8 @@ This API is for consent grant application to get and update the consent.
 |  GET   | `/external/authentication/v1/resources/{resourceId}`| OAuth 2.0         | `external:resources:read`  | Client Credentials    |
 |  PATCH |`/external/authentication/v1/resources/{resourceId}` | OAuth 2.0         | `external:resources:write` | Client Credentials    |
 
+### Participant Management User API
 
-#### Participant Management User API
 This API is for consumer consent dashboard to get and update the consent.
 
 | Method | Endpoint                                            | Security Protocol | Scopes Required                 | OAuth Flow            |
