@@ -40,15 +40,7 @@ The dashboard displays all consent-related data in a table format, supporting fe
     * For "On Hold" status, users can change them to **Revoked**, **Active**.
     * For "Active" status, users can change them to **Revoked**, **On Hold**.
       ![alt text](/Images/consent-admin/image-5.png)
-    * "Initiated," "Revoked," "Expired," or "Consumed" consent statuses are not editable 
-      ![alt text](/Images/consent-admin/image-6.png)
-
-### Viewing Consent Details
-
-* Users can view more detailed information about a consent by clicking on a row in the table or selecting the **View** option from the ellipsis menu.
-* The details page shows comprehensive information that may not be visible in the table view and allows users with appropriate access to change eligible statuses where applicable.
-
-This Details page thus provides a comprehensive view and control panel for managing consent data based on user access levels. it is not editable.
+    * "Initiated," "Revoked," "Expired," or "Consumed" consent statuses can not be edited.
       ![alt text](/Images/consent-admin/image-6.png)
 
 ### Viewing Consent Details
