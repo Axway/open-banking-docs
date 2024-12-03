@@ -33,7 +33,7 @@ Additionally, **certificate-bound access tokens** are employed to strengthen sec
 
 ## Scope and Permissions
 
-Access to API resources is controlled through **scopes**, which define the permissions granted during authorization. The table below outlines available scopes and their corresponding access levels:
+Access to API resources is controlled through **scopes**, which define the permissions granted during authorization. The following table outlines available scopes and their corresponding access levels:
 
 | Scope                        | Description                                                                 |
 |------------------------------|-----------------------------------------------------------------------------|
@@ -47,11 +47,11 @@ Access to API resources is controlled through **scopes**, which define the permi
 
 ## API Security, Scopes, and OAuth Protocols
 
-The table below provides a summary of security measures, required scopes, and OAuth protocols for accessing API endpoints.
+The tables below provides a summary of security measures, required scopes, and OAuth protocols for accessing API endpoints.
 
 ### FDX APIs
 
-Following APIs are for Data Recipients and Data Aggregators to consume and build applications.
+The following APIs are for Data Recipients and Data Aggregators to consume and build applications.
 
 #### FDX Core API
 
@@ -82,7 +82,7 @@ Following APIs are for Data Recipients and Data Aggregators to consume and build
 
 ### Solution APIs
 
-Following APIs are for Data Providers to integrate with our consent managenent module.
+The following APIs are for Data Providers to integrate with our consent managenent module.
 
 #### External Resource Authentication API
 
