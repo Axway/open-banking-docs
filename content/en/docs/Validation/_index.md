@@ -1,5 +1,5 @@
 ---
-title: "Solution Validation"
+title: "Solution validation"
 linkTitle: "Validation"
 weight: 10
 date: 2021-09-02

@@ -1,6 +1,6 @@
 ---
 title: "Consent Admin Dashboard"
-linkTitle: "Consent Admin Dashboard"
+linkTitle: "Dashboard"
 weight: 11
 date: 2024-11-06
 ---
@@ -10,21 +10,21 @@ The Consent Admin Dashboard allows banks' back-office users to view and/or manag
 * **View Access**: Allows the user to view data only.
 * **Admin Access**: Enables the user to view and modify data.
 
-## Dashboard Overview
+## Dashboard overview
 
 The dashboard displays all consent-related data in a table format, supporting features such as filtering and search. Users can filter the data by Status, Consent Type, and Owner, and perform a search by Consent ID at the top of the table.
 ![alt text](/Images/consent-admin/image-1.png)
 
-## Features and Options
+## Features and options
 
-### Filter Options
+### Filter options
 
 * Users can filter the table data based on Status, Consent Type, and Owner.
 * Multiple filters can be applied simultaneously.
 * A **Reset** button is provided to restore filters to their default settings.
   ![alt text](/Images/consent-admin/image-2.png)
 
-### Export Data
+### Export data
 
 * The dashboard allows users to export selected consent data by selecting specific rows using checkboxes, and then generating the export files of the chosen data.
   ![alt text](/Images/consent-admin/image-3.png)

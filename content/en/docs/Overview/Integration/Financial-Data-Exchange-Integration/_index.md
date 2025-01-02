@@ -1,6 +1,6 @@
 ---
-title: "Financial Data Exchange (FDX) End to End Journey"
-linkTitle: "Financial Data Exchange (FDX) End to End Journey"
+title: "Financial Data Exchange (FDX) end to end journey"
+linkTitle: "Financial Data Exchange (FDX) end to end journey"
 weight: 5
 date: 2023-03-15
 ---
@@ -73,6 +73,6 @@ Step 4: Request Data
 * This is carried out by making a GET request the relevant resource.
 * The unique AccountId(s) that are valid for the account-access-consent will be returned with a call to GET /accounts. This will always be the first call once an DR has a valid access token.
 
-### Sequence Diagram
+### Sequence diagram
 
 ![FDX End-to-end web journey sequence](/Images/FDX_Web_Journey_Sequence.svg)
