@@ -1,6 +1,6 @@
 ---
-title: "Solution Overview"
-linkTitle: "Solution Overview"
+title: "Solution overview"
+linkTitle: "Solution overview"
 weight: 1
 date: 2021-06-22
 ---
@@ -43,7 +43,7 @@ We provide a comprehensive, pre-built catalog of the API Products available in t
 
 Developer and Organization Onboarding is the ability to seamlessly onboard a developer or their organization.
 
-#### Usage Plans and Subscriptions
+#### Usage plans and subscriptions
 
 Subscriptions are free or paid consumption options to access certain API from resources in products to help provide business case solutions. Consumers browse products, but must subscribe, request access, and be approved before products can be consumed with an application.
 
@@ -58,7 +58,7 @@ Development Tools are the affordances offered to developers to aid them in their
 * Postman collections
 * Interactive API explorers
 
-#### Subscription, Application and API Usage
+#### Subscription, application and API usage
 
 Consumer insights provides API Consumers with secure, self-service access to actionable insights regarding their usage of the APIs from the Marketplace. Application and API usage analytics allow developers to understand the success of their applications.
 

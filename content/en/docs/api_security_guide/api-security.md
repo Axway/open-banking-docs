@@ -5,9 +5,9 @@ weight: 12
 date: 2024-11-29
 ---
 
-This document provides an overview of the security mechanisms implemented to protect the APIs offered by our solution. These mechanisms ensure that sensitive data is exchanged securely and accessed only by authorized parties.
+This guide provides an overview of the security mechanisms implemented to protect the APIs offered by our solution. These mechanisms ensure that sensitive data is exchanged securely and accessed only by authorized parties.
 
-## Security Overview
+## Security overview
 
 Our API security framework incorporates industry-standard mechanisms to ensure robust protection:
 
@@ -16,9 +16,9 @@ Our API security framework incorporates industry-standard mechanisms to ensure r
 * **JWT Tokens**: Provides secure, tamper-proof access tokens, ensuring only authorized entities can access the APIs.
 * **FDX Security Guidelines**: Aligns with FDX standards for secure financial data exchange, ensuring compliance with industry best practices.
 
-## Certificate-Based Authentication
+## Certificate-based authentication
 
-### TLS/SSL Encryption
+### TLS/SSL encryption
 
 All API communications are encrypted using **TLS (Transport Layer Security)**, safeguarding data against interception and tampering. SSL certificates are used to verify the authenticity and integrity of the communication between clients and servers.
 
@@ -31,7 +31,7 @@ To enhance security further, our APIs utilize **mutual TLS (mTLS)** for client a
 
 Additionally, **certificate-bound access tokens** are employed to strengthen security by binding tokens to client certificates.
 
-## Scope and Permissions
+## Scope and permissions
 
 Access to API resources is controlled through **scopes**, which define the permissions granted during authorization. The following table outlines available scopes and their corresponding access levels:
 
@@ -45,7 +45,7 @@ Access to API resources is controlled through **scopes**, which define the permi
 | `fdx:paymentsupport:read`     | Grants read access to payment-related data, including payment history and support-related information. |
 | `fdx:transactions:read`       | Grants read access to transaction data, including details on all transactions, such as amount, date, and status. |
 
-## API Security, Scopes, and OAuth Protocols
+## API security, scopes, and OAuth protocols
 
 The tables below provides a summary of security measures, required scopes, and OAuth protocols for accessing API endpoints.
 
@@ -82,7 +82,7 @@ The following APIs are for Data Recipients and Data Aggregators to consume and b
 
 ### Solution APIs
 
-The following APIs are for Data Providers to integrate with our consent managenent module.
+The following APIs are for Data Providers to integrate with our consent management module.
 
 #### External Resource Authentication API
 
