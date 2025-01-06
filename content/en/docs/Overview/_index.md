@@ -11,7 +11,6 @@ This section provides a general overview of the solution. The goal is to provid
 
 * A [solution overview](/docs/overview/solution) that describes the solution features.
 * An [functional architecture](/docs/overview/integration) that shows a number of different flows.
-* A [Consent Admin Dashboard Guide](/docs/overview/consent-admin-dashboard) that describes backoffice user interface.
 
 <!-- * A [technical view](/docs/overview/technical) of the architecture and components. -->
 

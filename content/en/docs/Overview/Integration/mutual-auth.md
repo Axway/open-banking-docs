@@ -1,12 +1,12 @@
 ---
 title: "Mutual authentication and certificate verification"
-linkTitle: "Mutual Authentication"
+linkTitle: "Mutual authentication"
 weight: 2
 date: 2021-06-22
 type: sequence
 ---
 
-Mutual Authentication is an important part of security in open banking. It is commonly implemented and is a component of Financial-grade API (FAPI).
+Mutual authentication is an important part of security in open banking. It is commonly implemented and is a component of Financial-grade API (FAPI).
 
 The flow is summarized as follows:
 
