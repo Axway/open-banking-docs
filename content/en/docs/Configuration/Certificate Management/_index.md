@@ -24,7 +24,7 @@ This section includes the prerequisites and tasks to setup the solution for MTLS
 ### Prerequisites
 
 * An OpenSSL tool is available.
-* Amplify Integration is running with Open Banking projects.
+* Amplify Fusion is running with Open Banking projects.
 
 ### Create the root CA certificates
 
@@ -120,9 +120,9 @@ openssl req -new -newkey rsa:2048 -nodes -out tpp2.csr -keyout tpp2.key
 openssl x509 -req -days 3650 -in tpp1.csr -CA ca1.crt -CAkey ca1.key -CAcreateserial -out tpp2.crt
 ```
 
-### Configure root CA certificates in Amplify Integration
+### Configure root CA certificates in Amplify Fusion
 
-The root CA certificate (e.g., ca1.crt), must to be added in Amplify Integration:
+The root CA certificate (e.g., ca1.crt), must to be added in Amplify Fusion:
 
 1. Import the certificate in *Manager > Security > Certificates*.
 ![Certificate Import](/Images/AI-Manager-Certificates.png)

@@ -1,19 +1,19 @@
 ---
-title: "Amplify Integration"
-linkTitle: "Amplify Integration"
+title: "Amplify Fusion"
+linkTitle: "Amplify Fusion"
 weight: 4
 date: 2024-09-10
 ---
 
-Open Banking APIs and workflows are developed and exposed via Amplify Integration. These APIs and workflows rely on specific environment properties that must be configured for them to function correctly. This section provides instructions on how to update these environment properties, along with detailed explanations for each property.
+Open Banking APIs and workflows are developed and exposed via Amplify Fusion. These APIs and workflows rely on specific environment properties that must be configured for them to function correctly. This section provides instructions on how to update these environment properties, along with detailed explanations for each property.
 
-{{% alert title="Note" color="primary" %}} For more information on Amplify Integration, refer to the [Axway Documentation Portal](https://docs.axway.com/bundle/amplify_integration/page/amplify_integration_guide.html).{{% /alert %}}
+{{% alert title="Note" color="primary" %}} For more information on Amplify Fusion, refer to the [Axway Documentation Portal](https://docs.axway.com/bundle/amplify_integration/page/amplify_integration_guide.html).{{% /alert %}}
 
 ## Steps to configure environment properties
 
 The following steps provide details on how to set up these properties.
 
-1. Log in to Amplify Integration.
+1. Log in to Amplify Fusion.
 2. Navigate to *Manager > Environments*. <br />
    ![Go to Environments](/Images/AI-Manager-Environments.png)
 3. Click **Details**. <br />

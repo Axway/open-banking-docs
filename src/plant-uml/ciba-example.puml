@@ -5,7 +5,7 @@ hide footbox
 
 participant "Data\nRecipient\nApp" as DR
 
-box Amplify Integration #6FA8DC
+box Amplify Fusion #6FA8DC
 participant "API\nGateway" as API_GATEWAY
 participant "Consent\nManagement" as CONSENT
 participant "Core Banking \nConnector" as CBC

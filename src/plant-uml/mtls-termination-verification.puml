@@ -4,7 +4,7 @@ title \n\n
 
 participant "Data\nRecipient" as DR
 
-box Amplify Integration #6FA8DC
+box Amplify Fusion #6FA8DC
 participant "API\nGateway" as API_GATEWAY
 participant "Core Banking\nConnector" as CBC
 end box
