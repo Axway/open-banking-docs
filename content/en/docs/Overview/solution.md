@@ -11,7 +11,7 @@ Amplify Open Banking is built on top of five solution building blocks as shown b
 
 To clarify the purpose of each building block:
 
-* **Developer Experience** is all about **engagement**. Giving developers what they need, when they need it is critical by putting the tools in their hands that will make their applications a success. Amplify Marketplace delivers a set of features to productize APIs in a storefront where APIs are published as products that are discoverable and available for both internal and external consumption.
+* **Developer Experience** is all about **engagement**. Giving developers what they need, when they need it is critical by putting the tools in their hands that will make their applications a success. Amplify Engage delivers a set of features to productize APIs in a storefront where APIs are published as products that are discoverable and available for both internal and external consumption.
 * The rationale for **Open Banking APIs** is twofold:
     * Your organization needs to achieve **compliance** with local standards by providing the APIs dictated by open banking regulations.
     * You want to **take advantage of demand in the market** by exposing open APIs that provide data or services that make your organization unique and therefore attractive to consumers of those services.
@@ -158,15 +158,15 @@ be disabled dependent on your organization's position on market regulations.
 
 The Infrastructure building block brings together Axway's product set to power the solution.
 
-#### Amplify Integration
+#### Amplify Fusion
 
-The Amplify Integration provides access to and protection for your APIs using Axway's industry-leading technology. Amplify Integration is a low-code or no-code integration platform that solves simple to complex enterprise integration use cases and patterns. ​Primary use cases​ are application integration, data integration, and API-fication (getting apps to talk to each other via application programming interfaces).
+The Amplify Fusion provides access to and protection for your APIs using Axway's industry-leading technology. Amplify Fusion is a low-code or no-code integration platform that solves simple to complex enterprise integration use cases and patterns. ​Primary use cases​ are application integration, data integration, and API-fication (getting apps to talk to each other via application programming interfaces).
 
-{{% alert title="Note" color="primary" %}} For more information on Amplify Integration refer to the [Axway Documentation Portal](https://docs.axway.com/bundle/amplify_integration/page/amplify_integration_guide.html).{{% /alert %}}
+{{% alert title="Note" color="primary" %}} For more information on Amplify Fusion refer to the [Axway Documentation Portal](https://docs.axway.com/bundle/amplify_integration/page/amplify_integration_guide.html).{{% /alert %}}
 
 #### Consent management
 
-Our Consent Management solution is built on top of Amplify Integration. This provides:
+Our Consent Management solution is built on top of Amplify Fusion. This provides:
 
 * The means to couple consent with the authentication, authorization, and access control to ensure that Data Recipient Applications can access only the information to which they are entitled, and nothing more.
 * An administration view for your organization that allows you to search and manage your customers' consents.
