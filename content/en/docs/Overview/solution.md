@@ -21,10 +21,10 @@ To clarify the purpose of each building block:
 
 Each building block is critical to the success of your open banking platform and each building block provides a number of features. The features are based on the capabilities that the solution delivers and are summarized as shown below.
 
-![Solution Overview](/Images/Solution-Overview.svg)
+![Solution Overview](/Images/Solution-Overview.png)
 
 <!-- ## Components Overview
-![Components Overview](/Images/component-overview-nextgen.png) -->
+![Components Overview](/Images/component-overview-nextgen.svg) -->
 
 ## Features
 
