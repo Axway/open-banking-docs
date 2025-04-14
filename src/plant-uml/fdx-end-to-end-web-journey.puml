@@ -130,7 +130,7 @@ end note
 
 DR -> IAM: ""POST /token""
 IAM -> IAM: Verify Client
-DR <- IAM: ""200 OK""\n""{"access_token": "..."}""
+DR <- IAM: ""200 OK""\n""{"access_token": "...", "refresh_token": "..."}""
 
 == Part 4: Request Data ==
 note right of DR
@@ -140,7 +140,7 @@ DRs use a generic endpoint for Account Information that covers all
 account types (checking, credit card, loans, etc).
 end note
 
-loop n times
+loop
 
 DR -> API_GATEWAY: ""GET /fdx/{version}/core/accounts""
 note right of API_GATEWAY
@@ -152,6 +152,12 @@ CBC -> ASPSP_API: ""GET /fdx/{version}/core/accounts""
 ASPSP_API -> CBC: ""200 OK""\n""{"accounts": "..."}""
 CBC -> API_GATEWAY: ""200 OK""\n""{"accounts": "..."}""
 API_GATEWAY -> DR: ""200 OK""\n""{"accounts": "..."}""
+
+alt access token expired
+  DR -> IAM: ""POST /token"" using refresh_token
+  IAM -> IAM: Verify Client and refresh_token
+  DR <- IAM: ""200 OK""\n""{"access_token": "...", "refresh_token": "..."}""
+end
 
 end
 
