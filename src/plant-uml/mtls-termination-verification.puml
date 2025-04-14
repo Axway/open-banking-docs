@@ -4,19 +4,16 @@ title \n\n
 
 participant "Data\nRecipient" as DR
 
-box Amplify Fusion #6FA8DC
+box Amplify Open Banking #6FA8DC
 participant "API\nGateway" as API_GATEWAY
 participant "Core Banking\nConnector" as CBC
-end box
-
-box Identity and Access Control #94c47d
 participant "Authorization\nServer" as IAM
 end box
 
 participant "Market\nCertificate\nAuthority" as CA
 ' participant "JSON Web\nKey Set" as OBD_JWKS
 
-box Core Banking Applications #d5a6bd
+box Core Banking Applications #94c47d
 participant "Banking\nSystems" as ASPSP_API
 end box
 

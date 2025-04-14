@@ -5,20 +5,18 @@ hide footbox
 
 participant "Data\nRecipient\nApp" as DR
 
-box Amplify Fusion #6FA8DC
+box Amplify Open Banking #6FA8DC
 participant "API\nGateway" as API_GATEWAY
 participant "Consent\nManagement" as CONSENT
 participant "Core Banking \nConnector" as CBC
-end box
-
-box Identity and Access Control #94c47d
 participant "Identity Management\n---\nAuthorization Server" as IAM
 end box
 
-box Core Banking Applications #d5a6bd
+box Identity and Access Control #94c47d
 participant "Banking\nIdentity\nProvider" as ASPSP_IDP
 participant "Banking\nSystems" as ASPSP_API
 end box
+
 
 participant "Open Banking\nDirectory\n---\nJSON Web Key Set" as OBD_JWKS
 participant "Certificate\nAuthority\n---\nOCSP Endpoint" as OCSP
