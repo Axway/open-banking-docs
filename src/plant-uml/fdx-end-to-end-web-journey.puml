@@ -5,20 +5,21 @@ title \n\n\n
 actor "End User" as PSU
 participant "Data\nRecipient" as DR
 
-box Amplify Fusion #6FA8DC
+box Amplify Open Banking #6FA8DC
 participant "API\nGateway" as API_GATEWAY
 participant "Consent\nManagement" as CONSENT
 participant "Core Banking \nConnector" as CBC
+participant "Authorization Server" as IAM
 end box
 
-box Identity and Access Control #94c47d
-participant "Identity Management\n---\nAuthorization Server" as IAM
+box Financial Institution's systems #94c47d
 participant "Consent Grant\nApp" as CONSENT_WEB
+participant "Identity\nProvider" as ASPSP_WEB
+participant "Banking\nSystems" as ASPSP_API
 end box
 
 box Core Banking Applications #d5a6bd
-participant "Banking\nIdentity\nProvider" as ASPSP_WEB
-participant "Banking\nSystems" as ASPSP_API
+
 end box
 
 hide footbox
@@ -104,9 +105,20 @@ DR -> IAM: ""GET /authorize&request_uri=""
 IAM -> ASPSP_WEB: ""REDIRECT /login""
 ASPSP_WEB -> PSU: ""USER login""
 PSU --> ASPSP_WEB: ""200 OK {...}""
-ASPSP_WEB --> CONSENT_WEB: Serve Consent and\nAccount Confirmation Screen
+ASPSP_WEB --> IAM: Return authentication succssful response\nand customerId claim in token
+IAM --> CONSENT_WEB: Serve Consent and\nAccount Confirmation Screen
+note left of CONSENT_WEB
+Authorization Server sends the consentId
+along with some other parameters
+end note
+CONSENT_WEB --> IAM: Get access token to call consent management
+IAM --> CONSENT_WEB: ""200 OK""\n""{"access_token": "..."}""
+CONSENT_WEB --> CONSENT: Get consent details using consentId and access token
+CONSENT --> CONSENT_WEB: Return consent details
+CONSENT_WEB --> ASPSP_API: Get user accounts
+ASPSP_API --> CONSENT_WEB: Return user accounts 
 CONSENT_WEB --> PSU: Serve Consent and Account Confirmation Screen
-PSU --> CONSENT_WEB: "Consent confirmation is correct
+PSU --> CONSENT_WEB: Consent confirmation is correct
 CONSENT_WEB --> CONSENT: Update consent resources and status
 CONSENT --> CONSENT_WEB: Consent updated
 CONSENT --> IAM: Redirect with success
@@ -118,7 +130,7 @@ end note
 
 DR -> IAM: ""POST /token""
 IAM -> IAM: Verify Client
-DR <- IAM: ""200 OK""\n""{"access_token": "..."}""
+DR <- IAM: ""200 OK""\n""{"access_token": "...", "refresh_token": "..."}""
 
 == Part 4: Request Data ==
 note right of DR
@@ -127,6 +139,8 @@ note right of DR
 DRs use a generic endpoint for Account Information that covers all
 account types (checking, credit card, loans, etc).
 end note
+
+loop
 
 DR -> API_GATEWAY: ""GET /fdx/{version}/core/accounts""
 note right of API_GATEWAY
@@ -138,5 +152,13 @@ CBC -> ASPSP_API: ""GET /fdx/{version}/core/accounts""
 ASPSP_API -> CBC: ""200 OK""\n""{"accounts": "..."}""
 CBC -> API_GATEWAY: ""200 OK""\n""{"accounts": "..."}""
 API_GATEWAY -> DR: ""200 OK""\n""{"accounts": "..."}""
+
+alt access token expired
+  DR -> IAM: ""POST /token"" using refresh_token
+  IAM -> IAM: Verify Client and refresh_token
+  DR <- IAM: ""200 OK""\n""{"access_token": "...", "refresh_token": "..."}""
+end
+
+end
 
 @enduml
