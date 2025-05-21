@@ -1,6 +1,6 @@
 ---
-title: "Open Banking 4.0.1 Release Notes"
-linkTitle: "Open Banking 4.0.1"
+title: "Open Banking 4.0.2 Release Notes"
+linkTitle: "Open Banking 4.0.2"
 weight: 12
 date: 2025-05-21
 ---
