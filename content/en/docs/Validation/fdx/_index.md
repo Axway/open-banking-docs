@@ -47,7 +47,7 @@ Configure Postman for testing Open Banking APIs.
 
 3. Click **Certificates**. Ensure a TPP client certificate is installed for the target environment. If not:
     * Click **Add Certificate**.
-    * Type the target host for the Authorization server (auth-server environment variable) and leave the port empty (if exposed on 443 as by default).
+    * Type the target host for the Authorization Server (auth-server environment variable) and leave the port empty (if exposed on 443 as by default).
     * Select the certificate and private key (CRT file and KEY file respectively) to be used for MTLS connection.
     * Click **Add**.
     * Click **Add Certificate**.
@@ -84,9 +84,9 @@ Use Postman to test the FDX Core API. Before sending any request make sure that 
 
 Continue testing the Core API in the Browser.
 
-* Open the link to the login page in your browser and login with an authorized user. The login page depends on the Authorization server configuration.
+* Open the link to the login page in your browser and login with an authorized user. The login page depends on the Authorization Server configuration.
 
-* Select the bank accounts that correspond to the user consent, and confirm. The consent page depends on the Authorization server configuration.
+* Select the bank accounts that correspond to the user consent, and confirm. The consent page depends on the Authorization Server configuration.
 The redirect URL of the DR client app should include `https://oauth.pstmn.io/v1/callback` and the link back to Postman with the authorization code to use for the next step.
 
 * Copy the value of query parameter `code` from the redirected URL.

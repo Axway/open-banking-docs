@@ -7,9 +7,9 @@ date: 2025-07-31
 
 This update contains several new features and enhancements.
 
-## Consent management update
+## Consent Management update
 
-* The consent admin dashboard now displays the **terms and conditions version** information.  
+* The Consent Admin Dashboard now displays the **terms and conditions version** information.  
   This provides administrators with improved visibility into the terms and conditions version the customer authorized.
 
 ## API update
@@ -19,5 +19,5 @@ This update contains several new features and enhancements.
 
 ## Authorization Server update
 
-* The authorization server now supports **external custom login page redirection**.  
-  This allows you to set up the authorization server to redirect customers to data provider's custom login page. This feature is particularly useful when there is no OIDC/SAML compatible Identity Provider available to connect with.
+* The Authorization Server now supports **external custom login page redirection**.  
+  This allows you to set up the Authorization Server to redirect customers to data provider's custom login page. This feature is particularly useful when there is no OIDC/SAML compatible Identity Provider available to connect with.

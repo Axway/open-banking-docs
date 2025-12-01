@@ -6,11 +6,11 @@ date: 2025-02-06
 ---
 This update contains several new features and improvements.
 
-## Consent management updates
+## Consent Management updates
 
 * A new feature has been added to capture the timestamp of consent acknowledgement. This enhancement improves tracking and auditing capabilities for user consent processes.
 
-* A new authorization timestamp has been added to the consent admin dashboard. This feature provides administrators with more detailed information about consent authorizations.
+* A new authorization timestamp has been added to the Consent Admin Dashboard. This feature provides administrators with more detailed information about consent authorizations.
 
 ## Performance updates
 

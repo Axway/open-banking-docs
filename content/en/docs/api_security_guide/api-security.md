@@ -82,7 +82,7 @@ The following APIs are for Data Recipients and Data Aggregators to consume and b
 
 ### Solution APIs
 
-The following APIs are for Data Providers to integrate with our consent management module.
+The following APIs are for Data Providers to integrate with our Consent Management module.
 
 #### External Resource Authentication API
 

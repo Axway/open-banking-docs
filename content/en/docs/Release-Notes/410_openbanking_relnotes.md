@@ -7,10 +7,10 @@ date: 2025-11-28
 
 This update contains several new features and enhancements.
 
-## Consent management update
+## Consent Management update
 
 * A new endpoint is added in Consent Management API (Participant Resource Admin API) to revoke all consents for a given user.
-* Consent management now allows you to add account nickname in consent data. This functionality is provided by External Resource Authentication API.
+* Consent Management now allows you to add account nickname in consent data. This functionality is provided by External Resource Authentication API.
 * Resource owner information is now available in Consent Admin Dashboard, consent details page.
 
 ## Authorization Server update

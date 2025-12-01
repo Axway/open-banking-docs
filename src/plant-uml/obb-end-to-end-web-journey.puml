@@ -180,7 +180,7 @@ API_GATEWAY <-- IAM: Response
 API_GATEWAY -> API_GATEWAY: Verify Access Token scope
 
 note right of API_GATEWAY
-The consent management API provides separate operations based on the type of consent i.e.
+The Consent Management API provides separate operations based on the type of consent i.e.
 account information, payments, etc. The API Gateway mediates the request and
 calls the operation appropriate to the consent in question.
 end note

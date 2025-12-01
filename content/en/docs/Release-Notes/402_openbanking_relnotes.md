@@ -15,10 +15,10 @@ This update contains several new features, enhancements, and performance improve
 * Added support to store the **`termsAndConditionVersion`** in the consent metadata via consent grant app.  
   This ensures accurate version tracking of the terms and conditions accepted during the consent process.
 
-* **Authorization timestamp** has been added to the consent admin dashboard.  
+* **Authorization timestamp** has been added to the Consent Admin Dashboard.  
   This provides administrators with improved visibility into the timing of consent authorizations.
 
-* Timestamps have been **re-arranged in the consent admin dashboard** to improve the user interface and readability.
+* Timestamps have been **re-arranged in the Consent Admin Dashboard** to improve the user interface and readability.
 
 ## Performance updates
 
